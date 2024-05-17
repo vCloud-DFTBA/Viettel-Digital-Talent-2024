@@ -23,7 +23,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
  - Kết quả unit test cho các chức năng API: 
  ![unit_test](./image/unit_test.png)
 
- - Mã nguồn web service: [web](./webcrud/web/)
+ - Mã nguồn web service: [web](https://github.com/hantbk/web_service/tree/main/web)
 
 
 

@@ -20,12 +20,13 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 - Xóa sinh viên
 ![Delete](./image/deleteUser.png)
 
- - Kết quả unit test cho các chức năng API: 
+- Kết quả unit test cho các chức năng API: 
+
  ![unit_test](./image/unit_test.png)
 
- - Mã nguồn web service: [web](https://github.com/hantbk/web_service)
+# Mã nguồn web service: [web](https://github.com/hantbk/web_service)
 
-- Mã nguồn api service: [api](https://github.com/hantbk/api_service)
+# Mã nguồn api service: [api](https://github.com/hantbk/api_service)
 
 
 

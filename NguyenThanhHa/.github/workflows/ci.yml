@@ -1,0 +1,36 @@
+name: Continuous Integration
+
+on:
+  pull_request: 
+    branches: 
+      - main 
+  push:
+    branches: 
+      - '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./webcrud/api/
+
+      - name: Run unit tests
+        run: npm test
+        working-directory: ./webcrud/api/

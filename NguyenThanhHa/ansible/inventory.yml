@@ -1,0 +1,16 @@
+---
+all:
+  hosts:
+    host1:
+      ansible_host: 192.168.1.22
+      ansible_user: hant
+      ansible_become: true
+      ansible_become_method: sudo
+      ansible_become_password: 123
+
+    host2:
+      ansible_host: 192.168.1.21
+      ansible_user: hant
+      ansible_become: true
+      ansible_become_method: sudo
+      ansible_become_password: 123

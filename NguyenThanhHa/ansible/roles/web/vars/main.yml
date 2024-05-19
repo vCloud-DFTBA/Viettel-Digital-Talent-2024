@@ -1,0 +1,9 @@
+# roles/web/vars/main.yml
+
+docker_network_name: hant
+web_image_name: nthhaf/hant-web-service
+web_image_tag: latest
+web_container_name: frontend
+web_hostname: frontend
+web_ports:
+  - "3000:80"

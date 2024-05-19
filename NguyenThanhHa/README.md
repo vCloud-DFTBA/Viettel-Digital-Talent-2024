@@ -204,3 +204,110 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     ![alt](./image/pr4.png)
 
     ![alt](./image/pr5.png)
+
+#### 3. Automation 
+#### Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role
+
+Cấu trúc thư mục Ansible:
+
+    ansible/
+    ├── roles/
+    │   ├── common/
+    │   │   ├── tasks/
+    │   │   │   └── main.yml
+    │   │   └── vars/
+    │   │       └── main.yml
+    │   ├── web/
+    │   │   ├── tasks/
+    │   │   │   └── main.yml
+    │   │   └── vars/
+    │   │       └── main.yml
+    │   ├── api/
+    │   │   ├── tasks/
+    │   │   │   └── main.yml
+    │   │   └── vars/
+    │   │       └── main.yml
+    │   └── db/
+    │       ├── tasks/
+    │       │   └── main.yml
+    │       ├── files/
+    │       │   ├── attendees.json
+    │       │   └── init-data.sh
+    │       └── vars/
+    │           └── main.yml
+    ├── playbook.yml
+    └── inventory.yml
+
+
+  - Danh sách các roles: 
+     
+    - [common](./Ansible/roles/common/tasks/main.yaml)
+    - [web](./Ansible/roles/web/tasks/main.yaml)
+    - [api](./Ansible/roles/api/tasks/main.yaml)
+    - [db](./Ansible/roles/db/tasks/main.yaml)
+    - [lb](./Ansible/roles/lb/tasks/main.yaml)
+
+#### Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables
+
+- variables cho từng role:
+    - [common](./Ansible/roles/common/vars/main.yaml)
+    - [web](./Ansible/roles/web/vars/main.yaml)
+    - [api](./Ansible/roles/api/vars/main.yaml)
+    - [db](./Ansible/roles/db/vars/main.yaml)
+    - [lb](./Ansible/roles/lb/vars/main.yaml)
+
+#### Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory
+Ví dụ triển khai hệ thống với Ansible: Triển khai lên 2 máy ảo host1 và host2
+![alt](./image/setup.png)
+
+Sử dụng inventory file là [inventory.yml](./Ansible/inventory.yml)
+```yaml
+---
+all:
+  hosts:
+    host1:
+      ansible_host: 192.168.1.22
+      ansible_user: hant
+      ansible_become: true
+      ansible_become_method: sudo
+      ansible_become_password: 123
+
+    host2:
+      ansible_host: 192.168.1.21
+      ansible_user: hant
+      ansible_become: true
+      ansible_become_method: sudo
+      ansible_become_password: 123
+```
+
+  Với cấu hình file playbook là [playbook.yml](./Ansible/setup.yaml)
+
+  ```yaml
+  ---
+  - name: hant
+    hosts: all
+    become: true
+    gather_facts: true
+
+    roles:
+      - common
+      - web
+      - api
+      - db
+  ```
+
+  Sử dụng lệnh sau để chạy Ansible playbook:
+  `ansible-playbook -i inventory.yml playbook.yml`
+
+- Output log triển khai hệ thống
+
+    ![alt](./image/ansi1.png)
+
+    ![alt](./image/ansi2.png)
+
+    ![alt](./image/ansi3.png)
+
+- Kết quả triển khai lên máy ảo host1 và host2
+    ![alt](./image/ansi4.png)
+
+

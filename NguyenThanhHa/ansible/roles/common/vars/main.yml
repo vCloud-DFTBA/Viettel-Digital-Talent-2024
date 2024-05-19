@@ -1,0 +1,6 @@
+# vars/main.yml
+
+docker_network_name: hant
+docker_user: hant
+docker_gpg_key_url: https://download.docker.com/linux/ubuntu/gpg
+docker_compose_url: https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-Linux-x86_64

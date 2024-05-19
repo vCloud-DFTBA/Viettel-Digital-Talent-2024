@@ -1,0 +1,15 @@
+# roles/db/vars/main.yml
+
+docker_network_name: hant
+init_data_src_dir: files/
+init_data_dest_dir: /etc/mongoinitdata/
+init_data_owner: hant
+init_data_group: hant
+init_data_mode: '0755'
+init_data_script_path: /etc/mongoinitdata/init-data.sh
+mongo_image_name: mongo
+mongo_image_tag: 5.0
+mongo_container_name: db
+mongo_hostname: mongodb
+mongo_ports:
+  - "27017:27017"

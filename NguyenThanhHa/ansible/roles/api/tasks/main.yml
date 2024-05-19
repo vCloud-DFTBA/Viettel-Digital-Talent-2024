@@ -1,0 +1,24 @@
+# roles/api/tasks/main.yml
+
+- name: Check if docker network exists
+  docker_network_info:
+    name: "{{ docker_network_name }}"
+  register: docker_network
+  become: true
+
+- name: Create docker network
+  docker_network:
+    name: "{{ docker_network_name }}"
+    state: present
+  when: docker_network.exists == false
+  become: true
+
+- name: Run docker image {{ api_image_name }}:{{ api_image_tag }}
+  docker_container:
+    name: "{{ api_container_name }}"
+    image: "{{ api_image_name }}:{{ api_image_tag }}"
+    restart_policy: unless-stopped
+    networks:
+      - name: "{{ docker_network_name }}"
+    hostname: "{{ api_hostname }}"
+    ports: "{{ api_ports }}"

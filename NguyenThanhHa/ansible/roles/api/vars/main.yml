@@ -1,0 +1,9 @@
+# roles/api/vars/main.yml
+
+docker_network_name: hant
+api_image_name: nthhaf/hant-api-service
+api_image_tag: latest
+api_container_name: api
+api_hostname: api
+api_ports:
+  - "9000:9000"

@@ -241,26 +241,24 @@ Cấu trúc thư mục Ansible:
 
   - Danh sách các roles: 
      
-    - [common](./Ansible/roles/common/tasks/main.yaml)
-    - [web](./Ansible/roles/web/tasks/main.yaml)
-    - [api](./Ansible/roles/api/tasks/main.yaml)
-    - [db](./Ansible/roles/db/tasks/main.yaml)
-    - [lb](./Ansible/roles/lb/tasks/main.yaml)
+    - [common](./ansible/roles/common/tasks/main.yml)
+    - [web](./ansible/roles/web/tasks/main.yml)
+    - [api](./ansible/roles/api/tasks/main.yml)
+    - [db](./ansible/roles/db/tasks/main.yml)
 
 #### Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables
 
 - variables cho từng role:
-    - [common](./Ansible/roles/common/vars/main.yaml)
-    - [web](./Ansible/roles/web/vars/main.yaml)
-    - [api](./Ansible/roles/api/vars/main.yaml)
-    - [db](./Ansible/roles/db/vars/main.yaml)
-    - [lb](./Ansible/roles/lb/vars/main.yaml)
+    - [common](./ansible/roles/common/vars/main.yml)
+    - [web](./ansible/roles/web/vars/main.yml)
+    - [api](./ansible/roles/api/vars/main.yml)
+    - [db](./ansible/roles/db/vars/main.yml)
 
 #### Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory
 Ví dụ triển khai hệ thống với Ansible: Triển khai lên 2 máy ảo host1 và host2
 ![alt](./image/setup.png)
 
-Sử dụng inventory file là [inventory.yml](./Ansible/inventory.yml)
+Sử dụng inventory file là [inventory.yml](./ansible/inventory.yml)
 ```yaml
 ---
 all:
@@ -280,7 +278,7 @@ all:
       ansible_become_password: 123
 ```
 
-  Với cấu hình file playbook là [playbook.yml](./Ansible/setup.yaml)
+  Với cấu hình file playbook là [playbook.yml](./ansible/playbook.yml)
 
   ```yaml
   ---

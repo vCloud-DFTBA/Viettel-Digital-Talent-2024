@@ -131,3 +131,76 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     ![alt](./image/db-build.png)
 
     ![alt](./image/db-history.png)
+
+#### 2. Continuous Integration
+- Tự động chạy unit test khi tạo Pull request vào nhánh main
+- Tự động chạy unit test khi push commit lên một nhánh
+ - File setup công cụ CI: [ci](./.github/workflows/ci.yml)
+
+    ```yml
+    name: Continuous Integration
+
+    on:
+      pull_request: 
+        branches: // Quá trình CI sẽ chạy khi có pull request vào nhánh main
+          - main 
+      push:
+        branches: // Quá trình CI sẽ chạy khi có push commit lên mọi nhánh
+          - '*'
+
+    jobs:
+      test:
+        runs-on: ubuntu-latest
+
+        services:
+          mongodb:
+            image: mongo:latest
+            ports:
+              - 27017:27017
+
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+
+          - name: Set up Node.js
+            uses: actions/setup-node@v2
+            with:
+              node-version: '18'
+
+          - name: Install dependencies
+            run: npm install
+            working-directory: ./webcrud/api/
+
+          - name: Run unit tests
+            run: npm test
+            working-directory: ./webcrud/api/
+
+    ```
+- Output log của luồng CI
+     
+     ![alt](./image/ci1.png)
+
+     ![alt](./image/ci3.png)
+
+- Lịch sử chạy CI khi push commit
+
+    Success
+    ![alt](./image/ci2.png)
+    Fail
+    ![alt](./image/ci4.png)
+    
+- Tự động chạy test khi Pull request
+
+    ![alt](./image/pr1.png)
+
+    ![alt](./image/pr2.png)
+
+- Lịch sử chạy CI khi Pull request
+
+    ![alt](./image/pr3.png)
+
+- Output log của luồng CI khi Pull request
+
+    ![alt](./image/pr4.png)
+
+    ![alt](./image/pr5.png)

@@ -31,7 +31,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
 #### 1. Containerization 
  - Dockerfile cho từng dịch vụ: 
-- [Web image](./webcrud/web/Dockerfile) 
+- [Web Image](https://github.com/hantbk/vdtproject/blob/main/webcrud/web/Dockerfile) 
     ```Dockerfile
     # Stage 1: Build the React app
     FROM node:lts-alpine AS build
@@ -67,7 +67,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     # Start nginx
     CMD ["nginx", "-g", "daemon off;"]
     ```
-- [Api image](./webcrud/api/Dockerfile)
+- [Api Image](https://github.com/hantbk/vdtproject/blob/main/webcrud/api/Dockerfile)
 
     ```Dockerfile
     # Stage 1: Build the application
@@ -101,7 +101,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     CMD ["node", "server.js"]
 
     ```
-- [Database](./webcrud/db/Dockerfile)
+- [Database](https://github.com/hantbk/vdtproject/blob/main/webcrud/db/Dockerfile)
 
     ```Dockerfile
     FROM mongo:4.4.6

@@ -176,7 +176,8 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
             working-directory: ./webcrud/api/
 
     ```
-- Output log của luồng CI
+Lịch sử chạy CI : [CI History](https://github.com/hantbk/vdtproject/actions)
+- Output log của luồng CI 
      
      ![alt](./image/ci1.png)
 

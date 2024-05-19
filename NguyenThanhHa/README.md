@@ -26,7 +26,6 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
 # Mã nguồn web service: [web](https://github.com/hantbk/web_service)
 
-# Mã nguồn api service: [api](https://github.com/hantbk/api_service)
 
 
 

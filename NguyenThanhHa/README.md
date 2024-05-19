@@ -101,7 +101,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     CMD ["node", "server.js"]
 
     ```
-- [Database](https://github.com/hantbk/vdtproject/blob/main/webcrud/db/Dockerfile)
+- [Database Image](https://github.com/hantbk/vdtproject/blob/main/webcrud/db/Dockerfile)
 
     ```Dockerfile
     FROM mongo:4.4.6

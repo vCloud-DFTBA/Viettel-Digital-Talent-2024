@@ -1,4 +1,4 @@
-# Giải quyết vấn đề security trong DevOps
+# Giải quyết vấn đề security trong Docker
 Docker là công nghệ container hóa phổ biến nhất. Khi sử dụng đúng cách,
 nó có thể nâng cao tính bảo mật so với việc chạy ứng dụng trực tiếp trên
 hệ thống máy chủ. Tuy nhiên, một số cấu hình sai có thể làm giảm mức độ

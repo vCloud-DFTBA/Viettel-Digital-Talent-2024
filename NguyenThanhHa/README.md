@@ -136,18 +136,18 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     
 [docker-compose.yml](https://github.com/hantbk/vdtproject/blob/main/webcrud/docker-compose.yml)
 ```yaml
-    version: '3.8'
+version: '3.8'
 
-    services:
+services:
     client:
-        image: hant-client
+        image: nthhaf/hant-web-service:lastest
         ports:
         - "80:80"
         networks:
         - hant-network
-        
+            
     server:
-        image: hant-server
+        image: nthhaf/hant-api-service:lastest
         ports:
         - "9000:9000"
         depends_on:
@@ -157,17 +157,17 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
         networks:
         - hant-network
 
-    mongo:
-        image: hant-mongo
+    mong:
+        image: nthhaf/hant-db-service:lastest
         volumes:
         - mongo-data:/data/db
         networks:
         - hant-network
 
-    volumes:
+volumes:
     mongo-data:
 
-    networks:
+networks:
     hant-network:
 ```
 

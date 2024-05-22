@@ -284,14 +284,28 @@ all:
 
   ```yaml
   ---
-  - name: hant
+  - name: Setup Docker
     hosts: all
     become: true
     gather_facts: true
 
     roles:
       - common
+
+  - name: Setup Web service 
+    hosts: all
+    become: true
+    gather_facts: true
+
+    roles:
       - web
+
+  - name: Setup API + DB service
+    hosts: all
+    become: true
+    gather_facts: true
+
+    roles:
       - api
       - db
   ```

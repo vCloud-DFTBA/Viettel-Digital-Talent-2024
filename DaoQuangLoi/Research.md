@@ -1,3 +1,4 @@
+# Giải quyết vấn đề security trong DevOps
 Docker là công nghệ container hóa phổ biến nhất. Khi sử dụng đúng cách,
 nó có thể nâng cao tính bảo mật so với việc chạy ứng dụng trực tiếp trên
 hệ thống máy chủ. Tuy nhiên, một số cấu hình sai có thể làm giảm mức độ
@@ -152,120 +153,119 @@ bảo mật hoặc gây ra các lỗ hổng mới
 > chế độ client, nó chỉ kết nối với các máy chủ có chứng chỉ được CA đó
 > ký.</span>
 
-<span class="mark">Dưới đây là file bash để tự động phục vụ việc tự tạo
+><span class="mark">Dưới đây là file bash để tự động phục vụ việc tự tạo
 CA, server key, client key thông qua OpenSSL. Vì đây chỉ là demo nên
 chúng ta sẽ sử dụng chứng chỉ tự ký.</span>
 
-<span class="mark">secure-docker-daemon.sh</span>
-
-<span class="mark">\#!/bin/bash</span>
-
-<span class="mark">\# Bật tùy chọn "-e" và "-u" để dừng kịp thời khi có
-lỗi và kiểm tra biến chưa được định nghĩa.</span>
-
-<span class="mark">set -eu</span>
-
-<span class="mark">cd ~</span>
-
-<span class="mark">echo " \$PWD"</span>
-
-<span class="mark">\# Kiểm tra xem thư mục ".docker/" có tồn tại không.
+><span class="mark">secure-docker-daemon.sh</span>
+>
+><span class="mark">\#!/bin/bash</span>
+>
+><span class="mark">\# Bật tùy chọn "-e" và "-u" để dừng kịp thời khi có
+l>ỗi và kiểm tra biến chưa được định nghĩa.</span>
+><span class="mark">set -eu</span>
+>
+><span class="mark">cd ~</span>
+>
+><span class="mark">echo " \$PWD"</span>
+>
+><span class="mark">\# Kiểm tra xem thư mục ".docker/" có tồn tại không.
 Nếu không, tạo mới nó.</span>
-
-<span class="mark">if \[ ! -d ".docker/" \]; then</span>
-
-<span class="mark">echo "Thư mục .docker/ không tồn tại"</span>
-
-<span class="mark">echo "Đang tạo thư mục"</span>
-
-<span class="mark">mkdir .docker</span>
-
-<span class="mark">fi</span>
-
-<span class="mark">\# Di chuyển vào thư mục ".docker/" và yêu cầu nhập
+>
+><span class="mark">if \[ ! -d ".docker/" \]; then</span>
+>
+><span class="mark">echo "Thư mục .docker/ không tồn tại"</span>
+>
+><span class="mark">echo "Đang tạo thư mục"</span>
+>
+><span class="mark">mkdir .docker</span>
+>
+><span class="mark">fi</span>
+>
+><span class="mark">\# Di chuyển vào thư mục ".docker/" và yêu cầu nhập
 mật khẩu cho chứng chỉ (không hiển thị ký tự).</span>
-
-<span class="mark">cd .docker/</span>
-
-<span class="mark">echo "Vui lòng nhập mật khẩu cho chứng chỉ (ký tự sẽ
+>
+><span class="mark">cd .docker/</span>
+>
+><span class="mark">echo "Vui lòng nhập mật khẩu cho chứng chỉ (ký tự sẽ
 không được hiển thị):"</span>
-
-<span class="mark">read -p '\>' -s PASSWORD</span>
-
-<span class="mark">\# Yêu cầu nhập tên máy chủ sẽ được sử dụng để kết
+>
+><span class="mark">read -p '\>' -s PASSWORD</span>
+>
+><span class="mark">\# Yêu cầu nhập tên máy chủ sẽ được sử dụng để kết
 nối tới máy chủ Docker.</span>
-
-<span class="mark">read -p '\>' SERVER</span>
-
-<span class="mark">\# Tạo một khóa CA RSA 2048-bit được mã hóa bằng
+>
+><span class="mark">read -p '\>' SERVER</span>
+>
+><span class="mark">\# Tạo một khóa CA RSA 2048-bit được mã hóa bằng
 AES256.</span>
-
-<span class="mark">openssl genrsa -aes256 -passout pass:\$PASSWORD -out
+>
+><span class="mark">openssl genrsa -aes256 -passout pass:\$PASSWORD -out
 ca-key.pem 2048</span>
-
-<span class="mark">\# Tạo một chứng chỉ tự ký với thời hạn một
+>
+><span class="mark">\# Tạo một chứng chỉ tự ký với thời hạn một
 năm.</span>
-
-<span class="mark">openssl req -new -x509 -days 365 -key ca-key.pem
+>
+><span class="mark">openssl req -new -x509 -days 365 -key ca-key.pem
 -passin pass:\$PASSWORD -sha256 -out ca.pem -subj
 "/C=TR/ST=./L=./O=./CN=\$SERVER"</span>
-
-<span class="mark">\# Tạo một khóa cho server với thuật toán mã hóa RSA
+>
+><span class="mark">\# Tạo một khóa cho server với thuật toán mã hóa RSA
 2048-bit.</span>
-
-<span class="mark">openssl genrsa -out server-key.pem 2048</span>
-
-<span class="mark">\# Tạo yêu cầu chứng chỉ (CSR) cho khóa của server
+>
+><span class="mark">openssl genrsa -out server-key.pem 2048</span>
+>
+><span class="mark">\# Tạo yêu cầu chứng chỉ (CSR) cho khóa của server
 với tên của server.</span>
-
-<span class="mark">openssl req -new -key server-key.pem -subj
+>
+><span class="mark">openssl req -new -key server-key.pem -subj
 "/CN=\$SERVER" -out server.csr</span>
-
-<span class="mark">\# Ký khóa của server với chứng chỉ tự ký cho thời
+>
+><span class="mark">\# Ký khóa của server với chứng chỉ tự ký cho thời
 hạn một năm.</span>
-
-<span class="mark">openssl x509 -req -days 365 -in server.csr -CA ca.pem
+>
+><span class="mark">openssl x509 -req -days 365 -in server.csr -CA ca.pem
 -CAkey ca-key.pem -passin "pass:\$PASSWORD" -CAcreateserial -out
 server-cert.pem</span>
-
-<span class="mark">\# Tạo một khóa client và yêu cầu chứng chỉ cho
+>
+><span class="mark">\# Tạo một khóa client và yêu cầu chứng chỉ cho
 client.</span>
-
-<span class="mark">openssl genrsa -out key.pem 2048</span>
-
-<span class="mark">openssl req -subj '/CN=client' -new -key key.pem -out
+>
+><span class="mark">openssl genrsa -out key.pem 2048</span>
+>
+><span class="mark">openssl req -subj '/CN=client' -new -key key.pem -out
 client.csr</span>
-
-<span class="mark">\# Tạo một file cấu hình mở rộng cho chứng chỉ client
+>
+><span class="mark">\# Tạo một file cấu hình mở rộng cho chứng chỉ client
 để chỉ định rằng nó chỉ được sử dụng cho xác thực client.</span>
-
-<span class="mark">echo "extendedKeyUsage = clientAuth" \>
+>
+><span class="mark">echo "extendedKeyUsage = clientAuth" \>
 extfile.cnf</span>
-
-<span class="mark">\# Ký khóa khách hàng với chứng chỉ tự ký cho thời
+>
+><span class="mark">\# Ký khóa khách hàng với chứng chỉ tự ký cho thời
 hạn một năm.</span>
-
-<span class="mark">openssl x509 -req -days 365 -in client.csr -CA ca.pem
+>
+><span class="mark">openssl x509 -req -days 365 -in client.csr -CA ca.pem
 -CAkey ca-key.pem -passin "pass:\$PASSWORD" -CAcreateserial -out
 cert.pem -extfile extfile.cnf</span>
-
-<span class="mark">\# Xóa các file tạm thời không cần thiết sau khi đã
+>
+><span class="mark">\# Xóa các file tạm thời không cần thiết sau khi đã
 tạo chứng chỉ.</span>
-
-<span class="mark">rm client.csr extfile.cnf server.csr</span>
-
-<span class="mark">\# Đặt quyền truy cập chỉ đọc cho các file khóa
+>
+><span class="mark">rm client.csr extfile.cnf server.csr</span>
+>
+><span class="mark">\# Đặt quyền truy cập chỉ đọc cho các file khóa
 server và khóa client.</span>
-
-<span class="mark">chmod 0400 ca-key.pem key.pem server-key.pem</span>
-
-<span class="mark">\# Đặt quyền truy cập chỉ đọc cho các file chứng chỉ
+>
+><span class="mark">chmod 0400 ca-key.pem key.pem server-key.pem</span>
+>
+><span class="mark">\# Đặt quyền truy cập chỉ đọc cho các file chứng chỉ
 của server và client.</span>
-
-<span class="mark">chmod 0444 ca.pem server-cert.pem cert.pem</span>
-
-<span class="mark">echo "Finish"</span>
-
+>
+><span class="mark">chmod 0444 ca.pem server-cert.pem cert.pem</span>
+>
+><span class="mark">echo "Finish"</span>
+>
 <span class="mark">Sau khi tạo chứng chỉ TLS, bây giờ chúng ta cần tạo
 file cấu hình systemd tùy chỉnh cho daemon Docker. File cấu hình này sẽ
 được sử dụng để kích hoạt TLS và chỉ định chứng chỉ TLS</span>
@@ -278,24 +278,24 @@ file cấu hình systemd tùy chỉnh cho daemon Docker. File cấu hình này s
 
 <span class="mark">Nội dung file cấu hình</span>
 
-<span class="mark">\[Service\]</span>
-
-<span class="mark">ExecStart=</span>
-
-<span class="mark">ExecStart=/usr/bin/dockerd -D -H
+><span class="mark">\[Service\]</span>
+>
+><span class="mark">ExecStart=</span>
+>
+><span class="mark">ExecStart=/usr/bin/dockerd -D -H
 unix:///var/run/docker.sock</span>
-
-<span class="mark">--tlsverify
+>
+><span class="mark">--tlsverify
 --tlscert=/home/\<user\>/.docker/server-cert.pem</span>
-
-<span class="mark">--tlscacert=/home/\<user\>/.docker/ca.pem
+>
+><span class="mark">--tlscacert=/home/\<user\>/.docker/ca.pem
 --tlskey=/home/\<user\>/.</span>
-
-<span class="mark">docker/server-key.pem -H tcp://0.0.0.0:2376</span>
-
+>
+><span class="mark">docker/server-key.pem -H tcp://0.0.0.0:2376</span>
+>
 <span class="mark">Khởi động lại Docker service</span>
 
-<span class="mark">sudo systemctl restart docker</span>
+><span class="mark">sudo systemctl restart docker</span>
 
 <span class="mark">Bây giờ chúng ta có thể sao chép chứng chỉ client TLS
 sang máy Docker client để xác thực</span>

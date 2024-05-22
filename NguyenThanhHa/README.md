@@ -135,7 +135,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 #### 2. Continuous Integration
 - Tự động chạy unit test khi tạo Pull request vào nhánh main
 - Tự động chạy unit test khi push commit lên một nhánh
- - File setup công cụ CI: [ci](./.github/workflows/ci.yml)
+ - File setup công cụ CI: [ci](https://github.com/hantbk/api_service/blob/main/.github/workflows/ci.yml)
 
     ```yml
     name: Continuous Integration
@@ -176,7 +176,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
             working-directory: ./webcrud/api/
 
     ```
-Lịch sử chạy CI : [CI History](https://github.com/hantbk/vdtproject/actions)
+Lịch sử chạy CI : [CI History](https://github.com/hantbk/api_service/actions)
 - Output log của luồng CI
      
      ![alt](./image/ci1.png)
@@ -242,24 +242,24 @@ Cấu trúc thư mục Ansible:
 
   - Danh sách các roles: 
      
-    - [common](./ansible/roles/common/tasks/main.yml)
-    - [web](./ansible/roles/web/tasks/main.yml)
-    - [api](./ansible/roles/api/tasks/main.yml)
-    - [db](./ansible/roles/db/tasks/main.yml)
+    - [common](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/common/tasks/main.yml)
+    - [web](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/web/tasks/main.yml)
+    - [api](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/api/tasks/main.yml)
+    - [db](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/db/tasks/main.yml)
 
 #### Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables
 
 - variables cho từng role:
-    - [common](./ansible/roles/common/vars/main.yml)
-    - [web](./ansible/roles/web/vars/main.yml)
-    - [api](./ansible/roles/api/vars/main.yml)
-    - [db](./ansible/roles/db/vars/main.yml)
+    - [common](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/common/vars/main.yml)
+    - [web](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/web/vars/main.yml)
+    - [api](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/api/vars/main.yml)
+    - [db](https://github.com/hantbk/vdtproject/blob/main/ansible/roles/db/vars/main.yml)
 
 #### Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory
 Ví dụ triển khai hệ thống với Ansible: Triển khai lên 2 máy ảo host1 và host2
 ![alt](./image/setup.png)
 
-Sử dụng inventory file là [inventory.yml](./ansible/inventory.yml)
+Sử dụng inventory file là [inventory.yml](https://github.com/hantbk/vdtproject/blob/main/ansible/inventory.yml)
 ```yaml
 ---
 all:
@@ -279,7 +279,7 @@ all:
       ansible_become_password: 123
 ```
 
-  Với cấu hình file playbook là [playbook.yml](./ansible/playbook.yml)
+  Với cấu hình file playbook là [playbook.yml](https://github.com/hantbk/vdtproject/blob/main/ansible/playbook.yml)
 
   ```yaml
   ---

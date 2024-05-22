@@ -132,6 +132,11 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
     ![alt](./image/db-history.png)
 
+- Link image dockerhub:
+    - [Web](https://hub.docker.com/repository/docker/nthhaf/hant-web-service)
+    - [API](https://hub.docker.com/repository/docker/nthhaf/hant-api-service)
+    - [DB](https://hub.docker.com/repository/docker/nthhaf/hant-db-service)
+
 - Sử dụng docker-compose để triển khai 3 dịch vụ web, api, db
     
 [docker-compose.yml](https://github.com/hantbk/vdtproject/blob/main/webcrud/docker-compose.yml)

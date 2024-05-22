@@ -257,6 +257,7 @@ Cấu trúc thư mục Ansible:
 
 #### Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory
 Ví dụ triển khai hệ thống với Ansible: Triển khai lên 2 máy ảo host1 và host2
+
 ![alt](./image/setup.png)
 
 Sử dụng inventory file là [inventory.yml](https://github.com/hantbk/vdtproject/blob/main/ansible/inventory.yml)

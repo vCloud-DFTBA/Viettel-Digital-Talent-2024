@@ -153,7 +153,7 @@ bảo mật hoặc gây ra các lỗ hổng mới
 > chế độ client, nó chỉ kết nối với các máy chủ có chứng chỉ được CA đó
 > ký.</span>
 
-><span class="mark">Dưới đây là file bash để tự động phục vụ việc tự tạo
+<span class="mark">Dưới đây là file bash để tự động phục vụ việc tự tạo
 CA, server key, client key thông qua OpenSSL. Vì đây chỉ là demo nên
 chúng ta sẽ sử dụng chứng chỉ tự ký.</span>
 

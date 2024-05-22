@@ -31,7 +31,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
 #### 1. Containerization 
  - Dockerfile cho từng dịch vụ: 
-- [Web Image](https://github.com/hantbk/web_service/blob/main/Dockerfile) 
+- [Web](https://github.com/hantbk/web_service/blob/main/Dockerfile) 
     ```Dockerfile
     # Stage 1: Build the React app
     FROM node:lts-alpine AS build
@@ -67,7 +67,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     # Start nginx
     CMD ["nginx", "-g", "daemon off;"]
     ```
-- [Api Image](https://github.com/hantbk/api_service/blob/main/Dockerfile)
+- [API](https://github.com/hantbk/api_service/blob/main/Dockerfile)
 
     ```Dockerfile
     # Stage 1: Build the application
@@ -75,13 +75,10 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
     WORKDIR /app
 
-    # Copy package.json and package-lock.json to the working directory
     COPY package*.json ./
 
-    # Install dependencies
     RUN npm ci --only=production
 
-    # Copy the rest of the application code to the working directory
     COPY . .
 
     # Stage 2: Production-ready image
@@ -89,29 +86,32 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
     WORKDIR /app
 
-    # Copy only necessary files from build stage
-    COPY --from=build /app/package*.json ./
-    COPY --from=build /app/node_modules ./node_modules
-    COPY --from=build /app/server.js ./
+    COPY --from=build /app ./
 
-    # Expose the port that app runs on
     EXPOSE 9000
 
-    # Command to run your app
-    CMD ["node", "server.js"]
+    CMD ["npm", "start"]
 
     ```
-- [Database Image](https://github.com/hantbk/vdtproject/blob/main/webcrud/db/Dockerfile)
+- [Database](https://github.com/hantbk/vdtproject/blob/main/webcrud/db/Dockerfile)
 
     ```Dockerfile
     FROM mongo:4.4.6
 
+    # Tạo thư mục để chứa dữ liệu và script khởi tạo
+    RUN mkdir -p /docker-entrypoint-initdb.d
+
+    # Sao chép tệp attendees.json vào thư mục /docker-entrypoint-initdb.d/
     COPY attendees.json /docker-entrypoint-initdb.d/attendees.json
+
+    # Sao chép tệp init-data.sh vào thư mục /docker-entrypoint-initdb.d/
     COPY init-data.sh /docker-entrypoint-initdb.d/init-data.sh
 
+    # Đặt quyền thực thi cho tệp init-data.sh
     RUN chmod +x /docker-entrypoint-initdb.d/init-data.sh
 
-    CMD ["mongod"]
+    # Chạy init-data.sh để khởi tạo dữ liệu trong MongoDB và sau đó khởi động MongoDB
+    CMD ["bash", "-c", "/docker-entrypoint-initdb.d/init-data.sh && mongod --bind_ip_all"]
 
     ```
 - Output câu lệnh build và history image web service
@@ -131,6 +131,47 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
     ![alt](./image/db-build.png)
 
     ![alt](./image/db-history.png)
+
+- Sử dụng docker-compose để triển khai 3 dịch vụ web, api, db
+    
+[docker-compose.yml](https://github.com/hantbk/vdtproject/blob/main/webcrud/docker-compose.yml)
+```yaml
+    version: '3.8'
+
+    services:
+    client:
+        image: hant-client
+        ports:
+        - "80:80"
+        networks:
+        - hant-network
+        
+    server:
+        image: hant-server
+        ports:
+        - "9000:9000"
+        depends_on:
+        - mongo
+        environment:
+        - MONGODB_URI=mongodb://mongo:27017/webcrud
+        networks:
+        - hant-network
+
+    mongo:
+        image: hant-mongo
+        volumes:
+        - mongo-data:/data/db
+        networks:
+        - hant-network
+
+    volumes:
+    mongo-data:
+
+    networks:
+    hant-network:
+```
+
+Run docker-compose: `docker-compose up -d`
 
 #### 2. Continuous Integration
 - Tự động chạy unit test khi tạo Pull request vào nhánh main
@@ -324,4 +365,4 @@ all:
 - Kết quả triển khai lên máy ảo host1 và host2
     ![alt](./image/ansi4.png)
 
-
+Happy coding! :smile: :smile: :smile:

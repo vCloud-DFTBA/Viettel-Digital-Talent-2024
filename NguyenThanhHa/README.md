@@ -171,7 +171,14 @@ networks:
     hant-network:
 ```
 
-Run docker-compose: `docker-compose up -d`
+- Link source code và cách chạy:
+    - [Source code](https://github.com/hantbk/vdtproject/tree/main)
+    
+    - Cách chạy: 
+        - Clone source code về máy và chạy lệnh `cd vdtproject/webcrud` để vào thư mục chứa file docker-compose.yml
+        - Chạy lệnh `docker-compose up` để triển khai 3 dịch vụ web, api, db
+        - Truy cập vào địa chỉ `http://localhost:80` để xem web service
+        - Truy cập vào địa chỉ `http://localhost:9000` để xem api service
 
 #### 2. Continuous Integration
 - Tự động chạy unit test khi tạo Pull request vào nhánh main

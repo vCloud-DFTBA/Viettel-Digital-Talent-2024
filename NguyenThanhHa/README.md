@@ -135,7 +135,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 #### 2. Continuous Integration
 - Tự động chạy unit test khi tạo Pull request vào nhánh main
 - Tự động chạy unit test khi push commit lên một nhánh
- - File setup công cụ CI: [ci](./.github/workflows/ci.yml)
+ - File setup công cụ CI: [ci](https://github.com/hantbk/api_service/blob/main/.github/workflows/ci.yml)
 
     ```yml
     name: Continuous Integration
@@ -176,7 +176,7 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
             working-directory: ./webcrud/api/
 
     ```
-Lịch sử chạy CI : [CI History](https://github.com/hantbk/vdtproject/actions)
+Lịch sử chạy CI : [CI History](https://github.com/hantbk/api_service/actions)
 - Output log của luồng CI 
      
      ![alt](./image/ci1.png)

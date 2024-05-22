@@ -1,4 +1,4 @@
-#Bài tập lớn giữa kỳ chương trình VDT 2024 lĩnh vực CLOUD
+# Bài tập lớn giữa kỳ chương trình VDT 2024 lĩnh vực CLOUD
 
 Mục lục
 

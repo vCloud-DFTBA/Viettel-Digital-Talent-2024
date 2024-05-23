@@ -4,6 +4,9 @@
 
 ## I.Phát triển một 3-tier web application đơn giản (3đ)
 <img width="1289" alt="Screenshot 2024-05-23 at 15 36 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ff72d5a1-78cc-4a97-8989-96c0a9d30dd6">
+<img width="1369" alt="Screenshot 2024-05-23 at 16 16 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/395e2dea-d74c-4f75-a7c4-30c3079151d7">
+<img width="1417" alt="Screenshot 2024-05-23 at 16 17 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ee4b79eb-8559-4352-bd24-046b787f6bd5">
+
  - Mã nguồn của từng dịch vụ:
            [i.Web](https://github.com/ngodanghuy162/vdt-front/tree/main)
            [ii.API](https://github.com/ngodanghuy162/vdt-back) 
@@ -11,15 +14,15 @@
     ->> Dockerfile nằm trong các mục này luôn.
 ## Triển khai web application sử dụng các DevOps tools & practices (5đ)
 # 1. Containerization(2d)
- ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fe9838a5-e64c-4edd-ab6a-751f0134ddbb)
- ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/baca470b-5dc0-4214-ba2e-a8a6f1a1a65a)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fe9838a5-e64c-4edd-ab6a-751f0134ddbb)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/baca470b-5dc0-4214-ba2e-a8a6f1a1a65a)
  - Dockerfile cho backend:
     - Ở đây, với Dockerfile của backend-api đã sử dụng kĩ thuật multi-stage chia bước build và run --> giúp giảm kích thước của image cuối cùng và giữ lại chỉ những thành phần cần thiết để chạy ứng dụng.
-    - <img width="597" alt="Screenshot 2024-05-23 at 16 09 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8ad9916d-ecac-4243-af08-3bd522c4227a">
+<img width="597" alt="Screenshot 2024-05-23 at 16 09 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8ad9916d-ecac-4243-af08-3bd522c4227a">
  - Dockerfile cho frontend:
- <img width="454" alt="Screenshot 2024-05-23 at 16 14 08" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9e70e722-ffff-4dd6-9668-3f7631a94090">
+<img width="454" alt="Screenshot 2024-05-23 at 16 14 08" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9e70e722-ffff-4dd6-9668-3f7631a94090">
  - Dockerfile cho database:
- <img width="371" alt="Screenshot 2024-05-23 at 16 14 50" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1509bc47-97ae-400b-8a04-30ea42da96ef">
+<img width="371" alt="Screenshot 2024-05-23 at 16 14 50" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1509bc47-97ae-400b-8a04-30ea42da96ef">
  - Docker compose:<img width="648" alt="Screenshot 2024-05-23 at 16 15 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/75d10f75-23e8-4bb9-b7fd-9967cabf4d3c">
 
  - Images history.

@@ -42,4 +42,7 @@
 <img width="1064" alt="Screenshot 2024-05-24 at 09 41 37" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/07c1a725-d649-4091-88c4-8ca5ca26bad9">
 <img width="1050" alt="Screenshot 2024-05-24 at 09 41 51" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/f4f5b13b-dee3-4869-9c4c-befab4d66017">
 <img width="1142" alt="Screenshot 2024-05-24 at 09 59 03" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/50354bff-4291-4528-9cf2-e65b2a489988">
-
+- Ngoài ra, em có tích hợp CD tự động build và push images lên Dockerhub khi có tag mới. [File CD:](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
+<img width="1438" alt="Screenshot 2024-05-24 at 18 01 29" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c0b094af-b8af-4530-8c20-88e83f89bb34">
+<img width="1418" alt="Screenshot 2024-05-24 at 18 02 12" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fea415e7-c8ec-4e9a-a8ce-c350980db21f">
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4f445165-7393-4687-bbad-a8a57ee7585c)

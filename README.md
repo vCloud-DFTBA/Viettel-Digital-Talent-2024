@@ -18,23 +18,23 @@
 # 1. Containerization(2d)
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fe9838a5-e64c-4edd-ab6a-751f0134ddbb)
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/baca470b-5dc0-4214-ba2e-a8a6f1a1a65a)
- - Dockerfile cho backend:
-    - Ở đây, với Dockerfile của backend-api đã sử dụng kĩ thuật multi-stage chia bước build và run --> giúp giảm kích thước của image cuối cùng và giữ lại chỉ những thành phần cần thiết để chạy ứng dụng.
-<img width="597" alt="Screenshot 2024-05-23 at 16 09 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8ad9916d-ecac-4243-af08-3bd522c4227a">
- - Dockerfile cho frontend:
-<img width="454" alt="Screenshot 2024-05-23 at 16 14 08" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9e70e722-ffff-4dd6-9668-3f7631a94090">
+  - Dockerfile cho backend:
+     - Ở đây, với Dockerfile của backend-api đã sử dụng kĩ thuật multi-stage chia bước build và run --> giúp giảm kích thước của image cuối cùng và giữ lại chỉ những thành phần cần thiết để chạy ứng dụng.
+       <img width="597" alt="Screenshot 2024-05-23 at 16 09 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8ad9916d-ecac-4243-af08-3bd522c4227a">
+  - Dockerfile cho frontend:
+       <img width="454" alt="Screenshot 2024-05-23 at 16 14 08" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9e70e722-ffff-4dd6-9668-3f7631a94090">
  - Dockerfile cho database:
-<img width="371" alt="Screenshot 2024-05-23 at 16 14 50" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1509bc47-97ae-400b-8a04-30ea42da96ef">
+       <img width="371" alt="Screenshot 2024-05-23 at 16 14 50" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1509bc47-97ae-400b-8a04-30ea42da96ef">
  - Docker compose:
-<img width="648" alt="Screenshot 2024-05-23 at 16 15 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/75d10f75-23e8-4bb9-b7fd-9967cabf4d3c">
+       <img width="648" alt="Screenshot 2024-05-23 at 16 15 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/75d10f75-23e8-4bb9-b7fd-9967cabf4d3c">
 
  - Images history             
         i.Frontend
-<img width="873" alt="Screenshot 2024-05-23 at 13 09 13" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/879beb8f-60f7-41db-9755-feefabac15d3">
+       <img width="873" alt="Screenshot 2024-05-23 at 13 09 13" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/879beb8f-60f7-41db-9755-feefabac15d3">
         ii.Backend
-<img width="893" alt="Screenshot 2024-05-23 at 13 10 12" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1dbe3bb3-cb15-4b42-ae49-f143a16b8235">
+       <img width="893" alt="Screenshot 2024-05-23 at 13 10 12" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1dbe3bb3-cb15-4b42-ae49-f143a16b8235">
         iii.Database
-<img width="904" alt="Screenshot 2024-05-23 at 13 10 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/7f150f51-edf5-4ff7-ac3d-57fc0eee200f">
+       <img width="904" alt="Screenshot 2024-05-23 at 13 10 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/7f150f51-edf5-4ff7-ac3d-57fc0eee200f">
 # 2. CI
 - [File setup công cụ (Github Acions)] (https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CI.yml)
 <img width="1053" alt="Screenshot 2024-05-24 at 09 19 13" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ab1b8bf8-c458-43d5-9876-ba356b52b4b4">

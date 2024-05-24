@@ -1,4 +1,4 @@
-## Project giữa kỳ
+## Project giữa kỳ Viettel Digital Talent 2024
 ### Nguyễn Thanh Hà
 
 ### Phát triển một 3-tier web application đơn giản 

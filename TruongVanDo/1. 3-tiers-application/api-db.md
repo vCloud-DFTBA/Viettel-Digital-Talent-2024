@@ -1,5 +1,6 @@
 # Phát triển một 3-tier web application đơn giản
-## Link mã nguồn ứng dụng: [API](https://github.com/DoTruong1/vdt-backend.git)
+## Đường đẫn mã nguồn ứng dụng: [API](https://github.com/DoTruong1/vdt-backend.git)
+## Đường dẫn dockerhub: [dockerhub](https://hub.docker.com/repository/docker/dotruong1910/backend/general)
 ## API application và DB
 ### Mô tả chung về ứng dụng api
 Ứng dụng được viết bằng [Node.js](https://nodejs.org/) ở phiên bản v18.12.0, kêt hợp với công nghệ ORM là [Sequelize](https://sequelize.org/docs/v7/databases/mariadb/) với database phía sau là [MariaDB](https://mariadb.org).
@@ -9,9 +10,9 @@ Trong mã nguồn gồm các thư mục quan trọng sau:
 * models: Chứa các đối tượng trừu tượng hoá một bảng trong cơ sở dữ liệu được gọi là Model.
 * controllers: Chứa code xử lí các yêu cầu gọi api với mỗi đầu api của ứng dụng.
 
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmherman.org%2Fblog%2Fnode-postgres-sequelize%2F&psig=AOvVaw3TwE6unN9byROjsL6x5YmR&ust=1716741250664000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCDw9WdqYYDFQAAAAAdAAAAABAw)
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--pqY2Rar2--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://miro.medium.com/max/811/1%2ASEfonxxMIktyFJWwA_oTTg.png)
 
-Ứng dụng được settings thông qua các biến môi trường sau
+### Các biến môi trường dùng để config ứng dụng
 | Tên biến        | Mô tả                                  |
 | --------------- |:-------------------------------------- |
 | **DB_USER**     | Tên người người dùng của cơ sở dữ liệu |

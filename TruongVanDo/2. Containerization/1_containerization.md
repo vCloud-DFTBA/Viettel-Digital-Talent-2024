@@ -61,7 +61,8 @@ CMD [ "dumb-init", "node", "index.js" ]
 
 - Ngoài kỹ thuật trên thì trên luồng ci của ứng dụng có sử dụng thêm `cache repo` để giảm thời gian build của image. Dưới đây là nội dung `Dockerfile` của ứng dụng api
 
-- Bên cạnh đó, khi cái đặt các dependency thì em sử dụng `npm ci` thay vì `npm install` và trước khi build em đã thay môi trường của node thành `production` do ứng dụng web tĩnh nên các biến môi trường ở stage build không thể thay đổi thông qua cách thông thường vì vậy em đã thêm 1 script để có thể thay thế lại giá trị biến môi trường trước image chạy. 
+- Bên cạnh đó, khi cái đặt các dependency thì em sử dụng `npm ci` thay vì `npm install` và trước khi build em đã thay môi trường của node thành `production` để tối ưu cho việc build. 
+- Do ứng dụng được build thành web tĩnh và chạy qua nginx nên các biến môi trường ở stage build không thể thay đổi thông qua cách thông thường vì vậy em đã thêm 1 script để có thể thay thế lại giá trị biến môi trường trước image chạy. 
 
 
 ```dockerfile

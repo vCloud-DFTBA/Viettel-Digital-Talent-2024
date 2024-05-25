@@ -1,6 +1,6 @@
 # Phát triển một 3-tier web application đơn giản
-## Đường đẫn mã nguồn ứng dụng: [API](https://github.com/DoTruong1/vdt-backend.git)
-## Đường dẫn dockerhub: [dockerhub](https://hub.docker.com/repository/docker/dotruong1910/backend/general)
+* Đường đẫn mã nguồn ứng dụng: [API](https://github.com/DoTruong1/vdt-backend.git)
+* Đường dẫn dockerhub: [dockerhub](https://hub.docker.com/repository/docker/dotruong1910/backend/general)
 ## API application và DB
 ### Mô tả chung về ứng dụng api
 Ứng dụng được viết bằng [Node.js](https://nodejs.org/) ở phiên bản v18.12.0, kêt hợp với công nghệ ORM là [Sequelize](https://sequelize.org/docs/v7/databases/mariadb/) với database phía sau là [MariaDB](https://mariadb.org).

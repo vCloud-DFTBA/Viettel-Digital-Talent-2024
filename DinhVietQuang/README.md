@@ -92,6 +92,7 @@ ansible-playbook -i inventory.yml playbook.yml
 ```
 - The full output log is [here](https://github.com/helloitsurdvq/VDT2024project/blob/main/ansible/ansible.log), the partial result is shown in this:
 ![img](https://raw.githubusercontent.com/helloitsurdvq/VDT2024project/main/assets/3.1_ansible_demo.jpg)
-
+- The expected outcome for this process should be:
+![img](https://raw.githubusercontent.com/helloitsurdvq/VDT2024project/main/assets/1.9_docker_container.jpg)
 # 5. Research report
 - My research work is related to **[the security issue of the Docker container](https://github.com/helloitsurdvq/VDT2024project/blob/main/docs/DinhVietQuang-research.pdf)**.

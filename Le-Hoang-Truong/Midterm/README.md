@@ -40,7 +40,7 @@ Hệ thống được thiết kế với ba dịch vụ:
 -   **API** :
     - Source code
         -   [Dockerfile](https://github.com/descent1511/vdt2024-api-nodejs/blob/develop/users/Dockerfile)
-        -   [Docker-compose](https://github.com/descent1511/vdt2024-api-nodejs/blob/develop/users/Dockerfile)
+        -   [Docker-compose](https://github.com/descent1511/vdt2024-api-nodejs/blob/develop/docker-compose.yml)
 
     -  Lệnh build:  
         `docker build -t api --no-cache --compress .`  
@@ -72,5 +72,16 @@ Hệ thống được thiết kế với ba dịch vụ:
 
 ### 3. Automation
 - Source code: [here](https://github.com/descent1511/vdt2024-ansible/tree/develop)
+- Output: 
+    -   Log 
+    ![Log ansible](images/log_ansible.png)  
+    -   Kiểm tra container đang chạy
+    ![container_running](images/container1.png)
+    ![container_running](images/container2.png)
+    -   Demo app:  
+    APi :192.168.0.109
+    ![API](images/api_local.png)
+    WEB :192.168.0.107
+    ![WEB](images/web_remote.png)
 
-### 4. Research topic: Microservices Security
+## 4. Research topic: Microservices Security

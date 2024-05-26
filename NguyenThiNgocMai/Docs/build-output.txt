@@ -1,0 +1,34 @@
+[+] Building 871.6s (21/21) FINISHED                                                                     docker:default
+ => [api internal] load build definition from Dockerfile                                                           0.2s
+ => => transferring dockerfile: 420B                                                                               0.1s
+ => [web internal] load build definition from Dockerfile                                                           0.1s
+ => => transferring dockerfile: 420B                                                                               0.1s
+ => [api internal] load metadata for docker.io/library/node:18.16.1-alpine                                         2.3s
+ => [web auth] library/node:pull token for registry-1.docker.io                                                    0.0s
+ => [api internal] load .dockerignore                                                                              0.1s
+ => => transferring context: 2B                                                                                    0.1s
+ => [web internal] load .dockerignore                                                                              0.1s
+ => => transferring context: 2B                                                                                    0.1s
+ => [api internal] load build context                                                                            148.4s
+ => => transferring context: 23.33MB                                                                             147.7s
+ => [web build 1/6] FROM docker.io/library/node:18.16.1-alpine@sha256:d5b2a7869a4016b1847986ea52098fa404421e44281  0.0s
+ => [web internal] load build context                                                                            622.2s
+ => => transferring context: 3.46MB                                                                              620.6s
+ => CACHED [api build 2/6] RUN addgroup app && adduser -S -G app app                                               0.0s
+ => CACHED [api build 3/6] WORKDIR /app                                                                            0.0s
+ => [api build 4/6] COPY package*.json ./                                                                          0.3s
+ => [api build 5/6] RUN npm install                                                                               41.5s
+ => [api build 6/6] COPY . .                                                                                      14.0s
+ => [api stage-1 4/4] COPY --from=build /app /app                                                                 12.5s
+ => [api] exporting to image                                                                                       6.3s
+ => => exporting layers                                                                                            6.2s
+ => => writing image sha256:8c912dc937487ff5738a37b73bc16331fcb9cea13e0bde0aa86b24237e3010a5                       0.0s
+ => => naming to docker.io/library/vdt2024-midterm-api                                                             0.0s
+ => CACHED [web build 4/6] COPY package*.json ./                                                                   0.0s
+ => CACHED [web build 5/6] RUN npm install                                                                         0.0s
+ => [web build 6/6] COPY . .                                                                                     146.7s
+ => [web stage-1 4/4] COPY --from=build /app /app                                                                 60.0s
+ => [web] exporting to image                                                                                      14.0s
+ => => exporting layers                                                                                           13.8s
+ => => writing image sha256:d70aefbb9bbea774ca7bbcb222127a33abd91599fe117d293003df48f67f3c68                       0.0s
+ => => naming to docker.io/library/vdt2024-midterm-web                                                             0.1s

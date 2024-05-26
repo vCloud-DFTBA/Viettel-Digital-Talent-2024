@@ -1,0 +1,26 @@
+﻿2024-05-25T21:23:51.1627611Z ##[group]Run actions/setup-node@v3
+2024-05-25T21:23:51.1628143Z with:
+2024-05-25T21:23:51.1628468Z   node-version: 20.x
+2024-05-25T21:23:51.1628825Z   cache: npm
+2024-05-25T21:23:51.1629206Z   always-auth: false
+2024-05-25T21:23:51.1629778Z   check-latest: false
+2024-05-25T21:23:51.1630267Z   token: ***
+2024-05-25T21:23:51.1630651Z ##[endgroup]
+2024-05-25T21:23:51.8646612Z Found in cache @ /opt/hostedtoolcache/node/20.13.1/x64
+2024-05-25T21:23:51.8648042Z ##[group]Environment details
+2024-05-25T21:23:51.9328584Z node: v20.13.1
+2024-05-25T21:23:51.9329140Z npm: 10.5.2
+2024-05-25T21:23:51.9329760Z yarn: 1.22.22
+2024-05-25T21:23:51.9331082Z ##[endgroup]
+2024-05-25T21:23:51.9375013Z [command]/opt/hostedtoolcache/node/20.13.1/x64/bin/npm config get cache
+2024-05-25T21:23:52.0719255Z /home/runner/.npm
+2024-05-25T21:23:53.2085802Z Received 0 of 22239094 (0.0%), 0.0 MBs/sec
+2024-05-25T21:23:54.2099425Z Received 0 of 22239094 (0.0%), 0.0 MBs/sec
+2024-05-25T21:23:55.2111799Z Received 0 of 22239094 (0.0%), 0.0 MBs/sec
+2024-05-25T21:23:56.2124435Z Received 0 of 22239094 (0.0%), 0.0 MBs/sec
+2024-05-25T21:23:57.2140158Z Received 0 of 22239094 (0.0%), 0.0 MBs/sec
+2024-05-25T21:23:57.3738849Z Cache Size: ~21 MB (22239094 B)
+2024-05-25T21:23:57.3777265Z [command]/usr/bin/tar -xf /home/runner/work/_temp/8ca63572-e2d6-4960-aa98-97cb37e75084/cache.tzst -P -C /home/runner/work/vdtweb-api/vdtweb-api --use-compress-program unzstd
+2024-05-25T21:23:57.5105109Z Cache restored successfully
+2024-05-25T21:23:57.5157756Z Cache restored from key: node-cache-Linux-npm-1c46490ea7e5628b6f54c22995fcba324d1bf608805535c4facc88363dfe201d
+2024-05-25T21:23:58.2157613Z Received 22239094 of 22239094 (100.0%), 3.5 MBs/sec

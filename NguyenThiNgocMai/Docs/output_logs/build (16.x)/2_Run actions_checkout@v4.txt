@@ -1,0 +1,83 @@
+﻿2024-05-25T21:23:50.2665361Z ##[group]Run actions/checkout@v4
+2024-05-25T21:23:50.2666088Z with:
+2024-05-25T21:23:50.2666953Z   repository: maintn24/vdtweb-api
+2024-05-25T21:23:50.2668026Z   token: ***
+2024-05-25T21:23:50.2668717Z   ssh-strict: true
+2024-05-25T21:23:50.2669369Z   ssh-user: git
+2024-05-25T21:23:50.2670003Z   persist-credentials: true
+2024-05-25T21:23:50.2670696Z   clean: true
+2024-05-25T21:23:50.2671146Z   sparse-checkout-cone-mode: true
+2024-05-25T21:23:50.2672155Z   fetch-depth: 1
+2024-05-25T21:23:50.2672863Z   fetch-tags: false
+2024-05-25T21:23:50.2673510Z   show-progress: true
+2024-05-25T21:23:50.2674140Z   lfs: false
+2024-05-25T21:23:50.2674798Z   submodules: false
+2024-05-25T21:23:50.2675466Z   set-safe-directory: true
+2024-05-25T21:23:50.2675952Z ##[endgroup]
+2024-05-25T21:23:50.4685360Z Syncing repository: maintn24/vdtweb-api
+2024-05-25T21:23:50.4688090Z ##[group]Getting Git version info
+2024-05-25T21:23:50.4689317Z Working directory is '/home/runner/work/vdtweb-api/vdtweb-api'
+2024-05-25T21:23:50.4737216Z [command]/usr/bin/git version
+2024-05-25T21:23:50.4818468Z git version 2.45.1
+2024-05-25T21:23:50.4850664Z ##[endgroup]
+2024-05-25T21:23:50.4878826Z Temporarily overriding HOME='/home/runner/work/_temp/6252129d-5e8b-4261-8034-95e5c22e8c75' before making global git config changes
+2024-05-25T21:23:50.4881730Z Adding repository directory to the temporary git global config as a safe directory
+2024-05-25T21:23:50.4887179Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/vdtweb-api/vdtweb-api
+2024-05-25T21:23:50.4975955Z Deleting the contents of '/home/runner/work/vdtweb-api/vdtweb-api'
+2024-05-25T21:23:50.4997396Z ##[group]Initializing the repository
+2024-05-25T21:23:50.4999034Z [command]/usr/bin/git init /home/runner/work/vdtweb-api/vdtweb-api
+2024-05-25T21:23:50.5070900Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-05-25T21:23:50.5076367Z hint: is subject to change. To configure the initial branch name to use in all
+2024-05-25T21:23:50.5080758Z hint: of your new repositories, which will suppress this warning, call:
+2024-05-25T21:23:50.5084800Z hint:
+2024-05-25T21:23:50.5088280Z hint: 	git config --global init.defaultBranch <name>
+2024-05-25T21:23:50.5091766Z hint:
+2024-05-25T21:23:50.5095724Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-05-25T21:23:50.5100129Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-05-25T21:23:50.5126777Z hint:
+2024-05-25T21:23:50.5129804Z hint: 	git branch -m <name>
+2024-05-25T21:23:50.5137374Z Initialized empty Git repository in /home/runner/work/vdtweb-api/vdtweb-api/.git/
+2024-05-25T21:23:50.5157811Z [command]/usr/bin/git remote add origin https://github.com/maintn24/vdtweb-api
+2024-05-25T21:23:50.5213248Z ##[endgroup]
+2024-05-25T21:23:50.5214836Z ##[group]Disabling automatic garbage collection
+2024-05-25T21:23:50.5216510Z [command]/usr/bin/git config --local gc.auto 0
+2024-05-25T21:23:50.5267891Z ##[endgroup]
+2024-05-25T21:23:50.5269263Z ##[group]Setting up auth
+2024-05-25T21:23:50.5270925Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-05-25T21:23:50.5315424Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-05-25T21:23:50.5710255Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-05-25T21:23:50.5716089Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-05-25T21:23:50.6028289Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-05-25T21:23:50.6089319Z ##[endgroup]
+2024-05-25T21:23:50.6091080Z ##[group]Fetching the repository
+2024-05-25T21:23:50.6094190Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2f6369640d16730bb9fe2a19a74387d868840fad:refs/remotes/pull/9/merge
+2024-05-25T21:23:52.2618136Z From https://github.com/maintn24/vdtweb-api
+2024-05-25T21:23:52.2627861Z  * [new ref]         2f6369640d16730bb9fe2a19a74387d868840fad -> pull/9/merge
+2024-05-25T21:23:52.2761893Z ##[endgroup]
+2024-05-25T21:23:52.2764120Z ##[group]Determining the checkout info
+2024-05-25T21:23:52.2790753Z ##[endgroup]
+2024-05-25T21:23:52.2791935Z [command]/usr/bin/git sparse-checkout disable
+2024-05-25T21:23:52.2793785Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-05-25T21:23:52.2857556Z ##[group]Checking out the ref
+2024-05-25T21:23:52.2858793Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/9/merge
+2024-05-25T21:23:52.9703264Z Note: switching to 'refs/remotes/pull/9/merge'.
+2024-05-25T21:23:52.9704025Z 
+2024-05-25T21:23:52.9704843Z You are in 'detached HEAD' state. You can look around, make experimental
+2024-05-25T21:23:52.9706244Z changes and commit them, and you can discard any commits you make in this
+2024-05-25T21:23:52.9707665Z state without impacting any branches by switching back to a branch.
+2024-05-25T21:23:52.9708395Z 
+2024-05-25T21:23:52.9708943Z If you want to create a new branch to retain commits you create, you may
+2024-05-25T21:23:52.9710155Z do so (now or later) by using -c with the switch command. Example:
+2024-05-25T21:23:52.9710858Z 
+2024-05-25T21:23:52.9711267Z   git switch -c <new-branch-name>
+2024-05-25T21:23:52.9711774Z 
+2024-05-25T21:23:52.9711994Z Or undo this operation with:
+2024-05-25T21:23:52.9712364Z 
+2024-05-25T21:23:52.9712596Z   git switch -
+2024-05-25T21:23:52.9712867Z 
+2024-05-25T21:23:52.9713498Z Turn off this advice by setting config variable advice.detachedHead to false
+2024-05-25T21:23:52.9714308Z 
+2024-05-25T21:23:52.9715093Z HEAD is now at 2f63696 Merge ac7af3a50d947512e3b93593466ab8547c17d139 into d3b0cd27208c98b553fd7d4cb80161ccc6548f9f
+2024-05-25T21:23:52.9778296Z ##[endgroup]
+2024-05-25T21:23:52.9815436Z [command]/usr/bin/git log -1 --format='%H'
+2024-05-25T21:23:52.9843379Z '2f6369640d16730bb9fe2a19a74387d868840fad'

@@ -1,0 +1,33 @@
+﻿2024-05-25T21:24:01.9314972Z ##[group]Run npm test
+2024-05-25T21:24:01.9315772Z [36;1mnpm test[0m
+2024-05-25T21:24:01.9375595Z shell: /usr/bin/bash -e {0}
+2024-05-25T21:24:01.9376014Z ##[endgroup]
+2024-05-25T21:24:02.2375515Z 
+2024-05-25T21:24:02.2377243Z > vdtweb-api@1.0.0 test
+2024-05-25T21:24:02.2384255Z > jest
+2024-05-25T21:24:02.2385051Z 
+2024-05-25T21:24:09.3493434Z PASS src/tests/student.test.ts (6.651 s)
+2024-05-25T21:24:09.3497024Z   Student Controller
+2024-05-25T21:24:09.3499286Z     GET /students
+2024-05-25T21:24:09.3503484Z       ✓ should return all students (18 ms)
+2024-05-25T21:24:09.3505058Z       ✓ should handle errors (4 ms)
+2024-05-25T21:24:09.3506050Z     GET /students/:id
+2024-05-25T21:24:09.3507171Z       ✓ should return a student by id (9 ms)
+2024-05-25T21:24:09.3508052Z       ✓ should handle errors (2 ms)
+2024-05-25T21:24:09.3508671Z     POST /students
+2024-05-25T21:24:09.3510318Z       ✓ should create a new student (12 ms)
+2024-05-25T21:24:09.3511149Z       ✓ should handle errors (3 ms)
+2024-05-25T21:24:09.3512096Z     PUT /students/:id
+2024-05-25T21:24:09.3512791Z       ✓ should update a student (3 ms)
+2024-05-25T21:24:09.3515477Z       ✓ should handle student not found (2 ms)
+2024-05-25T21:24:09.3517000Z       ✓ should handle errors (3 ms)
+2024-05-25T21:24:09.3518037Z     DELETE /students/:id
+2024-05-25T21:24:09.3518958Z       ✓ should delete a student (2 ms)
+2024-05-25T21:24:09.3519979Z       ✓ should handle student not found (3 ms)
+2024-05-25T21:24:09.3520819Z       ✓ should handle errors (2 ms)
+2024-05-25T21:24:09.3522401Z 
+2024-05-25T21:24:09.3544061Z Test Suites: 1 passed, 1 total
+2024-05-25T21:24:09.3545364Z Tests:       12 passed, 12 total
+2024-05-25T21:24:09.3546334Z Snapshots:   0 total
+2024-05-25T21:24:09.3547290Z Time:        6.705 s
+2024-05-25T21:24:09.3547917Z Ran all test suites.

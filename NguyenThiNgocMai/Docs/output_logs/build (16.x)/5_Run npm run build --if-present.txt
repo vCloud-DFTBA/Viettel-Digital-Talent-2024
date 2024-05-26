@@ -1,0 +1,4 @@
+﻿2024-05-25T21:24:01.6254554Z ##[group]Run npm run build --if-present
+2024-05-25T21:24:01.6255093Z [36;1mnpm run build --if-present[0m
+2024-05-25T21:24:01.6316196Z shell: /usr/bin/bash -e {0}
+2024-05-25T21:24:01.6316953Z ##[endgroup]

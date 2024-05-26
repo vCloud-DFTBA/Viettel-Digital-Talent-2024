@@ -1,0 +1,12 @@
+﻿2024-05-25T21:23:59.6354045Z ##[group]Run npm ci
+2024-05-25T21:23:59.6354485Z [36;1mnpm ci[0m
+2024-05-25T21:23:59.6431934Z shell: /usr/bin/bash -e {0}
+2024-05-25T21:23:59.6432496Z ##[endgroup]
+2024-05-25T21:24:01.3187034Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2024-05-25T21:24:03.5706374Z 
+2024-05-25T21:24:03.5707488Z added 442 packages, and audited 443 packages in 4s
+2024-05-25T21:24:03.5710691Z 
+2024-05-25T21:24:03.5714931Z 49 packages are looking for funding
+2024-05-25T21:24:03.5719389Z   run `npm fund` for details
+2024-05-25T21:24:03.5735667Z 
+2024-05-25T21:24:03.5736324Z found 0 vulnerabilities

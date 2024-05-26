@@ -1,0 +1,199 @@
+﻿2024-05-25T21:23:48.3655614Z Current runner version: '2.316.1'
+2024-05-25T21:23:48.3679591Z ##[group]Operating System
+2024-05-25T21:23:48.3680484Z Ubuntu
+2024-05-25T21:23:48.3681215Z 22.04.4
+2024-05-25T21:23:48.3681782Z LTS
+2024-05-25T21:23:48.3682294Z ##[endgroup]
+2024-05-25T21:23:48.3683075Z ##[group]Runner Image
+2024-05-25T21:23:48.3683807Z Image: ubuntu-22.04
+2024-05-25T21:23:48.3684379Z Version: 20240516.1.0
+2024-05-25T21:23:48.3686128Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20240516.1/images/ubuntu/Ubuntu2204-Readme.md
+2024-05-25T21:23:48.3688450Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20240516.1
+2024-05-25T21:23:48.3689879Z ##[endgroup]
+2024-05-25T21:23:48.3690657Z ##[group]Runner Image Provisioner
+2024-05-25T21:23:48.3691467Z 2.0.369.1
+2024-05-25T21:23:48.3692009Z ##[endgroup]
+2024-05-25T21:23:48.3693724Z ##[group]GITHUB_TOKEN Permissions
+2024-05-25T21:23:48.3695989Z Contents: read
+2024-05-25T21:23:48.3696790Z Metadata: read
+2024-05-25T21:23:48.3697607Z Packages: read
+2024-05-25T21:23:48.3698425Z ##[endgroup]
+2024-05-25T21:23:48.3702704Z Secret source: Actions
+2024-05-25T21:23:48.3703579Z Prepare workflow directory
+2024-05-25T21:23:48.4339060Z Prepare all required actions
+2024-05-25T21:23:48.4495229Z Getting action download info
+2024-05-25T21:23:48.5937818Z Download action repository 'actions/checkout@v4' (SHA:a5ac7e51b41094c92402da3b24376905380afc29)
+2024-05-25T21:23:49.1193990Z Download action repository 'actions/setup-node@v3' (SHA:1a4442cacd436585916779262731d5b162bc6ec7)
+2024-05-25T21:23:49.4487547Z Complete job name: build (22.x)
+2024-05-25T21:23:49.5297062Z ##[group]Run actions/checkout@v4
+2024-05-25T21:23:49.5297681Z with:
+2024-05-25T21:23:49.5298098Z   repository: maintn24/vdtweb-api
+2024-05-25T21:23:49.5298925Z   token: ***
+2024-05-25T21:23:49.5299303Z   ssh-strict: true
+2024-05-25T21:23:49.5299727Z   ssh-user: git
+2024-05-25T21:23:49.5300223Z   persist-credentials: true
+2024-05-25T21:23:49.5300681Z   clean: true
+2024-05-25T21:23:49.5301461Z   sparse-checkout-cone-mode: true
+2024-05-25T21:23:49.5302094Z   fetch-depth: 1
+2024-05-25T21:23:49.5302474Z   fetch-tags: false
+2024-05-25T21:23:49.5302882Z   show-progress: true
+2024-05-25T21:23:49.5303358Z   lfs: false
+2024-05-25T21:23:49.5303709Z   submodules: false
+2024-05-25T21:23:49.5304119Z   set-safe-directory: true
+2024-05-25T21:23:49.5304605Z ##[endgroup]
+2024-05-25T21:23:49.7142863Z Syncing repository: maintn24/vdtweb-api
+2024-05-25T21:23:49.7145992Z ##[group]Getting Git version info
+2024-05-25T21:23:49.7147469Z Working directory is '/home/runner/work/vdtweb-api/vdtweb-api'
+2024-05-25T21:23:49.7168898Z [command]/usr/bin/git version
+2024-05-25T21:23:49.7259408Z git version 2.45.1
+2024-05-25T21:23:49.7292934Z ##[endgroup]
+2024-05-25T21:23:49.7317652Z Temporarily overriding HOME='/home/runner/work/_temp/153a7b88-10d3-4759-8769-2c95afbf8d61' before making global git config changes
+2024-05-25T21:23:49.7322525Z Adding repository directory to the temporary git global config as a safe directory
+2024-05-25T21:23:49.7333222Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/vdtweb-api/vdtweb-api
+2024-05-25T21:23:49.7386643Z Deleting the contents of '/home/runner/work/vdtweb-api/vdtweb-api'
+2024-05-25T21:23:49.7407293Z ##[group]Initializing the repository
+2024-05-25T21:23:49.7408822Z [command]/usr/bin/git init /home/runner/work/vdtweb-api/vdtweb-api
+2024-05-25T21:23:49.7480771Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-05-25T21:23:49.7485932Z hint: is subject to change. To configure the initial branch name to use in all
+2024-05-25T21:23:49.7489995Z hint: of your new repositories, which will suppress this warning, call:
+2024-05-25T21:23:49.7493616Z hint:
+2024-05-25T21:23:49.7496805Z hint: 	git config --global init.defaultBranch <name>
+2024-05-25T21:23:49.7500020Z hint:
+2024-05-25T21:23:49.7504159Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-05-25T21:23:49.7507578Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-05-25T21:23:49.7509671Z hint:
+2024-05-25T21:23:49.7510687Z hint: 	git branch -m <name>
+2024-05-25T21:23:49.7546809Z Initialized empty Git repository in /home/runner/work/vdtweb-api/vdtweb-api/.git/
+2024-05-25T21:23:49.7560912Z [command]/usr/bin/git remote add origin https://github.com/maintn24/vdtweb-api
+2024-05-25T21:23:49.7608067Z ##[endgroup]
+2024-05-25T21:23:49.7609759Z ##[group]Disabling automatic garbage collection
+2024-05-25T21:23:49.7613113Z [command]/usr/bin/git config --local gc.auto 0
+2024-05-25T21:23:49.7658295Z ##[endgroup]
+2024-05-25T21:23:49.7660049Z ##[group]Setting up auth
+2024-05-25T21:23:49.7666186Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-05-25T21:23:49.7711645Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-05-25T21:23:49.8064713Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-05-25T21:23:49.8105498Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-05-25T21:23:49.8469222Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-05-25T21:23:49.8477439Z ##[endgroup]
+2024-05-25T21:23:49.8479426Z ##[group]Fetching the repository
+2024-05-25T21:23:49.8500498Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2f6369640d16730bb9fe2a19a74387d868840fad:refs/remotes/pull/9/merge
+2024-05-25T21:23:51.5833770Z From https://github.com/maintn24/vdtweb-api
+2024-05-25T21:23:51.5835403Z  * [new ref]         2f6369640d16730bb9fe2a19a74387d868840fad -> pull/9/merge
+2024-05-25T21:23:51.5917902Z ##[endgroup]
+2024-05-25T21:23:51.5918852Z ##[group]Determining the checkout info
+2024-05-25T21:23:51.5919991Z ##[endgroup]
+2024-05-25T21:23:51.5920752Z [command]/usr/bin/git sparse-checkout disable
+2024-05-25T21:23:51.5971014Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-05-25T21:23:51.6010494Z ##[group]Checking out the ref
+2024-05-25T21:23:51.6015755Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/9/merge
+2024-05-25T21:23:52.3081404Z Note: switching to 'refs/remotes/pull/9/merge'.
+2024-05-25T21:23:52.3082765Z 
+2024-05-25T21:23:52.3084499Z You are in 'detached HEAD' state. You can look around, make experimental
+2024-05-25T21:23:52.3085977Z changes and commit them, and you can discard any commits you make in this
+2024-05-25T21:23:52.3087467Z state without impacting any branches by switching back to a branch.
+2024-05-25T21:23:52.3184510Z 
+2024-05-25T21:23:52.3185098Z If you want to create a new branch to retain commits you create, you may
+2024-05-25T21:23:52.3186435Z do so (now or later) by using -c with the switch command. Example:
+2024-05-25T21:23:52.3187085Z 
+2024-05-25T21:23:52.3187585Z   git switch -c <new-branch-name>
+2024-05-25T21:23:52.3187997Z 
+2024-05-25T21:23:52.3188221Z Or undo this operation with:
+2024-05-25T21:23:52.3188639Z 
+2024-05-25T21:23:52.3188827Z   git switch -
+2024-05-25T21:23:52.3189260Z 
+2024-05-25T21:23:52.3189765Z Turn off this advice by setting config variable advice.detachedHead to false
+2024-05-25T21:23:52.3190503Z 
+2024-05-25T21:23:52.3191332Z HEAD is now at 2f63696 Merge ac7af3a50d947512e3b93593466ab8547c17d139 into d3b0cd27208c98b553fd7d4cb80161ccc6548f9f
+2024-05-25T21:23:52.3193758Z ##[endgroup]
+2024-05-25T21:23:52.3238342Z [command]/usr/bin/git log -1 --format='%H'
+2024-05-25T21:23:52.3275222Z '2f6369640d16730bb9fe2a19a74387d868840fad'
+2024-05-25T21:23:52.3693850Z ##[group]Run actions/setup-node@v3
+2024-05-25T21:23:52.3694443Z with:
+2024-05-25T21:23:52.3694726Z   node-version: 22.x
+2024-05-25T21:23:52.3695079Z   cache: npm
+2024-05-25T21:23:52.3695504Z   always-auth: false
+2024-05-25T21:23:52.3696045Z   check-latest: false
+2024-05-25T21:23:52.3696504Z   token: ***
+2024-05-25T21:23:52.3696942Z ##[endgroup]
+2024-05-25T21:23:53.0035453Z Attempting to download 22.x...
+2024-05-25T21:23:53.4398549Z Acquiring 22.2.0 - x64 from https://github.com/actions/node-versions/releases/download/22.2.0-9105861751/node-22.2.0-linux-x64.tar.gz
+2024-05-25T21:23:54.2279753Z Extracting ...
+2024-05-25T21:23:54.2410862Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword -C /home/runner/work/_temp/e09da095-a8f7-455f-9bf4-bd0b8d1b9e77 -f /home/runner/work/_temp/1ef901dc-b511-48b2-b6e5-1188bfb0989f
+2024-05-25T21:23:55.4071808Z Adding to the cache ...
+2024-05-25T21:23:57.4089609Z ##[group]Environment details
+2024-05-25T21:23:58.0734186Z node: v22.2.0
+2024-05-25T21:23:58.0735752Z npm: 10.7.0
+2024-05-25T21:23:58.0736816Z yarn: 1.22.22
+2024-05-25T21:23:58.0738197Z ##[endgroup]
+2024-05-25T21:23:58.0749064Z [command]/opt/hostedtoolcache/node/22.2.0/x64/bin/npm config get cache
+2024-05-25T21:23:58.1781707Z /home/runner/.npm
+2024-05-25T21:23:59.2395892Z Cache Size: ~21 MB (22239094 B)
+2024-05-25T21:23:59.2467482Z [command]/usr/bin/tar -xf /home/runner/work/_temp/90641e70-3b22-409a-956c-fefc2161456c/cache.tzst -P -C /home/runner/work/vdtweb-api/vdtweb-api --use-compress-program unzstd
+2024-05-25T21:23:59.4175621Z Cache restored successfully
+2024-05-25T21:23:59.4229988Z Cache restored from key: node-cache-Linux-npm-1c46490ea7e5628b6f54c22995fcba324d1bf608805535c4facc88363dfe201d
+2024-05-25T21:23:59.6185113Z Received 22239094 of 22239094 (100.0%), 21.2 MBs/sec
+2024-05-25T21:23:59.6354058Z ##[group]Run npm ci
+2024-05-25T21:23:59.6354489Z [36;1mnpm ci[0m
+2024-05-25T21:23:59.6431946Z shell: /usr/bin/bash -e {0}
+2024-05-25T21:23:59.6432500Z ##[endgroup]
+2024-05-25T21:24:01.3187080Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2024-05-25T21:24:03.5706424Z 
+2024-05-25T21:24:03.5707495Z added 442 packages, and audited 443 packages in 4s
+2024-05-25T21:24:03.5710703Z 
+2024-05-25T21:24:03.5714942Z 49 packages are looking for funding
+2024-05-25T21:24:03.5719398Z   run `npm fund` for details
+2024-05-25T21:24:03.5735681Z 
+2024-05-25T21:24:03.5736330Z found 0 vulnerabilities
+2024-05-25T21:24:03.6071358Z ##[group]Run npm run build --if-present
+2024-05-25T21:24:03.6072142Z [36;1mnpm run build --if-present[0m
+2024-05-25T21:24:03.6153415Z shell: /usr/bin/bash -e {0}
+2024-05-25T21:24:03.6153957Z ##[endgroup]
+2024-05-25T21:24:03.8088089Z ##[group]Run npm test
+2024-05-25T21:24:03.8088788Z [36;1mnpm test[0m
+2024-05-25T21:24:03.8166099Z shell: /usr/bin/bash -e {0}
+2024-05-25T21:24:03.8166663Z ##[endgroup]
+2024-05-25T21:24:03.9756759Z 
+2024-05-25T21:24:03.9758227Z > vdtweb-api@1.0.0 test
+2024-05-25T21:24:03.9759553Z > jest
+2024-05-25T21:24:03.9760387Z 
+2024-05-25T21:24:10.0540368Z PASS src/tests/student.test.ts (5.526 s)
+2024-05-25T21:24:10.0555459Z   Student Controller
+2024-05-25T21:24:10.0556712Z     GET /students
+2024-05-25T21:24:10.0558340Z       ✓ should return all students (21 ms)
+2024-05-25T21:24:10.0559720Z       ✓ should handle errors (3 ms)
+2024-05-25T21:24:10.0560728Z     GET /students/:id
+2024-05-25T21:24:10.0561753Z       ✓ should return a student by id (3 ms)
+2024-05-25T21:24:10.0563085Z       ✓ should handle errors (2 ms)
+2024-05-25T21:24:10.0564101Z     POST /students
+2024-05-25T21:24:10.0565090Z       ✓ should create a new student (9 ms)
+2024-05-25T21:24:10.0566648Z       ✓ should handle errors (2 ms)
+2024-05-25T21:24:10.0567634Z     PUT /students/:id
+2024-05-25T21:24:10.0568781Z       ✓ should update a student (3 ms)
+2024-05-25T21:24:10.0570030Z       ✓ should handle student not found (2 ms)
+2024-05-25T21:24:10.0571238Z       ✓ should handle errors (4 ms)
+2024-05-25T21:24:10.0572495Z     DELETE /students/:id
+2024-05-25T21:24:10.0573513Z       ✓ should delete a student (2 ms)
+2024-05-25T21:24:10.0574869Z       ✓ should handle student not found (1 ms)
+2024-05-25T21:24:10.0576533Z       ✓ should handle errors (2 ms)
+2024-05-25T21:24:10.0577212Z 
+2024-05-25T21:24:10.0585449Z Test Suites: 1 passed, 1 total
+2024-05-25T21:24:10.0586613Z Tests:       12 passed, 12 total
+2024-05-25T21:24:10.0587585Z Snapshots:   0 total
+2024-05-25T21:24:10.0588421Z Time:        5.587 s
+2024-05-25T21:24:10.0589428Z Ran all test suites.
+2024-05-25T21:24:10.1530416Z Post job cleanup.
+2024-05-25T21:24:10.3219814Z Cache hit occurred on the primary key node-cache-Linux-npm-1c46490ea7e5628b6f54c22995fcba324d1bf608805535c4facc88363dfe201d, not saving cache.
+2024-05-25T21:24:10.3890735Z Post job cleanup.
+2024-05-25T21:24:10.4886232Z [command]/usr/bin/git version
+2024-05-25T21:24:10.4941089Z git version 2.45.1
+2024-05-25T21:24:10.5031139Z Temporarily overriding HOME='/home/runner/work/_temp/cd8b601a-12be-4edb-b426-982b61057ef3' before making global git config changes
+2024-05-25T21:24:10.5033736Z Adding repository directory to the temporary git global config as a safe directory
+2024-05-25T21:24:10.5038796Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/vdtweb-api/vdtweb-api
+2024-05-25T21:24:10.5097404Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-05-25T21:24:10.5139723Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-05-25T21:24:10.5475059Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-05-25T21:24:10.5484944Z http.https://github.com/.extraheader
+2024-05-25T21:24:10.5510939Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2024-05-25T21:24:10.5569675Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-05-25T21:24:10.6289724Z Cleaning up orphan processes

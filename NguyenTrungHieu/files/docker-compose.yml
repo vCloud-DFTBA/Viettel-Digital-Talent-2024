@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  web:
+    image: hieubeo2369/web:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+  api:
+    image: hieubeo2369/api:latest
+    ports:
+      - 5003:5003
+    depends_on:
+      - db
+    environment:
+      MONGO_URL: mongodb://hieu:123@db:27017/vtsStudent
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: hieu
+      MONGO_INITDB_ROOT_PASSWORD: 123
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js

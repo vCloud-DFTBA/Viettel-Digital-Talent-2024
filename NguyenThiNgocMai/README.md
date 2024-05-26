@@ -28,17 +28,19 @@ Nguyễn Thị Ngọc Mai
 Sử dụng Docker và Docker Compose
 - Dockerfile cho dịch vụ Web: https://github.com/maintn24/vdtweb-app/blob/master/Dockerfile
 - Dockerfile cho dịch vụ API: https://github.com/maintn24/vdtweb-api/blob/master/Dockerfile
-- Dockerfile cho dịch vụ DB:
 - 
-- Output câu lệnh build: [build-output.txt](Docs%2Fbuild-output.txt)
+- Output câu lệnh build: <img src="./Images/build-output.png">
 - 
-- Docker history của web: [docker-history-web.txt](Docs%2Fdocker-history-web.txt)
-- Docker history của api: [docker-history-api.txt](Docs%2Fdocker-history-api.txt)
-- Docker history của db: 
+- Docker history của web: <img src="./Images/docker-history-web.png">
+- Docker history của api: <img src="./Images/docker-history-api.png">
+- Docker history của db: <img src="./Images/docker-history-mongodb.png">
+
+<img src="./Images/images.png">
+<img src="./Images/run-container.png">
 
 ### 2. Continuous Integration
 Sử dụng Github Action
-- File setup công cụ CI: https://github.com/maintn24/vdtweb-api/blob/master/.github/workflows/CI.Node.js.yml
+- File setup công cụ CI: https://github.com/maintn24/vdtweb-api/blob/master/.github/workflows/CI.yml
 - Output log của luồng CI: 
 - Hình ảnh demo:
   <img src="./Images/CI.png">

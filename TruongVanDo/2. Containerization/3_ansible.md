@@ -146,7 +146,7 @@ dbs:
       ansible_host: 198.19.249.129
 ```
 ### Các biến môi trường trong group_vars
-- Mặc dù các role đã có các giá trị mặc định của mình, tuy nhiên có thể custom lại giá trị của biến theo mục đích thông qua file `group_vars/all/all.yaml`. Nếu như file này để trông thì mặc định khi chạy các playbook thì sẽ nhận giá trị mặc định của roles. Dưới đây là nội dung của file.
+- Mặc dù các role đã có các giá trị mặc định của mình, tuy nhiên có thể custom lại giá trị của biến theo mục đích thông qua file `group_vars/all/all.yaml`. Nếu như file này để trống thì mặc định khi chạy các playbook thì sẽ nhận giá trị mặc định của roles. Dưới đây là nội dung của file.
 ```yaml
 ---
 env: default

@@ -47,10 +47,10 @@ CMD [ "dumb-init", "node", "index.js" ]
 
 #### Output thời gian build của image trên github action
 
-![](/Users/dotruong/Library/Application%20Support/marktext/images/2024-05-25-01-52-45-image.png)
+[![Screenshot-2024-05-26-at-03-22-48.png](https://i.postimg.cc/T3Sx9Cg4/Screenshot-2024-05-26-at-03-22-48.png)](https://postimg.cc/MnygZ0s7)
 
 #### Output thời gian build của image trên github action sau khi có cache repo
-
+[![Screenshot-2024-05-26-at-03-20-39.png](https://i.postimg.cc/k5VZgCVj/Screenshot-2024-05-26-at-03-20-39.png)](https://postimg.cc/4KgwWrQt)
 #### Hình ảnh image trên docker hub
 [![Screenshot-2024-05-26-at-00-49-28.png](https://i.postimg.cc/dVY2N511/Screenshot-2024-05-26-at-00-49-28.png)](https://postimg.cc/rKfRKC5X)
 ----------------------------
@@ -104,9 +104,8 @@ CMD ["nginx", "-g", "daemon off;"]
 [![Screenshot-2024-05-26-at-01-28-28.png](https://i.postimg.cc/9XJ3HPfF/Screenshot-2024-05-26-at-01-28-28.png)](https://postimg.cc/qghD83n9)
 #### Output cậu lệnh build `web image` trên môi trường máy ảo chưa `đã được` cache lại, chạy giả lập x64 trên kiến trúc arm
 [![Screenshot-2024-05-26-at-01-31-40.png](https://i.postimg.cc/j2sLw6VS/Screenshot-2024-05-26-at-01-31-40.png)](https://postimg.cc/bDBz4tN7)
-#### Output thời gian build của image trên github action
+#### Output thời gian build của web image trên github action
 
-![](/Users/dotruong/Library/Application%20Support/marktext/images/2024-05-25-01-52-45-image.png)
 
 #### Output thời gian build của image trên github action sau khi có cache repo
 

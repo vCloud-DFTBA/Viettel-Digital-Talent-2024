@@ -526,15 +526,22 @@ Khi tạo 1 PR thì code sẽ được chạy qua test trước khi được mer
 
 - Output log triển khai hệ thống
 <div align="center">
-  <img width="600" src="./assets/images/log1.png" >
+  <img width="600" src="./assets/images/log_a1.png" >
 </div>
 
 
 <div align="center">
-  <img width="600" src="./assets/images/log2.png" >
+  <img width="600" src="./assets/images/log_a2.png" >
 </div>
 
 
 <div align="center">
-  <img width="600" src="./assets/images/log3.png" >
+  <img width="600" src="./assets/images/log_a3.png" >
+</div>
+
+#### 4. Research topic: DevSecOps
+[DevSecOps](https://www.redhat.com/en/topics/devops/what-is-devsecops#:~:text=Red%20Hat's%20approach-,Overview,throughout%20the%20entire%20IT%20lifecycle.)
+
+<div align="center">
+  <img width="600" src="https://marvel-b1-cdn.bc0a.com/f00000000236551/dt-cdn.net/images/devsecops-image-2000-6557ba1b00.png" >
 </div>

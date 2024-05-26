@@ -26,7 +26,7 @@ Trong mã nguồn gồm các thư mục quan trọng sau:
 | Method   | URL                      | Description                                    |
 | -------- | ------------------------ | ---------------------------------------------- |
 | `GET`    | `/api/v1/users`          | Lấy danh sách users                            |
-|`GET`      | `api/v1/users?limit={limit}&page={page}` | Lấy danh sách users theo phân trong 
+|`GET`      | `api/v1/users?limit={limit}&page={page}` | Lấy danh sách users theo phân trang 
 | `POST`   | `/api/v1/posts`          | Tạo một user mới                               |
 | `GET`    | `/api/v1/users/{userID}` | Lấy thông tin của user có Id là {userID}       |
 | `PUT`  | `/api/v1/users/{userID}` | Cập nhật thông tin của user có id là {userId}. |

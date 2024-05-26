@@ -1,4 +1,4 @@
-# Bài tập lớp giữa kỳ Viettel Digital Talent 2024 
+# Bài tập lớn giữa kỳ Viettel Digital Talent 2024 
 Nguyễn Thị Ngọc Mai
 
 ## A. Phát triển một 3-tier web application đơn giản 

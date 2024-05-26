@@ -26,6 +26,7 @@ Trong mã nguồn gồm các thư mục quan trọng sau:
 | Method   | URL                      | Description                                    |
 | -------- | ------------------------ | ---------------------------------------------- |
 | `GET`    | `/api/v1/users`          | Lấy danh sách users                            |
+|`GET`      | `api/v1/users?limit={limit}&page={page}` | Lấy danh sách users theo phân trong 
 | `POST`   | `/api/v1/posts`          | Tạo một user mới                               |
 | `GET`    | `/api/v1/users/{userID}` | Lấy thông tin của user có Id là {userID}       |
 | `PUT`  | `/api/v1/users/{userID}` | Cập nhật thông tin của user có id là {userId}. |
@@ -120,6 +121,8 @@ describe('User APIs Testing...', () => {
   });
 });
 ```
+#### Kết quả khi chạy test
+[![Screenshot-2024-05-26-at-19-01-36.png](https://i.postimg.cc/sxHMTmX6/Screenshot-2024-05-26-at-19-01-36.png)](https://postimg.cc/FkcFRj03)
 ### Cách chạy thử image của ứng dụng
 Tạo một file `docker-compose.yaml` với nội dung dưới đây(thay thế các giá trị nằm trong dấu `< >` bằng giá trị của mình).
 ```yaml

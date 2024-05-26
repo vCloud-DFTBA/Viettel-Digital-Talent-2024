@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: vdt2024_db
+      MYSQL_USER: vdt2024_user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: flask_api
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://vdt2024_user:password@db/vdt2024_db
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  # frontend:
+  #   build:
+  #     context: ./web
+  #     dockerfile: Dockerfile
+  #   container_name: nginx_frontend
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - backend
+
+volumes:
+  db_data:

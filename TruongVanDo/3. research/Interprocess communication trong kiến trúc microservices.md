@@ -33,9 +33,9 @@
 - Với thông điệp dạng nhị phân thì [Protocol-Buffer](https://protobuf.dev), một định dạng được phát triển bởi google, là một trong những định dạng phổ biến nhất, dưới đây là Ví dụ về định nghĩa nghĩa một Proto được định nghĩa trong file .pro        ![Ví dụ về định nghĩa nghĩa một Proto được định nghĩa trong file .pro](attachs/Pasted%20image%2020240527021703.png "Ví dụ về định nghĩa nghĩa một Proto được định nghĩa trong file .pro")
 - Định dạng này là định dạng mặc định của giao thực gPRC hỗ trợ nhiều ngôn ngữ lập trình như C++, Java, Python, C# và Javascript. Các thuộc tính trong Protocol Buffer có một type code với giá trị riêng biệt. Bên nhận của protocol này khi nhận được thông điệp có thể lấy các trường nó cần và bỏ qua các trường nó không biết.
 # Giao tiếp bất đồng bộ, giao tiếp dựa trên thông điệp
-- Với cơ chế này, các dịch vụ giao tiếp với nhau thông qua trao đổi các thông điệp một cách không đồng bộ cho nhau. Các ứng dụng sử dụng cơ chế này thường sử dụng một thành phần gọi là message broker đóng vai trò như là một trạm chung chuyển giữa các services, cơ chế này gọi là kiến trúc brokerbased. Ngoài ra, còn một lựa chọn nữa cho kiểu giao tiếp dựa trên thông điệp này là kiến trúc "brokerless". Trong kiến trúc này, các services sẽ giao tiếp trực tiếp với nhau mà không thông qua một message broker.![](attachs/Pasted%20image%2020240527023021.png)	Kiến trúc brokerless và kiến trúc brokerbased
+- Với cơ chế này, các dịch vụ giao tiếp với nhau thông qua trao đổi các thông điệp không đồng bộ cho nhau. Các ứng dụng sử dụng cơ chế này thường sử dụng một thành phần gọi là message broker đóng vai trò như là một trạm chung chuyển giữa các services, cơ chế này gọi là kiến trúc broker-based. Ngoài ra, còn một lựa chọn nữa cho kiểu giao tiếp dựa trên thông điệp này là kiến trúc "brokerless". Trong kiến trúc này, các services sẽ giao tiếp trực tiếp với nhau mà không thông qua một message broker.![](attachs/Pasted%20image%2020240527023021.png)	Kiến trúc brokerless và kiến trúc broker-based
 ## Brokerless
-Trong kiến trúc Brokerless, các dịch vụ trao đổi thông điệp trực tiếp với nhau. [ZeroMQ](https://zeromq.org) là công nghệ nổi tiếng theo kiến trúc này.
+- Trong kiến trúc Brokerless, các dịch vụ trao đổi thông điệp trực tiếp với nhau. [ZeroMQ](https://zeromq.org) là công nghệ nổi tiếng theo kiến trúc này.
 - Kiến trúc này có một số lợi ích sau:
 	- Có độ trễ thấp hơn kiến trúc brokerbased do thông điệp được trao đổi trực tiếp với nhau mà không thông qua một message broker.
 	- Hạn chế được việc nếu chỉ có một message broker sẽ gây ra bottle neck dẫn đến "single point of failure".
@@ -43,7 +43,7 @@ Trong kiến trúc Brokerless, các dịch vụ trao đổi thông điệp trự
 - Ngoài ưu điểm trên thì kiến trúc này cũng có nhược điểm sau:
 	- Các service cần biết đến nhau dẫn dến phải sử thêm cơ chế Service discovery bên ngoài như server side discovery, client side discovery,... .
 	- Tính có sẵn có thể bị giảm do các services phải còn sống khi trao đổi thông điệp với nhau
-## Brokerbased
+## Broker-based
 - Message broker có thể coi là một trạm chung trung gian cho các service có thể tương tác với nhau. Bên gửi sẽ tạo một thông điệp và gửi đến message broker và message broker gửi đến cho bên nhận. Một lợi ích quan trọng có thể thấy của message broker là bên gửi không cần biết địa chỉ network của bên nhận. Một lợi ích nữa là message broker sẽ lưu lại thông điệp cho đến khi nó được xử lý.
 - Một số công nghệ message broker phổ biến hiện nay là [ActiveMQ](http://activemq.apache.org), [RabbitMQ](https://www.rabbitmq.com)và [Apache Kafka](https://kafka.apache.org).
 - Các thông điệp trong mesage broker được truyền trao đổi qua một channel. Có hai loại channel đó point-to-point và publish-subscribe.

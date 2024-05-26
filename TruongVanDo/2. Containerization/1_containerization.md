@@ -1,6 +1,8 @@
 # Containerization
 * Đường đẫn mã nguồn ứng dụng web: [Web](https://github.com/DoTruong1/vdt-frontend)
-* Đường dẫn dockerhub: [Dockerhub](https://hub.docker.com/repository/docker/dotruong1910/frontend/general)
+* Đường đẫn mã nguồn ứng dụng api: [api](https://github.com/DoTruong1/vdt-backend)
+* Đường dẫn dockerhub api: [Dockerhub](https://hub.docker.com/repository/docker/dotruong1910/backend/general)
+* Đường dẫn dockerhub web: [Dockerhub](https://hub.docker.com/repository/docker/dotruong1910/frontend/general)
 # Đóng gói ứng dụng api
 ### Nội dung Dockerfile
 
@@ -105,10 +107,10 @@ CMD ["nginx", "-g", "daemon off;"]
 #### Output cậu lệnh build `web image` trên môi trường máy ảo chưa `đã được` cache lại, chạy giả lập x64 trên kiến trúc arm
 [![Screenshot-2024-05-26-at-01-31-40.png](https://i.postimg.cc/j2sLw6VS/Screenshot-2024-05-26-at-01-31-40.png)](https://postimg.cc/bDBz4tN7)
 #### Output thời gian build của web image trên github action
-
+[![Screenshot-2024-05-26-at-19-19-31.png](https://i.postimg.cc/qqsJWGjX/Screenshot-2024-05-26-at-19-19-31.png)](https://postimg.cc/YLSBWQch)
 
 #### Output thời gian build của image trên github action sau khi có cache repo
-
+[![Screenshot-2024-05-26-at-19-26-55.png](https://i.postimg.cc/sfbGqV4w/Screenshot-2024-05-26-at-19-26-55.png)](https://postimg.cc/9ztfqHS7)
 #### Hình ảnh image trên docker hub
 [![Screenshot-2024-05-26-at-01-29-29.png](https://i.postimg.cc/mg3NKjbm/Screenshot-2024-05-26-at-01-29-29.png)](https://postimg.cc/4Yd99zHc)
 

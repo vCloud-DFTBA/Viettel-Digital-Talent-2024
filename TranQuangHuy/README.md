@@ -23,20 +23,20 @@
     - Database: MongoDB
 2. `Web` [`source code`](https://github.com/HenryTran1604/api-vdt)
     - Giao diện danh sách thành viên.
-    ![student_list](./images/webapp1.png)
+    ![student_list](./images/webapp/webapp1.png)
 
     - Giao diện thêm thành viên.
-    ![add_student1](./images/webapp2.png)
-    ![add_student2](./images/webapp_them.png)
+    ![add_student1](./images/webapp/webapp2.png)
+    ![add_student2](./images/webapp/webapp_them.png)
 
     - Giao diện cập nhật thành viên.
-    ![update_student1](./images/webapp3.png)
-    ![update_student2](./images/webapp_capnhat.png)
+    ![update_student1](./images/webapp/webapp3.png)
+    ![update_student2](./images/webapp/webapp_capnhat.png)
 
 
     - Giao diện xóa thành viên.
-    ![delete_student1](./images/webapp4.png)
-    ![delete_student2](./images/webapp5.png)
+    ![delete_student1](./images/webapp/webapp4.png)
+    ![delete_student2](./images/webapp/webapp5.png)
 3. `Back-end/API` [`source code`](https://github.com/HenryTran1604/web-vdt)
 4. `db` [`source`](https://github.com/HenryTran1604/db-vdt)
 5. Unittest cho `APIs`
@@ -69,18 +69,18 @@ class AppTestCase(unittest.TestCase):
         self.client = app.test_client()
 
     def test_get_all_students(self):
-        response = self.client.get('/')
+        response = self.client.get('/api/list')
         self.assertEqual(response.status_code, 200)
 
     def test_add_student(self):
-        response = self.client.post('/add', json=data)
+        response = self.client.post('/api/add', json=data)
         self.assertEqual(response.status_code, 200)
 
     def test_get_student(self):
         # thêm sv vào db
-        response = self.client.post('/add', json=data)
+        response = self.client.post('/api/add', json=data)
         _id = response.get_json()['_id']
-        response = self.client.get(f'/detail/{_id}')
+        response = self.client.get(f'/api/detail/{_id}')
         response_student = response.get_json()
         response_student['_id'] = '' # không quan tâm id
         self.assertEqual(response.status_code, 200)
@@ -89,10 +89,10 @@ class AppTestCase(unittest.TestCase):
     def test_update_student(self):
         # thêm một student vào db
         # response trả về student đó
-        response = self.client.post('/add', json=data)
+        response = self.client.post('/api/add', json=data)
         _id = response.get_json()['_id']
         # cập nhật lại student với _id của student vừa thêm
-        response = self.client.post(f'/update/{_id}', json=updated_data)
+        response = self.client.post(f'/api/update/{_id}', json=updated_data)
         updated_data['_id'] = _id # cập nhật lại id
         # print(response.get_json())
         self.assertEqual(response.status_code, 200)
@@ -101,9 +101,9 @@ class AppTestCase(unittest.TestCase):
     def test_delete_student(self):
         # thêm một student vào db
         # response trả về student đó
-        response = self.client.post('/add', json=data)
+        response = self.client.post('/api/add', json=data)
         _id = response.get_json()['_id']
-        response = self.client.post(f'/delete/{_id}')
+        response = self.client.post(f'/api/delete/{_id}')
         self.assertEqual(response.status_code, 200)
 
 if __name__ == "__main__":
@@ -219,6 +219,101 @@ jobs:
       run: |
         python test.py
 ```
+- Output log của luồng CI: [here](https://github.com/HenryTran1604/api-vdt/actions/runs/9220721867/job/25368285647)
+- Luồng khi thực hiện CI thành công:
+
+![ci_success](./images/ci/log.png)
+![ci_success](./images/ci/log_2.png)
+
+- Thông báo khi CI thất bại:
+
+![ci_success](./images/ci/fail.png)
+## III.	Automation (1.5đ)
+#### Yêu cầu:
+- Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role .
+- Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables.
+- Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory.
+
+#### Output:
+- Link github source code của ansible playbooks
+
+### Kết quả đạt được [source](https://github.com/HenryTran1604/ansible-vdt)
+1. Cấu trúc thư mục
+```
+.
+├── inventory.yml
+├── ansible.cfg
+├── setup.yml
+└── roles
+    ├── common
+    │   ├── tasks
+    │   │   └── main.yml
+    │   └── vars
+    │       └── main.yml
+    ├── api
+    │   ├── tasks
+    │   │   └── main.yml
+    │   └── vars
+    │       └── main.yml
+    ├── db
+    │   ├── tasks
+    │   │   └── main.yml
+    │   └── vars
+    │       └── main.yml
+    └── web
+        ├── tasks
+        │   └── main.yml
+        └── vars
+            └── main.yml
+```
+- Trong đó:
+  - `inventory.yml`: chứa thông tin về các hosts trong mạng.
+  - `ansible.cfg`: chứa thông tin về cấu hình ansible, bao gồm thông tin về `inventory`, `private-key`.
+  - `setup.yml`: là `ansible-playbook` cho biết ansible sẽ thực hiện quản lý và cài đặt ở những roles nào.
+  - `roles`: Thư mục chứa thông tin về các dịch vụ:
+    - `api`: dịch vụ API
+    - `db`: dịch vụ database
+    - `web`: dịch vụ web
+    - `common`: Chứa thông tin cài đặt về môi trường để chạy: `python`, `docker`, `pip`, `docker-repository` và cài đặt network.
+
+- file `setup.yml`:
+```yml
+---
+- name: Setup OS enviroment
+  hosts: all
+  become: true
+  gather_facts: false
+  roles:
+    - common
+    - db
+    - api
+    - web
+```
+2. Cách tiến hành
+- `cd ./ansible`
+- `ansible-playbook -i inventory.yml setup.yml`
+- Log khi chạy ansible:
+
+![log_ansible_1](./images/ansible/log-1.png)
+![log_ansible_1](./images/ansible/log-2.png)
+![log_ansible_1](./images/ansible/log-3.png)
+- Sau khi triển khai, các images và container được tự động cấu hình trên các host
+
+host1
+  ![log_images_1](./images/ansible/log-4-vm1.png)
+
+host2
+  ![log_images_1](./images/ansible/log-4-vm2.png)
+- Truy cập vào các dịch vụ đã được triển khai trên từng hosts
+
+host1
+  ![log_images_1](./images/ansible/log-5-vm1.png)
+
+host2
+  ![log_images_1](./images/ansible/log-5-vm2.png)
+
+
+
 
 
 

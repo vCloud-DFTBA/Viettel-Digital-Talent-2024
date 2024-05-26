@@ -10,6 +10,7 @@
 - `PUT /users/{id}`: Update User
 - `DELETE /users/{id}`: Delete User
 </br>
+
 ![alt text](image/image.png)
 
 #### Unit Test
@@ -27,6 +28,7 @@
 
 1. <b>Containerization</b>
 </br>
+
 File Dockerfile cho từng dịch vụ:
 - [web](https://github.com/realhugn/VDT_project/tree/main/web/Dockerfile)
 - [db](https://github.com/realhugn/VDT_project/tree/main/db/Dockerfile)

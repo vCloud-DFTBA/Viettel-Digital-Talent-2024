@@ -1,5 +1,5 @@
 # Phát triển một 3-tier web application đơn giản
-* Đường đẫn mã nguồn ứng dụng: [Web](https://github.com/DoTruong1/vdt-frontend)
+* Đường dẫn mã nguồn ứng dụng: [Web](https://github.com/DoTruong1/vdt-frontend)
 * Đường dẫn dockerhub: [Dockerhub](https://hub.docker.com/repository/docker/dotruong1910/frontend/general)
 ## Web Application
 ### Mô tả chung về ứng dụng api

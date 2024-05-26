@@ -167,3 +167,15 @@ Sau đó tại thư mục chứa file `docker-compose.yaml` chạy lệnh sau
 docker compose up
 ```
 ### Kết quả thu được thông qua postman
+#### Lấy tất cả thông tin
+[![Screenshot-2024-05-26-at-18-49-52.png](https://i.postimg.cc/sf6GjH2v/Screenshot-2024-05-26-at-18-49-52.png)](https://postimg.cc/4ncxw5Vg)
+#### Lây theo phân trang
+[![Screenshot-2024-05-26-at-18-50-55.png](https://i.postimg.cc/QdXMcpCR/Screenshot-2024-05-26-at-18-50-55.png)](https://postimg.cc/BXVs0Pxg)
+#### Lấy thông tin theo id người dùng
+[![Screenshot-2024-05-26-at-18-52-28.png](https://i.postimg.cc/m2V4fKZ5/Screenshot-2024-05-26-at-18-52-28.png)](https://postimg.cc/rKd35nr1)
+#### Tạo người dùng
+[![Screenshot-2024-05-26-at-18-54-45.png](https://i.postimg.cc/D08rv9kP/Screenshot-2024-05-26-at-18-54-45.png)](https://postimg.cc/QKZ9SnMF)
+#### Cập nhật thông tin người dùng
+[![Screenshot-2024-05-26-at-18-56-26.png](https://i.postimg.cc/tRxNYVs3/Screenshot-2024-05-26-at-18-56-26.png)](https://postimg.cc/HjTyNn4n)
+#### Xoá người dùng
+[![Screenshot-2024-05-26-at-18-57-32.png](https://i.postimg.cc/vHXgBQt7/Screenshot-2024-05-26-at-18-57-32.png)](https://postimg.cc/GH8hgnN9)

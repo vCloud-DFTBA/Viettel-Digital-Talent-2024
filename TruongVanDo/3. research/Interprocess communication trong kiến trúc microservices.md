@@ -36,29 +36,29 @@
 - Với cơ chế này, các dịch vụ giao tiếp với nhau thông qua trao đổi các thông điệp một cách không đồng bộ cho nhau. Các ứng dụng sử dụng cơ chế này thường sử dụng một thành phần gọi là message broker đóng vai trò như là một trạm chung chuyển giữa các services, cơ chế này gọi là kiến trúc brokerbased. Ngoài ra, còn một lựa chọn nữa cho kiểu giao tiếp dựa trên thông điệp này là kiến trúc "brokerless". Trong kiến trúc này, các services sẽ giao tiếp trực tiếp với nhau mà không thông qua một message broker.![](attachs/Pasted%20image%2020240527023021.png)	Kiến trúc brokerless và kiến trúc brokerbased
 ## Brokerless
 Trong kiến trúc Brokerless, các dịch vụ trao đổi thông điệp trực tiếp với nhau. [ZeroMQ](https://zeromq.org) là công nghệ nổi tiếng theo kiến trúc này.
-Kiến trúc này có một số lợi ích sau:
-- Có độ trễ thấp hơn kiến trúc brokerbased do thông điệp được trao đổi trực tiếp với nhau mà không thông qua một message broker.
-- Hạn chế được việc nếu chỉ có một message broker sẽ gây ra bottle neck dẫn đến "single point of failure".
-- Giảm độ phức tạp khi vận hành bởi khi không phải cài đặt và maintain một message broker khác
-Ngoài ưu điểm trên thì kiến trúc này cũng có nhược điểm sau:
-- Các service cần biết đến nhau dẫn dến phải sử thêm cơ chế Service discovery bên ngoài như server side discovery, client side discovery,... .
-- Tính có sẵn có thể bị giảm do các services phải còn sống khi trao đổi thông điệp với nhau
+- Kiến trúc này có một số lợi ích sau:
+	- Có độ trễ thấp hơn kiến trúc brokerbased do thông điệp được trao đổi trực tiếp với nhau mà không thông qua một message broker.
+	- Hạn chế được việc nếu chỉ có một message broker sẽ gây ra bottle neck dẫn đến "single point of failure".
+	- Giảm độ phức tạp khi vận hành bởi khi không phải cài đặt và maintain một message broker khác
+- Ngoài ưu điểm trên thì kiến trúc này cũng có nhược điểm sau:
+	- Các service cần biết đến nhau dẫn dến phải sử thêm cơ chế Service discovery bên ngoài như server side discovery, client side discovery,... .
+	- Tính có sẵn có thể bị giảm do các services phải còn sống khi trao đổi thông điệp với nhau
 ## Brokerbased
 - Message broker có thể coi là một trạm chung trung gian cho các service có thể tương tác với nhau. Bên gửi sẽ tạo một thông điệp và gửi đến message broker và message broker gửi đến cho bên nhận. Một lợi ích quan trọng có thể thấy của message broker là bên gửi không cần biết địa chỉ network của bên nhận. Một lợi ích nữa là message broker sẽ lưu lại thông điệp cho đến khi nó được xử lý.
-Một số công nghệ message broker phổ biến hiện nay là [ActiveMQ](http://activemq.apache.org), [RabbitMQ](https://www.rabbitmq.com)và [Apache Kafka](https://kafka.apache.org).
+- Một số công nghệ message broker phổ biến hiện nay là [ActiveMQ](http://activemq.apache.org), [RabbitMQ](https://www.rabbitmq.com)và [Apache Kafka](https://kafka.apache.org).
 - Các thông điệp trong mesage broker được truyền trao đổi qua một channel. Có hai loại channel đó point-to-point và publish-subscribe.
 	- Point-to-point: Khi có thông điệp trao đổi thì kênh này sẽ chuyển thông điệp này đến chính xác consumer. Trong microservice chúng ta có thể dùng kiểu này cho giao tiếp single receiver đã đề cập ở trên
 	- publish-subscribe: kênh sẽ chuyển thông điệp đến tất cả các consumers gắn với thông điệp đó. Loại này thường được sử dụng cho giao tiếp multiple receiver.
 Các message broker đều có hướng cài đặt các kênh này khác nhau, dươi đây là bảng so sánh:![](attachs/Pasted%20image%2020240527030127.png)
 
-Các lợi ích khi sử dụng kiến trúc này:
-- Giúp các thành phần trong ứng dụng louse coupling với nhau
-- Message buffering: như đã đề cập ở trên thì các message sẽ được lưu lại trên message broker cho đến khi nó được xử lý.
-- Linh hoạt trong việc trao đổi giữa các dịch vụ với nhau.
-Các bất lợi:
-- Có thể gặp hiện tượng nghẽn cổ chai.
-- single point of failure
-- Thêm độ phức tạp khi vận hành
+- Các lợi ích khi sử dụng kiến trúc này:
+	- Giúp các thành phần trong ứng dụng louse coupling với nhau
+	- Message buffering: như đã đề cập ở trên thì các message sẽ được lưu lại trên message broker cho đến khi nó được xử lý.
+	- Linh hoạt trong việc trao đổi giữa các dịch vụ với nhau.
+- Các bất lợi:
+	- Có thể gặp hiện tượng nghẽn cổ chai.
+	- single point of failure
+	- Thêm độ phức tạp khi vận hành
 # Giao tiếp đồng bộ, giao tiếp dựa trên cơ chế request/respone
 - Với cơ chế này thì client sẽ gửi các yêu cầu (request) đến dịch vụ và chờ phản hồi từ dịch vụ. Một số client sẻ sử dụng cơ chế blocking một số thì không nhưng điểm chung là chúng đều cho rằng chúng sẽ nhận lại phản hồi trong một khoảng thời gian nào đấy.
 - Các kiểu được sử dụng phổ biến trong cơ chế này là RESTs API, GRPC và Service discovery.
@@ -75,4 +75,5 @@ Các bất lợi:
 - Thay vì client sẽ query đến service registry và tự chọn địa chỉ IP thì client sẽ gửi request với địa chỉ DNS của request router, sau đó request router sẽ query đến service registry và load balancer request.
 ![](attachs/Pasted%20image%2020240527034313.png)
 # Tổng kết
-- Các microservice cần giao tiếp với nhau bằng phương thức giao tiếp giữa các tiến trình (IPC). Khi thiết kế cách thức các dịch vụ chúng ta cân nhắc nhiều vấn đề khác nhau: cách các dịch vụ tương tác, cách xác định API cho mỗi dịch vụ,. Có hai loại cơ chế IPC mà microservice có thể sử dụng: bất đồng bộ, dựa trên thông điệp và yêu cầu/phản hồi đồng bộ. Hi vọng với phần tìm hiểu này, em sẽ có thêm kiến thức để phát triển các sản phẩm sử dụng kiến trúc microservice sau này. Em cảm ơn các mentor đã đồng hành và giúp đỡ em trong thời gian vừa qua.
+- Các microservice cần giao tiếp với nhau bằng phương thức giao tiếp giữa các tiến trình (IPC). Khi thiết kế cách thức các dịch vụ chúng ta cân nhắc nhiều vấn đề khác nhau: cách các dịch vụ tương tác, cách xác định API cho mỗi dịch vụ,. Có hai loại cơ chế IPC mà microservice có thể sử dụng: bất đồng bộ, dựa trên thông điệp và yêu cầu/phản hồi đồng bộ.
+- Hi vọng với phần tìm hiểu này, em sẽ có thêm kiến thức để phát triển các sản phẩm sử dụng kiến trúc microservice sau này. Em cảm ơn các mentor đã đồng hành và giúp đỡ em trong thời gian vừa qua.

@@ -26,7 +26,7 @@ services:
     environment:
     -  APP_API_URL=<Địa chỉ api ứng dụng>
     ports:
-    - <Cổng expose api>:80
+    - <Cổng expose ứng dụng web>:80
 ```
 Sau đó tại thư mục chứa file `docker-compose.yaml` chạy lệnh sau
 ```bash

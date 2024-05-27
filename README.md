@@ -24,11 +24,11 @@
   - [Dockerfile cho backend:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/Dockerfile)
      - Ở đây, với Dockerfile của backend-api đã sử dụng kĩ thuật multi-stage chia bước build và run --> giúp giảm kích thước của image cuối cùng và giữ lại chỉ những thành phần cần thiết để chạy ứng dụng.
        <img width="523" alt="Screenshot 2024-05-27 at 22 16 56" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/dd8a2ff9-843f-4264-a883-0f724c5c2a07">
-  - [Dockerfile cho frontend:](https://github.com/ngodanghuy162/vdt-front/blob/main/Dockerfile)
+  - [Dockerfile cho frontend:](https://github.com/ngodanghuy162/vdt-front/blob/main/Dockerfile)            
            <img width="454" alt="Screenshot 2024-05-23 at 16 14 08" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9e70e722-ffff-4dd6-9668-3f7631a94090">
- - [Dockerfile cho database:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/dtb/Dockerfile)
+ - [Dockerfile cho database:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/dtb/Dockerfile)          
            <img width="330" alt="Screenshot 2024-05-27 at 22 16 40" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c798572e-1ddd-46f4-b2e4-5020ca5b9611">
- - [Docker compose:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/compose.yaml)
+ - [Docker compose:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/compose.yaml)                       
             <img width="438" alt="Screenshot 2024-05-27 at 22 18 59" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4546b905-88b7-433b-917d-fc2917256e7c">
         --> em chỉ dùng docker compose ở bước ban đầu chạy 3 container 1 lúc, sau khi deploy lên nhiều host em không dùng docker compose nữa.
  - Images history             
@@ -46,7 +46,7 @@
 <img width="1050" alt="Screenshot 2024-05-24 at 09 41 51" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/f4f5b13b-dee3-4869-9c4c-befab4d66017">
 <img width="1142" alt="Screenshot 2024-05-24 at 09 59 03" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/50354bff-4291-4528-9cf2-e65b2a489988">
 
-# CD Tự động push images lên docker hub khi có tag mới
+#CD Tự động push images lên docker hub khi có tag mới                  
 - [File CD Front-end:](https://github.com/ngodanghuy162/vdt-front/blob/main/.github/workflows/CD.yml)
 - [File CD Back-end:](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
 <img width="1438" alt="Screenshot 2024-05-24 at 18 01 29" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c0b094af-b8af-4530-8c20-88e83f89bb34">

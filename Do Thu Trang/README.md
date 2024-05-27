@@ -173,3 +173,5 @@ Lịch sử chạy CI : [CI History](https://github.com/Do-Trang/api/actions)
 
     ![alt](./image/ansible.png)
 
+### Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học
+# Report: [report](https://docs.google.com/document/d/1fBfgRiH0I7oR0PM1Og8tGDKLOAA6GRnaUN7tQpu70Hw/edit)

@@ -10,9 +10,9 @@
 <img width="1464" alt="Screenshot 2024-05-27 at 21 58 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b3de8a17-612e-4f2e-b3a2-e2f646f8652f">
 
  - Mã nguồn của từng dịch vụ:
-   [i.Web](https://github.com/ngodanghuy162/vdt-front) 
-   [ii.API](https://github.com/ngodanghuy162/vdt-back/tree/main/back)
-   [iii.Database](https://github.com/ngodanghuy162/vdt-back/tree/main/back/dtb)
+   [i.Web](https://github.com/ngodanghuy162/vdt-front)  
+   [ii.API](https://github.com/ngodanghuy162/vdt-back/tree/main/back) 
+   [iii.Database](https://github.com/ngodanghuy162/vdt-back/tree/main/back/dtb) 
    - Tất cả Dockerfile, file CD đều nằm trong các repo.
    - [File chứa unit test cho các api](https://github.com/ngodanghuy162/vdt-back/blob/main/back/src/test/java/appbackend/back/service/UserServiceTest.java) : Có 9 unit test với các trường hợp thành công, thất bại cho mỗi Case của API.
 ## Triển khai web application sử dụng các DevOps tools & practices (5đ)
@@ -75,4 +75,4 @@ Tự động chạy unit test khi push commit lên một branch (1đ)
 - Sử dụng vault để mã hóa các mật khẩu.
 
 #  4. Viết về 1 chủ đề chuyên sâu:
-[Link báo cáo:](https://docs.google.com/document/d/1d8KX6el_ChEPDU77t-f6Bkc8lnYHihWJPAxc4XXedO4/edit?usp=sharing)
+[Link báo cáo](https://docs.google.com/document/d/1d8KX6el_ChEPDU77t-f6Bkc8lnYHihWJPAxc4XXedO4/edit?usp=sharing)

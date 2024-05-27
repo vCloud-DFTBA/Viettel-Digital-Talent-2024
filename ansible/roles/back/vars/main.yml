@@ -5,5 +5,5 @@ api_port: 8080
 db_host: 192.168.1.107
 db_port: 3306
 db_name: backend_db
-db_user: user
+db_user: root
 db_password: "123456"

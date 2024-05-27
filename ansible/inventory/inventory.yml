@@ -3,7 +3,7 @@
 all:
   hosts:
     front:
-      ansible_host: 192.168.1.72
+      ansible_host: 192.168.1.8
       ansible_user: huyngo
       ansible_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256

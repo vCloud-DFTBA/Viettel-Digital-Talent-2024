@@ -1,6 +1,6 @@
 ---
 db_image_name: ngodanghuy162/midterm
-db_image_tag: dtb_image
+db_image_tag: data_img
 db_port: 3306
 db_user: user
 db_root_password: "123456"

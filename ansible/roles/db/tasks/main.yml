@@ -1,12 +1,12 @@
 ---
-- name: Ensure volume exits
-  file:
-    path: "{{ db_data_volume_path }}"
-    state: directory
-    owner: root
-    group: root
-    mode: '0755'
-  become: yes
+# - name: Ensure volume exits
+#   file:
+#     path: "{{ db_data_volume_path }}"
+#     state: directory
+#     owner: root
+#     group: root
+#     mode: '0755'
+#   become: yes
 
 - name: Pull dtb image
   docker_image:
@@ -16,7 +16,7 @@
 
 - name: Run dtb container
   docker_container:
-    name: dtb_container
+    name: database_container
     image: "{{ db_image_name }}:{{ db_image_tag }}"
     ports:
       - "{{ db_port }}:3306"

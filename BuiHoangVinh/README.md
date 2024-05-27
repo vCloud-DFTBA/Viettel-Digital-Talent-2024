@@ -108,7 +108,7 @@ Docker compose: https://github.com/Vinh1507/vdt-ci/blob/main/jenkins/docker-comp
 #### File setup CI cho API service: https://github.com/Vinh1507/vdt-api/blob/main/Jenkinsfile
 
 #### Output log của luồng CI
-#### [Log triển khai Jenkins CI](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/jenkins-pipeline-log.txt)
+[Log triển khai Jenkins CI](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/jenkins-pipeline-log.txt)
 - stage Checkout SCM:
 ![alt text](./images/ci/ci_checkout_scm.png)
 - stage Checkout Git
@@ -150,7 +150,7 @@ Cấu trúc thư mục của ansible:
 ![alt text](./images/automation/cd_ansible_tree.png)
 
 #### Quá trình triển khai:
-#### [Log triển khai ansible playbook](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/ansible-log.txt)
+[Log triển khai ansible playbook](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/ansible-log.txt)
 - Sử dụng docker image đã được push lên dockerhub để tiển hành triển khai vào các VM
 - Sử dụng 1 role: common, triển khai các công cụ cần thiết trên các VM như docker, docker compose
 - Triển khai các dịch vụ trên các host khác nhau và được cấu hình trong file inventory.ini

@@ -38,6 +38,8 @@ Lê Minh Hương
 - Xóa sinh viên
   ![alt](./assets/delete.png)
 
+- Test case: https://github.com/lmhuong711/go-go-go/blob/main/go-go-be/tests/routes_test.go
+
 ## 2.Triển khai web application sử dụng các DevOps tools & practices
 
 ### 2.1. Containerization

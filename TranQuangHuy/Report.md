@@ -366,7 +366,7 @@ $ cat .git/refs/tags/v1.0
 
 - Với các `commit`, `tree` và `blobs` cũng như sử dụng các hash key làm con trỏ, Git xây dựng hệ thống phân cấp dữ liệu của dự án một cách hiệu quả và không trùng lặp nội dung.
 
-- Tâm trí con người không dễ dàng ghi nhớ các khóa băm và đó là lý do tại sao Git cung cấp một cách ghi nhớ băm thân thiện hơn: Các tài liệu tham khảo. Chúng tôi có các `branch`, `HEAD` và `tag`.
+- Con người không dễ dàng ghi nhớ các hash key và đó là lý do tại sao Git cung cấp một cách ghi nhớ hash key đó thân thiện hơn thông qua `refs`
 
 - Nhánh là một con trỏ tới một `commit`. Tên nhánh mặc định trong Git là `master`, nhưng bạn có thể tạo bao nhiêu nhánh tùy thích. Tham chiếu `HEAD` cho chúng ta biết chúng ta đang làm việc ở nhánh nào. Mỗi khi bạn tạo một `commit` mới, con trỏ nhánh sẽ tự động di chuyển về phía trước.
 

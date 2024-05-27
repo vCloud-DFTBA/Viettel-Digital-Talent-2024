@@ -3,7 +3,16 @@
 Lê Minh Hương
 
 # TOC
-{:toc}
+
+- [Project giữa kỳ Viettel Digital Talent 2024](#project-giữa-kỳ-viettel-digital-talent-2024)
+- [TOC](#toc)
+  - [1. Phát triển một 3-tier web application đơn giản](#1-phát-triển-một-3-tier-web-application-đơn-giản)
+  - [2.Triển khai web application sử dụng các DevOps tools \& practices](#2triển-khai-web-application-sử-dụng-các-devops-tools--practices)
+    - [2.1. Containerization](#21-containerization)
+    - [2.2. Continuous Integration](#22-continuous-integration)
+  - [3. Automation](#3-automation)
+  - [4. Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học (2đ)](#4-nghiên-cứu-sâu-về-một-vấn-đề-khái-niệm-trong-các-chủ-đề-đã-được-học-2đ)
+
 
 ## 1. Phát triển một 3-tier web application đơn giản
 
@@ -65,8 +74,11 @@ Lê Minh Hương
   Lịch sử chạy CI : (https://github.com/lmhuong711/go-go-go/actions)
 
 - Output log của luồng CI
-  ![alt](https://github.com/lmhuong711/go-go-go/actions/runs/9234992385/job/25409319473)
-  ![alt](https://github.com/lmhuong711/go-go-go/actions/runs/9234992384/job/25409319471)
+  
+  (https://github.com/lmhuong711/go-go-go/actions/runs/9234992385/job/25409319473)
+  
+  (https://github.com/lmhuong711/go-go-go/actions/runs/9234992384/job/25409319471)
+
 - Ảnh demo
   ![alt](./assets/ci-cd-1.png)
   ![alt](./assets/ci-cd-2.png)
@@ -74,7 +86,7 @@ Lê Minh Hương
 
 ## 3. Automation
 
-### Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role
+`Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role`
 
 Ví dụ triển khai hệ thống với Ansible + Vagrant: Triển khai lên 2 máy ảo go_go_1 và go_go_2
 
@@ -99,4 +111,4 @@ Ví dụ triển khai hệ thống với Ansible + Vagrant: Triển khai lên 2 
 
 ## 4. Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học (2đ)
 
-[report](./Prometheus-Kubernetes.pdf)
+- [Prometheus-Kubernetes.pdf](./Prometheus-Kubernetes.pdf)

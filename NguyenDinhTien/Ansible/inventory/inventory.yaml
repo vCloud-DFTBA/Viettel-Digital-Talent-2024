@@ -1,0 +1,13 @@
+allhosts:
+  hosts:
+    localhost:
+      ansible_host: 192.168.1.11
+      ansible_become_user: root
+      ansible_become_password: 12345
+    
+    host2: 
+      ansible_host: 192.168.122.154
+      ansible_user: root
+      ansible_become_password: 1
+      ansible_sudo_pass: 1
+

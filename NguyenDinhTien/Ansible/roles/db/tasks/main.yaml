@@ -1,0 +1,28 @@
+- name: Create Database folder
+  ansible.builtin.file:
+    path: /etc/mongodata
+    state: directory
+    mode: '0755'
+
+
+- name: Copy Data to Database
+  ansible.builtin.copy:
+    src: files/students.json
+    dest: /etc/mongodata
+    mode: '0644'
+
+- name: deploy Database Container
+  docker_container:
+    name: database
+    image: mongo:5.0.17
+    hostname: mongodatabase
+    restart_policy: unless-stopped
+    volumes:
+      - /etc/mongodata:/data/db
+    ports:
+      - "27017:27017"
+    network_mode: bridge
+
+- name: Import database to container
+  shell: |
+    docker exec database mongoimport --db VDT24 --collection attendees --jsonArray --file data/db/students.json

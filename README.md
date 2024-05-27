@@ -3,17 +3,17 @@
 # Bài tập giữa kỳ:
 
 ## I.Phát triển một 3-tier web application đơn giản (3đ)
-<img width="1289" alt="Screenshot 2024-05-23 at 15 36 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ff72d5a1-78cc-4a97-8989-96c0a9d30dd6">
+<img width="1478" alt="Screenshot 2024-05-27 at 21 45 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ca800ce8-d05c-4ef5-87af-3a32792a55ba">
 <img width="1369" alt="Screenshot 2024-05-23 at 16 16 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/395e2dea-d74c-4f75-a7c4-30c3079151d7">
 <img width="1417" alt="Screenshot 2024-05-23 at 16 17 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ee4b79eb-8559-4352-bd24-046b787f6bd5">
 <img width="1457" alt="Screenshot 2024-05-27 at 21 36 18" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/eb8fbb0c-f4f6-40fe-80d2-d82253879b46">
 
  - Mã nguồn của từng dịch vụ:
-           [i.Web](https://github.com/ngodanghuy162/vdt-front/tree/main)
-           [ii.API](https://github.com/ngodanghuy162/vdt-back)
-                    - [File chứa unit test cho các api](https://github.com/ngodanghuy162/vdt-back/blob/main/back/src/test/java/appbackend/back/service/UserServiceTest.java)
-           [iii.Database]()      
-    ->> Dockerfile nằm trong các mục này luôn.
+   [i.Web](https://github.com/ngodanghuy162/vdt-front/tree/main)
+   [ii.API](https://github.com/ngodanghuy162/vdt-back)
+   - [File chứa unit test cho các api](https://github.com/ngodanghuy162/vdt-back/blob/main/back/src/test/java/appbackend/back/service/UserServiceTest.java)
+   [iii.Database]()      
+   ->> Dockerfile nằm trong các mục này luôn.
    --> Docker compose em dùng ở bước 1, xong khi dùng ansible deploy các host khác nhau em không dùng nữa.
 ## Triển khai web application sử dụng các DevOps tools & practices (5đ)
 # 1. Containerization(2d)
@@ -49,6 +49,8 @@
 <img width="1438" alt="Screenshot 2024-05-24 at 18 01 29" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c0b094af-b8af-4530-8c20-88e83f89bb34">
 <img width="1418" alt="Screenshot 2024-05-24 at 18 02 12" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fea415e7-c8ec-4e9a-a8ce-c350980db21f">
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4f445165-7393-4687-bbad-a8a57ee7585c)
+<img width="1256" alt="Screenshot 2024-05-27 at 21 50 18" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/bb1d477c-216e-48db-b10b-5859dcbb8a67">
+
 <img width="1027" alt="Screenshot 2024-05-27 at 21 30 23" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c6e0f0a9-ba60-497a-b08b-af4e0f2e235e">
 <img width="1119" alt="Screenshot 2024-05-27 at 21 30 43" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8b520902-e1af-476a-a0ac-0f471cf4eb92">
 

@@ -144,6 +144,7 @@ Triển khai các dịch vụ trên 5 VM khác nhau, trong đó:
 - File cấu hình load balancer HA Proxy: https://github.com/Vinh1507/vdt-automation/blob/main/roles/vdt_lb/files/haproxy.cfg
 
 ![alt text](./images/automation/deploy_architecture.png)
+![alt text](./images/automation/deploy_architecture.png)
 
 Cấu trúc thư mục của ansible:
 

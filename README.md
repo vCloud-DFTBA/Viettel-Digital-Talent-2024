@@ -21,6 +21,9 @@ Hệ thống được thiết kế với ba dịch vụ sử dụng các công n
 - **Trang sửa:**\
   ![Trang sửa](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/829109ae-ff35-4d8f-83ea-033943b6e050)
 
+### Unit test:
+  ![image](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/f2304d37-4911-4133-9d1c-9ac9250aa45a)
+
 ### Source code:
 - [API Repository](https://github.com/ligmaDbolzz/vdt_mid_BE)
 - [Web Repository](https://github.com/ligmaDbolzz/vdt_mid_FE/tree/main/student-web)

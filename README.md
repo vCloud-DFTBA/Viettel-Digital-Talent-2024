@@ -7,28 +7,27 @@
 <img width="1369" alt="Screenshot 2024-05-23 at 16 16 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/395e2dea-d74c-4f75-a7c4-30c3079151d7">
 <img width="1417" alt="Screenshot 2024-05-23 at 16 17 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ee4b79eb-8559-4352-bd24-046b787f6bd5">
 <img width="1457" alt="Screenshot 2024-05-27 at 21 36 18" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/eb8fbb0c-f4f6-40fe-80d2-d82253879b46">
+<img width="1464" alt="Screenshot 2024-05-27 at 21 58 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b3de8a17-612e-4f2e-b3a2-e2f646f8652f">
 
  - Mã nguồn của từng dịch vụ:
-   [i.Web](https://github.com/ngodanghuy162/vdt-front/tree/main)
-   [ii.API](https://github.com/ngodanghuy162/vdt-back)
-   - [File chứa unit test cho các api](https://github.com/ngodanghuy162/vdt-back/blob/main/back/src/test/java/appbackend/back/service/UserServiceTest.java)
-   [iii.Database]()      
-   ->> Dockerfile nằm trong các mục này luôn.
-   --> Docker compose em dùng ở bước 1, xong khi dùng ansible deploy các host khác nhau em không dùng nữa.
+   [i.Web](https://github.com/ngodanghuy162/vdt-front) - Tất cả Dockerfile, file CD đều nằm trong đó.
+   [ii.API](https://github.com/ngodanghuy162/vdt-back/tree/main/back)
+   [iii.Database](https://github.com/ngodanghuy162/vdt-back/tree/main/back/dtb)
+   - [File chứa unit test cho các api](https://github.com/ngodanghuy162/vdt-back/blob/main/back/src/test/java/appbackend/back/service/UserServiceTest.java) - Có 9 unit test với các trường hợp thành công, thất bại cho mỗi Case của API.
 ## Triển khai web application sử dụng các DevOps tools & practices (5đ)
 # 1. Containerization(2d)
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fe9838a5-e64c-4edd-ab6a-751f0134ddbb)
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/baca470b-5dc0-4214-ba2e-a8a6f1a1a65a)
-  - Dockerfile cho backend:
+  - [Dockerfile cho backend:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/Dockerfile)
      - Ở đây, với Dockerfile của backend-api đã sử dụng kĩ thuật multi-stage chia bước build và run --> giúp giảm kích thước của image cuối cùng và giữ lại chỉ những thành phần cần thiết để chạy ứng dụng.
-       <img width="597" alt="Screenshot 2024-05-23 at 16 09 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8ad9916d-ecac-4243-af08-3bd522c4227a">
-  - Dockerfile cho frontend:
+       <img width="523" alt="Screenshot 2024-05-27 at 22 16 56" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/dd8a2ff9-843f-4264-a883-0f724c5c2a07">
+  - [Dockerfile cho frontend:](https://github.com/ngodanghuy162/vdt-front/blob/main/Dockerfile)
        <img width="454" alt="Screenshot 2024-05-23 at 16 14 08" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9e70e722-ffff-4dd6-9668-3f7631a94090">
- - Dockerfile cho database:
-       <img width="371" alt="Screenshot 2024-05-23 at 16 14 50" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1509bc47-97ae-400b-8a04-30ea42da96ef">
- - Docker compose:
-       <img width="648" alt="Screenshot 2024-05-23 at 16 15 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/75d10f75-23e8-4bb9-b7fd-9967cabf4d3c">
-
+ - [Dockerfile cho database:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/dtb/Dockerfile)
+       <img width="330" alt="Screenshot 2024-05-27 at 22 16 40" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c798572e-1ddd-46f4-b2e4-5020ca5b9611">
+ - [Docker compose:](https://github.com/ngodanghuy162/vdt-back/blob/main/back/compose.yaml)
+       <img width="438" alt="Screenshot 2024-05-27 at 22 18 59" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4546b905-88b7-433b-917d-fc2917256e7c">
+      --> em chỉ dùng docker compose ở bước ban đầu chạy 3 container 1 lúc, sau khi deploy lên nhiều host em không dùng docker compose nữa.
  - Images history             
         i.Frontend
        <img width="873" alt="Screenshot 2024-05-23 at 13 09 13" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/879beb8f-60f7-41db-9755-feefabac15d3">
@@ -44,17 +43,22 @@
 <img width="1050" alt="Screenshot 2024-05-24 at 09 41 51" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/f4f5b13b-dee3-4869-9c4c-befab4d66017">
 <img width="1142" alt="Screenshot 2024-05-24 at 09 59 03" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/50354bff-4291-4528-9cf2-e65b2a489988">
 # CD Tự động push images lên docker hub khi có tag mới
-- File CD Front-end: [File CD:](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
-- File CD Back-end:
+- [File CD Front-end:](https://github.com/ngodanghuy162/vdt-front/blob/main/.github/workflows/CD.yml)
+- [File CD Back-end:](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
 <img width="1438" alt="Screenshot 2024-05-24 at 18 01 29" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c0b094af-b8af-4530-8c20-88e83f89bb34">
 <img width="1418" alt="Screenshot 2024-05-24 at 18 02 12" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fea415e7-c8ec-4e9a-a8ce-c350980db21f">
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4f445165-7393-4687-bbad-a8a57ee7585c)
 <img width="1256" alt="Screenshot 2024-05-27 at 21 50 18" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/bb1d477c-216e-48db-b10b-5859dcbb8a67">
-
 <img width="1027" alt="Screenshot 2024-05-27 at 21 30 23" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c6e0f0a9-ba60-497a-b08b-af4e0f2e235e">
 <img width="1119" alt="Screenshot 2024-05-27 at 21 30 43" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8b520902-e1af-476a-a0ac-0f471cf4eb92">
 
 # 3. Ansible
+- Yêu cầu:
+Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role (0.5đ).
+      - Link playbook:
+Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables (0.5đ).
+Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory (0.5đ).
+-- [Link file source code ansible:](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/edit/midterm)
 <img width="1461" alt="Screenshot 2024-05-27 at 21 30 06" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8c0d76fc-f468-4372-87c6-7a0ee7e95aaf">
 <img width="1384" alt="Screenshot 2024-05-27 at 21 34 49" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4855ca17-991e-4a21-88ef-d3ca1b86a361">
 <img width="1056" alt="Screenshot 2024-05-27 at 21 35 31" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/57f1eaf8-647f-4828-88e2-be5494f149f8">

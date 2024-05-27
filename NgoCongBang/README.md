@@ -115,6 +115,8 @@ class AppTestCase(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 ```
+Output:
+![unit test](image/unittest.png)
 - Source code
     - [api + db](https://github.com/ngo-bang/api)
     - [web](https://github.com/ngo-bang/web)

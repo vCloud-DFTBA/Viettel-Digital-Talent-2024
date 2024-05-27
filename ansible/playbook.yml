@@ -1,0 +1,29 @@
+---
+
+- name: Install Docker on Managed Nodes
+  hosts: all
+  become: true
+  gather_facts: false
+  roles:
+    - common
+    
+- name: Deploy DB
+  hosts: db
+  become: true
+  gather_facts: false
+  roles:
+    - db
+
+- name: Deploy Backend
+  hosts: back
+  become: true
+  gather_facts: false
+  roles:
+    - back
+
+- name: Deploy Frontend 
+  hosts: front
+  become: true
+  gather_facts: false
+  roles:
+    - front

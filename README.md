@@ -56,3 +56,4 @@ Tự động chạy unit test khi push commit lên một branch (1đ)
   ![Screenshot 2024-05-27 100545](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/b925fcf7-95ae-4306-9394-d4dc129be370)
 
 ### Tìm hiểu về một vấn đề đã học
+- [Tìm hiểu đơn giản](https://github.com/ligmaDbolzz/vdt_mid/tree/main/T%C3%ACm%20hi%E1%BB%83u)

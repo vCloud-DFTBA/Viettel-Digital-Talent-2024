@@ -17,10 +17,14 @@ Như vậy, git không chỉ là một công cụ dành cho developer mà dành 
 - **Repository (.git directory)**: được hiểu là một kho lưu trữ nơi chứa các files của dự án. Các file đó có thể là code, hình ảnh, âm thanh hoặc mọi thứ liên quan đến dự án. Bạn có thể tổ chức kho lưu trữ của mình dưới nhiều hình thức khác nhau
 ### Quan hệ giữa các area
 ![area](./images/report/areas.png)
-Trong đó, có 3 trạng thái của file:
+Trong đó, có 5 trạng thái của file:
+- **Untracked** (Chưa được theo dõi): Tệp chưa được Git theo dõi. Đây là tệp mới được thêm vào thư mục làm việc nhưng chưa được thêm vào khu vực chuẩn bị.
+- **Unmodified** (Không sửa đổi): Tệp nằm trong kho lưu trữ và chưa có bất kỳ thay đổi nào kể từ lần commit cuối cùng. Nó đang ở trạng thái "clean" (sạch).
+- **Modified** (Đã sửa đổi): Đây là trạng thái khi tệp đã được thay đổi so với phiên bản trong kho lưu trữ cục bộ, nhưng những thay đổi đó chưa được ghi nhận vào khu vực **staging area** (khu vực chuẩn bị).
+- **Staged** (Đã chuẩn bị): Khi staged một tệp, tức là đã ghi nhận những thay đổi của tệp đó vào khu vực chuẩn bị. Điều này có nghĩa là những thay đổi này đã sẵn sàng để được ghi lại trong lần commit tiếp theo.
+- **Committed**: Trạng thái này có nghĩa là những thay đổi đã được lưu trữ vào kho lưu trữ cục bộ. Tệp trong trạng thái này đã được ghi nhận trong lịch sử của kho lưu trữ và trở thành một phần của phiên bản chính thức.
 
-
-
+### Commit và Snapshot
 - **Commit**: là thao tác ghi lại việc thêm/thay đổi file hay thư mục vào kho lưu trữ (repository). Các commit nối tiếp nhau theo thứ tự thời gian chỉnh sửa và thay đổi các file. Mỗi commit đều yêu cầu phải có message/comment giúp ghi nhận sự thay đổi theo tiến trình update của lập trình viên.
 - **Snapshot**: là ảnh chụp các bước commit của bạn trên kho lưu trữ nhằm lưu lại nội dung tập tin, thư mục để tham chiếu.
 Nếu tập tin không có thay đổi, Git không lưu trữ tập tin đó lại, thay vào đó nó sẽ chỉ tạo liên kết tới tập tin gốc đã tồn tại trước đó. Khi cần bạn hoàn toàn có thể khôi phục và sử dụng lại một snapshot. Công cụ này sẽ giúp người dùng tiết kiệm khá nhiều không gian lưu trữ. Hiểu đơn giản, **snapshot** là trạng thái của dự án tại một thời điểm cụ thể và không nhất thiết là tại `HEAD`.

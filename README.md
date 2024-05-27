@@ -61,11 +61,11 @@ Tự động chạy unit test khi push commit lên một branch (1đ)
 <img width="1119" alt="Screenshot 2024-05-27 at 21 30 43" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8b520902-e1af-476a-a0ac-0f471cf4eb92">
 
 # 3. Ansible
-- Yêu cầu:
-1.Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role (0.5đ).                                                        
-      - Link playbook:https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/midterm/ansible/playbook.yml
-2.Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables (0.5đ).
-      - Các biến cấu hình nằm trong các tệp vars. [Link roles](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/tree/midterm/ansible/roles)
+- Yêu cầu:</br>
+1.Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role (0.5đ).</br>                                                 
+      - Link playbook:https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/midterm/ansible/playbook.yml</br>
+2.Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables (0.5đ).</br>
+      - Các biến cấu hình nằm trong các tệp vars. [Link roles](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/tree/midterm/ansible/roles)</br>
 3. Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory (0.5đ).: Triển khai trên 3 con VM, 1 con triển khai frontend, 1 con backend và 1 con db.
       - [Link file source code ansible:](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/edit/midterm)
 <img width="1461" alt="Screenshot 2024-05-27 at 21 30 06" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8c0d76fc-f468-4372-87c6-7a0ee7e95aaf">

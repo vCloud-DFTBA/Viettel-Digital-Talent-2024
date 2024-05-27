@@ -108,7 +108,7 @@ Docker compose: https://github.com/Vinh1507/vdt-ci/blob/main/jenkins/docker-comp
 #### File setup CI cho API service: https://github.com/Vinh1507/vdt-api/blob/main/Jenkinsfile
 
 #### Output log của luồng CI
-[Log triển khai Jenkins CI] (https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/jenkins-pipeline-log.txt)
+[Log triển khai Jenkins CI](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/jenkins-pipeline-log.txt)
 - stage Checkout SCM:
 ![alt text](./images/ci/ci_checkout_scm.png)
 - stage Checkout Git
@@ -158,7 +158,7 @@ Cấu trúc thư mục của ansible:
     + Sử dụng Ansible Vault mã hóa một số thông tin nhạy cảm
     + Sử dụng Ansible serial keyword trong việc down/up lần lượt từng API server tránh down-time khi deploy
 
-[Log triển khai ansible playbook] (https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/ansible-log.txt)
+[Log triển khai ansible playbook](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/ansible-log.txt)
 
 
 ## Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học 

@@ -149,7 +149,7 @@ Cấu trúc thư mục của ansible:
 
 ![alt text](./images/automation/cd_ansible_tree.png)
 
-#### Output
+#### Output chạy ansible playbook
 ![alt text](./images/automation/ansible1.png)
 ![alt text](./images/automation/ansible2.png)
 ![alt text](./images/automation/ansible3.png)

@@ -6,6 +6,7 @@
 <img width="1289" alt="Screenshot 2024-05-23 at 15 36 35" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ff72d5a1-78cc-4a97-8989-96c0a9d30dd6">
 <img width="1369" alt="Screenshot 2024-05-23 at 16 16 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/395e2dea-d74c-4f75-a7c4-30c3079151d7">
 <img width="1417" alt="Screenshot 2024-05-23 at 16 17 14" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ee4b79eb-8559-4352-bd24-046b787f6bd5">
+<img width="1457" alt="Screenshot 2024-05-27 at 21 36 18" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/eb8fbb0c-f4f6-40fe-80d2-d82253879b46">
 
  - Mã nguồn của từng dịch vụ:
            [i.Web](https://github.com/ngodanghuy162/vdt-front/tree/main)
@@ -13,7 +14,7 @@
                     - [File chứa unit test cho các api](https://github.com/ngodanghuy162/vdt-back/blob/main/back/src/test/java/appbackend/back/service/UserServiceTest.java)
            [iii.Database]()      
     ->> Dockerfile nằm trong các mục này luôn.
-   
+   --> Docker compose em dùng ở bước 1, xong khi dùng ansible deploy các host khác nhau em không dùng nữa.
 ## Triển khai web application sử dụng các DevOps tools & practices (5đ)
 # 1. Containerization(2d)
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fe9838a5-e64c-4edd-ab6a-751f0134ddbb)
@@ -42,7 +43,16 @@
 <img width="1064" alt="Screenshot 2024-05-24 at 09 41 37" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/07c1a725-d649-4091-88c4-8ca5ca26bad9">
 <img width="1050" alt="Screenshot 2024-05-24 at 09 41 51" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/f4f5b13b-dee3-4869-9c4c-befab4d66017">
 <img width="1142" alt="Screenshot 2024-05-24 at 09 59 03" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/50354bff-4291-4528-9cf2-e65b2a489988">
-- Ngoài ra, em có tích hợp CD tự động build và push images lên Dockerhub khi có tag mới. [File CD:](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
+# CD Tự động push images lên docker hub khi có tag mới
+- File CD Front-end: [File CD:](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
+- File CD Back-end:
 <img width="1438" alt="Screenshot 2024-05-24 at 18 01 29" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c0b094af-b8af-4530-8c20-88e83f89bb34">
 <img width="1418" alt="Screenshot 2024-05-24 at 18 02 12" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fea415e7-c8ec-4e9a-a8ce-c350980db21f">
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4f445165-7393-4687-bbad-a8a57ee7585c)
+<img width="1027" alt="Screenshot 2024-05-27 at 21 30 23" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c6e0f0a9-ba60-497a-b08b-af4e0f2e235e">
+<img width="1119" alt="Screenshot 2024-05-27 at 21 30 43" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8b520902-e1af-476a-a0ac-0f471cf4eb92">
+
+# 3. Ansible
+<img width="1461" alt="Screenshot 2024-05-27 at 21 30 06" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8c0d76fc-f468-4372-87c6-7a0ee7e95aaf">
+<img width="1384" alt="Screenshot 2024-05-27 at 21 34 49" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4855ca17-991e-4a21-88ef-d3ca1b86a361">
+<img width="1056" alt="Screenshot 2024-05-27 at 21 35 31" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/57f1eaf8-647f-4828-88e2-be5494f149f8">

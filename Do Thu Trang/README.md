@@ -159,4 +159,6 @@ Lịch sử chạy CI : [CI History](https://github.com/Do-Trang/api/actions)
 
     Success
     ![alt](./image/cisuccess.png)
+
+    Fail
     ![alt](./image/cifail.png)

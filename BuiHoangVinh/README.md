@@ -149,8 +149,15 @@ Cấu trúc thư mục của ansible:
 
 ![alt text](./images/automation/cd_ansible_tree.png)
 
+#### Output
+![alt text](./images/automation/ansible1.png)
+![alt text](./images/automation/ansible2.png)
+![alt text](./images/automation/ansible3.png)
+![alt text](./images/automation/ansible4.png)
+
 #### Quá trình triển khai:
 [Log triển khai ansible playbook](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/logs/ansible-log.txt)
+
 - Sử dụng docker image đã được push lên dockerhub để tiển hành triển khai vào các VM
 - Sử dụng 1 role: common, triển khai các công cụ cần thiết trên các VM như docker, docker compose
 - Triển khai các dịch vụ trên các host khác nhau và được cấu hình trong file inventory.ini

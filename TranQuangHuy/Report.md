@@ -4,6 +4,7 @@
 Git được tạo ra vào năm 2005 bởi Linus Torvalds, Git được thiết kế để duy trì sự phát triển của nhân Linux, được xây dựng dựa trên các trụ cột về phân phối đầy đủ, tốc độ, thiết kế đơn giản, khả năng xử lý các dự án lớn và hỗ trợ mạnh mẽ cho sự phát triển phi tuyến tính. Một lượng truyền thuyết đáng kể tồn tại xung quanh lịch sử của Git và sự sáng tạo của nó, bao gồm cả lý do và làm thế nào nó có cái tên đặc biệt, lý do tạo ra nó ngay từ đầu, v.v. <br>
 Theo trang official của git, git được định nghĩa *"Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals"*.
 ![git_intro](./images/report/git_name.png)
+
 Như vậy, git không chỉ là một công cụ dành cho developer mà dành cho tất cả mọi người. Nó hoạt động như một content tracker, tức là theo dõi sự thay đổi về nội dung của các tài liệu.
 ## 2. Cách thức git hoạt động
 ### a. Các khái niệm quan trọng

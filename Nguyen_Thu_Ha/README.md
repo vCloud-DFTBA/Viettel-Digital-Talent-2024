@@ -36,7 +36,7 @@
 
 - Unit test API (source code can be found in [here](https://github.com/nguyenha-meiii/vdt_midterm_api/blob/main/unit_test.py)):
   - Sử dụng thư viện unittest của python (mock testing)
-  - To chạy unittest, sử dụng lệnh: 
+  - Để chạy unittest, sử dụng lệnh: 
     ```shell
     python -m unittest unit_test.py
     ```

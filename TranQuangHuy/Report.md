@@ -30,14 +30,12 @@ Trong đó, có 5 trạng thái của file:
 Nếu tập tin không có thay đổi, Git không lưu trữ tập tin đó lại, thay vào đó nó sẽ chỉ tạo liên kết tới tập tin gốc đã tồn tại trước đó. Khi cần bạn hoàn toàn có thể khôi phục và sử dụng lại một snapshot. Công cụ này sẽ giúp người dùng tiết kiệm khá nhiều không gian lưu trữ. Hiểu đơn giản, **snapshot** là trạng thái của dự án tại một thời điểm cụ thể và không nhất thiết là tại `HEAD`.
 - `commit` = `snapshot` + `metadata`
 
-Để hiểu rõ hơn về **snapshot**, chúng ta xem ví dụ sau [here](#kết-luận)
-
 ### b. Cách thức hoạt động
 - Đại đa số các Version Control System đều lưu thông tin dưới danh sách các sự thay đổi về file.
 ![other_vcs](./images/report/other_vcs.png) <br>
 Tức là sau mỗi lần thay đổi, vcs sẽ lưu lại sự thay đổi của file đó so với lịch sử trước đó. Và file đầu ra cuối cùng sẽ là tổng hợp sự thay đổi về file (delta-based).
 - Tuy nhiên với git lai có cách tiếp cận khác, git coi thông tin được lưu trữ là một tập hợp các snapshot – ảnh chụp toàn bộ nội dung tất cả các file tại thời điểm. <br>
-![git_store_file](./images/report/git_store_file.png)
+![git_store_file](./images/report/git_store_file.png) <br>
 Mỗi khi chúng ta “commit”, Git sẽ “chụp” và tạo ra một snapshot cùng một tham chiếu tới snapshot đó. Để hiệu quả, nếu các tệp không thay đổi, Git sẽ không lưu trữ lại file — chỉ là một liên kết đến tệp giống file trước đó mà nó đã lưu trữ
 
 

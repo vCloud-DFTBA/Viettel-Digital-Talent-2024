@@ -7,9 +7,11 @@ FROM nginx
 COPY . /var/www/html
 ```
 Build image:
+
 ![Frontend build image](./images/fe-build-image.png)
 
 History image:
+
 ![Frontend history image](./images/fe-history-image.png)
 
 ### 1.2. Backend
@@ -24,9 +26,11 @@ CMD [ "npm", "start" ]
 ```
 
 Build image:
+
 ![Backend build image](./images/be-build-image.png)
 
 History image:
+
 ![Backend history image](./images/be-history-image.png)
 
 ### 1.3. Database
@@ -66,21 +70,28 @@ jobs:
 
 ### 2.1. Push commit
 Log của luồng CI
+
 ![Push commit - logs 1](./images/push-commit-log1.png)
 
 Các hình ảnh demo khác
+
 ![Push commit - logs 2](./images/push-commit-log2.png)
+
 
 ![Push commit - logs 3](./images/push-commit-log3.png)
 
 ### 2.2. Pull request vào branch main
 Log của luồng CI
+
 ![Pull request - logs 1](./images/pull-request-log1.png)
 
 Các hình ảnh demo khác
+
 ![Pull request - logs 2](./images/pull-request-log2.png)
 
+
 ![Pull request - logs 3](./images/pull-request-log3.png)
+
 
 ![Pull request - logs 4](./images/pull-request-log4.png)
 
@@ -206,10 +217,14 @@ Các biến mặc dù đã được khai báo trong file **vars/main.yml**, tuy 
 
 ### 3.5. Các log khi chạy playbook main.yml
 #### hosts: webserver
+
 ![webserver](./images/ansible-log1.png)
 #### hosts: dbserver
+
 ![dbserver](./images/ansible-log2.png)
 #### hosts: apiserver
+
 ![apiserver](./images/ansible-log3.png)
 #### Tổng kết
+
 ![all](./images/ansible-log4.png)

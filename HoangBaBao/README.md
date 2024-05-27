@@ -59,7 +59,8 @@
 ![image](https://github.com/BaoICTHustK67/HoangBaBao/assets/123657319/cfa2af60-8243-47bd-9320-8d91d0e896fe)
 
 ### Frontend UI/UX 
-- I have create the FE using ReactJS library with data fetching from BE api
+- I have create the FE using ReactJS library with data fetching from BE api and all CRUD function
+
   
 ![image](https://github.com/BaoICTHustK67/HoangBaBao/assets/123657319/77ed641d-5850-4ec0-9b44-e5245287ca58)
 ### Backend Api
@@ -321,6 +322,11 @@ CMD [ "flask", "run", "--host=0.0.0.0", "--port=4000"]
 - Create an python-app.yaml file inside the .github/workflows folders
 
 ![image](https://github.com/BaoICTHustK67/HoangBaBao/assets/123657319/b32fe7ce-cb9b-49b8-a342-96216ce02ce0)
+
+- Pull request and push request with integrated unnittest
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/ebaf6edf-f0bd-44cf-8be9-93523a7b92ab)
+
 
 - Content of the python-app.yaml file
 ```

@@ -14,10 +14,12 @@ db: MySQL.
 - Hình ảnh kết quả:
   - Trang chính:
     ![Trang chính](https://ibb.co/gTwsNBX)
+    
   - Trang thêm:
-    ![Trang chính](https://ibb.co/gTwsNBX)
+    ![Trang thêm](https://ibb.co/ZL8MCkm)
+    
   - Trang sửa:
-    ![Trang chính](https://ibb.co/gTwsNBX)
+    ![Trang sửa](https://ibb.co/h8XXyNf)
 - Source code:
   - [API](https://github.com/ligmaDbolzz/vdt_mid_BE)
   - [WEB](https://github.com/ligmaDbolzz/vdt_mid_FE)

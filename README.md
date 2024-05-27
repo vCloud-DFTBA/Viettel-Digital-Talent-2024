@@ -50,5 +50,10 @@ Viết Dockerfile để ở từng repo để đóng gói các dịch vụ trên
   ![API Docker History](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/035f74c7-8a9c-43a8-8411-2cc837493319)
 
 ### CI
+Tự động chạy unit test khi tạo PR vào branch main (0.5đ)
+Tự động chạy unit test khi push commit lên một branch (1đ)
+- **File setup CI:** [CI Setup File](https://github.com/ligmaDbolzz/vdt_mid_BE/blob/main/.github/workflows/ci.yml)
+- **Output log CI:**
+  ![Screenshot 2024-05-27 100545](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/b925fcf7-95ae-4306-9394-d4dc129be370)
 
 ### Tìm hiểu về một vấn đề đã học

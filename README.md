@@ -59,7 +59,8 @@
 ![image](https://github.com/BaoICTHustK67/HoangBaBao/assets/123657319/cfa2af60-8243-47bd-9320-8d91d0e896fe)
 
 ### Frontend UI/UX 
-- I have create the FE using ReactJS library with data fetching from BE api
+- I have create the FE using ReactJS library with data fetching from BE api and all CRUD function
+
   
 ![image](https://github.com/BaoICTHustK67/HoangBaBao/assets/123657319/77ed641d-5850-4ec0-9b44-e5245287ca58)
 ### Backend Api

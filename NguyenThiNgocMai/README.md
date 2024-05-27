@@ -41,11 +41,14 @@ Sử dụng Docker và Docker Compose
 ### 2. Continuous Integration
 Sử dụng Github Action
 - File setup công cụ CI: https://github.com/maintn24/vdtweb-api/blob/master/.github/workflows/CI.yml
-- Output log của luồng CI: 
+- Output log của luồng CI:[build-log-(20.x).txt](build-log-%2820.x%29.txt)
 - Hình ảnh demo:
   <img src="./Images/CI.png">
   <img src="./Images/CI-2.png">
 
 ### 3. Automation
 Sử dụng Ansible
-- Mã nguồn Ansible: 
+- Mã nguồn Ansible: https://github.com/maintn24/ansible-docker.git
+
+## C. Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã học
+[midterm-research.pdf](midterm-research.pdf)

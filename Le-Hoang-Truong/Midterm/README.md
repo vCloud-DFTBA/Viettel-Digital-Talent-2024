@@ -11,6 +11,7 @@
         - [Xóa sinh viên](#xóa-sinh-viên)
         - [Xem chi tiết](#xem-chi-tiết)
         - [Cập nhật thông tin](#cập-nhật-thông-tin)
+        - [Thay đổi avt](#đổi-avatar)
 2. [Triển khai web application sử dụng các DevOps tools & practices](#2-triển-khai-web-application-sử-dụng-các-devops-tools--practices)
     - [Containerization](#containerization)
         - [API](#api)
@@ -53,6 +54,9 @@ Hệ thống được thiết kế với ba dịch vụ:
 
 #### Cập nhật thông tin
 ![edit](images/edit_profile.png)
+
+#### Đổi avatar 
+![avatar](images/upload_avt.png)
 
 ## 2. Triển khai web application sử dụng các DevOps tools & practices
 

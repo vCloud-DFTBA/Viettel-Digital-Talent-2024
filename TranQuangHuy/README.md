@@ -275,6 +275,33 @@ jobs:
     - `db`: dịch vụ database
     - `web`: dịch vụ web
     - `common`: Chứa thông tin cài đặt về môi trường để chạy: `python`, `docker`, `pip`, `docker-repository` và cài đặt network.
+  
+- file `inventory.yml`
+```yml
+---
+all:
+  hosts:
+    localhost:
+      ansible_connection: local
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_become_user: root
+      ansible_become_password: 1234
+
+    host1:
+      ansible_host: 192.168.154.128
+      ansible_user: quanghuy
+      ansible_become: true
+      ansible_become_method: sudo
+      ansible_become_password: 1234
+
+    host2:
+      ansible_host: 192.168.154.131
+      ansible_user: quanghuy
+      ansible_become: true
+      ansible_become_method: sudo
+      ansible_become_password: 1234
+
+```
 
 - file `setup.yml`:
 ```yml
@@ -291,7 +318,26 @@ jobs:
 ```
 2. Cách tiến hành
 - `cd ./ansible`
-- `ansible-playbook -i inventory.yml setup.yml`
+- Thực hiện tạo `ssh-key` cho máy chủ ở `localhost`
+```
+ssh-keygen -t ed25519 -C "quanghuy_key"
+```
+- Trỏ đến đường dẫn và đặt tên file `/home/quanghuy/.ssh/midterm` và `empherase` để trống (enter)
+- Lúc này, `ssh-key` đã được add và `.ssh` của máy chủ. Kiểm tra thông tin bằng cách `ls -la .ssh`
+```
+drwx------  2 quanghuy quanghuy 4096 May 26 15:11 .
+drwxr-x--- 12 quanghuy quanghuy 4096 May 27 00:53 ..
+-rw-------  1 quanghuy quanghuy 1956 May 26 11:43 known_hosts
+-rw-------  1 quanghuy quanghuy 1120 May 26 11:43 known_hosts.old
+-rw-------  1 quanghuy quanghuy  399 May 26 12:57 midterm
+-rw-r--r--  1 quanghuy quanghuy   93 May 26 12:57 midterm.pub
+```
+- Thêm `public-key` từ máy chủ vào các hosts
+```
+  ssh-copy-id -i ~/.ssh/midterm 192.168.154.128
+  ssh-copy-id -i ~/.ssh/midterm 192.168.154.131
+  ```
+- Chạy `ansible-playbook -i inventory.yml setup.yml`
 - Log khi chạy ansible:
 
 ![log_ansible_1](./images/ansible/log-1.png)

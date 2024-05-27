@@ -66,13 +66,12 @@ Tự động chạy unit test khi push commit lên một branch (1đ)
       - Link playbook:https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/midterm/ansible/playbook.yml</br>
 2.Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables (0.5đ).</br>
       - Các biến cấu hình nằm trong các tệp vars. [Link roles](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/tree/midterm/ansible/roles)</br>
-3. Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory (0.5đ).: Triển khai trên 3 con VM, 1 con triển khai frontend, 1 con backend và 1 con db.
+3.Cho phép triển khai các dịch vụ trên các host khác nhau thông qua file inventory (0.5đ).: Triển khai trên 3 con VM, 1 con triển khai frontend, 1 con backend và 1 con db.
       - [Link file source code ansible:](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/edit/midterm)
 <img width="1461" alt="Screenshot 2024-05-27 at 21 30 06" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8c0d76fc-f468-4372-87c6-7a0ee7e95aaf">
 <img width="1384" alt="Screenshot 2024-05-27 at 21 34 49" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4855ca17-991e-4a21-88ef-d3ca1b86a361">
 <img width="1056" alt="Screenshot 2024-05-27 at 21 35 31" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/57f1eaf8-647f-4828-88e2-be5494f149f8">
 <img width="1500" alt="Screenshot 2024-05-27 at 22 52 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4f928edd-57e5-4c1b-b491-d5348645b966">
-- Sử dụng vault để mã hóa các mật khẩu.
 
 #  4. Viết về 1 chủ đề chuyên sâu:
 [Link báo cáo](https://docs.google.com/document/d/1d8KX6el_ChEPDU77t-f6Bkc8lnYHihWJPAxc4XXedO4/edit?usp=sharing)

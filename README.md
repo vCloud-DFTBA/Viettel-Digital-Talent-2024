@@ -14,13 +14,11 @@ Hệ thống được thiết kế với ba dịch vụ sử dụng các công n
 - **Database:** MySQL.
 
 ### Hình ảnh kết quả:
-- **Trang chính:**
+- **Trang chính:**\
   ![Trang chính](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/7275b0c9-011d-4a6c-90a7-27dd1996923e)
-
-- **Trang thêm:**
+- **Trang thêm:**\
   ![Trang thêm](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/04bcfcc4-cae2-4435-b2e4-3e332266aac8)
-
-- **Trang sửa:**
+- **Trang sửa:**\
   ![Trang sửa](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/829109ae-ff35-4d8f-83ea-033943b6e050)
 
 ### Source code:
@@ -40,20 +38,20 @@ Viết Dockerfile để ở từng repo để đóng gói các dịch vụ trên
 - [Database Dockerfile](https://github.com/ligmaDbolzz/vdt_mid/blob/main/mysql/Dockerfile)
 
 #### Ảnh Docker History:
-- **Database Docker History:**
+- **Database Docker History:**\
   ![Database Docker History](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/6a77586b-cdd5-497b-af3c-9412709e0217)
 
-- **Web Docker History:**
+- **Web Docker History:**\
   ![Web Docker History](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/7daa9421-a308-488b-ac89-e51a0b507f59)
 
-- **API Docker History:**
+- **API Docker History:**\
   ![API Docker History](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/035f74c7-8a9c-43a8-8411-2cc837493319)
 
 ### CI
 Tự động chạy unit test khi tạo PR vào branch main (0.5đ)
 Tự động chạy unit test khi push commit lên một branch (1đ)
 - **File setup CI:** [CI Setup File](https://github.com/ligmaDbolzz/vdt_mid_BE/blob/main/.github/workflows/ci.yml)
-- **Output log CI:**
+- **Output log CI:**\
   ![Screenshot 2024-05-27 100545](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/b925fcf7-95ae-4306-9394-d4dc129be370)
 
 ### Tìm hiểu về một vấn đề đã học

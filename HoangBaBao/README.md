@@ -317,6 +317,54 @@ CMD [ "flask", "run", "--host=0.0.0.0", "--port=4000"]
 - Build History for Backend Image
 ![image](https://github.com/BaoICTHustK67/HoangBaBao/assets/123657319/3ff81daa-b2f5-4137-98d6-d9bc17a2ef11)
 
+### Optimization
+- Layer Caching cho dependencies: Bằng việc cài đặt trước dependencies trước khi copy toàn bộ code khiến Docker có thể cache toàn bộ layer này và nếu như code thay đổi nhưng dependencies không đổi thì Docker sẽ dùng lại layer bên dưới và chỉ build lại layer của code ở trên => Tối ưu thời gian build
+```
+COPY requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+```
+- Multi Stage Build cho FE DockerFile: Bằng việc có một build stage trước để cài và build các dependencies và code, khi triển khai chúng ta chỉ cần cài đặt thêm những dependencies cần thiết cho việc triển khai còn những files cần thiết sẽ được lấy từ build stage trước đó => image nhỏ hơn => Tối ưu thời gian build
+```
+# Đầu tiên chúng ta sẽ có một stage chỉ để build trước image
+FROM node:20-alpine AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+# Tiếp theo ở bước triển khai chỉ cần kế thừa lại những files được build ở bước trên và cài đặt một số dependencies cần thiết cho việc chạy app
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+
+COPY package*.json ./
+RUN npm install --only=production
+
+EXPOSE 5173
+
+CMD ["npm", "run", "start"]
+
+```
+- Ta có thể thấy thời gian những lần build sau đã giảm đi một cách đáng kể
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/0742aab6-db32-44ae-b7a4-68587961f8fa)
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/e4507339-d2f6-4e55-8790-37b569e0e9ce)
+
+
+
+
 ### 2. Continuous Integration
 - I use Github Actions as the CI tool
 - Create an python-app.yaml file inside the .github/workflows folders

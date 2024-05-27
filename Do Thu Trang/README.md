@@ -162,3 +162,14 @@ Lịch sử chạy CI : [CI History](https://github.com/Do-Trang/api/actions)
 
     Fail
     ![alt](./image/cifail.png)
+
+
+#### 3. Automation 
+#### Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role
+
+# Mã nguồn Ansible: [ansible](https://github.com/Do-Trang/ansible)
+
+- Output câu lệnh ansible
+
+    ![alt](./image/ansible.png)
+

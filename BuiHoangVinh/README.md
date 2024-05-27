@@ -144,7 +144,6 @@ Triển khai các dịch vụ trên 5 VM khác nhau, trong đó:
 - File cấu hình load balancer HA Proxy: https://github.com/Vinh1507/vdt-automation/blob/main/roles/vdt_lb/files/haproxy.cfg
 
 ![alt text](./images/automation/deploy_architecture.png)
-![alt text](./images/automation/deploy_architecture.png)
 
 Cấu trúc thư mục của ansible:
 
@@ -179,4 +178,4 @@ Cấu trúc thư mục của ansible:
 ## Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học 
 ### Đề tài: Tìm hiểu về cách thức hoạt động của Ansible
 
-File báo cáo: https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/research/Ansible%20research.pdf 
+[File báo cáo kết quả tìm hiểu](https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/research/Ansible%20research.pdf)

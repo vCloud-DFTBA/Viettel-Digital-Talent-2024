@@ -69,6 +69,8 @@ Triển khai 3-tier web sử dụng Docker và Docker compose
 #### Web Service Containerization
 Dockerfile cho dịch vụ web sử dụng thủ thuật multi-stage build, giúp giảm kích thước image và giảm thời gian chạy bằng cách tách môi trường build khỏi môi trường run-time
 
+Sử dụng web server Nginx triển khai dự án React JS
+
 - Output lệnh build: (image: vinhbh/vdt_web:1.0)
 ![alt text](./images/containerization/web_build_dockerfile.png)
 
@@ -112,7 +114,7 @@ Docker compose: https://github.com/Vinh1507/vdt-ci/blob/main/jenkins/docker-comp
 ![alt text](./images/ci/ci_clone_code.png)
 - stage Build Image (Tạo docker image từ source code mới nhất trên branch git)
 ![alt text](./images/ci/ci_build_image.png)
-- stage Run Test (Sử dụng docker inside và chạy lênh test bên trong container được tạo bới image trong bước trước)
+- stage Run Test (Sử dụng docker inside và chạy command run unit test bên trong container được tạo bới image trong bước trước)
 ![alt text](./images/ci/ci_run_test.png)
 
 - Khi có sự kiện push commit lên 1 nhánh
@@ -132,11 +134,12 @@ Docker compose: https://github.com/Vinh1507/vdt-ci/blob/main/jenkins/docker-comp
 #### Kiến trúc triển khai:
 
 Triển khai các dịch vụ trên 5 VM khác nhau, trong đó:
-- VM 192.168.144.135: triển khai 1 Web service và load balancer
+- VM 192.168.144.135: triển khai 1 Web service và load balancer HA Proxy
 - VM 192.168.144.136: triển khai 1 Web service
 - VM 192.168.144.132: triển khai 1 Api service
 - VM 192.168.144.133: triển khai 1 Api service
 - VM 192.168.144.129: triển khai 1 DB service
+- File cấu hình load balancer HA Proxy: https://github.com/Vinh1507/vdt-automation/blob/main/roles/vdt_lb/files/haproxy.cfg
 
 ![alt text](./images/automation/deploy_architecture.png)
 

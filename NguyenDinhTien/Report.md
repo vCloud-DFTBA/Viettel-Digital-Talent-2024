@@ -32,7 +32,7 @@
 
 #### 1. Containerization (2đ)
 
-- File Dockerfile cho từng dịch vụ: 
+- File Dockerfile cho từng dịch vụ (trong link của project tương ứng)
 
 - Output câu lệnh build và thông tin docker history của từng image:
   

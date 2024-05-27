@@ -62,7 +62,7 @@ Tự động chạy unit test khi push commit lên một branch (1đ)
 
 # 3. Ansible
 - Yêu cầu:</br>
-1.Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role (0.5đ).</br>                                                 
+1.Viết ansible playbooks để triển khai các image docker của các dịch vụ web, api, db, mỗi dịch vụ 1 role (0.5đ).                                       
       - Link playbook:https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/midterm/ansible/playbook.yml</br>
 2.Trong từng role cho phép tuỳ biến cấu hình của các dịch vụ thông qua các variables (0.5đ).</br>
       - Các biến cấu hình nằm trong các tệp vars. [Link roles](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/tree/midterm/ansible/roles)</br>

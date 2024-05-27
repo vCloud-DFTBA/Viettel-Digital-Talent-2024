@@ -18,6 +18,8 @@
       - [File Inventory](#file-inventory)
       - [Output log](#output-log)
       - [Kết quả](#kết-quả)
+  - [Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học](#nghiên-cứu-sâu-về-một-vấn-đề-khái-niệm-trong-các-chủ-đề-đã-được-học)
+    - [Chủ đề: Docker networking](#chủ-đề-docker-networking)
 
 ## Phát triển một 3-tier web application đơn giản (3đ)
 #### Phát triển web application có các chức năng sau
@@ -229,3 +231,5 @@ all:
 ![alt text](image/ansibledemo1.png)
 
 ![alt text](image/ansibledemo2.png)
+## Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học
+### Chủ đề: [Docker networking](<research/Docker networking.md>)

@@ -15,7 +15,7 @@ Docker sử dụng Container Network Model với 3 thành phần chính:
 - **Endpoint**: là một virtual network interface, cũng giống như các network interface hoạt động trên máy tính của chúng ta, nhiệm vụ của nó là tạo kết nối mạng. Trong thiết kế của CNM, nhiệm vụ của các endpoint là connect các sandbox đến network.
 - **Network**: tập hợp các endpoint và chúng được kết nối với nhau.
 
-![cnm](images/cnm.png)
+![cnm](images/cnm.png)\
 Ngoài ra Container Network Model còn cung cấp cho ta hai kiểu interface để có thể nối và mở nhằm thêm chức năng, hiển thị hoặc kiểm soát network:
 - **Network Drivers**: Docker Network Drivers cung cấp implement giúp cho network hoạt động. Nhiều Network Drivers có thể được sử dụng đồng thời trên Docker Engine hoặc Cluster cụ thể. Nhưng chỉ có thể khởi tạo thông qua một Network Drivers duy nhất.
 - **IPAM Drivers**: là drivers quản lý địa chỉ IP gốc cung cấp subnet hoặc địa chỉ IP mặc định cho network và endpoint. Địa chỉ IP cũng có thể được gán thủ công thông qua các lệnh tạo network, container và service. IPAM Drivers cũng tồn tại và cung cấp tích hợp cho các công cụ IPAM hiện có.

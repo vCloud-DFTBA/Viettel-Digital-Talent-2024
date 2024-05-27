@@ -1,21 +1,26 @@
-version: '3.8'
 services:
+
   web:
     image: hieubeo2369/web:latest
+    container_name: web
     ports:
       - 3000:3000
     depends_on:
       - api
+
   api:
     image: hieubeo2369/api:latest
+    container_name: api
     ports:
       - 5003:5003
     depends_on:
       - db
     environment:
       MONGO_URL: mongodb://hieu:123@db:27017/vtsStudent
+
   db:
     image: mongo:latest
+    container_name: db
     ports:
       - 27017:27017
     environment:
@@ -23,3 +28,65 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 123
     volumes:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+      - ./initial-data.json:/docker-entrypoint-initdb.d/initial-data.json
+
+  prometheus: 
+    image: prom/prometheus
+    container_name: prometheus
+    command: 
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prom_data:/prometheus
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "4000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+  
+  mongodb_exporter:
+    image: bitnami/mongodb-exporter:latest
+    container_name: mongodb_exporter
+    command:
+      - '--mongodb.uri=mongodb://hieu:123@db:27017/vtsStudent'
+    ports:
+      - 9216:9216
+    depends_on:
+      - db
+  
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
+  node_exporter:
+    image: prom/node-exporter:latest
+    container_name: node_exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/ (sys|proc|dev|host|etc) ($$|/)'
+
+volumes:
+  prom_data: 
+  grafana-storage: {}
+

@@ -216,6 +216,7 @@ db.createUser(
 Thay vì phải chạy từng Dockerfile một, ta có thể sử dụng file [docker-compose.yml](/NguyenTrungHieu/files/docker-compose.yml) thông qua các bước cài đặt sau:
 
 * Tải file [docker-compose.yml](/NguyenTrungHieu/files/docker-compose.yml) và file [init-mongo.js](/NguyenTrungHieu/files/init-mongo.js) về, cho vào cùng 1 thư mục:
+    - Thêm file [initial-data.json](/NguyenTrungHieu/files/initial-data.json) để khởi tạo sẵn các dữ liệu trong database
 * Cấu hình như sau:
     - Trong init-mongo.yml:
         ```
@@ -255,6 +256,8 @@ Thay vì phải chạy từng Dockerfile một, ta có thể sử dụng file [d
                 MONGO_INITDB_ROOT_PASSWORD: <Mật khẩu>
                 volumes:
                 - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+                - ./initial-data.json:/docker-entrypoint-initdb.d/initial-data.json
+
         ```
 
 
@@ -469,3 +472,16 @@ jobs:
     <img src='image/ansible_result.png'>
     <p>Kiểm tra container trên các máy ảo.</p>
 </div> 
+
+## IV. Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học (2đ):
+
+### 1. Yêu cầu đề bài:
+* Yêu cầu:
+  - Viết bất gì về bất cứ gì trong các chủ đề đã được học
+* Output:
+  - File báo cáo trong PR lên repo chung
+
+### 2. Kết quả:
+
+* [Monitoring, Logging và tầm quan trọng của nó trong quá trình CI/CD](/NguyenTrungHieu/research/Readme.md)
+

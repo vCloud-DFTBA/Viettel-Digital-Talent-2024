@@ -106,7 +106,7 @@ OAuth 2.0 + OIDC có thể:
 
 Sử dụng tiêu chuẩn OAuth 2.0, các máy chủ ủy quyền đóng vai trò quan trọng vì chúng chịu trách nhiệm xác thực chủ sở hữu tài nguyên, phát hành mã truy cập và cho phép ủy quyền người dùng. Thông thường, các máy chủ ủy quyền được thiết lập trong mối quan hệ nhiều-một, nơi nhiều microservice nói chuyện với một máy chủ ủy quyền duy nhất. Tuy nhiên, có cả lợi ích và thách thức với cách tiếp cận này.
 
-###### Lợi ích của mối quan hệ many-to-one:
+#### Lợi ích của mối quan hệ many-to-one:
 - **Các dịch vụ sử dụng mã truy cập để nói chuyện an toàn với các dịch vụ nội bộ khác**
 - **Đặt phạm vi và định nghĩa quyền hạn ở một nơi**
 - **Cải thiện quản lý cho các nhà phát triển và người bảo mật**

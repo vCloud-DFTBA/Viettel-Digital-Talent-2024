@@ -358,6 +358,11 @@ host1
 host2
   ![log_images_1](./images/ansible/log-5-vm2.png)
 
+## Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học (2đ)
+#### Yêu cầu:
+●	Viết bất gì về bất cứ gì trong các chủ đề đã được học
+#### Output: [Báo cáo](./Report.md)
+
 
 
 

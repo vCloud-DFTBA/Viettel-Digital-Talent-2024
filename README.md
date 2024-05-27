@@ -14,7 +14,7 @@ db: MySQL.
 - Hình ảnh kết quả:
   - Trang chính:
     ![Trang chính](https://ibb.co/gTwsNBX)
-    
+    ![Mô tả ảnh](https://i.ibb.co/h8XXyNf/)
   - Trang thêm:
     ![Trang thêm](https://ibb.co/ZL8MCkm)
     

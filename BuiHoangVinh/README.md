@@ -107,19 +107,52 @@ Docker compose: https://github.com/Vinh1507/vdt-ci/blob/main/jenkins/docker-comp
 
 #### Output log của luồng CI
 - stage Checkout SCM:
-![alt text](ci_checkout_scm.png)
+![alt text](./images/ci/ci_checkout_scm.png)
 - stage Checkout Git
-![alt text](ci_clone_code.png)
+![alt text](./images/ci/ci_clone_code.png)
 - stage Build Image (Tạo docker image từ source code mới nhất trên branch git)
-![alt text](ci_build_image.png)
+![alt text](./images/ci/ci_build_image.png)
 - stage Run Test (Sử dụng docker inside và chạy lênh test bên trong container được tạo bới image trong bước trước)
-![alt text](ci_run_test.png)
+![alt text](./images/ci/ci_run_test.png)
 
 - Khi có sự kiện push commit lên 1 nhánh
-![alt text](ci_push_webhook.png)
-![alt text](ci_push_job.png)
-![alt text](ci_push_pipeline.png)
+![alt text](./images/ci/ci_push_webhook.png)
+![alt text](./images/ci/ci_push_job.png)
+![alt text](./images/ci/ci_push_pipeline.png)
 
 - Khi có sự kiện tạo pull request vào branch main
-![alt text](ci_pr_webhook.png)
-![alt text](ci_pr_pipeline.png)
+![alt text](./images/ci/ci_pr_webhook.png)
+![alt text](./images/ci/ci_pr_pipeline.png) 
+
+### 3. Automation
+
+#### Link github của repo triển khai ansible: https://github.com/Vinh1507/vdt-automation
+#### Link github source code của playbooks: https://github.com/Vinh1507/vdt-automation/blob/main/playbooks/ansible.yml
+
+#### Kiến trúc triển khai:
+
+Triển khai các dịch vụ trên 5 VM khác nhau, trong đó:
+- VM 192.168.144.135: triển khai 1 Web service và load balancer
+- VM 192.168.144.136: triển khai 1 Web service
+- VM 192.168.144.132: triển khai 1 Api service
+- VM 192.168.144.133: triển khai 1 Api service
+- VM 192.168.144.129: triển khai 1 DB service
+
+![alt text](./images/automation/deploy_architecture.png)
+
+Cấu trúc thư mục của ansible:
+
+![alt text](./images/automation/cd_ansible_tree.png)
+
+#### Quá trình triển khai:
+- Sử dụng docker image đã được push lên dockerhub để tiển hành triển khai vào các VM
+- Sử dụng 1 role: common, triển khai các công cụ cần thiết trên các VM như docker, docker compose
+- Triển khai các dịch vụ trên các host khác nhau và được cấu hình trong file inventory.ini
+- Trong các role: vdt_web, vdt_api, vdt_db: sử dụng Ansible variables và Ansible templates để thuận tiện và linh hoạt trong quá trình triển khai
+- Đối với role vdt_api, sử dụng Ansible vault mã hóa một số thông tin nhạy cảm
+
+
+## Nghiên cứu sâu về một vấn đề, khái niệm trong các chủ đề đã được học 
+### Đề tài: Tìm hiểu về cách thức hoạt động của Ansible
+
+File báo cáo: https://github.com/Vinh1507/Viettel-Digital-Talent-2024/blob/vdt-mid-term/BuiHoangVinh/research/Ansible%20research.pdf 

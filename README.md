@@ -13,13 +13,13 @@ Cho phép xem chi tiết/thêm/xóa/cập nhật thông tin sinh viên.
 
 - Hình ảnh kết quả:
   - Trang chính:
-    ![Trang chính](https://i.im.ge/2024/05/27/K7DVVp.Screenshot-2024-05-27-080105.png)
-    ![Mô tả ảnh](https://i.ibb.co/h8XXyNf/)
+    ![Screenshot 2024-05-27 080105](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/7275b0c9-011d-4a6c-90a7-27dd1996923e)
+
   - Trang thêm:
-    ![Trang thêm](https://i.im.ge/2024/05/27/K7DKNq.Screenshot-2024-05-27-080447.png)
+    ![Screenshot 2024-05-27 080447](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/04bcfcc4-cae2-4435-b2e4-3e332266aac8)
     
   - Trang sửa:
-    ![Trang sửa](https://i.im.ge/2024/05/27/K7DZSC.Screenshot-2024-05-27-080501.png)
+    ![Screenshot 2024-05-27 080501](https://github.com/ligmaDbolzz/HoangMinhTuan/assets/104216461/829109ae-ff35-4d8f-83ea-033943b6e050)
 - Source code:
   - [API](https://github.com/ligmaDbolzz/vdt_mid_BE)
   - [WEB](https://github.com/ligmaDbolzz/vdt_mid_FE)

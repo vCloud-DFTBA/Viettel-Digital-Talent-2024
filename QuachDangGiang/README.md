@@ -37,10 +37,137 @@ To be more specific, the frontend is based on our own image `qdgiang/vdt_fronten
 
 ![alt text](imgs/updated_frontend.png)
 
+# Building commands and history
+
 Frontend code: https://github.com/qdgiang/vdt-midterm-frontend
+
+```
+FROM node:14-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx:1.19.0-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+```
+❯ docker compose build
+WARN[0000] /home/giang/Downloads/vdt-midterm-frontend/docker-compose.yml: `version` is obsolete 
+[+] Building 29.9s (16/16) FINISHED                                  docker:default
+ => [web internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 339B                                           0.0s
+ => [web internal] load metadata for docker.io/library/nginx:1.19.0-alpine     7.6s
+ => [web internal] load metadata for docker.io/library/node:14-alpine          7.5s
+ => [web internal] load .dockerignore                                          0.0s
+ => => transferring context: 2B                                                0.0s
+ => [web internal] load build context                                          2.1s
+ => => transferring context: 3.43MB                                            2.0s
+ => [web build 1/6] FROM docker.io/library/node:14-alpine@sha256:434215b487a3  0.0s
+ => CACHED [web stage-1 1/4] FROM docker.io/library/nginx:1.19.0-alpine@sha25  0.0s
+ => CACHED [web build 2/6] WORKDIR /app                                        0.0s
+ => CACHED [web build 3/6] COPY package*.json ./                               0.0s
+ => CACHED [web build 4/6] RUN npm install                                     0.0s
+ => [web build 5/6] COPY . .                                                  10.2s
+ => [web build 6/6] RUN npm run build                                          8.8s
+ => [web stage-1 2/4] COPY --from=build /app/build /usr/share/nginx/html       0.0s 
+ => [web stage-1 3/4] RUN rm /etc/nginx/conf.d/default.conf                    0.2s 
+ => [web stage-1 4/4] COPY nginx.conf /etc/nginx/conf.d                        0.1s 
+ => [web] exporting to image                                                   0.0s 
+ => => exporting layers                                                        0.0s 
+ => => writing image sha256:cacd62c811fdc7304b7db89589243be2d7c7d316e8ee2cf3d  0.0s
+ => => naming to docker.io/qdgiang/vdt_frontend  
+ ```
+
+```
+❯ docker image history qdgiang/vdt_frontend
+IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
+cacd62c811fd   5 minutes ago   CMD ["nginx" "-g" "daemon off;"]                0B        buildkit.dockerfile.v0
+<missing>      5 minutes ago   EXPOSE map[80/tcp:{}]                           0B        buildkit.dockerfile.v0
+<missing>      5 minutes ago   COPY nginx.conf /etc/nginx/conf.d # buildkit    170B      buildkit.dockerfile.v0
+<missing>      5 minutes ago   RUN /bin/sh -c rm /etc/nginx/conf.d/default.…   0B        buildkit.dockerfile.v0
+<missing>      5 minutes ago   COPY /app/build /usr/share/nginx/html # buil…   678kB     buildkit.dockerfile.v0
+<missing>      3 years ago     /bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon…   0B        
+<missing>      3 years ago     /bin/sh -c #(nop)  STOPSIGNAL SIGTERM           0B        
+<missing>      3 years ago     /bin/sh -c #(nop)  EXPOSE 80                    0B        
+<missing>      3 years ago     /bin/sh -c #(nop)  ENTRYPOINT ["/docker-entr…   0B        
+<missing>      3 years ago     /bin/sh -c #(nop) COPY file:cc7d4f1d03426ebd…   1.04kB    
+<missing>      3 years ago     /bin/sh -c #(nop) COPY file:b96f664d94ca7bbe…   1.96kB    
+<missing>      3 years ago     /bin/sh -c #(nop) COPY file:d68fadb480cbc781…   1.09kB    
+<missing>      3 years ago     /bin/sh -c set -x     && addgroup -g 101 -S …   15.6MB    
+<missing>      3 years ago     /bin/sh -c #(nop)  ENV PKG_RELEASE=1            0B        
+<missing>      3 years ago     /bin/sh -c #(nop)  ENV NJS_VERSION=0.4.1        0B        
+<missing>      3 years ago     /bin/sh -c #(nop)  ENV NGINX_VERSION=1.19.0     0B        
+<missing>      4 years ago     /bin/sh -c #(nop)  LABEL maintainer=NGINX Do…   0B        
+<missing>      4 years ago     /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B        
+<missing>      4 years ago     /bin/sh -c #(nop) ADD file:b91adb67b670d3a6f…   5.61MB  
+```
 
 
 Backend code: https://github.com/qdgiang/vdt-midterm-backend
+
+```
+FROM python:3.10-slim
+WORKDIR /backend
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY main.py .
+CMD [ "python","main.py" ]
+```
+
+
+```
+❯ docker compose build
+[+] Building 3.7s (10/10) FINISHED                                   docker:default
+ => [backend internal] load build definition from Dockerfile                   0.0s
+ => => transferring dockerfile: 194B                                           0.0s
+ => [backend internal] load metadata for docker.io/library/python:3.10-slim    2.7s
+ => [backend internal] load .dockerignore                                      0.0s
+ => => transferring context: 2B                                                0.0s
+ => [backend 1/5] FROM docker.io/library/python:3.10-slim@sha256:31b1e4b1c4a1  0.0s
+ => [backend internal] load build context                                      1.0s
+ => => transferring context: 2.15kB                                            1.0s
+ => CACHED [backend 2/5] WORKDIR /backend                                      0.0s
+ => CACHED [backend 3/5] COPY requirements.txt .                               0.0s
+ => CACHED [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt    0.0s
+ => CACHED [backend 5/5] COPY main.py .                                        0.0s
+ => [backend] exporting to image                                               0.0s
+ => => exporting layers                                                        0.0s
+ => => writing image sha256:0e7b1031cd151c851a9906ea8004b5aaef649f0e04db2c48b  0.0s
+ => => naming to docker.io/qdgiang/vdt-backend   
+ ```
+
+```
+❯ docker image history qdgiang/vdt-backend
+IMAGE          CREATED        CREATED BY                                      SIZE      COMMENT
+0e7b1031cd15   11 hours ago   CMD ["python" "main.py"]                        0B        buildkit.dockerfile.v0
+<missing>      11 hours ago   COPY main.py . # buildkit                       2.05kB    buildkit.dockerfile.v0
+<missing>      22 hours ago   RUN /bin/sh -c pip install --no-cache-dir -r…   64.3MB    buildkit.dockerfile.v0
+<missing>      22 hours ago   COPY requirements.txt . # buildkit              23B       buildkit.dockerfile.v0
+<missing>      22 hours ago   WORKDIR /backend                                0B        buildkit.dockerfile.v0
+<missing>      2 months ago   CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      2 months ago   RUN /bin/sh -c set -eux;   savedAptMark="$(a…   12.2MB    buildkit.dockerfile.v0
+<missing>      2 months ago   ENV PYTHON_GET_PIP_SHA256=dfe9fd5c28dc98b5ac…   0B        buildkit.dockerfile.v0
+<missing>      2 months ago   ENV PYTHON_GET_PIP_URL=https://github.com/py…   0B        buildkit.dockerfile.v0
+<missing>      2 months ago   ENV PYTHON_SETUPTOOLS_VERSION=65.5.1            0B        buildkit.dockerfile.v0
+<missing>      2 months ago   ENV PYTHON_PIP_VERSION=23.0.1                   0B        buildkit.dockerfile.v0
+<missing>      2 months ago   RUN /bin/sh -c set -eux;  for src in idle3 p…   32B       buildkit.dockerfile.v0
+<missing>      2 months ago   RUN /bin/sh -c set -eux;   savedAptMark="$(a…   31.9MB    buildkit.dockerfile.v0
+<missing>      2 months ago   ENV PYTHON_VERSION=3.10.14                      0B        buildkit.dockerfile.v0
+<missing>      2 months ago   ENV GPG_KEY=A035C8C19219BA821ECEA86B64E628F8…   0B        buildkit.dockerfile.v0
+<missing>      2 months ago   RUN /bin/sh -c set -eux;  apt-get update;  a…   9.24MB    buildkit.dockerfile.v0
+<missing>      2 months ago   ENV LANG=C.UTF-8                                0B        buildkit.dockerfile.v0
+<missing>      2 months ago   ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago    /bin/sh -c #(nop)  CMD ["bash"]                 0B        
+<missing>      2 weeks ago    /bin/sh -c #(nop) ADD file:5aaace706aa00ff97…   74.8MB    
+```
+
 
 # Docker
 ## What is Docker

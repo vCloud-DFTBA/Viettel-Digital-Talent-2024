@@ -1,0 +1,10 @@
+---
+- name: Copy docker-compose-db.yaml to the target machine
+  copy:
+    src: docker-compose.yaml
+    dest: /opt/docker-compose-db.yaml
+
+- name: Build and up images mongo
+  command: docker compose -f /opt/docker-compose-db.yaml up -d
+  args:
+    chdir: /opt

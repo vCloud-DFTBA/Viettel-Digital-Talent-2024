@@ -1,0 +1,18 @@
+---
+- name: Deploy Web Service
+  hosts: web_servers
+  become: true
+  roles:
+    - web
+
+- name: Deploy API Service
+  hosts: api_servers
+  become: true
+  roles:
+    - api
+
+- name: Deploy DB Service
+  hosts: db_servers
+  become: true
+  roles:
+    - db

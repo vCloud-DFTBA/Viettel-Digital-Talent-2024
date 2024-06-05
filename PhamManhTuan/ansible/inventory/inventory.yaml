@@ -1,0 +1,14 @@
+---
+all:
+  hosts:
+    localhost:
+      ansible_connection: local
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_become_user: root
+      ansible_become_password: 145632
+
+    host2:
+      ansible_host: 172.17.0.2
+      ansible_connection: ssh
+      ansible_user: nadeko
+      ansible_ssh_pass: nadeko

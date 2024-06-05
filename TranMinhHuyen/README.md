@@ -158,6 +158,6 @@ Output:
     <img src= images/pull-request-to-a-branch-02.png>
     <img src= images/pull-request-to-a-branch-03.png>
 
-### 4. Research topic : WHO ARE YOU, PLATFORM ENGINEERING
+### 4. Research topic : Microservices: An Approach To Modern Software Design
 
-Thank to KOL Nguyen Hoai Nam for introducing a fresh concept, which sparked inspiration for me to write this topic. For full details: report.pdf
+For full details: report.pdf

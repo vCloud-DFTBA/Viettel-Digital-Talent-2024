@@ -1,0 +1,45 @@
+---
+- name: Download student_data.json file into hosts
+  copy:
+    src: "{{ init_db_src_dir }}"
+    dest: "{{ init_db_dest_dir }}"
+
+# - name: Run docker image {{ db_image_name }}:{{ db_image_tag }}
+#   docker_container:
+#     name: "{{ db_container_name }}"
+#     image: "{{ db_image_name }}:{{ db_image_tag }}"
+#     restart_policy: unless-stopped
+#     state: started
+#     ports: "{{ db_ports }}"
+#     volumes:
+#       - "{{ init_db_dest_dir }}students_data.json:/docker-entrypoint-initdb.d/students_data.json"
+#   become: true
+
+- name: Check if container is running
+  docker_container_info:
+    name: "{{ db_container_name }}"
+  register: container_info
+  ignore_errors: true  # Handle cases where container doesn't exist
+- name: Print container status
+  debug:
+    msg: "Container '{{ db_container_name }}' is {{ 'running' if container_info.exists else 'not found' }}"
+
+- name: Start container if not running
+  docker_container:
+    name: "{{ db_container_name }}"
+    image: "{{ db_image_name }}:{{ db_image_tag }}"
+    state: started
+    ports: "{{ db_ports }}"
+    volumes:
+      - "{{ init_db_dest_dir }}students_data.json:/docker-entrypoint-initdb.d/students_data.json"
+  when: not container_info.exists  # Only start if not already running
+
+- name: Import student_data.json into mongodb
+  command: docker exec -i {{ db_container_name }} mongoimport --host localhost --db vdt24 --collection students --type json --file /docker-entrypoint-initdb.d/students_data.json --jsonArray
+  become: true
+  when: not container_info.exists #if container was just started
+
+- name: Wait for db container to start
+  wait_for:
+    port: 27017
+    state: started

@@ -1,0 +1,7 @@
+# -e env_var=value
+MONGO_URL: "{{ hostvars['gcp-vm1']['ansible_host'] }}" # ip of gcp-vm1
+api_image_name: strixthekiet/vdt24-api
+api_image_tag: latest
+api_container_name: api
+api_ports:
+  - "8000:8000"

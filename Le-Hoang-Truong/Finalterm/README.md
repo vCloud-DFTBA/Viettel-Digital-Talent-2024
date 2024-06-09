@@ -56,13 +56,23 @@
     (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
     ```
 
-5. Install **containerd** :
--   Không sử dụng Docker cho thiết lập này vì công cụ [Docker không được dùng nữa trong Kubernetes](https://kubernetes.io/blog/2022/02/17/dockershim-faq/)
+5. Install **Docker Engine** :
 
     ```bash
+    # Add Docker's official GPG key:
     sudo apt-get update
-    sudo apt-get install containerd.io
-    systemctl restart containerd
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     ```
 
 6. Cài đặt kubeadm, kubelet và kubectl:
@@ -138,4 +148,70 @@ kubectl describe nodes
 
 <div align="center">
     <img src="images/log3.png">
+</div>
+
+
+## Triển khai web application sử dụng các DevOps tools & practices
+### K8S Helm Chart 
+
+### 1. Yêu cầu: 
+-   Cài đặt ArgoCD lên Kubernetes Cluster, expose được ArgoCD qua NodePort
+-   Viết 2 Helm Chart cho web Deployment và api Deployment, để vào 1 folder riêng trong repo web và repo api
+-   Tạo 2 Repo Config cho web và api, trong các repo này chứa các file values.yaml với nội dung của cá file values.yaml là các config cần thiết để chạy web và api trên k8s bằng Helm Chart 
+-   Sử dụng tính năng multiple sources của ArgoCD để triển khai các service web và api service lên K8S Cluster  theo hướng dẫn của ArgoCD, expose các service này dưới dạng NodePort Multiple Sources for an Application - Argo CD - Declarative GitOps CD for Kubernetes
+
+
+### 2. khái niệm 
+#### 2.1 ArgoCD là gì ?
+-   **ArgoCD** là một công cụ GitOps cho Kubernetes, giúp tự động hóa việc triển khai ứng dụng thông qua quản lý phiên bản mã nguồn.
+    +   **GitOps**: Tập hợp các phương pháp tận dụng sức mạnh của Git để giúp kiểm soát các sửa đổi và thay đổi trong nền tảng Kubernetes
+    +   **Application**: Định nghĩa trong ArgoCD đại diện cho một ứng dụng triển khai trên Kubernetes từ một hoặc nhiều nguồn git repo.
+    +  **NodePort** : Loại service trong Kubernetes cho phép truy cập vào các pod từ bên ngoài cluster bằng cách mở một cổng cụ thể trên mỗi node.
+
+#### 2.1 Helm là gì ?
+-   **Helm** là một công cụ giúp quản lý các biểu đồ (charts), là các gói chứa tất cả các định nghĩa tài nguyên cần thiết để chạy một ứng dụng trên Kubernetes.
+    +   **Chart**: Một biểu đồ Helm là một bộ sưu tập các tệp giúp định nghĩa một ứng dụng Kubernetes.
+    + **Values.yaml**: Tệp giá trị mặc định cho các cấu hình trong một chart.
+
+### 2. Cài đặt ArgoCD lên Kubernetes Cluster
+
+### 3. Triển khai helm chart 
+
+#### 3.1 Source code: 
+##### API
+- **Chart**: [api-chart](https://github.com/descent1511/vdt2024-api-nodejs/tree/feat/helm-chart/api-chart)
+- **Config**: [api-config](https://github.com/descent1511/vdt2024-api-config)
+
+##### Web
+- **Chart**: [web-chart](https://github.com/descent1511/vdt2024-vuejs-frontend/tree/develop/web-chart)
+- **Config**: [web-config](https://github.com/descent1511/vdt2024-web-config)
+
+#### 3.2 Kết quả:
+
+##### Check services:
+```bash
+kubectl get svc 
+```
+<div align="center">
+    <img src="images/check-svc-argocd.png" style="margin-bottom: 20">
+</div>
+
+##### Giao diện Argocd:
+
+<div align="center">
+    <img src="images/argocd.png" style="margin-bottom: 20">
+</div>
+
+##### Web:
+-   ip: `192.168.0.106`
+-   port: `30002`
+<div align="center">
+    <img src="images/app-argocd.png" style="margin-bottom: 20">
+</div>
+
+##### API:
+-   ip: `192.168.0.106`
+-   port: `30001`
+<div align="center">
+    <img src="images/api-argocd.png" style="margin-bottom: 20">
 </div>

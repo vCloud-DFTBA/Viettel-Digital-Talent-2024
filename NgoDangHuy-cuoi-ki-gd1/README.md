@@ -41,7 +41,9 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
   - Luồng CD backend khi có tag mới:<img width="1330" alt="Screenshot 2024-06-11 at 15 19 22" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/803191e3-31bb-4834-a6e2-a8887e23b28b">
   <img width="1461" alt="Screenshot 2024-06-11 at 15 19 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/134a4592-9b57-47fd-923c-b46084a04e8d">
   <img width="1512" alt="Screenshot 2024-06-11 at 15 20 42" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/edded461-a114-4a67-bfe9-21f2c9bb79aa">
-
+ - Tự thay đổi images tag repo config:
+<img width="1448" alt="Screenshot 2024-06-11 at 21 48 15" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ac9c03bd-2171-4d15-bf6a-e36b80a57f5c">
+<img width="1449" alt="Screenshot 2024-06-11 at 21 48 39" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/eed6fbf4-c2f7-4c37-83ec-92df57591edd">
 
 
   

@@ -558,24 +558,62 @@ bucket4j</u>](https://docs.google.com/document/d/1TO893sXUwGiQD8r7TXs0jFnf3FxbGE
 - File ghi lại kết quả thử nghiệm khi gọi quá 10 request trong 1 phút
   vào Endpoint của API Service
 
-Đây là script viết bằng Python để tự động gọi liên tục 15 request GET
+Đây là script viết bằng Python để tự động gọi liên tục 12 request GET
 vào API endpoint. Vì chúng ta chỉ giới hạn 10 request trong một phút nên
-các request từ 11-15 sẽ bị reject
+các request từ 11-12 sẽ bị reject
 Sau một phút các token sẽ được refill lại 
 ``` py
 import requests
-
+from datetime import datetime
+import time
 api_key = '<API_KEY>'  
-url = 'http://192.168.59.100:32001/api/v1/students'
+url = 'http://localhost:8080/api/v1/students'
 headers = {'X-api-key': api_key}
 
-for i in range(15):
+# Number of requests to make
+num_requests = 12
+
+for i in range(num_requests):
+    start_time = datetime.now()
+    
+    # Send the request
     response = requests.get(url, headers=headers)
-    if response.text:
+    
+    end_time = datetime.now()
+    request_time = end_time - start_time
+    
+    if response.status_code == 200:
         print(f'Request {i+1}: Status Code: {response.status_code}, Response: {response.text}')
+    elif response.status_code == 409:
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {"Conflict - Rate limit exceeded, more than 10 requests per minute"}')
     else:
-        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {"You have exceeded 10 requests per minute"}')
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {response.text}')
+
+    # Log the time when the request was made
+    print(f'Request {i+1} made at {start_time.strftime("%Y-%m-%d %H:%M:%S")}, took {request_time.total_seconds()} seconds')
+time.sleep(60) #sleep for 60s, wait until the token in bucket has been refilled
+for i in range(num_requests):
+    start_time = datetime.now()
+
+    # Send the request
+    response = requests.get(url, headers=headers)
+
+    end_time = datetime.now()
+    request_time = end_time - start_time
+
+    if response.status_code == 200:
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {response.text}')
+    elif response.status_code == 409:
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {"Conflict - Rate limit exceeded, more than 10 requests per minute"}')
+    else:
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {response.text}')
+
+    # Log the time when the request was made
+    print(f'Request {i+1} made at {start_time.strftime("%Y-%m-%d %H:%M:%S")}, took {request_time.total_seconds()} seconds')
+
 ```
 
-<img src="./media/image27.png"
+<img src="./media/test1.png"
+style="width:6.26772in;height:3.52778in" />
+<img src="./media/test2.png"
 style="width:6.26772in;height:3.52778in" />

@@ -623,7 +623,86 @@ Kết quả sau khi lấy log ở trên Kibana:
 
 ## VI. Security:
 
-### 1. HAProxy:
+### 1. HAProxy & HTTPS:
+
+#### 1.1 Cài đặt:
+
+Tạo 1 máy ảo mới (đặt tên là HAProxyVM), đặt vào chung 1 mạng LAN ở adapter 2 với máy ảo cũ (HostVM):
+
+![alt text](images/setup-vm.png)
+
+Sử dụng netplan hoặc cài đặt bằng ifconfig để cấu hình địa chỉ ip cho adapter enp0s8 (Adapter 2)  của 2 máy ảo:
+  - Máy HostVM với địa chỉ trong mạng lan01 là 192.168.10.12
+  - Máy HAProxyVM với địa chỉ trong mạng lan02 là 192.168.10.11
+
+![alt text](images/setup-vm-ip.png)
+
+Ở 2 máy, bật định tuyến ipv4 bằng lệnh:
+```
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+Sau đó, thêm các luật sau vào iptables của máy HostVM để có thể chuyển tiếp các gói tin yêu cầu dến cổng 30001 (cổng web) hoặc 30002 (cổng ip) được gửi đến hostVM vào trong mạng minikube (với địa chỉ ip 192.168.49.2 ):
+
+```
+sudo iptables -t nat -A PREROUTING -p tcp --dport 30001 -j DNAT --to-destination 192.168.49.2:30001
+sudo iptables -t nat -A PREROUTING -p tcp --dport 30002 -j DNAT --to-destination 192.168.49.2:30002
+sudo iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -d 192.168.49.0/24 -j MASQUERADE
+```
+
+
+
+#### 1.2 HAProxy:
+Cài đặt haproxy trên máy HAProxyVM bằng lệnh:
+
+```
+sudo apt-get install haproxy
+```
+Cấu hình file haproxy.conf ở trong thư mục /etc/haproxy như sau: 
+```                                  
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    maxconn 2000
+    user haproxy
+    group haproxy
+    daemon
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    retries 3
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+frontend web_frontend
+    bind *:443 ssl crt /etc/ssl/certs/myapp/myapp.pem
+    default_backend web_backend
+backend web_backend
+    balance roundrobin
+    server web1 192.168.10.11:30001 check
+frontend api_frontend
+    bind *:8443 ssl crt /etc/ssl/certs/myapp/myapp.pem
+    default_backend api_backend
+backend api_backend
+    balance roundrobin
+    server api1 192.168.10.11:30002 check
+```
+
+Chạy lệnh sau để khởi động haproxy:
+``` 
+sudo systemctl start haproxy
+```
+
+Kiểm tra trạng thái của haproxy bằng lệnh `sudo systemctl status haproxy`:
+![alt-text](images/haproxy-status.png)
+
+Kết quả khi truy cập web qua http://192:168:10:11:30001 ở bên máy ảo HAProxy:
+![alt-text](images/haproxy-web.png)
+Kết quả khi truy cập api qua http://192:168:10:11:30002 ở bên máy ảo HAProxy:
+![alt-text](images/haproxy-api.png)
+
+#### 1.3 HTTPS:
 
 ### 2. Authen/Authorization:
 Ứng dụng này sử dụng JWT (Json Web Token) để thiết lập token cho việc xác thực và phân quyền.

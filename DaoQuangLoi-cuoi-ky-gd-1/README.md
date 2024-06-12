@@ -96,8 +96,20 @@ style="width:6.27083in;height:3.42022in" />
 
 **Output 2:**
 
+
+Repo API: https://gitlab.com/JackeyyLove/student-management-backend
+
+Repo Web: https://gitlab.com/JackeyyLove/student-management-frontend
+
+Repo config api: https://gitlab.com/JackeyyLove/vdt24-config-api
+
+Repo config web:  https://gitlab.com/JackeyyLove/vdt24-config-web
+
 - Các Helm Chart sử dụng để triển khai web Deployment và api Deployment
   lên K8S Cluster
+
+
+
 
 Helm Chart cho API  
 [<u>https://gitlab.com/JackeyyLove/student-management-backend/-/tree/main/helm-chart?ref_type=heads</u>](https://gitlab.com/JackeyyLove/student-management-backend/-/tree/main/helm-chart?ref_type=heads)
@@ -175,11 +187,6 @@ File setup GitlabCI của Web:
 [<u>https://gitlab.com/JackeyyLove/student-management-frontend/-/raw/main/.gitlab-ci.yml</u>](https://gitlab.com/JackeyyLove/student-management-frontend/-/raw/main/.gitlab-ci.yml)
 
 
-- Repo contains file setup:
-
-API: https://gitlab.com/JackeyyLove/student-management-backend
-
-Web: https://gitlab.com/JackeyyLove/student-management-frontend
 
 - Output log của 2 luồng CD khi tạo tag mới trên repo web và repo api
 

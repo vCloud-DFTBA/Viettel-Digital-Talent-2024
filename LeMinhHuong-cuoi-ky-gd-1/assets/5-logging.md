@@ -1,6 +1,6 @@
 # Logging
 
-- [kibana/config] (https://github.com/lmhuong711/go-go-charts/blob/main/kibana/config.yaml)
+- [kibana/config](https://github.com/lmhuong711/go-go-charts/blob/main/kibana/config.yaml)
 - CMD
 ```
 helm install fluent-bit fluent/fluent-bit -n go-go

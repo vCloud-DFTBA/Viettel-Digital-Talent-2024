@@ -25,7 +25,7 @@ spec:
 ```
 
 
-# CD
+# Continuous Delivery
 * Tạo tag trên repo source code front end (VDT WEB)
 ![alt text](./images/cd/vdt-web/vdt-web-create-git-tag.png)
 ![alt text](./images/cd/vdt-web/vdt-web-trigger-webhook.png)

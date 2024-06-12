@@ -1,4 +1,10 @@
 |PS: Đây là lần đầu tiên em làm việc với keycloak cũng như biết và làm việc với OpenID, nên nếu có thông tin gì sai sót trong lúc tìm hiểu xin các anh góp ý!
+- api repo: [vdt-backend](https://github.com/do-vdt-2024/vdt-backend)
+- web repo: [vdt-frontend](https://github.com/do-vdt-2024/vdt-frontend)
+- api-config repo: [vdt-backend-config-repo](https://github.com/do-vdt-2024/vdt-backend-config-repo)
+- web-config repo:[vdt-frontend-config-repo](https://github.com/do-vdt-2024/vdt-frontend-config-repo)
+
+**Các code liên quan đến xác thực nằm trong file [user.route.js](https://github.com/do-vdt-2024/vdt-backend/blob/main/routes/user.route.js)**
 # Keycloak
 ## 1. Giới thiệu
 Keycloak là một giải pháp mã nguồn mở  IAM (Identity và access management) cho việc quản lý xác thực và ủy quyền trong ứng dụng. Nó cung cấp các tính năng bảo mật như đăng nhập đơn giản, quản lý người dùng, quản lý quyền truy cập và quản lý phiên. Trong project này, em sẽ sử dụng Keycloak như một giải pháp cho việc xác thực và uỷ quyền người dùng.

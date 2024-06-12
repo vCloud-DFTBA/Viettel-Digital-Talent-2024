@@ -69,11 +69,37 @@ spec:
 
 ![](attachs/Pasted%20image%2020240612155718.png)
 
-# Kết quả test sử dụng ab test tool của apache
-- Câu lệnh dùng để test![](attachs/Pasted%20image%2020240612160545.png)
+# Kết quả test sử dụng ab test tool của apache và k6
 - Kết quả report lần 1![](attachs/Pasted%20image%2020240612160832.png)
 - Kết quả report lần 2![](attachs/Pasted%20image%2020240612161902.png)
 - Kết quả lần 3 ![](attachs/Pasted%20image%2020240612165001.png)
+- Kết quả sử dụng k6 để benchmark![](attachs/Pasted%20image%2020240612173719.png)
+- Sử dụng k6 để benchmark lần 2![](attachs/Pasted%20image%2020240612174336.png)
+- Code js dùng để sử dụng k6 cho kiểm thử
+```js
+
+import http from 'k6/http'
+import { Httpx } from 'https://jslib.k6.io/httpx/0.1.0/index.js';
+
+const session = new Httpx({ baseURL: 'https://api.dotv.home.arpa' });
+const token = "<điền token vào>"
+
+session.addHeader('Authorization', `Bearer ${token} `);
+
+export const options = {
+        vus: 1,
+        duration: '60s',
+        thresholds: {
+        // Some dummy thresholds that are always going to pass.
+        'http_req_duration{status:200}': ['max>=0'],
+        'http_req_duration{status:409}': ['max>=0'],
+        },
+    'summaryTrendStats': ['min', 'med', 'avg', 'p(90)', 'p(95)', 'max', 'count'],
+}
+
+export default function () {
+  session.get('/api/v1/users');
+```
 - Hình ảnh mã 409 trả về![](attachs/Pasted%20image%2020240612162720.png)
 - Logs của ingress nginx trả về mã lỗi 409 khi thực hiện stress tess![](attachs/Pasted%20image%2020240612164502.png)
 

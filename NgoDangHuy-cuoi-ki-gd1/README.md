@@ -1,4 +1,4 @@
-# Triển khai Kubernetes (1 điểm)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/91ede620-52c7-4d2b-9faa-e90addd76a44)# Triển khai Kubernetes (1 điểm)
 - Triển khai bằng kubespray: Tài liệu cài đặt và output.
 https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/edit?usp=sharing
 
@@ -38,12 +38,39 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
   - [File CD Frontend](https://github.com/ngodanghuy162/vdt-front/blob/main/.github/workflows/CD.yml)
   - [File CD Backtend](https://github.com/ngodanghuy162/vdt-back/blob/main/.github/workflows/CD.yml)
   - Luồng CD frontend khi có tag mới:<img width="1340" alt="Screenshot 2024-06-11 at 15 17 04" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/90fa0379-f90b-4129-a75d-ca29f76d6ae7">
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/59105c6a-010d-4150-8670-80f731669b9e)
+
   - Luồng CD backend khi có tag mới:<img width="1330" alt="Screenshot 2024-06-11 at 15 19 22" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/803191e3-31bb-4834-a6e2-a8887e23b28b">
   <img width="1461" alt="Screenshot 2024-06-11 at 15 19 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/134a4592-9b57-47fd-923c-b46084a04e8d">
   <img width="1512" alt="Screenshot 2024-06-11 at 15 20 42" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/edded461-a114-4a67-bfe9-21f2c9bb79aa">
  - Tự thay đổi images tag repo config:
 <img width="1448" alt="Screenshot 2024-06-11 at 21 48 15" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ac9c03bd-2171-4d15-bf6a-e36b80a57f5c">
 <img width="1449" alt="Screenshot 2024-06-11 at 21 48 39" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/eed6fbf4-c2f7-4c37-83ec-92df57591edd">
+ - ArgoCD tự đồng bộ khi có thay đổi:
+   - Trước: ( Ở đây, phía frontend em dùng pod tên: helm-chart có 2 replica ở dưới)
+     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/67f0b426-2a2e-4847-bc59-0a9430eae09e)
+     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/bc5dd2f5-35bf-4c18-a2e8-705778970a70)
+     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/32b8549c-441e-4fe4-83bb-481edd0ba7fc)
+   - Sau khi thay đổi:
+     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/67108ee1-4c51-4422-a464-d0255cd330cb)
+     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/f40dc37f-5207-41be-a6fd-ef759f356cc3)
+# Monitoring (1.5đ)
+- Yêu cầu:
+    - Expose metric của web service và api service ra 1 http path. 
+    - Triển khai Prometheus lên Kubernetes Cluster thông qua Prometheus Operator, phơi ra ngoài dưới dạng NodePort: 
+    - Expose Prometheus dưới dạng Nodeport
+    - Sử dụng Service Monitor của Prometheus Operator để giám sát Web Deployment và API Deployment
+- Output:
+    - Triển khai promethus operator.Ở đây em triển khai thông qua kube-prometheus với promethus operator là 1 phần trong kube-prometheus. Promethus operator là quản lí các thành phần của promethus.Ngoài ra, ta có thể sử dụng helm triển khai cũng được.
+    - <img width="1473" alt="Screenshot 2024-06-12 at 09 53 58" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fc2af8c6-93d7-46b1-a9aa-89f83b582763">
+    - [Các file setup để triển khai Prometheus lên Kubernetes Cluster]()
+    - /code: git clone https://github.com/prometheus-operator/kube-prometheus.git
+    - cd kube-prometheus
+    - kubectl create -f manifests/setup
+    - kubectl create -f manifests/
+
+
+
 
 
   

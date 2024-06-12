@@ -562,8 +562,20 @@ bucket4j</u>](https://docs.google.com/document/d/1TO893sXUwGiQD8r7TXs0jFnf3FxbGE
 vào API endpoint. Vì chúng ta chỉ giới hạn 10 request trong một phút nên
 các request từ 11-15 sẽ bị reject
 Sau một phút các token sẽ được refill lại 
-<img src="./media/image39.png"
-style="width:6.26772in;height:1.18056in" />
+``` py
+import requests
+
+api_key = '<API_KEY>'  
+url = 'http://192.168.59.100:32001/api/v1/students'
+headers = {'X-api-key': api_key}
+
+for i in range(15):
+    response = requests.get(url, headers=headers)
+    if response.text:
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {response.text}')
+    else:
+        print(f'Request {i+1}: Status Code: {response.status_code}, Response: {"You have exceeded 10 requests per minute"}')
+```
 
 <img src="./media/image27.png"
 style="width:6.26772in;height:3.52778in" />

@@ -1,0 +1,149 @@
+{
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "res:users",
+      "ownerManagedAccess": true,
+      "displayName": "users resource",
+      "attributes": {},
+      "_id": "96fd19b4-369f-45ee-af5d-73b942758fad",
+      "uris": [
+        "/api/v1/users"
+      ],
+      "scopes": [
+        {
+          "name": "scope:get"
+        },
+        {
+          "name": "scope:update"
+        },
+        {
+          "name": "scope:delete"
+        },
+        {
+          "name": "scope:create"
+        }
+      ],
+      "icon_uri": ""
+    }
+  ],
+  "policies": [
+    {
+      "id": "3adb44e0-cac3-4253-b9b9-64bd54005c45",
+      "name": "Default Policy",
+      "description": "A policy that grants access only for users within this realm",
+      "type": "js",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "code": "// by default, grants any permission associated with this policy\n$evaluation.grant();\n"
+      }
+    },
+    {
+      "id": "65b8d07c-826d-4151-a659-bf0da4ae8ed5",
+      "name": "user policy",
+      "description": "",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"users\",\"required\":false}]"
+      }
+    },
+    {
+      "id": "fd01c972-4c8d-4133-86a7-ccde0b834563",
+      "name": "admin policy",
+      "description": "",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"admin\",\"required\":false}]"
+      }
+    },
+    {
+      "id": "efebccc7-63a3-4099-84c6-e986e95ed4f2",
+      "name": "admin and user",
+      "description": "",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"admin\",\"required\":false},{\"id\":\"users\",\"required\":false}]"
+      }
+    },
+    {
+      "id": "0d81f77d-c540-4c18-9187-cba305578aef",
+      "name": "User get",
+      "description": "",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "resources": "[\"res:users\"]",
+        "applyPolicies": "[\"admin and user\"]"
+      }
+    },
+    {
+      "id": "e4931d15-bee2-4f1c-905e-94464a7a30bc",
+      "name": "user update",
+      "description": "",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "resources": "[\"res:users\"]",
+        "applyPolicies": "[\"admin policy\"]"
+      }
+    },
+    {
+      "id": "70e656d2-39ab-40e5-bb84-989f7d2df19d",
+      "name": "User create",
+      "description": "",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "resources": "[\"res:users\"]",
+        "applyPolicies": "[\"admin policy\"]"
+      }
+    },
+    {
+      "id": "e44e0677-17bf-4bad-917a-503a02c8b18b",
+      "name": "User delelte",
+      "description": "",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "resources": "[\"res:users\"]",
+        "applyPolicies": "[\"admin policy\"]"
+      }
+    }
+  ],
+  "scopes": [
+    {
+      "id": "a8d870f0-0232-4b03-9a71-c0353c4f9272",
+      "name": "scope:get",
+      "iconUri": "",
+      "displayName": "get"
+    },
+    {
+      "id": "7d7058e6-8b03-4f65-8f5e-421e783544ee",
+      "name": "scope:create",
+      "iconUri": ""
+    },
+    {
+      "id": "e4cd9016-ef4b-436e-b5d1-1267518b585b",
+      "name": "scope:delete",
+      "iconUri": ""
+    },
+    {
+      "id": "fefdb414-4a73-49fe-872a-72a5678f42db",
+      "name": "scope:update",
+      "iconUri": ""
+    }
+  ],
+  "decisionStrategy": "UNANIMOUS"
+}

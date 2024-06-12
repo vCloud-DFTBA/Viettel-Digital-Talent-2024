@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vdt-fe
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vdt
+  sources:
+    - repoURL: https://github.com/do-vdt-2024/vdt-frontend
+      path: web
+      targetRevision: HEAD
+      helm:
+        valueFiles:
+          - $values/values.yaml
+    - repoURL: https://github.com/do-vdt-2024/vdt-frontend-config-repo
+      targetRevision: HEAD
+      ref: values
+

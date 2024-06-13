@@ -702,6 +702,166 @@ sudo systemctl enable haproxy
 
 ![image](https://github.com/BaoICTHustK67/VDT_Final/assets/123657319/14ed1bc4-f12a-4a5c-b8ee-ae34f485e9eb)
 
+### Yêu cầu 2:
+
+- Ta sẽ giả lập môi trường khi người dùng đăng nhập sẽ có 2 token tương ứng với user và admin được assign cho họ
+
+```
+USERS = {
+    "user_token": {"role": "user"},
+    "admin_token": {"role": "admin"}
+}
+
+# Hàm validation giả lập
+def validate_token(token):
+    return token in USERS
+
+# Hàm decorator để kiểm tra xem người dùng đã đăng nhập hay chưa
+def token_required(func):
+    @wraps(func)
+    def decorated_function(*args, **kwargs):
+        token = request.headers.get("Authorization")
+        if not token or not validate_token(token):
+            return jsonify({"message": "Token is missing or invalid"}), 403
+        return func(*args, **kwargs)
+    return decorated_function
+
+# Decorator phân quyền giữa user và admin
+def role_required(role):
+    def decorator(func):
+        @wraps(func)
+        def decorated_function(*args, **kwargs):
+            token = request.headers.get("Authorization")
+            if token and USERS.get(token, {}).get("role") == role or USERS.get(token, {}).get("role") == "admin":
+                return func(*args, **kwargs)
+            else:
+                return jsonify({"message": "Unauthorized access"}), 403
+        return decorated_function
+    return decorator
+```
+
+- Ta sau đó sẽ wrapper các api bằng những function authen này
+
+```
+@app.route("/students", methods=["GET"])
+@token_required
+@role_required('user')
+def get_students():
+    students = Student.query.all()
+    json_students = list(map(lambda x: x.to_json(), students))
+    return jsonify({"students": json_students})
+
+@app.route("/create_student", methods=["POST"])
+@token_required
+@role_required('admin')
+def create_student():
+    name = request.json.get("name")
+    gender = request.json.get("gender")
+    school = request.json.get("school")
+
+    print(name, gender, school)
+
+    if not (name or gender or school):
+        return (
+            jsonify({"message": "You must include a name, gender and school"}),
+            400,
+        )
+    
+    new_student = Student(name=name, gender=gender, school=school)
+    try:
+        db.session.add(new_student)
+        db.session.commit()
+    except Exception as e:
+        return (
+            jsonify({"message": str(e)}),
+            400,
+        )
+    
+    return jsonify({"message": "Student created!"}), 201
+
+@app.route("/update_student/<int:student_id>", methods=["PATCH"])
+@token_required
+@role_required('admin')
+def update_student(student_id):
+    student = Student.query.get(student_id)
+
+    if not student:
+        return jsonify({"message": "Student not found!"}), 404
+    
+    data = request.json
+    student.name = data.get("name", student.name)
+    student.gender = data.get("gender", student.gender)
+    student.school = data.get("school", student.school)
+
+    db.session.commit()
+
+    return jsonify({"message":"Student updated!"}), 200
+
+@app.route("/delete_student/<int:student_id>", methods=["DELETE"])
+@token_required
+@role_required('admin')
+def delete_student(student_id):
+    student = Student.query.get(student_id)
+
+    if not student:
+        return jsonify({"message": "Student not found!"}), 404
+    
+
+    db.session.delete(student)
+    db.session.commit()
+
+    return jsonify({"message":"Student deleted!"}), 200
+```
+
+- Kết quả khi curl có truyền thông tin xác thực
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/9478569d-0b03-4a07-927b-f5cec375923b)
+
+- Kết quả khi curl không truyền thông tin xác thực
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/f9751266-f510-40a8-9763-46bcdff4c712)
+
+- Curl các URL với các method GET/POST/DELETE với ROLE USER
+
+  - GET
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/7e0dbbe1-e8f4-47a4-8337-36d881baedb1)
+
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/aa07ffa3-8721-4796-b299-b0241c93c438)
+
+  - POST
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/c03dd619-4929-461a-8a2e-2531c17d65bb)
+
+  
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/160cebea-e7fa-48b5-a393-3ef335f2ac70)
+
+  - DELETE
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/065751bf-7a58-46ba-99aa-3bfc6ba59570)
+
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/5f2410ed-82bc-46f0-b921-e3defdc1a679)
+
+- Curl các URL với các method GET/POST/DELETE với ROLE ADMIN
+
+  - GET
+ 
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/fd2b2c65-9df0-41f4-8335-d42360da7dfa)
+
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/2d216286-b1a1-4084-8c19-4ebcae206047)
+
+
+  - POST
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/149d2e11-468e-466c-8fa7-42403914b75a)
+
+ 
+  - DELETE     
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/3ba412e1-b830-4fc5-bdb4-07b21e8434f2)
 
 
 

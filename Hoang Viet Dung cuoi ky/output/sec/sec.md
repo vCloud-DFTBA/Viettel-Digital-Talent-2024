@@ -25,9 +25,56 @@ Ngoài ra, bài tập cũng yêu cầu sinh viên triển khai giải pháp đ�
 3. **Sử Dụng Self-Signed Certificate**
     - Sinh viên được phép sử dụng chứng chỉ tự ký (self-signed certificate) để triển khai HTTPS. Điều này giúp sinh viên nắm vững quy trình tạo và sử dụng chứng chỉ SSL trong môi trường thực tế, dù không phải là chứng chỉ từ các cơ quan cấp phát chính thức.
 
-### Kết Luận
+### output
+<div >
+  <i><a [href=https://github.com/dungbun31/ks8-config-web.git](https://green.cloud/docs/how-to-install-and-configure-haproxy-on-ubuntu-20-04/)>
+         cách cài HAProxy
+        </a></i>
+</div>
+<br>
 
-Thông qua bài tập này, sinh viên sẽ nắm bắt được cách triển khai và cấu hình HAProxy Loadbalancer trong các môi trường khác nhau, cũng như các phương pháp để đảm bảo an toàn truy cập với HTTPS. Việc sử dụng self-signed certificate sẽ giúp sinh viên thực hành các kỹ thuật bảo mật cơ bản trong môi trường ảo hóa và đám mây.
+cấu hình HAProxy
+```
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
+
+    ca-base /etc/ssl/certs
+    crt-base /etc/ssl/private
+    ssl-default-bind-ciphers PROFILE=SYSTEM
+    ssl-default-bind-options no-sslv3
+
+defaults
+    log global
+    mode tcp
+    option tcplog
+    option dontlognull
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+
+frontend web_frontend
+    bind *:443 ssl crt /etc/haproxy/certs/selfsigned.pem
+    default_backend web_backend
+
+frontend api_frontend
+    bind *:8443 ssl crt /etc/haproxy/certs/selfsigned.pem
+    default_backend api_backend
+
+backend web_backend
+    server web1 192.168.123.12:30080 check
+
+backend api_backend
+    server api1 192.168.123.12:30068 check
+
+```
+
 
 
 ## 2. Yêu cầu 2

@@ -83,7 +83,7 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (demo-token)
 10. Hình ảnh application sau khi kết thúc luồng CD
 ![alt text](./images/vdt-api/argo-api-app-done.png)
 ### Output log của luồng CD cho API Service
-- [Jenkins API Full log](./logs/jenkins-api-log.md)
+- [Jenkins API Full log](./logs/jenkins-api-log.txt)
 ![alt text](./images/vdt-api/jenkins-output-1.png)
 ![alt text](./images/vdt-api/jenkins-output-2.png)
 
@@ -148,6 +148,6 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (vdt-web-token)
     ![alt text](./images/vdt-web/argo-web-cd-done.png)
 
 ### Output log của luồng CD cho WEB Service
-- [Jenkins Web Full log](./logs/jenkins-web-log.md)
+- [Jenkins Web Full log](./logs/jenkins-web-log.txt)
 ![alt text](./images/vdt-web/jenkins-log-1.png)
 ![alt text](./images/vdt-web/jenkins-log-2.png)

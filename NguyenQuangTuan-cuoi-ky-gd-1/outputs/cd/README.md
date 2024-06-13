@@ -59,7 +59,6 @@ Các credentials tạo trên Jenkins cho pipeline:
 - `sonar-host-url`: url truy cập vào Sonarqube server `192.168.64.140:9000`
 - `vdt-midterm-web-project-key`: project key của project `vdt-midterm-web` trên Sonarqube
 - `vdt-midterm-api-project-key`: project key của project `vdt-midterm-api` trên Sonarqube
-- `jenkins-ssh-key`: private ssh key được tạo để ssh đến `app-server-1` và `app-server-2`
 - `dockerhub-credential`: tài khoản dockerhub
 - `telegram-token`: token được tạo bởi `BotFather` trên Telegram
 - `telegram-chatId`: chat ID của bot chat trên Telegram

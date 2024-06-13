@@ -60,7 +60,7 @@ Các tài nguyên từ bài giữa kỳ đã triển khai
 
 ### 2.2 Cài đặt k8s qua Kubespray
 
-Trong phần này sẽ triển khaiKubernetes thông qua công cụ kubespray lên 1 master node VM + 1 worker node VM
+Trong phần này sẽ triển khai Kubernetes thông qua công cụ kubespray lên 1 master node VM + 1 worker node VM
 
 Ý tưởng là sẽ cài kubespray một lên máy chủ (Installation Server) trong bài lab này chọn node `cicd-qa-server` và cần cho Kubespray biết cần phải cài một cụm K8S với bao nhiêu node master, bao nhiêu worker, cài etcd trên bao nhiêu node, thông tin kết nối của các node là gì.
 
@@ -144,7 +144,7 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-Sửa file config, tham số "server: https://127.0.0.1:6443" thành "server: https://192.168.64.148:6443" và lưu lại (`192.168.64.140` là IP của node master, 6443 là port mặc định của kube-api-server)
+Sửa file config, tham số "server: https://127.0.0.1:6443" thành "server: https://192.168.64.148:6443" và lưu lại (`192.168.64.148` là IP của node master, 6443 là port mặc định của kube-api-server)
 
 <div align="center"> 
   <img width="1000" src="./assets/images/k8s-4.png" alt="">

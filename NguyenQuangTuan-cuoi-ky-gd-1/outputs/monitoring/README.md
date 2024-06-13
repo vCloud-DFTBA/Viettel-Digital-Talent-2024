@@ -53,7 +53,7 @@ Thực hiện cài đặt và implement package trên vào code Api server Nodej
 
 Còn đối với Web service cần chạy thêm 1 sidecar container ([Nginx prometheus exporter](https://github.com/nginxinc/nginx-prometheus-exporter))
 
-Mô hình Sidecar Container thường được sử dụng trong các ứng dụng container hóa để thêm chức năng mà không cần phải sửa đổi ứng dụng chính. Trong trường hợp này,sử dụng Nginx làm web server cho Reactjs và một Prometheus Exporter để expose các metrics từ Nginx, cho phép Prometheus thu thập chúng.
+Mô hình Sidecar Container thường được sử dụng trong các ứng dụng container hóa để thêm chức năng mà không cần phải sửa đổi ứng dụng chính. Trong trường hợp này, sử dụng Nginx làm web server cho Reactjs và một Prometheus Exporter để expose các metrics từ Nginx, cho phép Prometheus thu thập chúng.
 
 Service web chạy trên web server nginx, dưới đây là file cấu hình nginx
 
@@ -102,6 +102,8 @@ Sử dụng Service Monitor của Prometheus Operator để giám sát Web Deplo
 
 **Giám sát Web Deployment**
 
+Tạo file `web-service-monitor.yaml` và apply lên cluster
+
 ```shell
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -145,6 +147,8 @@ Hình ảnh danh sách target của Web Deployment được giám sát bởi Pro
 </div>
 
 **Giám sát Api Deployment**
+
+Tạo file `api-service-monitor.yaml` và apply lên cluster
 
 ```shell
 apiVersion: monitoring.coreos.com/v1

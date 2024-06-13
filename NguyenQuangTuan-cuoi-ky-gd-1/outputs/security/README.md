@@ -102,7 +102,6 @@ Quay lại thực hiện các endpoint `create`, `update`, `delete` bằng token
 <div align="center">
   <img width="1000" src="./assets/images/secur-14.png" alt="">
 </div>
-<br>
 
 ### 3. Ratelimit cho Endpoint của api Service
 
@@ -134,3 +133,11 @@ Cấu hình của `express-rate-limit` sẽ như sau
 <div align="center">
   <img width="1000" src="./assets/images/secur-16.png" alt="">
 </div>
+<br>
+
+Truy cập vào trình duyệt và thực hiện quá 10 request trong vòng 1 phút sẽ nhận được `429 Too Many Requests`
+
+<div align="center">
+  <img width="1000" src="./assets/images/secur-17.png" alt="">
+</div>
+<br>

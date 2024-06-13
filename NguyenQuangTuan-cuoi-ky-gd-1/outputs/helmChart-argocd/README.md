@@ -90,6 +90,7 @@ Trong bài lab này PVC triển khai theo reclaim policy là `retain`
 <div align="center">
   <img width="1000" src="./assets/images/helm-db-3.png" alt="">
 </div>
+<br>
 
 Qua NFS-server `database-server: 192.168.64.143` check thì đã thấy các PV được tạo
 
@@ -98,7 +99,7 @@ Qua NFS-server `database-server: 192.168.64.143` check thì đã thấy các PV 
 </div>
 <br>
 
-Các Pod của Statefulset không thể được tạo hay xóa cùng lúc. Nó sẽ được tạo tuần tự. Cần triển khai database theo `statefulset` chứ không phải `deployment` do data cần triển khai theo dạng relication
+Các Pod của Statefulset không thể được tạo hay xóa cùng lúc. Nó sẽ được tạo tuần tự và cần triển khai database theo `statefulset` chứ không phải `deployment` do data cần triển khai theo dạng relication
 
 <div align="center">
   <img width="1000" src="./assets/images/data-replication-1.png" alt="">
@@ -194,7 +195,7 @@ Do bài được phát triển từ bài giữa kỳ (bài giữa kỳ host Gitl
 </div>
 <br>
 
-File `argocd-vdt-api-app.yaml` và `argocd-vdt-web-app.yaml` cho việc triển khai Api và Web bằng multiple sources. 2 repo `VDT-midterm-api` va `VDT-midterm-web` là 2 repo lưu code trên gitlab từ bài giữa kỳ.
+File `argocd-vdt-api-app.yaml` và `argocd-vdt-web-app.yaml` cho việc triển khai Api và Web bằng multiple sources. 2 repo `VDT-midterm-api` và `VDT-midterm-web` là 2 repo lưu code trên gitlab từ bài giữa kỳ.
 
 ```shell
 #argocd-vdt-api-app.yaml

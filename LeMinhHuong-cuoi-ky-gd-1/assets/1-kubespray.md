@@ -94,7 +94,6 @@ Output
 ### 7. Rerun ansible playbook
 
 ```
-
 vagrant reload
 vagrant status
 vagrant ssh k8s-[1-3]
@@ -105,4 +104,4 @@ vagrant snapshot list
 vagrant snapshot restore "version"
 
 ansible-playbook -vvv -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory --become --become-user=root cluster.yml
-``
+```

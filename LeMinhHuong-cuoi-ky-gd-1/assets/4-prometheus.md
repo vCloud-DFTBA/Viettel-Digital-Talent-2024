@@ -13,6 +13,7 @@ helm uninstall kube-prometheus-stack -n go-go
 ```
 
 - [prometheus](https://github.com/lmhuong711/go-go-charts/blob/main/prometheus/)
+- [service monitor](https://github.com/lmhuong711/go-go-charts/blob/main/prometheus/metrics.yaml)
 
 ## 2. Demo
 

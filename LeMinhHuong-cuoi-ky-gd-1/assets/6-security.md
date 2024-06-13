@@ -82,4 +82,6 @@ sudo nano /etc/hosts
 
 ### 3.2. Demo
 
+- [stress test](https://github.com/lmhuong711/go-go-be/blob/main/stress_test.html)
+
 ![6.3-1](./images/6.3-1.png)

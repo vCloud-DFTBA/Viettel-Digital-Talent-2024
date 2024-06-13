@@ -479,6 +479,74 @@ spec:
 Result of https 
 ![alt text](images/R/image-27.png)
 ![alt text](images/R/image-28.png)
+### Yêu cầu 2:
+- Đảm bảo 1 số URL của api service  khi truy cập phải có xác thực thông qua 1 trong số các phương thức cookie, basic auth, token auth, nếu không sẽ trả về HTTP response code 403. (0.5)
+- Thực hiện phân quyền cho 2 loại người dùng trên API:
+  - Nếu người dùng có role là user thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 403
+  - Nếu người dùng có role là admin thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 2xx
+
+### Output 2: 
+Simple authentication with role-based access control in flask:
+```
+users = {
+    "user1": {
+        "username": "user",
+        "password": ("user"),  #Shoulda been hashed
+        "role": "user"
+    },
+    "admin": {
+        "username": "admin",
+        "password": ("admin"),  #Shoulda been hashed
+        "role": "admin"
+    }
+}
+def authenticate(username, password):
+    user = users.get(username)
+    if not user:
+        return False
+    return (user["password"] == password)
+def requires_auth(role="user"):
+    def decorator(f):
+        @wraps(f)
+        def decorated(*args, **kwargs):
+            auth = request.authorization  # Get authorization header
+
+            if not auth or not authenticate(auth.username, auth.password):
+                abort(401, "Authorization required")
+
+            if role == "admin" and users[auth.username]["role"] != role:
+                abort(403, "Admin privileges required")
+
+            return f(*args, **kwargs)
+        return decorated
+    return decorator
+...
+@app.route('/students', methods=['GET'])
+@requires_auth() #none
+def handle_students():
+...
+@app.route('/students', methods=['POST'])
+@requires_auth(role="admin") #require admin
+def add_students():
+...
+@app.route('/students/<_id>', methods=['PUT'])
+@requires_auth(role="admin") #require admin
+def edit_student(_id):
+...
+@app.route('/students/<_id>', methods=['DELETE'])
+@requires_auth(role="admin") #require admin
+def delete_student(_id):
+...
+```
+Return 401 for anonimously unauthorized access:
+![alt text](images/R/image-30.png)
+Return 200 for authorized access:
+![alt text](images/R/image-31.png)
+Return 403 for user's unauthorized access:
+![alt text](images/R/image-32.png)
+Return 200 for authorized access
+![alt text](images/R/image-33.png)
+
 ### Yêu cầu 3:
 - Sử dụng 1 trong số các giải pháp để ratelimit cho Endpoint của api Service, sao cho nếu có  quá 10 request trong 1 phút gửi đến Endpoint của api service thì các request sau đó bị trả về HTTP Response 409 
 ### Output 3:

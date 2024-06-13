@@ -67,13 +67,15 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
     - Expose Prometheus dưới dạng Nodeport
     - Sử dụng Service Monitor của Prometheus Operator để giám sát Web Deployment và API Deployment
 - Output:
-    - Triển khai promethus operator.Ở đây em triển khai thông qua kube-prometheus với promethus operator là 1 phần trong kube-prometheus. Promethus operator là quản lí các thành phần của promethus.Ngoài ra, ta có thể sử dụng helm triển khai cũng được.
+    - Triển khai promethus operator. Ở đây em triển khai thông qua kube-prometheus với promethus operator là 1 phần trong kube-prometheus. Promethus operator là quản lí các thành phần của promethus.Ngoài ra, ta có thể sử dụng helm triển khai cũng được.
     - <img width="1473" alt="Screenshot 2024-06-12 at 09 53 58" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fc2af8c6-93d7-46b1-a9aa-89f83b582763">
-    - [Các file setup để triển khai Prometheus lên Kubernetes Cluster]()
-    - /code: git clone https://github.com/prometheus-operator/kube-prometheus.git
-    - cd kube-prometheus
-    - kubectl create -f manifests/setup
-    - kubectl create -f manifests/
+    - [Các file setup để triển khai Prometheus lên Kubernetes Cluster](https://github.com/ngodanghuy162/promethus-install.git)
+    - Chạy các lệnh sau:
+      - git clone https://github.com/prometheus-operator/kube-prometheus.git
+      - cd kube-prometheus
+      - kubectl create -f manifests/setup
+      - kubectl create -f manifests/
+      - kubectl port-forward svc/prometheus-operated 9090 -n monitoring
 
 # Secutiry
 
@@ -101,7 +103,8 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
 
 - Giải pháp: Sử dụng Bucket4j - một library hỗ trợ trong spring boot cho việc Ratelimit - dựa trên thuật toán token-bucket. Bucket4j là một thư viện an toàn theo luồng có thể được sử dụng trong ứng dụng JVM độc lập hoặc môi trường nhóm.
 - Thuật toán token-bucket:Các yếu tố cơ bản của thuật toán bao gồm một "bucket" có khả năng lưu trữ các "token", mỗi token đại diện cho một quyền truy cập vào API endpoint. Khi một yêu cầu được gửi đến, hệ thống sẽ kiểm tra xem có token nào còn trong bucket hay không. Nếu có, một token sẽ được xóa khỏi bucket và yêu cầu được chấp nhận. Ngược lại, nếu bucket không còn token, yêu cầu sẽ bị từ chối cho đến khi bucket được nạp lại đủ token. Nghĩa là mỗi request rẽ lấy đi 1 token. Ví dụ, nếu một API có giới hạn 100 yêu cầu mỗi phút, ta có thể tạo một bucket có khả năng 100 token và tốc độ nạp lại là 100 token mỗi phút.
-- Cài đặt: Khai báo 1 bucket có 10 token. Khả năng nạp 10 token mỗi phút + khai báo trong file pom.xml. [Source code được lưu tại repo backend.](https://github.com/ngodanghuy162/vdt-back)<img width="824" alt="Screenshot 2024-06-13 at 17 20 40" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/e743d7cd-e8fc-4cc4-91d5-71ee5981f6c6">
+- Cài đặt: Khai báo 1 bucket có 10 token. Khả năng nạp 10 token mỗi phút + khai báo trong file pom.xml. [Source code được lưu tại repo backend.](https://github.com/ngodanghuy162/vdt-back)
+<img width="824" alt="Screenshot 2024-06-13 at 17 20 40" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/e743d7cd-e8fc-4cc4-91d5-71ee5981f6c6">
 <img width="367" alt="Screenshot 2024-06-13 at 17 21 49" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9eee7a1a-3034-4c4d-8d39-59c5fced32aa">
 -Output khi gửi request:
 <img width="1146" alt="Screenshot 2024-06-13 at 17 24 05" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ce07188f-2e12-4fd7-aaef-2428ce23cfcb">
@@ -110,7 +113,8 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
 Khi ta chạy colection, ta thấy 5 request sau bị 409, 10 request đầu không bị.
 <img width="1197" alt="Screenshot 2024-06-13 at 17 37 21" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/321bb343-c5ae-4e2a-9fa1-a9802eccfbc3">
 <img width="1183" alt="Screenshot 2024-06-13 at 17 35 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b52a06c6-abbf-427f-821a-eeea4ae7e583">
-Ngoài ra, em có thử chạy lệnh:  `for i in {1..1000}; do response=$(curl -X GET -s -w "%{http_code}" http://localhost:8080/vdt/); echo "$i: $response" >> responses.log; done`
+Ngoài ra, em có thử chạy lệnh: </br>
+ `for i in {1..1000}; do response=$(curl -X GET -s -w "%{http_code}" http://localhost:8080/vdt/); echo "$i: $response" >> responses.log; done` </br>
 [Output là file responeses.log](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/CK/NgoDangHuy-cuoi-ki-gd1/responses.log) </br>
 <img width="354" alt="Screenshot 2024-06-13 at 17 41 10" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1c5e0b9c-d964-4dea-96df-02c927e86b3d"> </br>
 

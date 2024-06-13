@@ -68,9 +68,12 @@ Manifest của ArgoCD Application
 
 ## Thông tin repo:
 
+### API Service 
 [Repo Source Code Api Service](https://github.com/Vinh1507/vdt-api)
 
 [Repo Config Api Service](https://github.com/Vinh1507/vdt-api-config)
+
+### Web Service 
 
 [Repo Source Code Web Service](https://github.com/Vinh1507/vdt-web)
 

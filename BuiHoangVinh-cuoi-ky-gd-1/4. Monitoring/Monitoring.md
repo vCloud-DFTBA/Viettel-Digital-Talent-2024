@@ -19,6 +19,7 @@ https://github.com/korfuri/django-prometheus
 git clone https://github.com/prometheus-operator/kube-prometheus
 ```
 Tiến hành cài đặt CRD
+
 ![alt text](./images/prometheus-crd.png)
 
 Tự tạo 1 triển khai object Prometheus giám sát API Service và Web Service

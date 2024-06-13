@@ -26,8 +26,14 @@ Do Jenkins được chạy trên local, do đó em sử dụng tool Ngrok để 
 Ngrok: Forwarding https://d443-14-232-55-56.ngrok-free.app -> http://localhost:8080
 
 ### 1.1. Cấu hình github webhook
+Cấu hình URL webhook
+
 ![alt text](./images/vdt-api/github-webhook.png)
+
+Cấu hình event github webhook
+
 ![alt text](./images/vdt-api/github-webhook-tag.png)
+
 webhook: https://d443-14-232-55-56.ngrok-free.app/multibranch-webhook-trigger/invoke?token=demo-token
 
 ### 1.2. Job Jenkins cho API Service
@@ -49,7 +55,7 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (demo-token)
 
 2. Tạo tag v2.12 lên repo API
 
-![alt text](./images/vdt-api/api-create-tag.png)
+    ![alt text](./images/vdt-api/api-create-tag.png)
 
 3. Webhook được trigger về Jenkins server
 ![alt text](./images/vdt-api/git-webhook-trigger.png)
@@ -59,9 +65,7 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (demo-token)
 
 5. Jenkins job pipeline được hoàn thành
 
-![alt text](./images/vdt-api/jenkins-job-done.png)
-    Docker image mới được đẩy lên Docker hub
-![alt text](./images/vdt-api/api-docker-image.png)
+    ![alt text](./images/vdt-api/jenkins-job-done.png)
 
 6. Hình ảnh ArgoCD diff khi có sự kiện thay đổi trên repo config
 ![alt text](./images/vdt-api/argo-diff-image.png)
@@ -110,35 +114,38 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (vdt-web-token)
 
 2. Tạo tag v2.15 lên repo Web
 
-![alt text](./images/vdt-web/web-git-create-tag.png)
+    ![alt text](./images/vdt-web/web-git-create-tag.png)
+
 3. Webhook được trigger từ Github về Jenkins server
 
-![alt text](./images/vdt-web/web-git-webhook-trigger.png)
+    ![alt text](./images/vdt-web/web-git-webhook-trigger.png)
+
 4. Jenkins job pipeline được kích hoạt
 
-![alt text](./images/vdt-web/web-jenkins-trigger.png)
+    ![alt text](./images/vdt-web/web-jenkins-trigger.png)
+
 5. Jenkins job pipeline được hoàn thành
 
-![alt text](./images/vdt-web/web-jenkins-done.png)
+    ![alt text](./images/vdt-web/web-jenkins-done.png)
     Docker image mới được đẩy lên docker hub
 
-![alt text](./images/vdt-web/web-docker-image.png)
+    ![alt text](./images/vdt-web/web-docker-image.png)
 6. Hình ảnh ArgoCD diff khi có sự kiện thay đổi trên repo config
 
-![alt text](./images/vdt-web/web-argo-diff.png)
+    ![alt text](./images/vdt-web/web-argo-diff.png)
 7. Hình ảnh event thay đổi của WEB Application
 
-![alt text](./images/vdt-web/argo-diff-app.png)
+    ![alt text](./images/vdt-web/argo-diff-app.png)
 8. Hình ảnh event thay đổi của WEB Deployment
 
     2 pod được xóa, và tạo mới 2 pod
 ![alt text](./images/vdt-web/argo-diff-deploy.png)
 9. Hình ảnh manifest mới của WEB Deployment (Đã cập nhật docker image v2.15)
 
-![alt text](./images/vdt-web/argo-web-manifest.png)
+    ![alt text](./images/vdt-web/argo-web-manifest.png)
 10. Hình ảnh application sau khi kết thúc luồng CD
 
-![alt text](./images/vdt-web/argo-web-cd-done.png)
+    ![alt text](./images/vdt-web/argo-web-cd-done.png)
 
 ### Output log của luồng CD cho WEB Service
 - [Jenkins Web Full log](./logs/jenkins-web-log.md)

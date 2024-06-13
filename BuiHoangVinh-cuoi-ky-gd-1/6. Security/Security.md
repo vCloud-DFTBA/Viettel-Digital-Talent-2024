@@ -64,10 +64,10 @@ backend api_port_out
     server api2 192.168.144.145:30002 check
 ```
 ## Kết quả:
-Truy cập API thông qua LB: http://192.168.144.136:3000
+Truy cập Web service thông qua LB: http://192.168.144.136:3000
 ![alt text](./images/lb-web.png)
 
-Truy cập API thông qua LB: http://192.168.144.136:8000/api/students/
+Truy cập API service thông qua LB: http://192.168.144.136:8000/api/students/
 ![alt text](./images/lb-api.png)
 
 ## Yêu cầu 2:
@@ -171,17 +171,17 @@ Sử dụng 1 trong số các giải pháp để ratelimit cho Endpoint của ap
 - File ghi lại kết quả thử nghiệm khi gọi quá 10 request trong 1 phút vào Endpoint của API Service
 
 ### [File tài liệu trình bày giải pháp ratelimit](./solutions/ratelimit-solution.md)
-### Kết quả thử nghiệm thì gọi quá 10 request trong 1 phút
-Hình ảnh chụp màn hình kibana
+## Kết quả thử nghiệm thì gọi quá 10 request trong 1 phút
+### Hình ảnh chụp màn hình kibana
 Các request tới API /api/students/ được gửi bắt đầu từ Jun 13, 2024 @ 21:06:21.945 tới Jun 13, 2024 @ 21:06:41.484, trong đó có 10 request đầu tiên trả về trạng thái 200, từ request thứ 11 trả về trạng thái 409
 
+#### [File log kết quả thử nghiệm ratelimit export từ kibana](./logs/kibana-ratelimit.json)
 ![alt text](./images/kibana-ratelimit.png)
-### [File log kết quả thử nghiệm ratelimit export từ kibana](./logs/kibana-ratelimit.json)
 
-Hình ảnh chụp màn hình argocd log của vdt-api
+### Hình ảnh chụp màn hình argocd log của vdt-api
 Log được sinh ra từ deployement vdt-api trên ArgoCD bắt đầu từ [13/Jun/2024 14:06:21] (GMT0) tới [13/Jun/2024 14:06:41](GMT0), trong đó có 10 request đầu tiên trả về trạng thái 200, từ request thứ 11 trả về trạng thái 409
 
 Chú ý độ lệnh múi giờ GMT+7 nên log hiển thị là 14:06:21, tương đương với 21:06:21 (GMT+7)
 
+#### [File log kết quả thử nghiệm ratelimit từ argocd](./logs/deployment-log.md)
 ![alt text](./images/argo-ratelimit.png)
-### [File log kết quả thử nghiệm ratelimit từ argocd](./logs/deployment-log.md)

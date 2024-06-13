@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef4a69ea-a750-4a62-ad87-ee66d90b5d02" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/NguyenThiNgocMai-cuoi-ky-gd-1/EndTermReport.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NguyenThiNgocMai-cuoi-ky-gd-1/k8s-setup-log.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2h0YXcMLxF6UQPpXa5jFzt0nWyh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Work/Viettel Digital Talent 2024/Viettel-Digital-Talent-2024/NguyenThiNgocMai-cuoi-ky-gd-1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\Viettel Digital Talent 2024\Viettel-Digital-Talent-2024\NguyenThiNgocMai-cuoi-ky-gd-1" />
+      <recent name="D:\Work\Viettel Digital Talent 2024\Viettel-Digital-Talent-2024\NguyenThiNgocMai" />
+      <recent name="D:\Work\Viettel Digital Talent 2024\Viettel-Digital-Talent-2024\NguyenThiNgocMai\Docs" />
+      <recent name="D:\Work\Viettel Digital Talent 2024\Viettel-Digital-Talent-2024\NguyenThiNgocMai\Images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\Viettel Digital Talent 2024\Viettel-Digital-Talent-2024\NguyenThiNgocMai\Images" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef4a69ea-a750-4a62-ad87-ee66d90b5d02" name="Changes" comment="" />
+      <created>1716732502466</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716732502466</updated>
+      <workItem from="1716732503636" duration="4155000" />
+      <workItem from="1716741733213" duration="3277000" />
+      <workItem from="1716815423111" duration="2438000" />
+      <workItem from="1716828111752" duration="79000" />
+      <workItem from="1717553374317" duration="593000" />
+      <workItem from="1718289818963" duration="1155000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

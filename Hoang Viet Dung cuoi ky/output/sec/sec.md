@@ -75,7 +75,9 @@ backend api_backend
 
 ```
 
-
+<div align="center">
+  <img width="600" src="./assets/images/16.jpg">
+</div>
 
 ## 2. Yêu cầu 2
 

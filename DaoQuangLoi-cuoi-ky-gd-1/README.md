@@ -565,6 +565,8 @@ bucket4j</u>](https://docs.google.com/document/d/1TO893sXUwGiQD8r7TXs0jFnf3FxbGE
 - File ghi lại kết quả thử nghiệm khi gọi quá 10 request trong 1 phút
   vào Endpoint của API Service
 
+Để đảm bảo tính khách quan do app được deploy trên k8s cluster các pod phải health check vào path nên phần này chúng ta sẽ thử nghiệm app trên localhost, chỉ có request do chúng ta tự gửi.
+
 Đây là script viết bằng Python để tự động gọi liên tục 12 request GET
 vào API endpoint. Vì chúng ta chỉ giới hạn 10 request trong một phút nên
 các request từ 11-12 sẽ bị reject

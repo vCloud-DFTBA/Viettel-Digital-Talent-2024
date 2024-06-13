@@ -29,5 +29,3 @@ Website accessible from `http://localhost:3000`:
 - Ansible playbooks: https://github.com/jspbach/vdt-playbooks
 
 ## R5: Research
-
-

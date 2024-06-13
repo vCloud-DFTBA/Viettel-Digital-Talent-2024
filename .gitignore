@@ -1,5 +1,0 @@
-# Ignore macOS .DS_Store files
-.DS_Store
-
-# Ignore .DS_Store in all directories
-**/.DS_Store

@@ -47,6 +47,8 @@ sudo nano /etc/hosts
 
 - Demo
 ![6.1-1](./images/6.1-1.png)
+![6.1-2](./images/6.1-2.png)
+![6.1-3](./images/6.1-3.png)
 
 ## 2. JWT
 
@@ -68,3 +70,16 @@ sudo nano /etc/hosts
 - ![role_admin](./images/6.2-4.png)
 
 ## 3. Rate limit
+
+### 3.1. Giải pháp: gofiber/limiter
+
+- Gofiber có đưa ra những phương pháp giải quyết trong middleware sau (LimiterMiddleware)
+- [limiter#FixedWindow](https://pkg.go.dev/github.com/gofiber/fiber/v2@v2.52.4/middleware/limiter#FixedWindow): Khi người dùng gửi request đến hệ thống, nó sẽ lưu số request đã gửi vào 1 biến count cùng với thời điểm start_time gửi request. Sau đó sẽ lưu count vs timestamp vào 1 hash table (Có thể là Redis, memcached... Mặc định là fiber.Storage). Trong đó key sẽ là user_id và value sẽ chứa json bao gồm số lượng request đã gửi, cùng với thời điểm timestamp.
+- [limiter#SlidingWindow](https://pkg.go.dev/github.com/gofiber/fiber/v2@v2.52.4/middleware/limiter#SlidingWindow): Lưu thời gian gửi mỗi request lại, nếu có những request cũ hơn 1 khoảng thời gian (ví dụ 1 phút) sẽ xóa đi. Tính tổng số request vượt quá quy định thì sẽ giới hạn lại. So với Fixed Window thì Sliding Window nhiều memory hơn. 
+- Hoặc có thể tự custom lại middleware rate limit.
+
+> Vì status code 429 Too Many Requests phù hợp trả về hơn 409 Conflict nên sử dụng status code 429. Tuy nhiên, có thể config lại status code trả về bằng cách thay đổi [fiber.StatusTooManyRequests](https://github.com/lmhuong711/go-go-be/blob/main/middlewares/rate_limit.go#L17) thành ```fiber.StatusConflict``` 
+
+### 3.2. Demo
+
+![6.3-1](./images/6.3-1.png)

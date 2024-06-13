@@ -6,11 +6,11 @@ LeMinhHuong
 
 Triển khai được Kubernetes thông qua công cụ kubeadm hoặc kubespray lên 1 master node VM + 1 worker node VM: 1 điểm
 
-- Tài liệu cài đặt [1-kubespray.md](assets/1-kubespray.md)
+- Tài liệu cài đặt
 
 - Log của các lệnh kiểm tra hệ thống như `kubectl get nodes - o wide`
 
-![kubespray](./assets/images/1-1.png)
+## [1-kubespray.md](assets/1-kubespray.md)
 
 # Triển khai web application sử dụng các DevOps tools & practices
 

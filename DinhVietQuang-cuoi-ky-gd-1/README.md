@@ -11,7 +11,7 @@ Author: **Đinh Việt Quang**
 - [6. Security](#6-security)
 
 ## 0. Requirements
-- For more information about the project, please take a look at this [link](https://docs.google.com/document/d/1giXBr97e0GVec3Ch18ElYiI_PrbTTqXu6NlX6VnF6v0/edit#heading=h.d18cfdd4km1o).
+- For more information about the project, please take a look at this [link](https://docs.google.com/document/d/1ZD6ecmsTek84p5lftYFCg6CoqbUP5qPL4v93W-grCK8/edit#heading=h.cjmywkm5w50t).
 
 ## 1. Kubernetes deployment
 Minikube is used for the following tasks of the mini project thanks to the convenience setup. 

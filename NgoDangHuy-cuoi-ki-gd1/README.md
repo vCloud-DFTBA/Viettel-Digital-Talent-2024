@@ -1,4 +1,4 @@
-![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/91ede620-52c7-4d2b-9faa-e90addd76a44)# Triển khai Kubernetes (1 điểm)
+# Triển khai Kubernetes (1 điểm)
 - Triển khai bằng kubespray: Tài liệu cài đặt và output.
 https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/edit?usp=sharing
 
@@ -41,6 +41,7 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
   ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/59105c6a-010d-4150-8670-80f731669b9e)
 
   - Luồng CD backend khi có tag mới:<img width="1330" alt="Screenshot 2024-06-11 at 15 19 22" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/803191e3-31bb-4834-a6e2-a8887e23b28b">
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/91ede620-52c7-4d2b-9faa-e90addd76a44)
   <img width="1461" alt="Screenshot 2024-06-11 at 15 19 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/134a4592-9b57-47fd-923c-b46084a04e8d">
   <img width="1512" alt="Screenshot 2024-06-11 at 15 20 42" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/edded461-a114-4a67-bfe9-21f2c9bb79aa">
  - Tự thay đổi images tag repo config:
@@ -68,6 +69,28 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
     - cd kube-prometheus
     - kubectl create -f manifests/setup
     - kubectl create -f manifests/
+
+# Secutiry
+
+## Yêu cầu 2
+-Đảm bảo 1 số URL của api service  khi truy cập phải có xác thực thông qua 1 trong số các phương thức cookie, basic auth, token auth, nếu không sẽ trả về HTTP response code 403. (0.5)
+- Thực hiện phân quyền cho 2 loại người dùng trên API:
+  - Nếu người dùng có role là user thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 403
+  - Nếu người dùng có role là admin thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 2xx
+
+- Giải pháp: Em sử dụng Spring secutiry cho backend. Ở đây, e có thể yêu cầu phân quyền cho từng endpoint, từng role. Như đề yêu cầu thì em sử dụng 2 role admin và user. Em dùng JWT để phân quyền và xác thực. Đầu tiên, em tạo 1 table lưu lại các tài khoản người dùng và vai trò người dùng, mật khẩu đã được mã hóa trong CSDL. Để có thể lấy token, người dùng cần gửi request đăng nhập với usename và password, và sẽ nhận được lại respone là JWT (trường user là em để thêm cho dễ thấy thông tin tài khoản - có thể xóa và chỉ trả duy nhất JWT được)
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/d1dd8190-224e-4921-8f13-3e80643faf61)
+- Sau khi nhận token, người dùng sẽ dùng nó chèn vào các request đằng sau dưới hạng header/cookies tùy chỉnh (em dùng cookie). Sau khi nhận, bên server sẽ phân tích JWT và xem user role cũng như thông tin của JWT (có thể set expire, các trường khác thêm của JWT). Người dùng phải authenticate mới gửi được request đến các chức năng CRUD.
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/0aad5f6f-3af0-4169-8593-4b07df344127)
+- Phân quyền với người dùng role User: Chỉ gửi xem được đến request Read (vdt/all) , delete-post-update bị chặn.
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/10dcc96d-3369-455b-a43e-9ba0a8195417)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/c58bd842-6938-4c2e-a2b8-199e6810320f)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/571d6917-a2d1-475b-b06b-b0cc18cfad8b)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8cf1be6b-9f80-4ec5-9c05-8723748d28d5)
+- Phân quyền với người dùng role Admin: Không bị chặn với các request.
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/0a6de9ba-df53-4e70-a2a0-454b509a6895)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6068244a-1e0c-492a-a302-39ab935d535f)
+![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/68f71e5d-5d25-4641-8447-f395d4a012eb)
 
 
 

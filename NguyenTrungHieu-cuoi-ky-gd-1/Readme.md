@@ -15,14 +15,14 @@ Hoặc:
 Output: 
 
 - Tài liệu cài đặt
-- Log của các lệnh kiểm tra hệ thống như: kubectl get nodes - o wide
+- Log của các lệnh kiểm tra hệ thống như: kubectl get nodes -o wide
 
 ### 2. Kết quả:
 
 Sử dụng tài liệu chính thức của kubernetes để cài đặt kubectl và minikube trên ubuntu desktop 22.04:
 
 - Cài đặt kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-- Cài đặt minikubes: https://kubernetes.io/vi/docs/tasks/tools/ install-minikube/
+- Cài đặt minikubes: https://kubernetes.io/vi/docs/tasks/tools/install-minikube/
 
 Cụ thể gồm các bước sau: 
 1. Cập nhật apt package index và cài đặt các gói cần thiết để sử dụng k8s:
@@ -93,9 +93,11 @@ Output 1:
     ```
     curl -o argocd-install.yaml https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-    kubeclt apply -f argo-services.yaml
+    kubectl create namespace argocd
 
-    kubectl apply -f argocd-install.yaml
+    kubectl apply -n argocd -f argocd-install.yaml
+
+    kubectl apply -f argo-services.yaml
     ```
     - File argo-services.yaml để expose ArgoCD ra cổng 30777 sử dụng nodePort:
     ```
@@ -116,9 +118,13 @@ Output 1:
         app.kubernetes.io/name: argocd-server
     ```
 
+    - Tên tài khoản: admin.
+    - Mật khẩu khởi tạo của ArgoCD được lấy bằng lệnh:
+    ```
+    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+    ```
 
-
-- Kết quả sau khi chạy file manifest trên cổng 30777:
+- Kết quả sau khi chạy file manifest trên cổng 30777 và đăng nhập:
 
 ![alt text](images/argocd-install.png)
 
@@ -144,7 +150,7 @@ Manifest của ArgoCD Application
 - File values.yaml:
   - Cho web service: https://github.com/HieuNT-2306/cloud_final_helm_web/blob/master/web/values.yaml 
   - Cho api service: https://github.com/HieuNT-2306/cloud_final_helm_api/blob/master/api/values.yaml 
-- Manifest của ArgoCD Application:
+- Manifest của ArgoCD Application cho ứng dụng vdt-app:
 ```                                                      
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -318,6 +324,92 @@ Output:
 
 ### 2. Kết quả:
 
+Ở phía API thì được expose metric bằng middleware `express-prom-bundle`:
+
+Cài đặt bằng npm
+```
+npm install express-prom-bundle
+```
+
+Sau đó, import và thêm các lệnh này vào trong file `index.js` để thu thập metric từ api:
+```
+import promBundle from 'express-prom-bundle';
+
+...
+
+const metricsMiddleware = promBundle({
+    includeMethod: true,
+    includePath: true,
+    includeStatusCode: true,
+    includeUp: true,
+    metrics: {
+      enabled: true,
+      prefix: 'api_'
+    }
+  });
+const app = express();
+
+...
+
+app.use(metricsMiddleware);
+
+```
+
+Do phần web UI được viết bằng React, một client-side framework, nên ở đây em không thể expose metrics của web một cách trực tiếp được, vì vậy em sử dụng cAdvisor để thu thập các metric từ container của web và của api, triển khai bằng cách sử dụng file cadvisor-deployment.yaml dưới đây:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cadvisor
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cadvisor
+  template:
+    metadata:
+      labels:
+        app: cadvisor
+    spec:
+      containers:
+      - name: cadvisor
+        image: google/cadvisor:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: rootfs
+          mountPath: /rootfs
+          readOnly: true
+        - name: var-run
+          mountPath: /var/run
+          readOnly: true
+        - name: sys
+          mountPath: /sys
+          readOnly: true
+        - name: var-lib-docker
+          mountPath: /var/lib/docker
+          readOnly: true
+      volumes:
+      - name: rootfs
+        hostPath:
+          path: /
+      - name: var-run
+        hostPath:
+          path: /var/run
+      - name: sys
+        hostPath:
+          path: /sys
+      - name: var-lib-docker
+        hostPath:
+          path: /var/lib/docker
+```
+
+Sau đó, cadvisor sẽ được triển khai lên cổng 8080:
+```
+kubectl apply -f cadvisor-deployment.yaml
+```
+
 Triển khai prometheus lên trên cổng 30090 thông qua nodePort:
 - File prometheus-config.yaml để áp dụng cấu hình prometheus:
 ```                                                         
@@ -435,7 +527,7 @@ spec:
             defaultMode: 420
 ```
 
-- Áp dụng lần lượt các cấu hình để deploy thành công prometheus:
+- Áp dụng lần lượt các cấu hình để deploy prometheus:
 ```
 kubectl apply -f prometheus-config.yaml -f prometheus-clusterrole.yaml
 -f prometheus-clusterrole-binding.yaml -f prometheus-services.yaml
@@ -676,15 +768,19 @@ defaults
     timeout client 50000ms
     timeout server 50000ms
 frontend web_frontend
+    mode tcp
     bind *:443 ssl crt /etc/ssl/certs/myapp/myapp.pem
     default_backend web_backend
 backend web_backend
+    mode tcp
     balance roundrobin
     server web1 192.168.10.11:30001 check
 frontend api_frontend
+    mode tcp
     bind *:8443 ssl crt /etc/ssl/certs/myapp/myapp.pem
     default_backend api_backend
 backend api_backend
+    mode tcp
     balance roundrobin
     server api1 192.168.10.11:30002 check
 ```

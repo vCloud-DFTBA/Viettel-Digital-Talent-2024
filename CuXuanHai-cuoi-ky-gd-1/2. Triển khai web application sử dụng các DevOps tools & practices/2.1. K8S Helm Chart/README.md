@@ -26,7 +26,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ## Giao diện của ArgoCD
 
-![](./images/Argocd.jpeg)
+![](./images/argocdNode1.jpeg)
 
 ## Web Deployment
 
@@ -56,7 +56,7 @@ Link tới file manifest: [Multisource Manifest](https://github.com/vuitinhvl7x/
 
 ## Ảnh chụp giao diện
 
-![ArgoCD Screenshot](./images/ARGOCD1.jpeg)
+![ArgoCD Screenshot](./images/argocdnode2.jpeg)
 
 ### Giao diện màn hình trình duyệt khi truy cập vào Web URL
 

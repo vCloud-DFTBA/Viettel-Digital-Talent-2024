@@ -823,21 +823,21 @@ def delete_student(student_id):
 
 - Curl các URL với các method GET/POST/DELETE với ROLE USER
 
-  - GET
+- GET
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/7e0dbbe1-e8f4-47a4-8337-36d881baedb1)
 
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/aa07ffa3-8721-4796-b299-b0241c93c438)
 
-  - POST
+- POST
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/c03dd619-4929-461a-8a2e-2531c17d65bb)
 
   
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/160cebea-e7fa-48b5-a393-3ef335f2ac70)
 
-  - DELETE
+- DELETE
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/065751bf-7a58-46ba-99aa-3bfc6ba59570)
 
@@ -846,7 +846,7 @@ def delete_student(student_id):
 
 - Curl các URL với các method GET/POST/DELETE với ROLE ADMIN
 
-  - GET
+- GET
  
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/fd2b2c65-9df0-41f4-8335-d42360da7dfa)
 
@@ -854,7 +854,7 @@ def delete_student(student_id):
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/2d216286-b1a1-4084-8c19-4ebcae206047)
 
 
-  - POST
+- POST
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/4cda3824-41e4-4f8f-8d20-7522510996b5)
 
@@ -862,7 +862,7 @@ def delete_student(student_id):
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/149d2e11-468e-466c-8fa7-42403914b75a)
 
  
-  - DELETE
+- DELETE
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/48965124-2643-4871-a4c2-a573d6e77b3a)
 

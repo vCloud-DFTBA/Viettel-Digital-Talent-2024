@@ -134,7 +134,8 @@ export default (onPerfEntry) => {
 
 ## 2. Tạo ServiceMonitor cho ứng dụng
 
-Hình ảnh về metrics khi thử truy vấn ![](./images/test.jpeg)
+Hình ảnh về metrics khi thử truy vấn api svc ![](./images/test.jpeg)
+Hình ảnh về metrics khi thử truy vấn web svc ![](./images/test1.png)
 
 ## 3 Tạo Servicemonitor cho ứng dụng
 

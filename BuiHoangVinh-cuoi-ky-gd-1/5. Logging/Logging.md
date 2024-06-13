@@ -219,23 +219,23 @@ kubectl get pod -n logging
 ![alt text](./images/dataview.png)
 
 #### Tìm kiếm log cho request_path: /api/students/
-[Log khi có request /api/students/ vào service API](./logs/vdt-api-log.md)
+[Log khi có request /api/students/ vào service API](./logs/vdt-api-log.json)
 
 ![alt text](./images/vdt-api-log.png)
 
 ## Hình ảnh Kibana kết quả tìm kiếm log của các Web API
 ### Tìm kiếm log cho request_path: /metrics
-[Log khi có request /metrics vào service Web](./logs/vdt-web-log.md)
+[Log khi có request /metrics vào service Web](./logs/vdt-web-log.json)
 
 ![alt text](./images/vdt-web-log-metrics.png)
 
 ### Tìm kiếm log cho request_path: /demo-404-notfound (trả về status 404)
 
-[Log khi có request /demo-404-notfound vào service Web](./logs/vdt-web-log-404.md)
+[Log khi có request /demo-404-notfound vào service Web](./logs/vdt-web-log-404.json)
 
 ![alt text](./images/vdt-web-log-404.png)
 
 ### Thông tin của một số container trong cụm K8s
-[Log của một số container trong cụm K8s](./logs/container-k8s-log.md)
+[Log của một số container trong cụm K8s](./logs/container-k8s-log.json)
 
 ![alt text](./images/container-k8s-log.png)

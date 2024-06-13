@@ -856,10 +856,16 @@ def delete_student(student_id):
 
   - POST
 
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/4cda3824-41e4-4f8f-8d20-7522510996b5)
+
+
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/149d2e11-468e-466c-8fa7-42403914b75a)
 
  
-  - DELETE     
+  - DELETE
+
+![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/48965124-2643-4871-a4c2-a573d6e77b3a)
+
 
 ![image](https://github.com/BaoICTHustK67/Viettel-Digital-Talent-2024/assets/123657319/3ba412e1-b830-4fc5-bdb4-07b21e8434f2)
 

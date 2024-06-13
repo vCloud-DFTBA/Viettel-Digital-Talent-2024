@@ -102,6 +102,11 @@ helm install nginx-ingress nginx-stable/nginx-ingress --set rbac.create=true
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=vdt2024.vn/O=vdt2024"
 kubectl create secret tls web-tls-secret --key tls.key --cert tls.crt
 ```
+- Vì không có domain nên em sẽ thử nghiệm bằng cách khác là em thêm tên miền vào file `/etc/hosts` để ánh xạ tên miền tới địa chỉ IP của node master.
+
+<div align="center">
+    <img src="../images/host.png"  style="margin-bottom: 20">
+</div>  
 
 - Cấu hình ingress:
   + **API**: [code here](https://github.com/descent1511/vdt2024-api-nodejs/blob/develop/api-chart/templates/ingress.yaml)

@@ -103,10 +103,10 @@ data:
     [OUTPUT]
         Name                es
         Match               *
-        Host                116.103.226.146
-        Port                9200
-        HTTP_User           elastic
-        HTTP_Passwd         iRsUoyhqW-CyyGdwk6V_
+        Host                ${ES_HOST}
+        Port                ${ES_PORT}
+        HTTP_User           ${ES_USER}
+        HTTP_Passwd         ${ES_PASSWD}
         Index               lht-79118984336
         Retry_Limit         False
         Suppress_Type_Name  On
@@ -157,10 +157,26 @@ spec:
         ports:
           - containerPort: 2020
         env:
-        - name: FLUENT_ELASTICSEARCH_HOST
-          value: "116.103.226.146"
-        - name: FLUENT_ELASTICSEARCH_PORT
-          value: "9200"
+        - name: ES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: es-secret
+              key: host
+        - name: ES_PORT
+          valueFrom:
+            secretKeyRef:
+              name: es-secret
+              key: port
+        - name: ES_USER
+          valueFrom:
+            secretKeyRef:
+              name: es-secret
+              key: http_user
+        - name: ES_PASSWD
+          valueFrom:
+            secretKeyRef:
+              name: es-secret
+              key: http_passwd
         volumeMounts:
         - name: varlog
           mountPath: /var/log

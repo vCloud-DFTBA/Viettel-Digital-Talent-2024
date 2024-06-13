@@ -31,7 +31,7 @@
 </div>  
 
 
--   Cài đặt Prometheus Operator bằng Helm chart:
+-   Cài đặt Prometheus Operator bằng Helm:
 ```bash 
 # Tạo namespace cho monitoring
 kubectl create namespace monitoring

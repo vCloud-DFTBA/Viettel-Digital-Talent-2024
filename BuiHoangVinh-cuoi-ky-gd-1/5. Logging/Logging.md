@@ -215,6 +215,9 @@ kubectl get pod -n logging
 
 ## Hình ảnh Kibana kết quả tìm kiếm log của các Service API
 
+#### Tạo dataview trên Kibana
+![alt text](./images/dataview.png)
+
 #### Tìm kiếm log cho request_path: /api/students/
 [Log khi có request /api/students/ vào service API](./logs/vdt-api-log.md)
 

@@ -213,44 +213,46 @@ metadata:
   namespace: logging
 data:
   fluent-bit.conf: |
+
     [SERVICE]
         Flush        1
-        Daemon       Off
         Log_Level    info
         Parsers_File parsers.conf
 
+
+
     [INPUT]
-        Name         tail
-        Path         /var/log/containers/*.log
-        Parser       docker
-        Tag          kube.*
+        Name          tail
+        Path          /var/log/containers/*.log
+        Parser        docker
+        Tag           kube.*
         Refresh_Interval 5
 
+
+
     [FILTER]
-        Name         kubernetes
-        Match        kube.*
-        Kube_URL     https://kubernetes.default.svc:443
-        Merge_Log    On
-        Keep_Log     Off
+        Name kubernetes
+        Match kube.*
+        Kube_URL https://kubernetes.default.svc:443
+        Merge_Log On
         K8S-Logging.Parser On
         K8S-Logging.Exclude Off
 
     [OUTPUT]
-        Name        es
-        Match       *
-        Host        116.103.226.146
-        Port        9200
-        HTTP_User   elastic
+        Name  es
+        Match *
+        Host  116.103.226.146
+        Port  9200
+        HTTP_User elastic
         HTTP_Passwd iRsUoyhqW-CyyGdwk6V_
-        Index       trangdt_0328663946
-        Logstash_Format On
-        Logstash_Prefix logs
-        Retry_Limit False
-        tls         On
-        tls.verify  Off
-        Replace_Dots On
+        Index trangdt_032866394622
+        Time_Key @timestamp
+        Logstash_Prefix app-logs
+        Logstash_DateFormat %d.%m.%Y
         Suppress_Type_Name On
-
+        Replace_Dots On
+        tls  On
+        tls.verify  Off
 
   parsers.conf: |
     [PARSER]
@@ -258,7 +260,7 @@ data:
         Format      json
         Time_Key    time
         Time_Format %Y-%m-%dT%H:%M:%S.%L
-        Time_Keep   On
+
 ```
 
 2. File fluser.yaml
@@ -299,8 +301,6 @@ kind: DaemonSet
 metadata:
   name: fluent-bit
   namespace: logging
-  labels:
-    k8s-app: fluent-bit
 spec:
   selector:
     matchLabels:
@@ -316,41 +316,26 @@ spec:
         image: fluent/fluent-bit:latest
         ports:
           - containerPort: 2020
-            name: api
-          - containerPort: 2021
-            name: health
+            name: monitor
         volumeMounts:
+          - name: config
+            mountPath: /fluent-bit/etc
           - name: varlog
             mountPath: /var/log
           - name: varlibdockercontainers
             mountPath: /var/lib/docker/containers
             readOnly: true
-          - name: config
-            mountPath: /fluent-bit/etc/fluent-bit.conf
-            subPath: fluent-bit.conf
-          - name: parsers
-            mountPath: /fluent-bit/etc/parsers.conf
-            subPath: parsers.conf
-      terminationGracePeriodSeconds: 30
       volumes:
+        - name: config
+          configMap:
+            name: fluent-bit-config
         - name: varlog
           hostPath:
             path: /var/log
         - name: varlibdockercontainers
           hostPath:
             path: /var/lib/docker/containers
-        - name: config
-          configMap:
-            name: fluent-bit-config
-            items:
-              - key: fluent-bit.conf
-                path: fluent-bit.conf
-        - name: parsers
-          configMap:
-            name: fluent-bit-config
-            items:
-              - key: parsers.conf
-                path: parsers.conf
+
 ```
 
 Hình ảnh chụp màn hình
@@ -360,8 +345,10 @@ Hình ảnh chụp màn hình
 ![alt text](images/logfku3.png)
 ![alt text](images/logflu4.png)
 ![alt text](images/logflu1.png)
-Do elastic seearch sập
-![alt text](images/kibana.png)
+
+![alt text](images/elkweb.png)
+![alt text](images/elkapi.png)
+
 ## VI. Security:
 
 ### 1. HAProxy & HTTPS:

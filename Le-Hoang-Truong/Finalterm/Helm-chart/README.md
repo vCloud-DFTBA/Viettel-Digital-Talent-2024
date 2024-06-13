@@ -78,7 +78,10 @@ kubectl get svc
   <div align="center">
       <img src="../images/web-arg.png" style="margin-bottom: 20">
   </div>
-
+-   Hiện thị thay đổi trên code:
+  <div align="center">
+      <img src="../images/history.png" style="margin-bottom: 20">
+  </div>
 #### Web:
 -   ip: `192.168.0.106`
 -   port: `30002`

@@ -25,12 +25,12 @@ Do Jenkins được chạy trên local, do đó em sử dụng tool Ngrok để 
 
 Ngrok: Forwarding https://d443-14-232-55-56.ngrok-free.app -> http://localhost:8080
 
-### 1. Cấu hình github webhook
+### 1.1. Cấu hình github webhook
 ![alt text](./images/vdt-api/github-webhook.png)
 ![alt text](./images/vdt-api/github-webhook-tag.png)
 webhook: https://d443-14-232-55-56.ngrok-free.app/multibranch-webhook-trigger/invoke?token=demo-token
 
-### 2. Job Jenkins cho API Service
+### 1.2. Job Jenkins cho API Service
 Sử dụng một số Jenkins Credential:
 - DOCKER_HUB_CREDENTIALS = 'dockerhub_vinhbh', là Credential Global thông tin tài khoản docker hub - nhằm mục đích push image lên docker hub
 

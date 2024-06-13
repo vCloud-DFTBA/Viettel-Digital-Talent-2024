@@ -40,7 +40,12 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
   - Luồng CD frontend khi có tag mới:<img width="1340" alt="Screenshot 2024-06-11 at 15 17 04" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/90fa0379-f90b-4129-a75d-ca29f76d6ae7">
   ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/59105c6a-010d-4150-8670-80f731669b9e)
 
-  - Luồng CD backend khi có tag mới:<img width="1330" alt="Screenshot 2024-06-11 at 15 19 22" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/803191e3-31bb-4834-a6e2-a8887e23b28b">
+  - Luồng CD backend khi có tag mới:
+  <img width="1330" alt="Screenshot 2024-06-11 at 15 19 22" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/803191e3-31bb-4834-a6e2-a8887e23b28b">
+  <img width="1162" alt="Screenshot 2024-06-13 at 13 56 21" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/3a0ef8c2-4112-4e75-8026-ba192b364f49">
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/32216f77-5a14-4e44-a6f2-b8fc0895b62a)
+  <img width="892" alt="Screenshot 2024-06-13 at 13 57 11" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b01062d1-c707-4c20-a27c-67e45ffbb5c1">
+  <img width="1474" alt="Screenshot 2024-06-13 at 13 53 39" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9190969a-50e5-4929-ad48-5b91a715358e">
   ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/91ede620-52c7-4d2b-9faa-e90addd76a44)
   <img width="1461" alt="Screenshot 2024-06-11 at 15 19 55" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/134a4592-9b57-47fd-923c-b46084a04e8d">
   <img width="1512" alt="Screenshot 2024-06-11 at 15 20 42" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/edded461-a114-4a67-bfe9-21f2c9bb79aa">
@@ -48,13 +53,13 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
 <img width="1448" alt="Screenshot 2024-06-11 at 21 48 15" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ac9c03bd-2171-4d15-bf6a-e36b80a57f5c">
 <img width="1449" alt="Screenshot 2024-06-11 at 21 48 39" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/eed6fbf4-c2f7-4c37-83ec-92df57591edd">
  - ArgoCD tự đồng bộ khi có thay đổi:
-   - Trước: ( Ở đây, phía frontend em dùng pod tên: helm-chart có 2 replica ở dưới)
-     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/67f0b426-2a2e-4847-bc59-0a9430eae09e)
-     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/bc5dd2f5-35bf-4c18-a2e8-705778970a70)
-     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/32b8549c-441e-4fe4-83bb-481edd0ba7fc)
-   - Sau khi thay đổi:
-     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/67108ee1-4c51-4422-a464-d0255cd330cb)
-     - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/f40dc37f-5207-41be-a6fd-ef759f356cc3)
+   - Trước: ( Ở đây, phía frontend em dùng pod tên: helm-chart có 2 replica ở dưới) </br>
+    ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/61e519be-08c9-4b51-a3cf-120d78af0618)
+    ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/3e5ce7df-cb14-4b32-8572-d40499fe1df4)
+    ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/d139626a-787a-463c-a33b-34c02c79f040)
+   - Sau khi thay đổi:</br>
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/4c7efd03-7981-4b64-a36a-864b31638df4)
+  ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/8a5c611c-5de1-492f-8dd0-fc6506fd0f10)
 # Monitoring (1.5đ)
 - Yêu cầu:
     - Expose metric của web service và api service ra 1 http path. 

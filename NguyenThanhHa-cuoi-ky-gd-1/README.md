@@ -421,6 +421,7 @@ File ingress.yaml để triển khai Ingress Controller
 [Ingress](https://github.com/hantbk/api_service/blob/main/charts/templates/ingress.yaml)
 
 ![alt](./images/proxy2.png)
+![alt](./images/proxy3.png)
 
 Authentication và Authorization cho ứng dụng web và api service
 

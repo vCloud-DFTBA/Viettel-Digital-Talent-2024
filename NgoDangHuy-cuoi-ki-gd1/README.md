@@ -111,9 +111,9 @@ Khi ta chạy colection, ta thấy 5 request sau bị 409, 10 request đầu kh�
 <img width="1197" alt="Screenshot 2024-06-13 at 17 37 21" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/321bb343-c5ae-4e2a-9fa1-a9802eccfbc3">
 <img width="1183" alt="Screenshot 2024-06-13 at 17 35 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b52a06c6-abbf-427f-821a-eeea4ae7e583">
 Ngoài ra, em có thử chạy lệnh:  `for i in {1..1000}; do response=$(curl -X GET -s -w "%{http_code}" http://localhost:8080/vdt/); echo "$i: $response" >> responses.log; done`
-Output là file respone.log.
-<img width="354" alt="Screenshot 2024-06-13 at 17 41 10" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1c5e0b9c-d964-4dea-96df-02c927e86b3d">
-<img width="305" alt="Screenshot 2024-06-13 at 17 41 20" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fbe47be3-fcfb-41d4-a9f3-ef8d56df2ef2">
+[Output là file responeses.log](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/CK/NgoDangHuy-cuoi-ki-gd1/responses.log) </br>
+<img width="354" alt="Screenshot 2024-06-13 at 17 41 10" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1c5e0b9c-d964-4dea-96df-02c927e86b3d"> </br>
+
 
 
 

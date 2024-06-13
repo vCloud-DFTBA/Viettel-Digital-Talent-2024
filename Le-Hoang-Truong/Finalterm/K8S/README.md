@@ -20,6 +20,7 @@
 
 ## 3. Cài đặt Kubernetes bằng Kubeadm
 ### 3.1. Chuẩn bị môi trường
+-  Tạo ít nhất 2 VM
 - Chạy các lệnh bên dưới trên cả Master và Worker Node
 
 1. Tạo tệp `/etc/modules-load.d/k8s.conf` và thêm các mô-đun kernel cần thiết:

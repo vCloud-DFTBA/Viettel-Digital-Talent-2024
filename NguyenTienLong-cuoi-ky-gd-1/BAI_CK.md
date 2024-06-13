@@ -1,25 +1,5 @@
 ## Bài tập lớn cuối kỳ chương trình VDT 2024 lĩnh vực Cloud - GĐ 1Bài tập lớn cuối kỳ chương trình VDT 2024 lĩnh vực Cloud - GĐ 1lệnh review markdown trong visual studio code
 
-# Mục lục:
-
-- [I. Triển khai Kubernetes qua công cụ kubespray] (#I.-Triển-khai-Kubernetes-qua công-cụ-kubespray:)
-- [2. Knowledge](#2-knowledge)
-  - [2.1. What is Kubernetes?](#21-what-is-kubernetes)
-  - [2.2. What are the benefits of Kubernetes?](#22-what-are-the-benefits-of-kubernetes)
-  - [2.3. What is Kubernetes used for?](#23-what-is-kubernetes-used-for)
-  - [2.4. Kubernetes Architecture](#24-kubernetes-architecture)
-  - [2.5. Deploy using Docker-compose](#25-deploy-using-docker-compose)
-- [3. Getting started](#3-getting-started)
-  - [3.1. Pre-requisites ](#31-pre-requisites)
-- [4. Deploying the application on Kubernetes](#4-deploying-the-application-on-kubernetes)
-  - [4.1. Application architecture](#41-application-architecture)
-  - [4.2. Deploy backend and frontend](#42-deploy-backend-and-frontend)
-  - [4.3. Deploy database - MongoDB](#43-deploy-database---mongodb)
-  - [4.4. Thoroughly check the operation of the application.](#44-thoroughly-check-the-operation-of-the-application)
-  - [4.5. Deploy application using Helm](#45-deploy-application-using-helm)
-- [5. Conclusions](#5-conclusions)
-- [6. References](#6-references)
-
 ## I. Triển khai Kubernetes qua công cụ kubespray:
 
 [Document for install - It's here](https://www.linuxtechi.com/install-kubernetes-using-kubespray/)

@@ -97,6 +97,11 @@ helm repo add nginx-stable https://helm.nginx.com/stable
 helm repo update
 helm install nginx-ingress nginx-stable/nginx-ingress --set rbac.create=true
 ```
+- Tạo chứng chỉ tự ký (self-signed certificate) và secret trong Kubernetes
+```bash
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=vdt2024.vn/O=vdt2024"
+kubectl create secret tls web-tls-secret --key tls.key --cert tls.crt
+```
 
 - Cấu hình ingress:
   + **API**: [code here](https://github.com/descent1511/vdt2024-api-nodejs/blob/develop/api-chart/templates/ingress.yaml)

@@ -204,7 +204,7 @@ Câu lệnh kiểm tra cài đặt:
 ```
 kubectl get pod -n logging
 ```
-![alt text](image.png)
+![alt text](./images/pod-logging.png)
 
 ## Các log được tạo bởi API service, Web service: đã có đầy đủ 3 thành phần quan trọng:
 
@@ -231,7 +231,6 @@ kubectl get pod -n logging
 [Log khi có request /demo-404-notfound vào service Web](./logs/vdt-web-log-404.md)
 
 ![alt text](./images/vdt-web-log-404.png)
-
 
 ### Thông tin của một số container trong cụm K8s
 [Log của một số container trong cụm K8s](./logs/container-k8s-log.md)

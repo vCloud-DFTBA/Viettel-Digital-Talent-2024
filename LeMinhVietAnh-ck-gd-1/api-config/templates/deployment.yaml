@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{ .Release.Name }}-api
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      labels:
+        {{ .Release.Name }}-api
+  template:
+    metadata:
+      labels:
+        {{ .Release.Name }}-api
+    spec:
+      containers:
+        - name: {{ .Values.container.name | quote }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.targetport }}
+          env:
+            - name: MONGO_URL
+              value: {{ .Values.env.MONGO_URL }}
+            - name: WEB
+              value: {{ .Values.env.WEB }}

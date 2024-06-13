@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: vietanhhust1404/api
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: v1.0.0
+
+service:
+  type: NodePort
+  port: 5000
+  targetport: 5000
+  nodePort: 30415
+
+env:
+  # MONGOSVC: http://192.168.49.2:30417
+  MONGO_URL: mongodb+srv://vietanhvdt:vietanh123456789@vdt.lfw9tlu.mongodb.net/?retryWrites=true&w=majority&appName=vdt
+  WEB: http://192.168.49.2:30414
+container:
+  name: api
+ingress:
+  enabled: false
+serviceAccount:
+  create: true
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80

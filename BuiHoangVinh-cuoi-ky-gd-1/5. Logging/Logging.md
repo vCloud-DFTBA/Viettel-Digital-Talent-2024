@@ -213,17 +213,16 @@ kubectl get pod -n logging
 - Response Code (được đặt tên key là 'response_code')
 - Ngoài ra còn có log được tạo từ cụm K8s
 
-## Hình ảnh Kibana kết quả tìm kiếm log của các Service API
-
-#### Tạo dataview trên Kibana
+## Tạo dataview trên Kibana
 ![alt text](./images/dataview.png)
 
+## Hình ảnh Kibana kết quả tìm kiếm log API Backend Service 
 #### Tìm kiếm log cho request_path: /api/students/
 [Log khi có request /api/students/ vào service API](./logs/vdt-api-log.json)
 
 ![alt text](./images/vdt-api-log.png)
 
-## Hình ảnh Kibana kết quả tìm kiếm log của các Web API
+## Hình ảnh Kibana kết quả tìm kiếm log Web Frontend Service
 ### Tìm kiếm log cho request_path: /metrics
 [Log khi có request /metrics vào service Web](./logs/vdt-web-log.json)
 
@@ -235,7 +234,7 @@ kubectl get pod -n logging
 
 ![alt text](./images/vdt-web-log-404.png)
 
-### Thông tin của một số container trong cụm K8s
+##  Hình ảnh Kibana kết quả log của một số container trong cụm K8s
 [Log của một số container trong cụm K8s](./logs/container-k8s-log.json)
 
 ![alt text](./images/container-k8s-log.png)

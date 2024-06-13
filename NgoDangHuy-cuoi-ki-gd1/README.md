@@ -74,7 +74,6 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
       Ảnh truy cập prometheus và giám sát metrics cho backend:
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6ee4ccdb-b4ba-4180-b4d1-7f86c0430a73)
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6a36d36d-834e-4f82-8a84-4333ec2d3522)
-      ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/580d2b3e-15d8-48ad-9463-e49d43107b5c)
       File service monitor dùng giám sát
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1a547fd5-24e6-4d89-9134-d0573b336c58)
 
@@ -115,7 +114,7 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
 <img width="1222" alt="Screenshot 2024-06-13 at 17 25 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/3da598b6-c08e-4cf5-8754-ce13a4ee6f31">
 Khi ta chạy colection, ta thấy 5 request sau bị 409, 10 request đầu không bị.
 <img width="1197" alt="Screenshot 2024-06-13 at 17 37 21" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/321bb343-c5ae-4e2a-9fa1-a9802eccfbc3">
-<img width="1183" alt="Screenshot 2024-06-13 at 17 35 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b52a06c6-abbf-427f-821a-eeea4ae7e583">
+<img width="1183" alt="Screenshot 2024-06-13 at 17 35 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b52a06c6-abbf-427f-821a-eeea4ae7e583"> </br>
 Ngoài ra, em có thử chạy lệnh: </br>
  `for i in {1..1000}; do response=$(curl -X GET -s -w "%{http_code}" http://localhost:8080/vdt/); echo "$i: $response" >> responses.log; done` </br>
 [Output là file responeses.log](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/blob/CK/NgoDangHuy-cuoi-ki-gd1/responses.log) </br>

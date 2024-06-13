@@ -85,8 +85,10 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
   - Nếu người dùng có role là admin thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 2xx
 
 - Giải pháp: Em sử dụng Spring secutiry cho backend. Ở đây, e có thể yêu cầu phân quyền cho từng endpoint, từng role. Như đề yêu cầu thì em sử dụng 2 role admin và user. Em dùng JWT để phân quyền và xác thực. Đầu tiên, em tạo 1 table lưu lại các tài khoản người dùng và vai trò người dùng, mật khẩu đã được mã hóa trong CSDL. Để có thể lấy token, người dùng cần gửi request đăng nhập với usename và password, và sẽ nhận được lại respone là JWT (trường user là em để thêm cho dễ thấy thông tin tài khoản - có thể xóa và chỉ trả duy nhất JWT được)
+- Để có thể lấy token, người dùng gửi request post lên như ảnh, token sẽ trả về trong response.
   ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/d1dd8190-224e-4921-8f13-3e80643faf61)
 - Sau khi nhận token, người dùng sẽ dùng nó chèn vào các request đằng sau dưới hạng header/cookies tùy chỉnh (em dùng cookie). Sau khi nhận, bên server sẽ phân tích JWT và xem user role cũng như thông tin của JWT (có thể set expire, các trường khác thêm của JWT). Người dùng phải authenticate mới gửi được request đến các chức năng CRUD.
+- Token khi được gửi sẽ được server parse ra username và các trường để check role cũng như xác thực token hợp lệ từ đó phân quyền.
   ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/0aad5f6f-3af0-4169-8593-4b07df344127)
 - Phân quyền với người dùng role User: Chỉ gửi xem được đến request Read (vdt/all) , delete-post-update bị chặn.
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/10dcc96d-3369-455b-a43e-9ba0a8195417)

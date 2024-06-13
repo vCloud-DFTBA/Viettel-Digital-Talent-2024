@@ -173,7 +173,7 @@ spec:
     matchLabels:
       app: api-chart
   endpoints:
-    - port: http
+    - port: api
       path: /api/metrics
       scheme: http
 ```

@@ -36,7 +36,7 @@ Sử dụng một số Jenkins Credential:
 
 - GITHUB_CREDENTIALS = 'github-token-v3', là Credential Global thông tin tài khoản Github (đạng username - token), nhằm mục đích clone code config repo sau đó sửa file value-prod.yaml, commit và push trở lại config repo
 
-#### File cấu hình CD cho Api pipeline 
+### File cấu hình CD cho Api pipeline 
 [Jenkinsfile cho API Service](https://github.com/Vinh1507/vdt-api/blob/main/Jenkinsfile)
 
 #### Tạo job item và cấú hình Jenkins pipeline
@@ -48,6 +48,7 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (demo-token)
 ![alt text](./images/vdt-api/jenkins-config-webhook.png)
 
 2. Tạo tag v2.12 lên repo API
+
 ![alt text](./images/vdt-api/api-create-tag.png)
 
 3. Webhook được trigger về Jenkins server
@@ -57,6 +58,7 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (demo-token)
 ![alt text](./images/vdt-api/jenkins-trigger.png)
 
 5. Jenkins job pipeline được hoàn thành
+
 ![alt text](./images/vdt-api/jenkins-job-done.png)
     Docker image mới được đẩy lên Docker hub
 ![alt text](./images/vdt-api/api-docker-image.png)
@@ -95,7 +97,7 @@ Tương tự với Job api service sử dụng 2 Jenkins Credential:
 - DOCKER_HUB_CREDENTIALS = 'dockerhub_vinhbh'
 - GITHUB_CREDENTIALS = 'github-token-v3'
 
-#### File cấu hình CD cho WEB pipeline 
+### File cấu hình CD cho WEB pipeline 
 [Jenkinsfile cho Web Service](https://github.com/Vinh1507/vdt-web/blob/main/Jenkinsfile)
 
 
@@ -107,26 +109,35 @@ Cấu hình webhook từ github có yêu cầu token hợp lệ (vdt-web-token)
 ![alt text](./images/vdt-web/web-jenkins-job-token.png)
 
 2. Tạo tag v2.15 lên repo Web
+
 ![alt text](./images/vdt-web/web-git-create-tag.png)
 3. Webhook được trigger từ Github về Jenkins server
+
 ![alt text](./images/vdt-web/web-git-webhook-trigger.png)
 4. Jenkins job pipeline được kích hoạt
+
 ![alt text](./images/vdt-web/web-jenkins-trigger.png)
 5. Jenkins job pipeline được hoàn thành
+
 ![alt text](./images/vdt-web/web-jenkins-done.png)
     Docker image mới được đẩy lên docker hub
+
 ![alt text](./images/vdt-web/web-docker-image.png)
 6. Hình ảnh ArgoCD diff khi có sự kiện thay đổi trên repo config
+
 ![alt text](./images/vdt-web/web-argo-diff.png)
 7. Hình ảnh event thay đổi của WEB Application
+
 ![alt text](./images/vdt-web/argo-diff-app.png)
 8. Hình ảnh event thay đổi của WEB Deployment
 
     2 pod được xóa, và tạo mới 2 pod
 ![alt text](./images/vdt-web/argo-diff-deploy.png)
-9. Hình ảnh manifest mới của WEB Deployment (Đã cập nhật docker image v2.16)
+9. Hình ảnh manifest mới của WEB Deployment (Đã cập nhật docker image v2.15)
+
 ![alt text](./images/vdt-web/argo-web-manifest.png)
 10. Hình ảnh application sau khi kết thúc luồng CD
+
 ![alt text](./images/vdt-web/argo-web-cd-done.png)
 
 ### Output log của luồng CD cho WEB Service

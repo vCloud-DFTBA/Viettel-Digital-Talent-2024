@@ -171,7 +171,7 @@ Sử dụng 1 trong số các giải pháp để ratelimit cho Endpoint của ap
 - File ghi lại kết quả thử nghiệm khi gọi quá 10 request trong 1 phút vào Endpoint của API Service
 
 ### [File tài liệu trình bày giải pháp ratelimit](./solutions/ratelimit-solution.md)
-## Kết quả thử nghiệm thì gọi quá 10 request trong 1 phút
+## Kết quả thử nghiệm khi gọi quá 10 request trong 1 phút
 ### Hình ảnh chụp màn hình kibana
 Các request tới API /api/students/ được gửi bắt đầu từ Jun 13, 2024 @ 21:06:21.945 tới Jun 13, 2024 @ 21:06:41.484, trong đó có 10 request đầu tiên trả về trạng thái 200, từ request thứ 11 trả về trạng thái 409
 

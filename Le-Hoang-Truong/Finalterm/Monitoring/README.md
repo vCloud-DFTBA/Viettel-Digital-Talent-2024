@@ -16,6 +16,20 @@
 </div>  
 
 ## 3. Triển khai Prometheus lên Kubernetes Cluster
+- Expose metric của hai service api và web ra một path riêng:
+  + **Api**: Sử dụng thư viện `prom-client` ([source code](https://github.com/descent1511/vdt2024-api-nodejs/blob/develop/users/src/metrics/index.ts))
+
+<div align="center">
+    <img src="../images/backend-metric.png"  style="margin-bottom: 20">
+</div>  
+
+  + **Web**: Sử dụng thư viên `web-vitals`([source code](https://github.com/descent1511/vdt2024-vuejs-frontend/blob/develop/src/plugins/webVitals.js))
+
+
+<div align="center">
+    <img src="../images/frontend-metric.png"  style="margin-bottom: 20">
+</div>  
+
 
 -   Cài đặt Prometheus Operator bằng Helm chart:
 ```bash 

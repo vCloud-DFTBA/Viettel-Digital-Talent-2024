@@ -29,4 +29,4 @@ Kiểm tra các node trong cluster
 Để kiểm tra thông tin chi tiết về các node (bao gồm master và worker), ta sử dụng lệnh: `kubectl get nodes -o wide`
 
 
-Output: ![ouput](./images/output.jpeg)
+Output: ![ouput](.output.jpeg)

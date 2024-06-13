@@ -134,6 +134,8 @@ spec:
       ref: values
 ```
 - manifest files: https://github.com/smugikity/vdt-helm-charts/tree/main/agro-manifests
+- web config repo: https://github.com/smugikity/vdt-config-web
+- api config repo: https://github.com/smugikity/vdt-config-api
 
 3. **Argocd UI**
 ![alt text](images/R/image-5.png)

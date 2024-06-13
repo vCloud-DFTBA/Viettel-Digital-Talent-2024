@@ -65,7 +65,7 @@ backend api_port_out
 ```
 ## Kết quả:
 Truy cập API thông qua LB: http://192.168.144.136:3000
-![alt text](./images/lb-web.png.png)
+![alt text](./images/lb-web.png)
 
 Truy cập API thông qua LB: http://192.168.144.136:8000/api/students/
 ![alt text](./images/lb-api.png)
@@ -85,7 +85,7 @@ Nếu người dùng có role là user thì truy cập vào GET request trả v�
 - Kết quả HTTP Response khi curl hoặc dùng postman vào các URL với các method GET/POST/DELETE  khi lần lượt dùng thông tin xác thực của các user có role là user và admin
 
 ## Giải pháp thực hiện authen/authorization
-### [File trình bày giải pháp](./solutions/authen-author-solution.md)
+### [File trình bày giải pháp authen/authorization](./solutions/authen-author-solution.md)
 
 Sử dụng xác thực thông qua token auth (Barer Authentication)
 
@@ -172,8 +172,16 @@ Sử dụng 1 trong số các giải pháp để ratelimit cho Endpoint của ap
 
 ### [File tài liệu trình bày giải pháp ratelimit](./solutions/ratelimit-solution.md)
 ### Kết quả thử nghiệm thì gọi quá 10 request trong 1 phút
-Ảnh chụp màn hình kibana
+Hình ảnh chụp màn hình kibana
 Các request tới API /api/students/ được gửi bắt đầu từ Jun 13, 2024 @ 21:06:21.945 tới Jun 13, 2024 @ 21:06:41.484, trong đó có 10 request đầu tiên trả về trạng thái 200, từ request thứ 11 trả về trạng thái 409
 
 ![alt text](./images/kibana-ratelimit.png)
-### [File log kết quả thử nghiệm export từ kibana](./logs/kibana-ratelimit.json)
+### [File log kết quả thử nghiệm ratelimit export từ kibana](./logs/kibana-ratelimit.json)
+
+Hình ảnh chụp màn hình argocd log của vdt-api
+Log được sinh ra từ deployement vdt-api trên ArgoCD bắt đầu từ [13/Jun/2024 14:06:21] (GMT0) tới [13/Jun/2024 14:06:41](GMT0), trong đó có 10 request đầu tiên trả về trạng thái 200, từ request thứ 11 trả về trạng thái 409
+
+Chú ý độ lệnh múi giờ GMT+7 nên log hiển thị là 14:06:21, tương đương với 21:06:21 (GMT+7)
+
+![alt text](./images/argo-ratelimit.png)
+### [File log kết quả thử nghiệm ratelimit từ argocd](./logs/deployment-log.md)

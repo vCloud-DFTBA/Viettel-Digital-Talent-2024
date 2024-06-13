@@ -70,12 +70,12 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
     - Triển khai promethus operator. Ở đây em triển khai thông qua kube-prometheus với promethus operator là 1 phần trong kube-prometheus. Promethus operator là quản lí các thành phần của promethus.Ngoài ra, ta có thể sử dụng helm triển khai cũng được.
     - <img width="1473" alt="Screenshot 2024-06-12 at 09 53 58" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fc2af8c6-93d7-46b1-a9aa-89f83b582763">
     - [Các file setup để triển khai Prometheus lên Kubernetes Cluster](https://github.com/ngodanghuy162/promethus-install.git)
-    - Chạy các lệnh sau:
-      - git clone https://github.com/prometheus-operator/kube-prometheus.git
-      - cd kube-prometheus
-      - kubectl create -f manifests/setup
-      - kubectl create -f manifests/
-      - kubectl port-forward svc/prometheus-operated 9090 -n monitoring
+    - Hướng dẫn các câu lệnh đã ở repo ạ.
+      Ảnh truy cập prometheus và giám sát metrics cho backend:
+      ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6ee4ccdb-b4ba-4180-b4d1-7f86c0430a73)
+      ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6a36d36d-834e-4f82-8a84-4333ec2d3522)
+
+        
 
 # Secutiry
 

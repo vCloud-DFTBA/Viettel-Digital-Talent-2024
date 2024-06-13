@@ -15,8 +15,11 @@ Hình ảnh chụp màn hình Kibana kết quả tìm kiếm log của các Serv
 
 ## Tài liệu triển khai:
 
-### 1. Tạo configmap để customize cấu hình fluentd.conf mặc định 
+Thực hiển điều chỉnh config mặc định của fluent.conf, thực hiện bổ sung:
+- Lấy log từ source /var/log/containers/vdt-api*.log, sau đó bổ sung các field log_time, http_method, request_path, response_code
+- Lấy log từ source /var/log/containers/vdt-web*.log, sau đó bổ sung các field log_time, http_method, request_path, response_code
 
+### 1. Tạo configmap để customize cấu hình fluent.conf mặc định 
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -129,7 +132,7 @@ data:
 - Sử dụng image: fluent/fluentd-kubernetes-daemonset:v1.16.2-debian-elasticsearch8-1.1, phù hợp với phiên bản 8. của Elasticsearch tập trung
 - Sử dụng securityContext chạy container dưới quyền root để có thể đọc/ghi vào các file trong /var/log và /var/lib/docker/containers
 
-File manifest daemonset.yaml triển khai
+#### File manifest daemonset.yaml triển khai
 ```
 apiVersion: apps/v1
 kind: DaemonSet

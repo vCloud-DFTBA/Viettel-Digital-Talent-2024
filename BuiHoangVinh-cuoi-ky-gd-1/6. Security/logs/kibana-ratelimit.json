@@ -1,0 +1,469 @@
+[
+    {
+
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"3eHsEZABou88Kg02J8kV",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["409"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:41] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:41]"],
+            "log_time":["[13/Jun/2024 14:06:41]"],
+            "@timestamp":["2024-06-13T14:06:41.484Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["409"],
+            "log.keyword":["[13/Jun/2024 14:06:41] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:41.484Z",2602]
+    
+    },
+    {
+
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"pOHsEZABou88Kg02D62t",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["409"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:40] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:40]"],
+            "log_time":["[13/Jun/2024 14:06:40]"],
+            "@timestamp":["2024-06-13T14:06:40.980Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["409"],
+            "log.keyword":["[13/Jun/2024 14:06:40] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:40.980Z",2513]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"keHsEZABou88Kg02D62t",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["409"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:38] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:38]"],
+            "log_time":["[13/Jun/2024 14:06:38]"],
+            "@timestamp":["2024-06-13T14:06:38.734Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["409"],
+            "log.keyword":["[13/Jun/2024 14:06:38] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:38.734Z", 2494]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"iOHsEZABou88Kg02D62t",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["409"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:38] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:38]"],
+            "log_time":["[13/Jun/2024 14:06:38]"],
+            "@timestamp":["2024-06-13T14:06:38.174Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["409"],
+            "log.keyword":["[13/Jun/2024 14:06:38] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:38.174Z", 2485]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"duHsEZABou88Kg02D62t",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["409"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:36] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:36]"],
+            "log_time":["[13/Jun/2024 14:06:36]"],
+            "@timestamp":["2024-06-13T14:06:36.889Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["409"],
+            "log.keyword":["[13/Jun/2024 14:06:36] \"GET /api/students/ HTTP/1.1\" 409 21\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:36.889Z",2467]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"beHsEZABou88Kg02D62t",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:36] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:36]"],
+            "log_time":["[13/Jun/2024 14:06:36]"],
+            "@timestamp":["2024-06-13T14:06:36.269Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:36] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:36.269Z", 2458]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"bOHsEZABou88Kg02D62t",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:35] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:35]"],
+            "log_time":["[13/Jun/2024 14:06:35]"],
+            "@timestamp":["2024-06-13T14:06:35.591Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:35] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:35.591Z", 2457]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"XeHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:34] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:34]"],
+            "log_time":["[13/Jun/2024 14:06:34]"],
+            "@timestamp":["2024-06-13T14:06:34.960Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:34] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:34.960Z", 2425]
+    },
+        {
+            "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"XOHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+        "stream.keyword":["stderr"],
+        "log":["[13/Jun/2024 14:06:34] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+        "log_time.keyword":["[13/Jun/2024 14:06:34]"],
+        "log_time":["[13/Jun/2024 14:06:34]"],
+        "@timestamp":["2024-06-13T14:06:34.349Z"],
+        "http_method":["GET"],
+        "stream":["stderr"],
+        "vdt_app.keyword":["VDT API BACKEND"],
+        "response_code.keyword":["200"],
+        "log.keyword":["[13/Jun/2024 14:06:34] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+        "request_path":["/api/students/"],
+        "tag":["k8s-vdt-api"],
+        "vdt_app":["VDT API BACKEND"],
+        "request_path.keyword":["/api/students/"],
+        "http_method.keyword":["GET"],
+        "tag.keyword":["k8s-vdt-api"]
+    },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:34.349Z", 2424]
+    },
+        {
+            "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"WuHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:33] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:33]"],
+            "log_time":["[13/Jun/2024 14:06:33]"],
+            "@timestamp":["2024-06-13T14:06:33.814Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:33] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:33.814Z", 2422]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"WeHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:33] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:33]"],
+            "log_time":["[13/Jun/2024 14:06:33]"],
+            "@timestamp":["2024-06-13T14:06:33.209Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:33] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:33.209Z", 2421]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"WOHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:32] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:32]"],
+            "log_time":["[13/Jun/2024 14:06:32]"],
+            "@timestamp":["2024-06-13T14:06:32.609Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:32] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:32.609Z", 2420]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"V-HrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:32] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:32]"],
+            "log_time":["[13/Jun/2024 14:06:32]"],
+            "@timestamp":["2024-06-13T14:06:32.054Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:32] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:32.054Z", 2419]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"VuHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:31] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:31]"],
+            "log_time":["[13/Jun/2024 14:06:31]"],
+            "@timestamp":["2024-06-13T14:06:31.441Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:31] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:31.441Z", 2418]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"VeHrEZABou88Kg02-Fc3",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:30] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:30]"],
+            "log_time":["[13/Jun/2024 14:06:30]"],
+            "@timestamp":["2024-06-13T14:06:30.606Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:30] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:30.606Z", 2417]
+    },
+    {
+        "_index":"vinhbh_0946902235-2024.06.13",
+        "_id":"QeDrEZABou88Kg02xkoC",
+        "_version":1,
+        "_score":null,
+        "fields":{
+            "response_code":["200"],
+            "stream.keyword":["stderr"],
+            "log":["[13/Jun/2024 14:06:21] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "log_time.keyword":["[13/Jun/2024 14:06:21]"],
+            "log_time":["[13/Jun/2024 14:06:21]"],
+            "@timestamp":["2024-06-13T14:06:21.945Z"],
+            "http_method":["GET"],
+            "stream":["stderr"],
+            "vdt_app.keyword":["VDT API BACKEND"],
+            "response_code.keyword":["200"],
+            "log.keyword":["[13/Jun/2024 14:06:21] \"GET /api/students/ HTTP/1.1\" 200 8127\n"],
+            "request_path":["/api/students/"],
+            "tag":["k8s-vdt-api"],
+            "vdt_app":["VDT API BACKEND"],
+            "request_path.keyword":["/api/students/"],
+            "http_method.keyword":["GET"],
+            "tag.keyword":["k8s-vdt-api"]
+        },
+        "highlight":{
+            "request_path":["/@kibana-highlighted-field@api@/kibana-highlighted-field@/@kibana-highlighted-field@students@/kibana-highlighted-field@/"]
+        },
+        "sort":["2024-06-13T14:06:21.945Z", 2399]
+    }
+]

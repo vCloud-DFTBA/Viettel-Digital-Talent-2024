@@ -77,7 +77,7 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
 
 # Secutiry
 
-## Yêu cầu 2
+### Yêu cầu 2
 -Đảm bảo 1 số URL của api service  khi truy cập phải có xác thực thông qua 1 trong số các phương thức cookie, basic auth, token auth, nếu không sẽ trả về HTTP response code 403. (0.5)
 - Thực hiện phân quyền cho 2 loại người dùng trên API:
   - Nếu người dùng có role là user thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 403
@@ -97,6 +97,23 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6068244a-1e0c-492a-a302-39ab935d535f)
 ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/68f71e5d-5d25-4641-8447-f395d4a012eb)
 
+### Yêu cầu 3 (1đ): Sử dụng 1 trong số các giải pháp để ratelimit cho Endpoint của api Service, sao cho nếu có  quá 10 request trong 1 phút gửi đến Endpoint của api service thì các request sau đó bị trả về HTTP Response 409 
+
+- Giải pháp: Sử dụng Bucket4j - một library hỗ trợ trong spring boot cho việc Ratelimit - dựa trên thuật toán token-bucket. Bucket4j là một thư viện an toàn theo luồng có thể được sử dụng trong ứng dụng JVM độc lập hoặc môi trường nhóm.
+- Thuật toán token-bucket:Các yếu tố cơ bản của thuật toán bao gồm một "bucket" có khả năng lưu trữ các "token", mỗi token đại diện cho một quyền truy cập vào API endpoint. Khi một yêu cầu được gửi đến, hệ thống sẽ kiểm tra xem có token nào còn trong bucket hay không. Nếu có, một token sẽ được xóa khỏi bucket và yêu cầu được chấp nhận. Ngược lại, nếu bucket không còn token, yêu cầu sẽ bị từ chối cho đến khi bucket được nạp lại đủ token. Nghĩa là mỗi request rẽ lấy đi 1 token. Ví dụ, nếu một API có giới hạn 100 yêu cầu mỗi phút, ta có thể tạo một bucket có khả năng 100 token và tốc độ nạp lại là 100 token mỗi phút.
+- Cài đặt: Khai báo 1 bucket có 10 token. Khả năng nạp 10 token mỗi phút + khai báo trong file pom.xml. [Source code được lưu tại repo backend.](https://github.com/ngodanghuy162/vdt-back)<img width="824" alt="Screenshot 2024-06-13 at 17 20 40" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/e743d7cd-e8fc-4cc4-91d5-71ee5981f6c6">
+<img width="367" alt="Screenshot 2024-06-13 at 17 21 49" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/9eee7a1a-3034-4c4d-8d39-59c5fced32aa">
+-Output khi gửi request:
+<img width="1146" alt="Screenshot 2024-06-13 at 17 24 05" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ce07188f-2e12-4fd7-aaef-2428ce23cfcb">
+- Ta có thể thấy request thứ 11 respone 409.
+<img width="1222" alt="Screenshot 2024-06-13 at 17 25 17" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/3da598b6-c08e-4cf5-8754-ce13a4ee6f31">
+Khi ta chạy colection, ta thấy 5 request sau bị 409, 10 request đầu không bị.
+<img width="1197" alt="Screenshot 2024-06-13 at 17 37 21" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/321bb343-c5ae-4e2a-9fa1-a9802eccfbc3">
+<img width="1183" alt="Screenshot 2024-06-13 at 17 35 53" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/b52a06c6-abbf-427f-821a-eeea4ae7e583">
+Ngoài ra, em có thử chạy lệnh:  `for i in {1..1000}; do response=$(curl -X GET -s -w "%{http_code}" http://localhost:8080/vdt/); echo "$i: $response" >> responses.log; done`
+Output là file respone.log.
+<img width="354" alt="Screenshot 2024-06-13 at 17 41 10" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1c5e0b9c-d964-4dea-96df-02c927e86b3d">
+<img width="305" alt="Screenshot 2024-06-13 at 17 41 20" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fbe47be3-fcfb-41d4-a9f3-ef8d56df2ef2">
 
 
 

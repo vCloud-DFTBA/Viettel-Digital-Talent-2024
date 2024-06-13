@@ -188,7 +188,7 @@ The address to access the website will be:
 pipx install flask-limiter
 ```
 
-- Source code ở [link]().
+- Source code ở [link](https://github.com/nguyenha-meiii/vdt_midterm_api/blob/main/test_security.py).
 
 - Khởi tạo Limiter với các thông số cấu hình:
 

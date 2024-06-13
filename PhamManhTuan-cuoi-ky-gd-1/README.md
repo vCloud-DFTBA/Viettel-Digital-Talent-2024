@@ -66,9 +66,14 @@ kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manif
 - Sử dụng tính năng multiple sources của ArgoCD để triển khai các service web và api service lên K8S Cluster  theo hướng dẫn của ArgoCD, expose các service này dưới dạng NodePort Multiple Sources for an Application - Argo CD - Declarative GitOps CD for Kubernetes
 - Trong trường hợp sử dụng cụm Lab trên Viettel Cloud, cài đặt Loadbalancer lên Bastion Node thông qua công cụ docker-compose, expose 2 port của Web ra môi trường public thông qua một trong số các port đã được cấp cho từng sinh viên
 ### Output 2:
-**Helm chart web and api and web sidecar (for exporting metrics)**
+1. **Helm chart web and api and web sidecar (for exporting metrics)**
 ![alt text](images/R/image-4.png)
-**File manifest with multisources**
+
+- web: https://github.com/smugikity/vdt-helm-charts/tree/main/web
+- api: https://github.com/smugikity/vdt-helm-charts/tree/main/api
+- sidecar: https://github.com/smugikity/vdt-helm-charts/tree/main/nginx-exporter
+
+2. **File manifest with multisources**
 
 web
 ```
@@ -128,9 +133,11 @@ spec:
       targetRevision: HEAD
       ref: values
 ```
-**Argocd UI**
+- manifest files: https://github.com/smugikity/vdt-helm-charts/tree/main/agro-manifests
+
+3. **Argocd UI**
 ![alt text](images/R/image-5.png)
-**Application**
+4. **Application**
 ![alt text](images/R/image-6.png)
 ## Continuous Delivery 
 ### Yêu cầu:
@@ -139,7 +146,7 @@ spec:
     - Sửa giá trị Image version trong file values.yaml  trong config repo và push thay đổi lên config repo. Tham khảo: https://stackoverflow.com/a/72696837
 - Cấu hình ArgoCD tự động triển khai lại web Deployment và api Deployment khi có sự thay đổi trên config repo.
 ### Output:
-**Github workflow file**
+1. **Github workflow file**
 ```
 name: CI/CD Pipeline
 
@@ -199,14 +206,17 @@ jobs:
           git commit -m "Update image tag, manifest: ${{ github.run_number }}"
           git push 
 ```
-**Github Action in action :o**
+- api workflow: https://github.com/smugikity/vie-back/tree/main/.github/workflows
+- web workflow: https://github.com/smugikity/vie-front/tree/main/.github/workflows
+
+2. **Github Action in action :o**
 ![alt text](images/R/image-7.png)
 ![alt text](images/R/image-8.png)
-**Commits from config repo**
+3. **Commits from config repo**
 ![alt text](images/R/image-9.png)
-**Dockerhub repo**
+4. **Dockerhub repo**
 ![alt text](images/R/image-10.png)
-**Automated sync on Argocd**
+5. **Automated sync on Argocd**
 ![alt text](images/R/image-11.png)
 ## Monitoring
 ### Yêu cầu:
@@ -256,6 +266,7 @@ Nginx prometheus exporter helm values
 ![alt text](images/R/image-13.png)
 ![alt text](images/R/image-15.png)
 4. **Service monitor**
+
 api
 ```
 apiVersion: monitoring.coreos.com/v1
@@ -298,13 +309,16 @@ spec:
     path: /metrics  
     interval: 30s 
 ```
+
+- prometheus config files: https://github.com/smugikity/vdt-helm-charts/tree/main/prometheus 
+
 5. **Result**
 ![alt text](images/R/image-16.png)
 ## Logging
 ### Yêu cầu:
 - Sử dụng Kubernetes DaemonSet triển khai fluentd hoặc fluentbit lên kubernetes đẩy log của các Deployment Web Deployment và API Deployment lên cụm ElasticSearch tập trung với prefix index dưới dạng tên_sinh_viên_viết_tắt_sdt: Ví dụ: conghm_012345678
 ### Output:
-**Fluentd config**
+1. **Fluentd config**
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -366,7 +380,10 @@ data:
     </match>
 ```
 ![alt text](images/R/image-18.png)
-**Kibana result**
+
+- fluentd config files: https://github.com/smugikity/vdt-helm-charts/tree/main/fluentd
+
+2. **Kibana result**
 ![alt text](images/R/image-21.png)
 filter by /metric path 
 ![alt text](images/R/image-22.png)
@@ -377,7 +394,7 @@ filter by /metric path
 - Sử dụng 1 trong 2 giải pháp Ingress, hoặc haproxy sidecar container cho các deployment, đảm bảo các truy cập đến các port web_port và api_port sử dụng https (0.5)
 - Cho phép sinh viên sử dụng self-signed cert để làm bài
 ### Output 1:
-install haproxy
+1. **Install haproxy**
 ```
 sudo apt install haproxy
 ```
@@ -416,7 +433,7 @@ backend react-be
 haproxy ip
 ![alt text](images/R/image-23.png)
 
-install nginx ingress
+2. **Install nginx ingress**
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml
 ```
@@ -476,7 +493,9 @@ spec:
       - web.vdt.arpa
     secretName: my-tls-secret
 ```
-Result of https 
+- ingress nginx config files: https://github.com/smugikity/vdt-helm-charts/tree/main/ingress-nginx
+
+3. **Https access** 
 ![alt text](images/R/image-27.png)
 ![alt text](images/R/image-28.png)
 ### Yêu cầu 2:
@@ -486,7 +505,7 @@ Result of https
   - Nếu người dùng có role là admin thì truy cập vào GET request trả về code 200, còn truy cập vào POST/DELETE thì trả về 2xx
 
 ### Output 2: 
-Simple authentication with role-based access control in flask:
+1. **Simple authentication with role-based access control**
 ```
 users = {
     "user1": {
@@ -538,6 +557,7 @@ def edit_student(_id):
 def delete_student(_id):
 ...
 ```
+2. **Results**
 Return 401 for anonimously unauthorized access:
 ![alt text](images/R/image-30.png)
 Return 200 for authorized access:
@@ -550,6 +570,7 @@ Return 200 for authorized access
 ### Yêu cầu 3:
 - Sử dụng 1 trong số các giải pháp để ratelimit cho Endpoint của api Service, sao cho nếu có  quá 10 request trong 1 phút gửi đến Endpoint của api service thì các request sau đó bị trả về HTTP Response 409 
 ### Output 3:
+1. **Ingress nginx config**
 ingress-nginx configmap
 ```
 apiVersion: v1
@@ -590,5 +611,7 @@ spec:
     - api.vdt.arpa
     secretName: self-signed-tls
 ```
-Test result:
+- ingress nginx config files: https://github.com/smugikity/vdt-helm-charts/tree/main/ingress-nginx
+
+2. **Testing**
 ![alt text](images/R/image-29.png)

@@ -25,56 +25,56 @@ global
     log /dev/log local0
     log /dev/log local1 notice
     chroot /var/lib/haproxy
-    stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+    stats socket /run/haproxy/admin.sock mode 660 level admin
     stats timeout 30s
     user haproxy
     group haproxy
     daemon
 
-    # Default SSL material locations
-    ca-base    /etc/ssl/certs
-    crt-base   /etc/ssl/private
-
-    # See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=intermediate
-    ssl-default-bind-ciphers     ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305
-    ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
-    ssl-default-bind-options     ssl-min-ver TLSv1.2 no-tls-tickets
-
 defaults
-    log     global
-    option  httplog
-    option  dontlognull
+    log global
+    mode tcp
+    option tcplog
+    option dontlognull
     timeout connect 5000
-    timeout client  50000
-    timeout server  50000
+    timeout client 50000
+    timeout server 50000
     errorfile 400 /etc/haproxy/errors/400.http
     errorfile 403 /etc/haproxy/errors/403.http
     errorfile 408 /etc/haproxy/errors/408.http
     errorfile 500 /etc/haproxy/errors/500.http
 
-
 frontend web_frontend
-    bind               *:8080
-    mode               tcp
-    default_backend    web_backend
-
-frontend api_frontend
-    bind               *:8000
-    mode               tcp
-    default_backend    api_backend
+    bind *:8080
+    mode tcp
+    default_backend web_backend
 
 backend web_backend
-    mode               tcp
-    balance            roundrobin
-    server web1        192.168.0.105:30002 check
-    server web2        192.168.0.106:30002 check
+    mode tcp
+    balance roundrobin
+    server web1 192.168.0.105:30002 check
+    server web2 192.168.0.106:30002 check
+
+frontend api_frontend
+    bind *:8000
+    mode tcp
+    default_backend api_backend
 
 backend api_backend
-    mode               tcp
-    balance            roundrobin
-    server web1        192.168.0.105:30001 check
-    server web2        192.168.0.106:30001 check
+    mode tcp
+    balance roundrobin
+    server api1 192.168.0.105:30001 check
+    server api2 192.168.0.106:30001 check
 
+listen stats
+    bind :9000
+    mode http
+    stats enable
+    stats uri /stats
+    stats refresh 10s
+    stats auth admin:password
+
+http-request deny if { src -f /etc/haproxy/blacklist.lst }
 ```
 - Truy câp web và api thông qua địa chỉ load balancer
 <div align="center">
@@ -84,6 +84,10 @@ backend api_backend
     <img src="../images/api-lb.png"  style="margin-bottom: 20">
 </div>  
 
+- Giao diện giám sát, phân tích của **HAProxy**
+<div align="center">
+    <img src="../images/gs-ha.png">
+</div>  
 
 ### 2.2 Cấu hình ingress
 
@@ -213,11 +217,13 @@ app.use(rateLimiter);
 
 - Trả về tin nhắn khi thực hiện quá 10 request:
 <div align="center">
-    <img src="../images/ratelimit2.png"  style="margin-bottom: 20">
+    <img src="../images/ratelimit2.png">
 </div>  
-
 
 ## References
 - [Build an Authentication API with Node.js, TypeScript, Typegoose, ExpressJS](https://www.youtube.com/watch?v=qylGaki0JhY)
 - [Cài đặt Metallb và Ingress Nginx trên Bare metal Kubernetes cluster](https://nvtienanh.info/blog/cai-dat-metallb-va-ingress-nginx-tren-bare-metal-kubernetes-cluster)
 - [How to Rate Limit an Express App - Youtube](https://www.youtube.com/watch?v=mZ0O7gcS7Yk)
+
+
+## Lời cuối cùng, em xin chân thành cảm ơn các anh đã truyền đạt kiến thức và kinh nghiệm quý báu trong suốt khóa học. Em đã học hỏi được rất nhiều và cảm thấy vô cùng biết ơn, mong có cơ hội được gặp lại các anh một lần nữa !

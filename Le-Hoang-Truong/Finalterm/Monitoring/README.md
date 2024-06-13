@@ -152,7 +152,7 @@ subjects:
     interval: 30s
     scrapeTimeout: 10s
     labels:
-    release: prometheus
+      release: prometheus
     ```
 ## 4. Kết quả 
 - Giao diện prometheus

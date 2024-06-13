@@ -13,10 +13,10 @@
 
 ### 2.2 Điều kiện tiên quyết để thiết lập Kubeadm
 -   Sau đây là các điều kiện tiên quyết để thiết lập cụm Kubeadm Kubernetes: 
-    +   Tối thiểu hai nút Ubuntu [Một nút chính và một nút công nhân]. Bạn có thể có nhiều nút công nhân hơn theo yêu cầu của bạn.
+    +   Tối thiểu hai nút Ubuntu [Một nút chính và một nút công nhân]. Có thể có nhiều nút công nhân hơn theo yêu cầu triển khai.
     +   Nút chính phải có tối thiểu 2 vCPU và RAM 2GB.
     +   Đối với các nút công nhân, nên sử dụng tối thiểu 1vCPU và RAM 2 GB.
-    +   Phạm vi mạng 10.X.X.X/X với IP tĩnh cho nút chính và nút công nhân. Chúng tôi sẽ sử dụng chuỗi 192.x.x.x làm phạm vi mạng nhóm sẽ được plugin mạng Calico sử dụng. Đảm bảo phạm vi Node IP và phạm vi IP nhóm không trùng nhau.
+    +   Phạm vi mạng 10.X.X.X/X với IP tĩnh cho nút chính và nút công nhân. Ở đây em sẽ sử dụng chuỗi 192.x.x.x làm phạm vi mạng nhóm sẽ được plugin mạng Calico sử dụng. Đảm bảo phạm vi Node IP và phạm vi IP nhóm không trùng nhau.
 
 ## 3. Cài đặt Kubernetes bằng Kubeadm
 ### 3.1. Chuẩn bị môi trường

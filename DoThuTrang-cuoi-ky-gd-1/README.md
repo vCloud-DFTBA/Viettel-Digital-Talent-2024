@@ -204,7 +204,164 @@ Triển khai prometheus lên trên cổng 30090 thông qua nodePort:
  
 ## V. Logging:
 
+1. File fluconfig.yaml
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+  namespace: logging
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush        1
+        Daemon       Off
+        Log_Level    info
+        Parsers_File parsers.conf
 
+    [INPUT]
+        Name         tail
+        Path         /var/log/containers/*.log
+        Parser       docker
+        Tag          kube.*
+        Refresh_Interval 5
+
+    [FILTER]
+        Name         kubernetes
+        Match        kube.*
+        Kube_URL     https://kubernetes.default.svc:443
+        Merge_Log    On
+        Keep_Log     Off
+        K8S-Logging.Parser On
+        K8S-Logging.Exclude Off
+
+    [OUTPUT]
+        Name        es
+        Match       *
+        Host        116.103.226.146
+        Port        9200
+        HTTP_User   elastic
+        HTTP_Passwd iRsUoyhqW-CyyGdwk6V_
+        Index       trangdt_0328663946
+        Logstash_Format On
+        Logstash_Prefix logs
+        Retry_Limit False
+        tls         On
+        tls.verify  Off
+        Replace_Dots On
+        Suppress_Type_Name On
+
+
+  parsers.conf: |
+    [PARSER]
+        Name        docker
+        Format      json
+        Time_Key    time
+        Time_Format %Y-%m-%dT%H:%M:%S.%L
+        Time_Keep   On
+```
+
+2. File fluser.yaml
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fluent-bit
+  namespace: logging
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: fluent-bit-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "namespaces"]
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: fluent-bit-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: fluent-bit-role
+subjects:
+- kind: ServiceAccount
+  name: fluent-bit
+  namespace: logging
+```
+
+3. File fludaemon.yaml
+```
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluent-bit
+  namespace: logging
+  labels:
+    k8s-app: fluent-bit
+spec:
+  selector:
+    matchLabels:
+      k8s-app: fluent-bit
+  template:
+    metadata:
+      labels:
+        k8s-app: fluent-bit
+    spec:
+      serviceAccountName: fluent-bit
+      containers:
+      - name: fluent-bit
+        image: fluent/fluent-bit:latest
+        ports:
+          - containerPort: 2020
+            name: api
+          - containerPort: 2021
+            name: health
+        volumeMounts:
+          - name: varlog
+            mountPath: /var/log
+          - name: varlibdockercontainers
+            mountPath: /var/lib/docker/containers
+            readOnly: true
+          - name: config
+            mountPath: /fluent-bit/etc/fluent-bit.conf
+            subPath: fluent-bit.conf
+          - name: parsers
+            mountPath: /fluent-bit/etc/parsers.conf
+            subPath: parsers.conf
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: varlog
+          hostPath:
+            path: /var/log
+        - name: varlibdockercontainers
+          hostPath:
+            path: /var/lib/docker/containers
+        - name: config
+          configMap:
+            name: fluent-bit-config
+            items:
+              - key: fluent-bit.conf
+                path: fluent-bit.conf
+        - name: parsers
+          configMap:
+            name: fluent-bit-config
+            items:
+              - key: parsers.conf
+                path: parsers.conf
+```
+
+Hình ảnh chụp màn hình
+![alt text](images/fluent.png)
+![alt text](images/logflu1.png)
+![alt text](images/logflu2.png)
+![alt text](images/logfku3.png)
+![alt text](images/logflu4.png)
+![alt text](images/logflu1.png)
+Do elastic seearch sập
+![alt text](images/kibana.png)
 ## VI. Security:
 
 ### 1. HAProxy & HTTPS:

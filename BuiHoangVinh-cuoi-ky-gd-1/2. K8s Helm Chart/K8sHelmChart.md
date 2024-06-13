@@ -84,74 +84,10 @@ Manifest của ArgoCD Application
 [Source code Helm Chart API](https://github.com/Vinh1507/vdt-api/tree/main/django-chart)
 (Source code Helm Chart nằm trong thư mục django-chart trong repo source code API)
 
-#### Source Helm Chart triển khai API Deployment
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ include "django-chart.fullname" . }}
-  labels:
-    app: {{ include "django-chart.name" . }}
-spec:
-  replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app: {{ include "django-chart.name" . }}
-  template:
-    metadata:
-      labels:
-        app: {{ include "django-chart.name" . }}
-    spec:
-      containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: DATABASE_HOST
-              value: {{ .Values.database.host | quote }}
-            - name: DATABASE_PORT
-              value: {{ .Values.database.port | quote }}
-            - name: DATABASE_NAME
-              value: {{ .Values.database.name | quote }}
-            - name: DATABASE_USER
-              value: {{ .Values.database.user | quote }}
-            - name: DATABASE_PASSWORD
-              value: {{ .Values.database.password | quote }}
-          ports:
-            - containerPort: 8000
-          command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-          resources:
-{{- toYaml .Values.resources | nindent 12 }}
-```
-
 ### 2. Helm Chart để triển khai Web Deployment
 
 [Source code Helm Chart Web]()
-(Source code deployment Helm Chart nằm trong thư mục helm-chart trong repo source code Web)
-
-#### Source Helm Chart triển khai Web Deployment
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ include "mynodeapp.fullname" . }}
-spec:
-  replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app: {{ include "mynodeapp.name" . }}
-  template:
-    metadata:
-      labels:
-        app: {{ include "mynodeapp.name" . }}
-    spec:
-      containers:
-      - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        ports:
-          - containerPort: 80
-```
-
+(Source code Helm Chart nằm trong thư mục helm-chart trong repo source code Web)
 
 ## Tạo 2 Repo Config cho web và api và Các file values.yaml trong 2 config repo của  của web service và api service
 
@@ -227,7 +163,7 @@ Sử dụng tính năng multiple sources của ArgoCD để triển khai các se
 - Repo source code chứa các file helm chart
 - Repo config chứa file value-prod.yaml để triển khai các deployment
 
-### 1. Manifest triển khai API Application
+### 1. Manifest triển khai API Application sử dụng multiple sources
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -259,7 +195,7 @@ spec:
 
 #### Manifest Service API expose dạng nodeport
 [Manifest Service API nodeport](https://github.com/Vinh1507/vdt-api/blob/main/django-chart/templates/service.yaml)
-### 2. Manifest triển khai WEB Application
+### 2. Manifest triển khai WEB Application sử dụng multiple sources
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: Application

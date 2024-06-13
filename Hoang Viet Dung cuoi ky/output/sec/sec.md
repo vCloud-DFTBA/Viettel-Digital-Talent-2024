@@ -182,3 +182,31 @@ Phương pháp triển khai gồm các bước sau:
   <i> DELETE Request
         </i>
 </div>
+
+## 3. Yêu cầu 3
+
+Trong quá trình phát triển các dịch vụ API, việc kiểm soát số lượng yêu cầu (requests) gửi đến Endpoint là rất quan trọng để bảo vệ hệ thống khỏi bị quá tải và đảm bảo dịch vụ luôn hoạt động ổn định. Một trong những giải pháp phổ biến để thực hiện việc này là sử dụng cơ chế ratelimit. Bài báo cáo này sẽ trình bày về việc áp dụng giải pháp ratelimit cho một Endpoint của API service, cụ thể là giới hạn số lượng yêu cầu tối đa là 10 yêu cầu trong một phút. Nếu số lượng yêu cầu vượt quá giới hạn này, các yêu cầu sau đó sẽ bị trả về với HTTP Response 409.
+
+```
+const rateLimit = require("express-rate-limit");
+
+const apiLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 phút
+  max: 10, // Tối đa 10 yêu cầu
+  handler: (req, res) => {
+    res.status(409).json({
+      error: "Too many requests, please try again later.",
+    });
+  },
+});
+```
+
+</div>
+<div align="center">
+  <img width="600" src="./assets/images/11.jpg">
+</div>
+
+<div align="center">
+  <i> 
+        </i>
+</div>

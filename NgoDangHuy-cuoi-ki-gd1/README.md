@@ -26,7 +26,7 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
   - <img width="1498" alt="Screenshot 2024-06-11 at 15 14 38" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1e7ed0c1-540f-464a-ab77-a2200e860147">
   - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/46d62332-edea-4415-abe9-9f22d229196d)
   - ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/ddf5867f-5d11-429e-b6d9-c7c916a0b360)
- 
+   
 # Continuous Delivery (1.5đ)
 - Yêu cầu:
 - Viết 2 luồng CD cho 2 repo web và api, khi có 1 tag mới được tạo ra trên trên 1 trong 2 repo này thì luồng deploy tương ứng của repo đó thực hiện các công việc sau:
@@ -74,6 +74,9 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
       Ảnh truy cập prometheus và giám sát metrics cho backend:
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6ee4ccdb-b4ba-4180-b4d1-7f86c0430a73)
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6a36d36d-834e-4f82-8a84-4333ec2d3522)
+      ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/580d2b3e-15d8-48ad-9463-e49d43107b5c)
+      File service monitor dùng giám sát
+      ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1a547fd5-24e6-4d89-9134-d0573b336c58)
 
         
 

@@ -67,7 +67,7 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
     - Expose Prometheus dưới dạng Nodeport
     - Sử dụng Service Monitor của Prometheus Operator để giám sát Web Deployment và API Deployment
 - Output:
-    - Triển khai promethus operator. Ở đây em triển khai thông qua kube-prometheus với promethus operator là 1 phần trong kube-prometheus. Promethus operator là quản lí các thành phần của promethus.Ngoài ra, ta có thể sử dụng helm triển khai cũng được.
+    - Triển khai promethus operator.
     - <img width="1473" alt="Screenshot 2024-06-12 at 09 53 58" src="https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/fc2af8c6-93d7-46b1-a9aa-89f83b582763">
     - [Các file setup để triển khai Prometheus lên Kubernetes Cluster](https://github.com/ngodanghuy162/promethus-install.git)
     - Hướng dẫn các câu lệnh đã ở repo ạ.
@@ -76,8 +76,6 @@ https://docs.google.com/document/d/17i4Onbad68IETwcYjpCN2JbjtYsUtpzH9PoEgZsmJnc/
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/6a36d36d-834e-4f82-8a84-4333ec2d3522)
       File service monitor dùng giám sát
       ![image](https://github.com/ngodanghuy162/Viettel-Digital-Talent-2024/assets/100140595/1a547fd5-24e6-4d89-9134-d0573b336c58)
-
-        
 
 # Secutiry
 

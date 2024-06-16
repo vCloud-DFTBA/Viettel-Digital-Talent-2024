@@ -1,0 +1,9 @@
+- name: Depploy Api Container
+  docker_container:
+    name: backend
+    hostname: backend
+    image: tienshawn/api:1.0
+    restart_policy: unless-stopped
+    ports:
+      - "5000:5000"
+    network_mode: bridge

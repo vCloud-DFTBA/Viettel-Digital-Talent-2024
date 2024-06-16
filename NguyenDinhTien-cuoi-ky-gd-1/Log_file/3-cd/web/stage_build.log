@@ -1,0 +1,122 @@
+[0KRunning with gitlab-runner 17.0.0~pre.88.g761ae5dd (761ae5dd)[0;m
+[0K  on green-3.saas-linux-small-amd64.runners-manager.gitlab.com/default Jhc_Jxvh, system ID: s_0e6850b2bce1[0;m
+section_start:1718286861:prepare_executor
+[0K[0K[36;1mPreparing the "docker+machine" executor[0;m[0;m
+[0KUsing Docker executor with image docker:24.0.0 ...[0;m
+[0KStarting service docker:24.0.0-dind ...[0;m
+[0KPulling docker image docker:24.0.0-dind ...[0;m
+[0KUsing docker image sha256:a45e592b8d0e6cfbcce5993a9aaeae87b9f155c49cfea2e7d2adcd0ee0577a7f for docker:24.0.0-dind with digest docker@sha256:6893622dae740d55e7879ff7a3d0a3f641e2bb639ea6bbc74bdabfa531db4785 ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+[0KPulling docker image docker:24.0.0 ...[0;m
+[0KUsing docker image sha256:a45e592b8d0e6cfbcce5993a9aaeae87b9f155c49cfea2e7d2adcd0ee0577a7f for docker:24.0.0 with digest docker@sha256:6893622dae740d55e7879ff7a3d0a3f641e2bb639ea6bbc74bdabfa531db4785 ...[0;m
+section_end:1718286891:prepare_executor
+[0Ksection_start:1718286891:prepare_script
+[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-jhcjxvh-project-58663932-concurrent-0 via runner-jhcjxvh-s-l-s-amd64-1718286821-72a2c3a7...
+section_end:1718286892:prepare_script
+[0Ksection_start:1718286892:get_sources
+[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Initialized empty Git repository in /builds/demo2290151/student_web/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 55e63c22 as detached HEAD (ref is v1.0-cd)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+[32;1m$ git remote set-url origin "${CI_REPOSITORY_URL}"[0;m
+section_end:1718286893:get_sources
+[0Ksection_start:1718286893:step_script
+[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:a45e592b8d0e6cfbcce5993a9aaeae87b9f155c49cfea2e7d2adcd0ee0577a7f for docker:24.0.0 with digest docker@sha256:6893622dae740d55e7879ff7a3d0a3f641e2bb639ea6bbc74bdabfa531db4785 ...[0;m
+[32;1m$ echo "${CI_REGISTRY_USER}  ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}"[0;m
+tienshawn  EjAgPpe.3Z34q.H docker.io
+[32;1m$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY[0;m
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ docker build -t $IMAGE_TAG .[0;m
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 226B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [auth] library/nginx:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/nginx:1.22.0-alpine
+#4 DONE 0.6s
+
+#5 [internal] load build context
+#5 transferring context: 13.37kB done
+#5 DONE 0.0s
+
+#6 [1/3] FROM docker.io/library/nginx:1.22.0-alpine@sha256:addd3bf05ec3c69ef3e8f0021ce1ca98e0eb21117b97ab8b64127e3ff6e444ec
+#6 resolve docker.io/library/nginx:1.22.0-alpine@sha256:addd3bf05ec3c69ef3e8f0021ce1ca98e0eb21117b97ab8b64127e3ff6e444ec 0.0s done
+#6 sha256:f0219f99a56ec88f02f1d6055e5b4565cb80dba10b2301aa18f47913456accac 1.57kB / 1.57kB done
+#6 sha256:5685937b6bc1bd59d5301c596efc66f4d447e3d65959a3d52db007c7d7300fab 8.74kB / 8.74kB done
+#6 sha256:213ec9aee27d8be045c6a92b7eac22c9a64b44558193775a1a7f626352392b49 0B / 2.81MB 0.1s
+#6 sha256:addd3bf05ec3c69ef3e8f0021ce1ca98e0eb21117b97ab8b64127e3ff6e444ec 1.65kB / 1.65kB done
+#6 sha256:1bfd2b69cf63efb52fab38d283b3142918b64f4095997a0b4865c2086b64e472 0B / 7.39MB 0.1s
+#6 sha256:a19f4cc2e0294fdd41523297ad14df64bb526fdf8ce599b4af3687d8912c4e41 601B / 601B 0.1s done
+#6 sha256:4ae981811a6d5d8dbd93ecccfe21e9e947155407df83e899099170dfdf366fb6 0B / 893B 0.1s
+#6 sha256:213ec9aee27d8be045c6a92b7eac22c9a64b44558193775a1a7f626352392b49 2.81MB / 2.81MB 0.2s done
+#6 sha256:1bfd2b69cf63efb52fab38d283b3142918b64f4095997a0b4865c2086b64e472 4.19MB / 7.39MB 0.2s
+#6 sha256:4ae981811a6d5d8dbd93ecccfe21e9e947155407df83e899099170dfdf366fb6 893B / 893B 0.2s done
+#6 extracting sha256:213ec9aee27d8be045c6a92b7eac22c9a64b44558193775a1a7f626352392b49
+#6 sha256:7a662f439736576aac6a8cd6ddf51e961c8641e2a22ce7bb620b60815b25fc37 0B / 666B 0.2s
+#6 sha256:1bfd2b69cf63efb52fab38d283b3142918b64f4095997a0b4865c2086b64e472 7.39MB / 7.39MB 0.2s done
+#6 extracting sha256:213ec9aee27d8be045c6a92b7eac22c9a64b44558193775a1a7f626352392b49 0.1s done
+#6 sha256:7a662f439736576aac6a8cd6ddf51e961c8641e2a22ce7bb620b60815b25fc37 666B / 666B 0.2s done
+#6 sha256:a317c3c2c9064a2aabf3ab203f55b717e828a7fc339ee0a6100cd8d5970a6c17 1.40kB / 1.40kB 0.3s done
+#6 extracting sha256:1bfd2b69cf63efb52fab38d283b3142918b64f4095997a0b4865c2086b64e472
+#6 extracting sha256:1bfd2b69cf63efb52fab38d283b3142918b64f4095997a0b4865c2086b64e472 0.4s done
+#6 extracting sha256:a19f4cc2e0294fdd41523297ad14df64bb526fdf8ce599b4af3687d8912c4e41 done
+#6 extracting sha256:4ae981811a6d5d8dbd93ecccfe21e9e947155407df83e899099170dfdf366fb6 done
+#6 extracting sha256:7a662f439736576aac6a8cd6ddf51e961c8641e2a22ce7bb620b60815b25fc37 done
+#6 extracting sha256:a317c3c2c9064a2aabf3ab203f55b717e828a7fc339ee0a6100cd8d5970a6c17 done
+#6 DONE 1.1s
+
+#7 [2/3] COPY ./nginx/app.conf /etc/nginx/conf.d/app.conf
+#7 DONE 0.1s
+
+#8 [3/3] COPY ./templates/index.html /var/www/frontend/index.html
+#8 DONE 0.0s
+
+#9 exporting to image
+#9 exporting layers 0.0s done
+#9 writing image sha256:d51fa4598d93610bfce311f24af1021b3ce7f034dc1b2dff7f34e75feb22fbb7 done
+#9 naming to docker.io/tienshawn/student-web-cont:v1.0-cd done
+#9 DONE 0.0s
+WARNING: buildx: git was not found in the system. Current commit information was not captured by the build
+[32;1m$ docker push $IMAGE_TAG[0;m
+The push refers to repository [docker.io/tienshawn/student-web-cont]
+6ec5a91e13c3: Preparing
+f686603d57e5: Preparing
+2215c66bbd37: Preparing
+2fced351995b: Preparing
+f5e6d03415cf: Preparing
+3427d79f4b93: Preparing
+e14491c4bad5: Preparing
+994393dc58e7: Preparing
+3427d79f4b93: Waiting
+e14491c4bad5: Waiting
+994393dc58e7: Waiting
+2fced351995b: Layer already exists
+2215c66bbd37: Layer already exists
+f5e6d03415cf: Layer already exists
+994393dc58e7: Layer already exists
+e14491c4bad5: Layer already exists
+3427d79f4b93: Layer already exists
+6ec5a91e13c3: Pushed
+f686603d57e5: Pushed
+v1.0-cd: digest: sha256:815ed3157e27fb4455fa20736950875d9e1c3db74a0b1b35c47b03a2a839ccb2 size: 1983
+section_end:1718286899:step_script
+[0Ksection_start:1718286899:cleanup_file_variables
+[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1718286900:cleanup_file_variables
+[0K[32;1mJob succeeded[0;m

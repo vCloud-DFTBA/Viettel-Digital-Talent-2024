@@ -1,0 +1,8 @@
+- name: Deploy Web container
+  docker_container:
+    name: frontend
+    image: tienshawn/web:1.0   
+    restart_policy: unless-stopped
+    ports:
+      - "8080:8080"
+    network_mode: bridge

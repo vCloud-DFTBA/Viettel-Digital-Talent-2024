@@ -1,0 +1,169 @@
+[0KRunning with gitlab-runner 17.0.0~pre.88.g761ae5dd (761ae5dd)[0;m
+[0K  on green-1.saas-linux-small-amd64.runners-manager.gitlab.com/default JLgUopmM, system ID: s_deaa2ca09de7[0;m
+section_start:1718257012:prepare_executor
+[0K[0K[36;1mPreparing the "docker+machine" executor[0;m[0;m
+[0KUsing Docker executor with image docker:24.0.0 ...[0;m
+[0KStarting service docker:24.0.0-dind ...[0;m
+[0KPulling docker image docker:24.0.0-dind ...[0;m
+[0KUsing docker image sha256:a45e592b8d0e6cfbcce5993a9aaeae87b9f155c49cfea2e7d2adcd0ee0577a7f for docker:24.0.0-dind with digest docker@sha256:6893622dae740d55e7879ff7a3d0a3f641e2bb639ea6bbc74bdabfa531db4785 ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+[0KPulling docker image docker:24.0.0 ...[0;m
+[0KUsing docker image sha256:a45e592b8d0e6cfbcce5993a9aaeae87b9f155c49cfea2e7d2adcd0ee0577a7f for docker:24.0.0 with digest docker@sha256:6893622dae740d55e7879ff7a3d0a3f641e2bb639ea6bbc74bdabfa531db4785 ...[0;m
+section_end:1718257042:prepare_executor
+[0Ksection_start:1718257042:prepare_script
+[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-jlguopmm-project-58664005-concurrent-0 via runner-jlguopmm-s-l-s-amd64-1718256973-b33171e0...
+section_end:1718257042:prepare_script
+[0Ksection_start:1718257042:get_sources
+[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Initialized empty Git repository in /builds/demo2290151/student_api/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 58a13d90 as detached HEAD (ref is v1.0)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+[32;1m$ git remote set-url origin "${CI_REPOSITORY_URL}"[0;m
+section_end:1718257043:get_sources
+[0Ksection_start:1718257043:step_script
+[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:a45e592b8d0e6cfbcce5993a9aaeae87b9f155c49cfea2e7d2adcd0ee0577a7f for docker:24.0.0 with digest docker@sha256:6893622dae740d55e7879ff7a3d0a3f641e2bb639ea6bbc74bdabfa531db4785 ...[0;m
+[32;1m$ echo "${CI_REGISTRY_USER}  ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}"[0;m
+tienshawn  EjAgPpe.3Z34q.H docker.io
+[32;1m$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY[0;m
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ docker build -t $IMAGE_TAG .[0;m
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 268B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/python:3.10-slim
+#4 DONE 0.9s
+
+#5 [internal] load build context
+#5 transferring context: 3.25kB done
+#5 DONE 0.0s
+
+#6 [1/4] FROM docker.io/library/python:3.10-slim@sha256:31b1e4b1c4a1903649c95fa5e46c1066baf6acdd33167813af9fa7905355e1a3
+#6 resolve docker.io/library/python:3.10-slim@sha256:31b1e4b1c4a1903649c95fa5e46c1066baf6acdd33167813af9fa7905355e1a3 0.0s done
+#6 sha256:5f3999ce93a69a1d2fcbcbc231ec98da6df54b1757b6a63e96ba9755253f8440 0B / 12.38MB 0.1s
+#6 sha256:31b1e4b1c4a1903649c95fa5e46c1066baf6acdd33167813af9fa7905355e1a3 1.65kB / 1.65kB done
+#6 sha256:3892cf8c29e4947b3fde1a368a34882d09d6455f8eef4798a889c64c054d87d9 1.37kB / 1.37kB done
+#6 sha256:61b0911887c068cba8d89304a01a8384c27dcb7000e778afd5952efb8e04ba18 6.92kB / 6.92kB done
+#6 sha256:09f376ebb190216b0459f470e71bec7b5dfa611d66bf008492b40dcc5f1d8eae 0B / 29.15MB 0.1s
+#6 sha256:276709cbedc1f168290ee408fca2af2aacfeb4f922ddca125e9e8047f9841479 0B / 3.51MB 0.1s
+#6 sha256:5f3999ce93a69a1d2fcbcbc231ec98da6df54b1757b6a63e96ba9755253f8440 9.44MB / 12.38MB 0.3s
+#6 sha256:09f376ebb190216b0459f470e71bec7b5dfa611d66bf008492b40dcc5f1d8eae 26.21MB / 29.15MB 0.3s
+#6 sha256:276709cbedc1f168290ee408fca2af2aacfeb4f922ddca125e9e8047f9841479 3.51MB / 3.51MB 0.2s done
+#6 sha256:145bcc09fdd2578663ac95f48d3f9a0a659e2d4ffa28a0d408f62091b342bfc7 0B / 243B 0.3s
+#6 sha256:5f3999ce93a69a1d2fcbcbc231ec98da6df54b1757b6a63e96ba9755253f8440 12.38MB / 12.38MB 0.3s done
+#6 sha256:09f376ebb190216b0459f470e71bec7b5dfa611d66bf008492b40dcc5f1d8eae 29.15MB / 29.15MB 0.4s
+#6 sha256:145bcc09fdd2578663ac95f48d3f9a0a659e2d4ffa28a0d408f62091b342bfc7 243B / 243B 0.3s done
+#6 sha256:d4c169844379365785b5893e86d2c0068d1fdc54be63cd0702466b57a21fecf7 3.17MB / 3.37MB 0.4s
+#6 sha256:09f376ebb190216b0459f470e71bec7b5dfa611d66bf008492b40dcc5f1d8eae 29.15MB / 29.15MB 0.5s done
+#6 sha256:d4c169844379365785b5893e86d2c0068d1fdc54be63cd0702466b57a21fecf7 3.37MB / 3.37MB 0.5s done
+#6 extracting sha256:09f376ebb190216b0459f470e71bec7b5dfa611d66bf008492b40dcc5f1d8eae
+#6 extracting sha256:09f376ebb190216b0459f470e71bec7b5dfa611d66bf008492b40dcc5f1d8eae 1.4s done
+#6 extracting sha256:276709cbedc1f168290ee408fca2af2aacfeb4f922ddca125e9e8047f9841479
+#6 extracting sha256:276709cbedc1f168290ee408fca2af2aacfeb4f922ddca125e9e8047f9841479 0.2s done
+#6 extracting sha256:5f3999ce93a69a1d2fcbcbc231ec98da6df54b1757b6a63e96ba9755253f8440
+#6 extracting sha256:5f3999ce93a69a1d2fcbcbc231ec98da6df54b1757b6a63e96ba9755253f8440 0.5s done
+#6 extracting sha256:145bcc09fdd2578663ac95f48d3f9a0a659e2d4ffa28a0d408f62091b342bfc7
+#6 extracting sha256:145bcc09fdd2578663ac95f48d3f9a0a659e2d4ffa28a0d408f62091b342bfc7 done
+#6 extracting sha256:d4c169844379365785b5893e86d2c0068d1fdc54be63cd0702466b57a21fecf7 0.1s
+#6 extracting sha256:d4c169844379365785b5893e86d2c0068d1fdc54be63cd0702466b57a21fecf7 0.3s done
+#6 DONE 3.2s
+
+#7 [2/4] WORKDIR /api
+#7 DONE 1.1s
+
+#8 [3/4] COPY requirements.txt app.py requirements.txt  /api/
+#8 DONE 0.0s
+
+#9 [4/4] RUN pip install --no-cache-dir -r /api/requirements.txt
+#9 1.817 Collecting Flask==3.0.3
+#9 1.878   Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+#9 1.904      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 101.7/101.7 kB 4.3 MB/s eta 0:00:00
+#9 1.949 Collecting Flask-Cors==4.0.0
+#9 1.963   Downloading Flask_Cors-4.0.0-py2.py3-none-any.whl (14 kB)
+#9 2.032 Collecting Werkzeug==3.0.3
+#9 2.047   Downloading werkzeug-3.0.3-py3-none-any.whl (227 kB)
+#9 2.063      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.3/227.3 kB 18.3 MB/s eta 0:00:00
+#9 2.096 Collecting Flask-PyMongo
+#9 2.111   Downloading Flask_PyMongo-2.3.0-py2.py3-none-any.whl (12 kB)
+#9 2.149 Collecting prometheus-flask-exporter
+#9 2.163   Downloading prometheus_flask_exporter-0.23.0-py3-none-any.whl (18 kB)
+#9 2.204 Collecting blinker>=1.6.2
+#9 2.218   Downloading blinker-1.8.2-py3-none-any.whl (9.5 kB)
+#9 2.274 Collecting click>=8.1.3
+#9 2.288   Downloading click-8.1.7-py3-none-any.whl (97 kB)
+#9 2.292      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 190.5 MB/s eta 0:00:00
+#9 2.337 Collecting Jinja2>=3.1.2
+#9 2.351   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+#9 2.355      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 199.0 MB/s eta 0:00:00
+#9 2.388 Collecting itsdangerous>=2.1.2
+#9 2.402   Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 2.565 Collecting MarkupSafe>=2.1.1
+#9 2.580   Downloading MarkupSafe-2.1.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+#9 3.360 Collecting PyMongo>=3.3
+#9 3.377   Downloading pymongo-4.7.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (669 kB)
+#9 3.392      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 669.1/669.1 kB 56.2 MB/s eta 0:00:00
+#9 3.441 Collecting prometheus-client
+#9 3.455   Downloading prometheus_client-0.20.0-py3-none-any.whl (54 kB)
+#9 3.458      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.5/54.5 kB 171.0 MB/s eta 0:00:00
+#9 3.556 Collecting dnspython<3.0.0,>=1.16.0
+#9 3.570   Downloading dnspython-2.6.1-py3-none-any.whl (307 kB)
+#9 3.574      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 229.6 MB/s eta 0:00:00
+#9 3.719 Installing collected packages: prometheus-client, MarkupSafe, itsdangerous, dnspython, click, blinker, Werkzeug, PyMongo, Jinja2, Flask, prometheus-flask-exporter, Flask-PyMongo, Flask-Cors
+#9 4.636 Successfully installed Flask-3.0.3 Flask-Cors-4.0.0 Flask-PyMongo-2.3.0 Jinja2-3.1.4 MarkupSafe-2.1.5 PyMongo-4.7.3 Werkzeug-3.0.3 blinker-1.8.2 click-8.1.7 dnspython-2.6.1 itsdangerous-2.2.0 prometheus-client-0.20.0 prometheus-flask-exporter-0.23.0
+#9 4.637 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 4.795 
+#9 4.795 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#9 4.795 [notice] To update, run: pip install --upgrade pip
+#9 DONE 5.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.2s done
+#10 writing image sha256:57f14eb158293b0f91edbff472ed2e628c903c4d29885e748b34c33a54606142 done
+#10 naming to docker.io/tienshawn/student-api-cont:v1.0 done
+#10 DONE 0.2s
+WARNING: buildx: git was not found in the system. Current commit information was not captured by the build
+[32;1m$ docker push $IMAGE_TAG[0;m
+The push refers to repository [docker.io/tienshawn/student-api-cont]
+013c49aed954: Preparing
+27c58ffa6f97: Preparing
+df7ccda797a3: Preparing
+6020d42d2f73: Preparing
+085963967517: Preparing
+a2d5e7388727: Preparing
+146826fa3ca0: Preparing
+5d4427064ecc: Preparing
+a2d5e7388727: Waiting
+146826fa3ca0: Waiting
+5d4427064ecc: Waiting
+085963967517: Layer already exists
+6020d42d2f73: Layer already exists
+a2d5e7388727: Layer already exists
+146826fa3ca0: Layer already exists
+5d4427064ecc: Layer already exists
+27c58ffa6f97: Pushed
+df7ccda797a3: Pushed
+013c49aed954: Pushed
+v1.0: digest: sha256:92075df22be1b635f3dc3a3e6c20415e2e3467b2d9ec524bad69b87d13c75c60 size: 1995
+section_end:1718257060:step_script
+[0Ksection_start:1718257060:cleanup_file_variables
+[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1718257060:cleanup_file_variables
+[0K[32;1mJob succeeded[0;m

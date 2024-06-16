@@ -1,0 +1,277 @@
+2024-05-24T02:34:29.2804815Z Current runner version: '2.316.1'
+2024-05-24T02:34:29.2829051Z ##[group]Operating System
+2024-05-24T02:34:29.2829818Z Ubuntu
+2024-05-24T02:34:29.2830117Z 22.04.4
+2024-05-24T02:34:29.2830482Z LTS
+2024-05-24T02:34:29.2830895Z ##[endgroup]
+2024-05-24T02:34:29.2831236Z ##[group]Runner Image
+2024-05-24T02:34:29.2831674Z Image: ubuntu-22.04
+2024-05-24T02:34:29.2832134Z Version: 20240516.1.0
+2024-05-24T02:34:29.2833078Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20240516.1/images/ubuntu/Ubuntu2204-Readme.md
+2024-05-24T02:34:29.2834516Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20240516.1
+2024-05-24T02:34:29.2835438Z ##[endgroup]
+2024-05-24T02:34:29.2835854Z ##[group]Runner Image Provisioner
+2024-05-24T02:34:29.2836302Z 2.0.369.1
+2024-05-24T02:34:29.2836704Z ##[endgroup]
+2024-05-24T02:34:29.2837589Z ##[group]GITHUB_TOKEN Permissions
+2024-05-24T02:34:29.2839218Z Contents: read
+2024-05-24T02:34:29.2839617Z Metadata: read
+2024-05-24T02:34:29.2840249Z ##[endgroup]
+2024-05-24T02:34:29.2843333Z Secret source: Actions
+2024-05-24T02:34:29.2843891Z Prepare workflow directory
+2024-05-24T02:34:29.3471762Z Prepare all required actions
+2024-05-24T02:34:29.3629846Z Getting action download info
+2024-05-24T02:34:29.5370829Z Download action repository 'actions/checkout@v4' (SHA:a5ac7e51b41094c92402da3b24376905380afc29)
+2024-05-24T02:34:30.3228153Z Download action repository 'actions/setup-python@v3' (SHA:3542bca2639a428e1796aaa6a2ffef0c0f575566)
+2024-05-24T02:34:30.5045685Z Complete job name: build
+2024-05-24T02:34:30.5974387Z ##[group]Run actions/checkout@v4
+2024-05-24T02:34:30.5974961Z with:
+2024-05-24T02:34:30.5975360Z   repository: tienshawn/gh_action_api
+2024-05-24T02:34:30.5976204Z   token: ***
+2024-05-24T02:34:30.5976629Z   ssh-strict: true
+2024-05-24T02:34:30.5976988Z   ssh-user: git
+2024-05-24T02:34:30.5977489Z   persist-credentials: true
+2024-05-24T02:34:30.5977947Z   clean: true
+2024-05-24T02:34:30.5978309Z   sparse-checkout-cone-mode: true
+2024-05-24T02:34:30.5978939Z   fetch-depth: 1
+2024-05-24T02:34:30.5979325Z   fetch-tags: false
+2024-05-24T02:34:30.5979687Z   show-progress: true
+2024-05-24T02:34:30.5980193Z   lfs: false
+2024-05-24T02:34:30.5980513Z   submodules: false
+2024-05-24T02:34:30.5980914Z   set-safe-directory: true
+2024-05-24T02:34:30.5981435Z ##[endgroup]
+2024-05-24T02:34:30.7769408Z Syncing repository: tienshawn/gh_action_api
+2024-05-24T02:34:30.7771961Z ##[group]Getting Git version info
+2024-05-24T02:34:30.7773533Z Working directory is '/home/runner/work/gh_action_api/gh_action_api'
+2024-05-24T02:34:30.7775163Z [command]/usr/bin/git version
+2024-05-24T02:34:30.7775937Z git version 2.45.1
+2024-05-24T02:34:30.7780228Z ##[endgroup]
+2024-05-24T02:34:30.7802006Z Temporarily overriding HOME='/home/runner/work/_temp/650857ca-cc73-4e97-8773-b29b1c2f02cb' before making global git config changes
+2024-05-24T02:34:30.7804429Z Adding repository directory to the temporary git global config as a safe directory
+2024-05-24T02:34:30.7806742Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/gh_action_api/gh_action_api
+2024-05-24T02:34:30.7837059Z Deleting the contents of '/home/runner/work/gh_action_api/gh_action_api'
+2024-05-24T02:34:30.7843290Z ##[group]Initializing the repository
+2024-05-24T02:34:30.7847679Z [command]/usr/bin/git init /home/runner/work/gh_action_api/gh_action_api
+2024-05-24T02:34:30.7910925Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-05-24T02:34:30.7912091Z hint: is subject to change. To configure the initial branch name to use in all
+2024-05-24T02:34:30.7913214Z hint: of your new repositories, which will suppress this warning, call:
+2024-05-24T02:34:30.7913981Z hint:
+2024-05-24T02:34:30.7914511Z hint: 	git config --global init.defaultBranch <name>
+2024-05-24T02:34:30.7915389Z hint:
+2024-05-24T02:34:30.7916543Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-05-24T02:34:30.7918195Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-05-24T02:34:30.7919373Z hint:
+2024-05-24T02:34:30.7919818Z hint: 	git branch -m <name>
+2024-05-24T02:34:30.7920636Z Initialized empty Git repository in /home/runner/work/gh_action_api/gh_action_api/.git/
+2024-05-24T02:34:30.7932837Z [command]/usr/bin/git remote add origin https://github.com/tienshawn/gh_action_api
+2024-05-24T02:34:30.7973777Z ##[endgroup]
+2024-05-24T02:34:30.7974875Z ##[group]Disabling automatic garbage collection
+2024-05-24T02:34:30.7978383Z [command]/usr/bin/git config --local gc.auto 0
+2024-05-24T02:34:30.8012299Z ##[endgroup]
+2024-05-24T02:34:30.8013508Z ##[group]Setting up auth
+2024-05-24T02:34:30.8019452Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-05-24T02:34:30.8056114Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-05-24T02:34:30.8364249Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-05-24T02:34:30.8399379Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-05-24T02:34:30.8647455Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-05-24T02:34:30.8682427Z ##[endgroup]
+2024-05-24T02:34:30.8683474Z ##[group]Fetching the repository
+2024-05-24T02:34:30.8692987Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9b7957591548ce4296d85e93223cc84be9bfca26:refs/remotes/origin/main
+2024-05-24T02:34:31.2206676Z From https://github.com/tienshawn/gh_action_api
+2024-05-24T02:34:31.2208477Z  * [new ref]         9b7957591548ce4296d85e93223cc84be9bfca26 -> origin/main
+2024-05-24T02:34:31.2233886Z ##[endgroup]
+2024-05-24T02:34:31.2235391Z ##[group]Determining the checkout info
+2024-05-24T02:34:31.2237001Z ##[endgroup]
+2024-05-24T02:34:31.2243091Z [command]/usr/bin/git sparse-checkout disable
+2024-05-24T02:34:31.2292942Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-05-24T02:34:31.2329937Z ##[group]Checking out the ref
+2024-05-24T02:34:31.2332584Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2024-05-24T02:34:31.2397027Z Switched to a new branch 'main'
+2024-05-24T02:34:31.2400278Z branch 'main' set up to track 'origin/main'.
+2024-05-24T02:34:31.2407550Z ##[endgroup]
+2024-05-24T02:34:31.2444196Z [command]/usr/bin/git log -1 --format='%H'
+2024-05-24T02:34:31.2471107Z '9b7957591548ce4296d85e93223cc84be9bfca26'
+2024-05-24T02:34:31.2788991Z ##[group]Run actions/setup-python@v3
+2024-05-24T02:34:31.2789659Z with:
+2024-05-24T02:34:31.2790038Z   python-version: 3.10
+2024-05-24T02:34:31.2790695Z   token: ***
+2024-05-24T02:34:31.2791151Z ##[endgroup]
+2024-05-24T02:34:31.4584561Z Successfully setup CPython (3.10.14)
+2024-05-24T02:34:31.4728568Z ##[group]Run python -m pip install --upgrade pip
+2024-05-24T02:34:31.4729519Z [36;1mpython -m pip install --upgrade pip[0m
+2024-05-24T02:34:31.4730160Z [36;1mpip install flake8 pytest[0m
+2024-05-24T02:34:31.4730894Z [36;1mif [ -f requirements.txt ]; then pip install -r requirements.txt; fi[0m
+2024-05-24T02:34:31.4811064Z shell: /usr/bin/bash -e {0}
+2024-05-24T02:34:31.4811734Z env:
+2024-05-24T02:34:31.4812234Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-05-24T02:34:31.4813050Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-05-24T02:34:31.4813804Z ##[endgroup]
+2024-05-24T02:34:32.0527482Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages (24.0)
+2024-05-24T02:34:32.8819243Z Collecting flake8
+2024-05-24T02:34:32.9508898Z   Downloading flake8-7.0.0-py2.py3-none-any.whl.metadata (3.8 kB)
+2024-05-24T02:34:33.0379227Z Collecting pytest
+2024-05-24T02:34:33.0484794Z   Downloading pytest-8.2.1-py3-none-any.whl.metadata (7.6 kB)
+2024-05-24T02:34:33.0774496Z Collecting mccabe<0.8.0,>=0.7.0 (from flake8)
+2024-05-24T02:34:33.0879140Z   Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+2024-05-24T02:34:33.1153311Z Collecting pycodestyle<2.12.0,>=2.11.0 (from flake8)
+2024-05-24T02:34:33.1258621Z   Downloading pycodestyle-2.11.1-py2.py3-none-any.whl.metadata (4.5 kB)
+2024-05-24T02:34:33.1565161Z Collecting pyflakes<3.3.0,>=3.2.0 (from flake8)
+2024-05-24T02:34:33.1676378Z   Downloading pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+2024-05-24T02:34:33.2073429Z Collecting iniconfig (from pytest)
+2024-05-24T02:34:33.2181070Z   Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+2024-05-24T02:34:33.2550403Z Collecting packaging (from pytest)
+2024-05-24T02:34:33.2656899Z   Downloading packaging-24.0-py3-none-any.whl.metadata (3.2 kB)
+2024-05-24T02:34:33.2966810Z Collecting pluggy<2.0,>=1.5 (from pytest)
+2024-05-24T02:34:33.3071727Z   Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+2024-05-24T02:34:33.3364044Z Collecting exceptiongroup>=1.0.0rc8 (from pytest)
+2024-05-24T02:34:33.3477515Z   Downloading exceptiongroup-1.2.1-py3-none-any.whl.metadata (6.6 kB)
+2024-05-24T02:34:33.3777113Z Collecting tomli>=1 (from pytest)
+2024-05-24T02:34:33.3883107Z   Downloading tomli-2.0.1-py3-none-any.whl.metadata (8.9 kB)
+2024-05-24T02:34:33.4179636Z Downloading flake8-7.0.0-py2.py3-none-any.whl (57 kB)
+2024-05-24T02:34:33.4311632Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.6/57.6 kB 4.9 MB/s eta 0:00:00
+2024-05-24T02:34:33.4414473Z Downloading pytest-8.2.1-py3-none-any.whl (339 kB)
+2024-05-24T02:34:33.4634578Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 339.6/339.6 kB 16.6 MB/s eta 0:00:00
+2024-05-24T02:34:33.4738297Z Downloading exceptiongroup-1.2.1-py3-none-any.whl (16 kB)
+2024-05-24T02:34:33.4859919Z Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+2024-05-24T02:34:33.4980026Z Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+2024-05-24T02:34:33.5099837Z Downloading pycodestyle-2.11.1-py2.py3-none-any.whl (31 kB)
+2024-05-24T02:34:33.5226737Z Downloading pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+2024-05-24T02:34:33.5271899Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.7/62.7 kB 22.3 MB/s eta 0:00:00
+2024-05-24T02:34:33.5373943Z Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+2024-05-24T02:34:33.5498029Z Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+2024-05-24T02:34:33.5616338Z Downloading packaging-24.0-py3-none-any.whl (53 kB)
+2024-05-24T02:34:33.5663230Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.5/53.5 kB 17.6 MB/s eta 0:00:00
+2024-05-24T02:34:33.6325835Z Installing collected packages: tomli, pyflakes, pycodestyle, pluggy, packaging, mccabe, iniconfig, exceptiongroup, pytest, flake8
+2024-05-24T02:34:34.0118410Z Successfully installed exceptiongroup-1.2.1 flake8-7.0.0 iniconfig-2.0.0 mccabe-0.7.0 packaging-24.0 pluggy-1.5.0 pycodestyle-2.11.1 pyflakes-3.2.0 pytest-8.2.1 tomli-2.0.1
+2024-05-24T02:34:34.5774423Z Collecting Flask==3.0.3 (from -r requirements.txt (line 1))
+2024-05-24T02:34:34.6347235Z   Downloading flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+2024-05-24T02:34:34.6704104Z Collecting gunicorn==21.2.0 (from -r requirements.txt (line 2))
+2024-05-24T02:34:34.6835377Z   Downloading gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+2024-05-24T02:34:34.7294170Z Collecting Werkzeug==3.0.3 (from -r requirements.txt (line 3))
+2024-05-24T02:34:34.7395064Z   Downloading werkzeug-3.0.3-py3-none-any.whl.metadata (3.7 kB)
+2024-05-24T02:34:34.7637997Z Collecting Flask-PyMongo==2.3.0 (from -r requirements.txt (line 4))
+2024-05-24T02:34:34.7778646Z   Downloading Flask_PyMongo-2.3.0-py2.py3-none-any.whl.metadata (1.4 kB)
+2024-05-24T02:34:34.8087684Z Collecting Flask-Cors==4.0.1 (from -r requirements.txt (line 5))
+2024-05-24T02:34:34.8194401Z   Downloading Flask_Cors-4.0.1-py2.py3-none-any.whl.metadata (5.5 kB)
+2024-05-24T02:34:34.8420821Z Collecting Flask-Testing==0.8.1 (from -r requirements.txt (line 6))
+2024-05-24T02:34:34.8530712Z   Downloading Flask-Testing-0.8.1.tar.gz (45 kB)
+2024-05-24T02:34:34.8657063Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.2/45.2 kB 3.7 MB/s eta 0:00:00
+2024-05-24T02:34:34.8758996Z   Installing build dependencies: started
+2024-05-24T02:34:36.3614842Z   Installing build dependencies: finished with status 'done'
+2024-05-24T02:34:36.3622432Z   Getting requirements to build wheel: started
+2024-05-24T02:34:36.5444209Z   Getting requirements to build wheel: finished with status 'done'
+2024-05-24T02:34:36.5458929Z   Installing backend dependencies: started
+2024-05-24T02:34:37.2924378Z   Installing backend dependencies: finished with status 'done'
+2024-05-24T02:34:37.2930687Z   Preparing metadata (pyproject.toml): started
+2024-05-24T02:34:37.4693161Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-05-24T02:34:37.5018356Z Collecting mock==5.1.0 (from -r requirements.txt (line 7))
+2024-05-24T02:34:37.5131568Z   Downloading mock-5.1.0-py3-none-any.whl.metadata (3.0 kB)
+2024-05-24T02:34:37.5561806Z Collecting Jinja2>=3.1.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+2024-05-24T02:34:37.5662887Z   Downloading jinja2-3.1.4-py3-none-any.whl.metadata (2.6 kB)
+2024-05-24T02:34:37.5912553Z Collecting itsdangerous>=2.1.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+2024-05-24T02:34:37.6014044Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2024-05-24T02:34:37.6356135Z Collecting click>=8.1.3 (from Flask==3.0.3->-r requirements.txt (line 1))
+2024-05-24T02:34:37.6457992Z   Downloading click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+2024-05-24T02:34:37.6694887Z Collecting blinker>=1.6.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+2024-05-24T02:34:37.6795372Z   Downloading blinker-1.8.2-py3-none-any.whl.metadata (1.6 kB)
+2024-05-24T02:34:37.6877269Z Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 2)) (24.0)
+2024-05-24T02:34:37.7557517Z Collecting MarkupSafe>=2.1.1 (from Werkzeug==3.0.3->-r requirements.txt (line 3))
+2024-05-24T02:34:37.7663272Z   Downloading MarkupSafe-2.1.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.0 kB)
+2024-05-24T02:34:38.0944686Z Collecting PyMongo>=3.3 (from Flask-PyMongo==2.3.0->-r requirements.txt (line 4))
+2024-05-24T02:34:38.1062200Z   Downloading pymongo-4.7.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+2024-05-24T02:34:38.1953335Z Collecting dnspython<3.0.0,>=1.16.0 (from PyMongo>=3.3->Flask-PyMongo==2.3.0->-r requirements.txt (line 4))
+2024-05-24T02:34:38.2055636Z   Downloading dnspython-2.6.1-py3-none-any.whl.metadata (5.8 kB)
+2024-05-24T02:34:38.2377544Z Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+2024-05-24T02:34:38.2489238Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 101.7/101.7 kB 10.3 MB/s eta 0:00:00
+2024-05-24T02:34:38.2607864Z Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+2024-05-24T02:34:38.2654448Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 27.6 MB/s eta 0:00:00
+2024-05-24T02:34:38.2772554Z Downloading werkzeug-3.0.3-py3-none-any.whl (227 kB)
+2024-05-24T02:34:38.2893030Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.3/227.3 kB 21.9 MB/s eta 0:00:00
+2024-05-24T02:34:38.3006264Z Downloading Flask_PyMongo-2.3.0-py2.py3-none-any.whl (12 kB)
+2024-05-24T02:34:38.3140130Z Downloading Flask_Cors-4.0.1-py2.py3-none-any.whl (14 kB)
+2024-05-24T02:34:38.3301510Z Downloading mock-5.1.0-py3-none-any.whl (30 kB)
+2024-05-24T02:34:38.3431129Z Downloading blinker-1.8.2-py3-none-any.whl (9.5 kB)
+2024-05-24T02:34:38.3554067Z Downloading click-8.1.7-py3-none-any.whl (97 kB)
+2024-05-24T02:34:38.3605600Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 32.6 MB/s eta 0:00:00
+2024-05-24T02:34:38.3707879Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2024-05-24T02:34:38.3844231Z Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+2024-05-24T02:34:38.3897048Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 40.8 MB/s eta 0:00:00
+2024-05-24T02:34:38.4000362Z Downloading MarkupSafe-2.1.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+2024-05-24T02:34:38.4141942Z Downloading pymongo-4.7.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (670 kB)
+2024-05-24T02:34:38.4291106Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 670.0/670.0 kB 52.0 MB/s eta 0:00:00
+2024-05-24T02:34:38.4405270Z Downloading dnspython-2.6.1-py3-none-any.whl (307 kB)
+2024-05-24T02:34:38.4469734Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 68.2 MB/s eta 0:00:00
+2024-05-24T02:34:38.4611013Z Building wheels for collected packages: Flask-Testing
+2024-05-24T02:34:38.4620612Z   Building wheel for Flask-Testing (pyproject.toml): started
+2024-05-24T02:34:38.6476876Z   Building wheel for Flask-Testing (pyproject.toml): finished with status 'done'
+2024-05-24T02:34:38.6484324Z   Created wheel for Flask-Testing: filename=Flask_Testing-0.8.1-py3-none-any.whl size=8190 sha256=46b56dcb8307356c1fecd55b284b96025ca5e9bb0227769ba50877f00cd8f48f
+2024-05-24T02:34:38.6487155Z   Stored in directory: /home/runner/.cache/pip/wheels/c9/ed/31/9b0a9431bdb3d378f0b63671efc517bac666e5ab4b4fa3b360
+2024-05-24T02:34:38.6502923Z Successfully built Flask-Testing
+2024-05-24T02:34:38.7538514Z Installing collected packages: mock, MarkupSafe, itsdangerous, gunicorn, dnspython, click, blinker, Werkzeug, PyMongo, Jinja2, Flask, Flask-Testing, Flask-PyMongo, Flask-Cors
+2024-05-24T02:34:39.5721355Z Successfully installed Flask-3.0.3 Flask-Cors-4.0.1 Flask-PyMongo-2.3.0 Flask-Testing-0.8.1 Jinja2-3.1.4 MarkupSafe-2.1.5 PyMongo-4.7.2 Werkzeug-3.0.3 blinker-1.8.2 click-8.1.7 dnspython-2.6.1 gunicorn-21.2.0 itsdangerous-2.2.0 mock-5.1.0
+2024-05-24T02:34:39.7354023Z ##[group]Run # stop the build if there are Python syntax errors or undefined names
+2024-05-24T02:34:39.7354893Z [36;1m# stop the build if there are Python syntax errors or undefined names[0m
+2024-05-24T02:34:39.7355748Z [36;1mflake8 . --count --select=E9,F63,F7,F82 --show-source --statistics[0m
+2024-05-24T02:34:39.7356511Z [36;1m# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide[0m
+2024-05-24T02:34:39.7357380Z [36;1mflake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics[0m
+2024-05-24T02:34:39.7418705Z shell: /usr/bin/bash -e {0}
+2024-05-24T02:34:39.7419116Z env:
+2024-05-24T02:34:39.7419635Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-05-24T02:34:39.7420205Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-05-24T02:34:39.7420723Z ##[endgroup]
+2024-05-24T02:34:40.0457754Z 0
+2024-05-24T02:34:40.1999712Z ./app.py:5:1: F401 'os' imported but unused
+2024-05-24T02:34:40.2000995Z ./app.py:13:128: E501 line too long (136 > 127 characters)
+2024-05-24T02:34:40.2002146Z ./app.py:22:1: E302 expected 2 blank lines, found 1
+2024-05-24T02:34:40.2003035Z ./app.py:47:1: W293 blank line contains whitespace
+2024-05-24T02:34:40.2003883Z ./app.py:101:1: E303 too many blank lines (3)
+2024-05-24T02:34:40.2004796Z ./test.py:9:1: E303 too many blank lines (3)
+2024-05-24T02:34:40.2005810Z ./test.py:21:5: E303 too many blank lines (2)
+2024-05-24T02:34:40.2006753Z ./test.py:40:21: E131 continuation line unaligned for hanging indent
+2024-05-24T02:34:40.2007769Z ./test.py:44:43: W291 trailing whitespace
+2024-05-24T02:34:40.2008705Z ./test.py:66:54: E251 unexpected spaces around keyword / parameter equals
+2024-05-24T02:34:40.2009968Z ./test.py:66:56: E251 unexpected spaces around keyword / parameter equals
+2024-05-24T02:34:40.2011120Z ./test.py:71:21: E222 multiple spaces after operator
+2024-05-24T02:34:40.2011942Z ./test.py:80:1: W293 blank line contains whitespace
+2024-05-24T02:34:40.2012791Z ./test.py:85:5: E303 too many blank lines (2)
+2024-05-24T02:34:40.2013698Z ./test.py:114:1: W293 blank line contains whitespace
+2024-05-24T02:34:40.2014517Z ./test.py:121:1: W293 blank line contains whitespace
+2024-05-24T02:34:40.2015374Z ./test.py:122:1: E303 too many blank lines (3)
+2024-05-24T02:34:40.2016250Z ./test.py:126:1: W391 blank line at end of file
+2024-05-24T02:34:40.2017062Z 1     E131 continuation line unaligned for hanging indent
+2024-05-24T02:34:40.2018313Z 1     E222 multiple spaces after operator
+2024-05-24T02:34:40.2019277Z 2     E251 unexpected spaces around keyword / parameter equals
+2024-05-24T02:34:40.2020145Z 1     E302 expected 2 blank lines, found 1
+2024-05-24T02:34:40.2020860Z 5     E303 too many blank lines (3)
+2024-05-24T02:34:40.2021660Z 1     E501 line too long (136 > 127 characters)
+2024-05-24T02:34:40.2022488Z 1     F401 'os' imported but unused
+2024-05-24T02:34:40.2023148Z 1     W291 trailing whitespace
+2024-05-24T02:34:40.2023877Z 4     W293 blank line contains whitespace
+2024-05-24T02:34:40.2024574Z 1     W391 blank line at end of file
+2024-05-24T02:34:40.2025198Z 18
+2024-05-24T02:34:40.2182468Z ##[group]Run python test.py
+2024-05-24T02:34:40.2182911Z [36;1mpython test.py[0m
+2024-05-24T02:34:40.2242635Z shell: /usr/bin/bash -e {0}
+2024-05-24T02:34:40.2243035Z env:
+2024-05-24T02:34:40.2243739Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-05-24T02:34:40.2244599Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-05-24T02:34:40.2245700Z ##[endgroup]
+2024-05-24T02:34:40.4718162Z .....
+2024-05-24T02:34:40.4719210Z ----------------------------------------------------------------------
+2024-05-24T02:34:40.4720225Z Ran 5 tests in 0.010s
+2024-05-24T02:34:40.4720630Z 
+2024-05-24T02:34:40.4720826Z OK
+2024-05-24T02:34:40.9997407Z Post job cleanup.
+2024-05-24T02:34:41.1252258Z Post job cleanup.
+2024-05-24T02:34:41.2213765Z [command]/usr/bin/git version
+2024-05-24T02:34:41.2253491Z git version 2.45.1
+2024-05-24T02:34:41.2295650Z Temporarily overriding HOME='/home/runner/work/_temp/1e83d873-a4ff-4b36-a688-0a55aad5af62' before making global git config changes
+2024-05-24T02:34:41.2297757Z Adding repository directory to the temporary git global config as a safe directory
+2024-05-24T02:34:41.2302175Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/gh_action_api/gh_action_api
+2024-05-24T02:34:41.2340697Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-05-24T02:34:41.2376271Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-05-24T02:34:41.2634536Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-05-24T02:34:41.2658852Z http.https://github.com/.extraheader
+2024-05-24T02:34:41.2671708Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2024-05-24T02:34:41.2707237Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-05-24T02:34:41.3217486Z Cleaning up orphan processes

@@ -1,0 +1,23 @@
+[
+    {
+     "Name": "Bùi Minh Sơn",
+     "Birth": 2002,
+     "Gender": "Nam",
+     "University": "Đại học Công nghệ - Đại học Quốc gia Hà Nội",
+     "Country": "Viet Nam"
+    },
+    {
+     "Name": "Đào Đại Hiệp",
+     "Birth": 2001,
+     "Gender": "Nam",
+     "University": "Đại học Bách khoa Hà Nội",
+     "Country": "Viet Nam"
+    },
+    {
+     "Name": "Đỗ Anh Tú",
+     "Birth": 2002,
+     "Gender": "Nam",
+     "University": "Đại học Công nghệ - Đại học Quốc gia Hà Nội",
+     "Country": "Viet Nam"
+    }
+]

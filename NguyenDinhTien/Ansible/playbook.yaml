@@ -1,0 +1,33 @@
+- name: Set up Docker
+  hosts: all
+  become: true
+  roles:
+    - common
+
+# Trien khai tren 1 host
+- name: Setup localhost
+  hosts: localhost
+  become: true
+  roles:
+    - db
+    - web
+    - api
+    
+
+- name: Create network on localhost
+  hosts: localhost
+  tasks:
+    - name: Create network
+      docker_network:
+        name: backend
+        connected:
+          - api
+          - db 
+          - web 
+          
+
+#Trien khai tren host thu 2
+# - name: Setup host2
+#   hosts: host2
+#   roles:
+#     - web

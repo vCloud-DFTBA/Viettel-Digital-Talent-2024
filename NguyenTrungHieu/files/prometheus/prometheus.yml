@@ -1,0 +1,31 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+
+alerting: 
+  alertmanagers:
+  - static_configs:
+    - targets: []
+    scheme: http
+    timeout: 10s
+    api_version: v1
+
+scrape_configs:
+  - job_name: 'api && database'
+    honor_timestamps: true
+    scheme: http
+    static_configs:
+      - targets: 
+        - api:5003
+        - mongodb_exporter:9216
+
+  - job_name: 'prometheus && exporters'
+    honor_timestamps: true
+    scheme: http
+    static_configs:
+      - targets: 
+        - prometheus:9090
+        - cadvisor:8080
+        - node_exporter:9100
+

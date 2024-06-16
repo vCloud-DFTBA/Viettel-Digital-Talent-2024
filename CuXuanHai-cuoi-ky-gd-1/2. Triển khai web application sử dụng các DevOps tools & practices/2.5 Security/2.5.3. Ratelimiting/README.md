@@ -129,3 +129,4 @@ node testRateLimiter.js
 
 Output:
 ![](./images/2.png)
+Bổ sung giải thích: Tại sao lại trả về status 429 thay vì 409. Mặc định, thư viện `express-rate-limit` trả về mã trạng thái HTTP 429 (Too Many Requests) khi số lượng yêu cầu vượt quá giới hạn cho phép. Mã trạng thái 429 là tiêu chuẩn cho việc giới hạn tốc độ (rate limiting) theo RFC 6585.

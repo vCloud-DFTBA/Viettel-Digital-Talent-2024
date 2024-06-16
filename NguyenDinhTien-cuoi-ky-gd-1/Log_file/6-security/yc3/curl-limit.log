@@ -1,0 +1,77 @@
+# cat test-curl.sh
+#!/bin/bash
+
+# Run the command 20 times
+for i in $(seq 1 15);
+do
+  echo "Attempt $i:"
+  curl http://172.18.0.3:30005/api/
+  echo "--------------------------"
+done
+# sh test-curl.sh
+Attempt 1:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 2:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 3:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 4:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 5:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 6:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 7:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 8:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 9:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 10:
+[{"birth":"2004","country":"Vietnam","gender":"female","id":"666459ac032aa479605e96c2","name":"test2","university":"BK"},{"birth":"testbirth","country":"testcountry","gender":"testgender","id":"666b19835bc5e37541247af0","name":"test","university":"testuni"}]
+--------------------------
+Attempt 11:
+<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>10 per 1 minute</p>
+--------------------------
+Attempt 12:
+<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>10 per 1 minute</p>
+--------------------------
+Attempt 13:
+<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>10 per 1 minute</p>
+--------------------------
+Attempt 14:
+<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>10 per 1 minute</p>
+--------------------------
+Attempt 15:
+<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>10 per 1 minute</p>
+--------------------------
+#

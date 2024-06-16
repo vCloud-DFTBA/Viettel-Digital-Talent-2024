@@ -1,0 +1,54 @@
+## Kubernetes with minikube
+
+tienshawn-window@DESKTOP-3DKEHPB:~$ kubectl get node -o wide
+NAME       STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION                       CONTAINER-RUNTIME
+minikube   Ready    control-plane   86s   v1.28.3   192.168.49.2   <none>        Ubuntu 22.04.3 LTS   5.15.146.1-microsoft-standard-WSL2   docker://24.0.7
+tienshawn-window@DESKTOP-3DKEHPB:~$ kubectl cluster-info
+Kubernetes control plane is running at https://127.0.0.1:32769
+CoreDNS is running at https://127.0.0.1:32769/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+tienshawn-window@DESKTOP-3DKEHPB:~$ kubectl get pod -A
+NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+kube-system   coredns-5dd5756b68-cl4bt           1/1     Running   0             27m
+kube-system   etcd-minikube                      1/1     Running   0             27m
+kube-system   kube-apiserver-minikube            1/1     Running   0             27m
+kube-system   kube-controller-manager-minikube   1/1     Running   0             27m
+kube-system   kube-proxy-sm6c5                   1/1     Running   0             27m
+kube-system   kube-scheduler-minikube            1/1     Running   0             27m
+kube-system   storage-provisioner                1/1     Running   1 (26m ago)   27m
+
+
+## Kubernetes with kubespray
+(kubespray-venv) tienshawn@node1:~/kubespray$ sudo kubectl get node -o wide
+NAME    STATUS   ROLES           AGE   VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+node1   Ready    control-plane   12m   v1.29.5   192.168.122.21   <none>        Ubuntu 22.04.1 LTS   6.5.0-35-generic     containerd://1.7.16
+node2   Ready    <none>          11m   v1.29.5   192.168.122.22   <none>        Ubuntu 22.04.1 LTS   5.15.0-107-generic   containerd://1.7.16
+(kubespray-venv) tienshawn@node1:~/kubespray$ sudo kubectl get pod -A
+NAMESPACE     NAME                                       READY   STATUS    RESTARTS        AGE
+kube-system   calico-kube-controllers-68485cbf9c-gbckh   1/1     Running   0               9m39s
+kube-system   calico-node-4vv25                          1/1     Running   0               10m
+kube-system   calico-node-r7tfw                          1/1     Running   0               10m
+kube-system   coredns-69db55dd76-6489h                   1/1     Running   0               9m13s
+kube-system   coredns-69db55dd76-9mhg9                   1/1     Running   0               8m58s
+kube-system   dns-autoscaler-6f4b597d8c-djfqz            1/1     Running   0               9m7s
+kube-system   kube-apiserver-node1                       1/1     Running   2 (8m3s ago)    12m
+kube-system   kube-controller-manager-node1              1/1     Running   3 (8m6s ago)    12m
+kube-system   kube-proxy-fphxr                           1/1     Running   0               11m
+kube-system   kube-proxy-j8lmq                           1/1     Running   0               11m
+kube-system   kube-scheduler-node1                       1/1     Running   3 (7m54s ago)   12m
+kube-system   nginx-proxy-node2                          1/1     Running   0               11m
+kube-system   nodelocaldns-5q778                         1/1     Running   0               9m4s
+kube-system   nodelocaldns-hfgn8                         1/1     Running   0               9m5s
+(kubespray-venv) tienshawn@node1:~/kubespray$ sudo kubectl get ns -A
+NAME              STATUS   AGE
+default           Active   12m
+kube-node-lease   Active   12m
+kube-public       Active   12m
+kube-system       Active   12m
+(kubespray-venv) tienshawn@node1:~/kubespray$ sudo kubectl get svc -A
+NAMESPACE     NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       kubernetes   ClusterIP   10.233.0.1   <none>        443/TCP                  12m
+kube-system   coredns      ClusterIP   10.233.0.3   <none>        53/UDP,53/TCP,9153/TCP   9m34s
+
+## Kubernetes with kind

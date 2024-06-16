@@ -1,0 +1,26 @@
+project: default
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: default
+syncPolicy:
+  syncOptions:
+    - CreateNamespace=true
+sources:
+  - repoURL: 'https://github.com/tienshawn/student_web.git'
+    path: helm-chart-web
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - $web-values/web-values.yaml
+  - repoURL: 'https://github.com/tienshawn/helm-web-values.git'
+    targetRevision: HEAD
+    ref: web-values
+  - repoURL: 'https://github.com/tienshawn/student_api.git'
+    path: helm-chart-api
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - $api-values/values.yaml
+  - repoURL: 'https://github.com/tienshawn/helm-api-values.git'
+    targetRevision: HEAD
+    ref: api-values

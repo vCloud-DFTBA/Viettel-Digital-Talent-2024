@@ -1,0 +1,224 @@
+Push event to branch feat-8
+10:55:29 Connecting to https://api.github.com using Vinh1507/****** (github-acc)
+Obtained Jenkinsfile from 1ad23c9ba5cdcfd8af8749cf2a2f4c669012dbc6
+[Pipeline] Start of Pipeline
+[Pipeline] echo
+env.CHANGE_TARGET: null
+[Pipeline] echo
+env.BRANCH_NAME: feat-8
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/vdt_api_feat-8
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential e1915343-3fda-44a9-a636-a8a8406f7777
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/Vinh1507/vdt-api.git
+ > git init /var/jenkins_home/workspace/vdt_api_feat-8 # timeout=10
+Fetching upstream changes from https://github.com/Vinh1507/vdt-api.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_ASKPASS to set credentials github-acc
+ > git fetch --no-tags --force --progress -- https://github.com/Vinh1507/vdt-api.git +refs/heads/feat-8:refs/remotes/origin/feat-8 # timeout=10
+ > git config remote.origin.url https://github.com/Vinh1507/vdt-api.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/feat-8:refs/remotes/origin/feat-8 # timeout=10
+Avoid second fetch
+Checking out Revision 1ad23c9ba5cdcfd8af8749cf2a2f4c669012dbc6 (feat-8)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1ad23c9ba5cdcfd8af8749cf2a2f4c669012dbc6 # timeout=10
+Commit message: "update Jenkinsfile"
+ > git rev-list --no-walk 04bc158e4abec677c893ba0314a0ec28db593b89 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] echo
+Clone code from branch feat-8
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/vdt_api_feat-8/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Vinh1507/vdt-api # timeout=10
+Fetching upstream changes from https://github.com/Vinh1507/vdt-api
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/Vinh1507/vdt-api +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/feat-8^{commit} # timeout=10
+Checking out Revision 1ad23c9ba5cdcfd8af8749cf2a2f4c669012dbc6 (refs/remotes/origin/feat-8)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1ad23c9ba5cdcfd8af8749cf2a2f4c669012dbc6 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b feat-8 1ad23c9ba5cdcfd8af8749cf2a2f4c669012dbc6 # timeout=10
+Commit message: "update Jenkinsfile"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Image)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Image version: vinhbh/vdt-api:1.1
+[Pipeline] sh
++ docker build -t vinhbh/vdt-api:1.1 ./vdt_api
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 177B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11
+#2 DONE 2.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.11@sha256:091e0f5da680e5c972c59cb7eca172141bb6350045b592c284e2fd3bf2916dd9
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 29.22kB done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt /app/
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/5] COPY . /app/
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers 0.0s done
+#11 writing image sha256:4c781cded713f931c803d42334a5a599c7ca54d3cf84aadd5697524ba3db287c done
+#11 naming to docker.io/vinhbh/vdt-api:1.1 0.0s done
+#11 DONE 0.1s
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Tests)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . vinhbh/vdt-api:1.1
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 2b360feb04b4bae507ee4f6ffdd6eee9744e47145fa42d7cd9bea7b610232937
+$ docker run -t -d -u 0:0 -e DATABASE_NAME=vdt_db -e DATABASE_USER=vinhbh -e DATABASE_PASSWORD=123456789 -e DATABASE_HOST=192.168.144.129 -e DATABASE_PORT=5432 -w /var/jenkins_home/workspace/vdt_api_feat-8 --volumes-from 2b360feb04b4bae507ee4f6ffdd6eee9744e47145fa42d7cd9bea7b610232937 -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** vinhbh/vdt-api:1.1 cat
+$ docker top 4f88b0f79c05a562082015f6a9c9bbe5137593a591788168e7c8d5b333e82e73 -eo pid,comm
+[Pipeline] {
+[Pipeline] sh
++ cd /app
++ python manage.py test -v 2
+Creating test database for alias 'default' ('testing_vdt_db')...
+Found 9 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, messages, rest_framework, staticfiles
+  Apply all migrations: admin, auth, base, contenttypes, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying base.0001_initial... OK
+  Applying base.0002_alter_student_table... OK
+  Applying base.0003_alter_student_gender_alter_student_school... OK
+  Applying base.0006_insert_student_table... OK
+  Applying sessions.0001_initial... OK
+System check identified some issues:
+
+WARNINGS:
+?: (urls.W002) Your URL pattern '/' [name='api_list'] has a route beginning with a '/'. Remove this slash as it is unnecessary. If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
+
+System check identified 1 issue (0 silenced).
+test_create_invalid_student (base.tests.StudentAPITest.test_create_invalid_student) ... ok
+test_create_valid_student (base.tests.StudentAPITest.test_create_valid_student) ... ok
+test_delete_invalid_student (base.tests.StudentAPITest.test_delete_invalid_student) ... ok
+test_delete_valid_student (base.tests.StudentAPITest.test_delete_valid_student) ... ok
+test_get_all_students (base.tests.StudentAPITest.test_get_all_students) ... ok
+test_get_detail_invalid_student (base.tests.StudentAPITest.test_get_detail_invalid_student) ... ok
+test_get_detail_valid_student (base.tests.StudentAPITest.test_get_detail_valid_student) ... ok
+test_update_invalid_student (base.tests.StudentAPITest.test_update_invalid_student) ... ok
+test_update_valid_student (base.tests.StudentAPITest.test_update_valid_student) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.037s
+
+OK
+Destroying test database for alias 'default' ('testing_vdt_db')...
+144
+[Pipeline] }
+$ docker stop --time=1 4f88b0f79c05a562082015f6a9c9bbe5137593a591788168e7c8d5b333e82e73
+$ docker rm -f --volumes 4f88b0f79c05a562082015f6a9c9bbe5137593a591788168e7c8d5b333e82e73
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] echo
+All tests passed!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+
+Could not update commit status, please check if your scan credentials belong to a member of the organization or a collaborator of the repository and repo:status scope is selected
+
+
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS

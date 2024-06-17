@@ -1,0 +1,212 @@
+[
+    {
+        "name": "Lê Minh Việt Anh",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Phạm Quang Bách",
+        "gender": "male",
+        "school": "VinUniversity"
+    },
+    {
+        "name": "Hoàng Bá Bảo",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Phạm Minh Cường",
+        "gender": "male",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Trương Văn Độ",
+        "gender": "male",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Hoàng Việt Dũng",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Bùi Hoàng Dũng",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Bùi Trọng Dũng",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Trần Thùy Dương",
+        "gender": "female",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Quach Dang Giang",
+        "gender": "male",
+        "school": "Đại học Công nghệ Thông tin – Đại học Quốc gia TP.HCM"
+    },
+    {
+        "name": "Nguyễn Thanh Hà",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Thu Hà",
+        "gender": "female",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Cù Xuân Hải",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Nguyễn Trung Hiếu",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Đặng Việt Hoàng",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Văn Hùng",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Quốc Hưng",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Lê Minh Hương",
+        "gender": "female",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Ngo Dang Huy",
+        "gender": "male",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Trần Quang Huy",
+        "gender": "male",
+        "school": "Học viện Công Nghệ Bưu Chính Viễn Thông"
+    },
+    {
+        "name": "Trần Minh Huyền",
+        "gender": "female",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Đôn Thế Kiệt",
+        "gender": "male",
+        "school": "VinUniversity"
+    },
+    {
+        "name": "Lê Hoàng Trường",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Đào Quang Lợi",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Tiến Long",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Nguyen Quang Long",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Thị Ngọc Mai",
+        "gender": "female",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Đỗ Dương Mạnh",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Nguyễn Ngọc Minh",
+        "gender": "male",
+        "school": "Học viện Công Nghệ Bưu Chính Viễn Thông"
+    },
+    {
+        "name": "Vũ Thế Nam",
+        "gender": "male",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Ngô Công Bằng",
+        "gender": "male",
+        "school": "Học viện Công Nghệ Bưu Chính Viễn Thông"
+    },
+    {
+        "name": "Nguyễn Huy Thái",
+        "gender": "male",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Phan Khôi Nguyên",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Đinh Việt Quang",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Chí Thành",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Nguyễn Đình Tiến",
+        "gender": "male",
+        "school": "Đại học Bách Khoa Hà Nội"
+    },
+    {
+        "name": "Đỗ Thu Trang",
+        "gender": "female",
+        "school": "Đại học Công nghệ - Đại học Quốc gia Hà Nội"
+    },
+    {
+        "name": "Nguyễn Thị Mỹ Tú",
+        "gender": "female",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Nguyễn Quang Tuấn",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Hoàng Minh Tuấn",
+        "gender": "male",
+        "school": "Học viện Công Nghệ Bưu Chính Viễn Thông"
+    },
+    {
+        "name": "Phạm Mạnh Tuấn",
+        "gender": "male",
+        "school": "ITMO University"
+    },
+    {
+        "name": "Bùi Hoàng Vinh",
+        "gender": "male",
+        "school": "Học viện Công Nghệ Bưu Chính Viễn Thông"
+    }
+]   

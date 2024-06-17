@@ -1,0 +1,9 @@
+- name: Run docker image {{ api_image_name }}:{{ api_image_tag }} with MONGO_URL={{ MONGO_URL }}
+  docker_container:
+    name: "{{ api_container_name }}"
+    image: "{{ api_image_name }}:{{ api_image_tag }}"
+    state: started
+    restart_policy: unless-stopped
+    env: MONGO_URL={{ MONGO_URL }}
+    ports: "{{ api_ports }}"
+  become: true

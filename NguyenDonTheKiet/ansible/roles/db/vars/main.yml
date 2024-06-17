@@ -1,0 +1,7 @@
+init_db_src_dir: files/
+init_db_dest_dir: /tmp/
+db_image_name: strixthekiet/vdt24-db
+db_image_tag: latest
+db_container_name: db
+db_ports:
+  - "27017:27017"

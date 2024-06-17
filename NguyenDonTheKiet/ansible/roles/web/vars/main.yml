@@ -1,0 +1,5 @@
+web_image_name: strixthekiet/vdt24-web
+web_image_tag: latest
+web_container_name: web
+web_ports:
+  - "80:80"

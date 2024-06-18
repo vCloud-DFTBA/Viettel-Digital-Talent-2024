@@ -1,0 +1,5 @@
+front_image_name: ngodanghuy162/midterm
+front_image_tag: frontend_image
+front_port: 5500
+api_url: "http://192.168.1.105:8080/vdt/"
+

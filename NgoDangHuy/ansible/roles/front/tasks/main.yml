@@ -1,0 +1,16 @@
+---
+- name: Pull front service image
+  docker_image:
+    name: "{{ front_image_name }}"
+    tag: "{{ front_image_tag }}"
+    source: pull
+
+- name: Run front container
+  docker_container:
+    name: frontend_container
+    image: "{{ front_image_name }}:{{ front_image_tag }}"
+    ports:
+      - "{{ front_port }}:80"
+    env:
+      API_URL: "{{ api_url }}"
+    state: started

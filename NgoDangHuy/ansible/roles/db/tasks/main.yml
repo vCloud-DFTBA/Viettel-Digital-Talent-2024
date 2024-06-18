@@ -1,0 +1,27 @@
+---
+# - name: Ensure volume exits
+#   file:
+#     path: "{{ db_data_volume_path }}"
+#     state: directory
+#     owner: root
+#     group: root
+#     mode: '0755'
+#   become: yes
+
+- name: Pull dtb image
+  docker_image:
+    name: "{{ db_image_name }}"
+    tag: "{{ db_image_tag }}"
+    source: pull
+
+- name: Run dtb container
+  docker_container:
+    name: database_container
+    image: "{{ db_image_name }}:{{ db_image_tag }}"
+    ports:
+      - "{{ db_port }}:3306"
+    volumes:
+      - "{{ db_data_volume_path }}:/var/lib/mysql"
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ db_root_password }}"
+    state: started

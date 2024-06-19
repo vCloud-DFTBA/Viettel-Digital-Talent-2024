@@ -1,0 +1,3 @@
+Web-repo:  https://github.com/dungad2k2/web-repo.git
+Api-repo: https://github.com/dungad2k2/api-repo.git
+Tier3-web-repo: git@github.com:dungad2k2/Tier3-web.git
